@@ -1,1 +1,1 @@
-STM32F405 MCU based flight controller PCB design and firmware design project.
+STM32F405 MCU based flight controller PCB design using Kicad and firmware design project.
