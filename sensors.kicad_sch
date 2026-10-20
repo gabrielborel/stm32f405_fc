@@ -2298,7 +2298,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 90.17 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -2476,7 +2476,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 115.57 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -2706,9 +2706,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "43911673-9408-48b6-b2b8-a0093f7eb8c9")
 		(property "Reference" "TP8"
@@ -2733,7 +2733,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 167.64 69.85 0)
 			(hide yes)
 			(show_name no)
@@ -2806,9 +2806,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "486d82d8-fdb6-4674-a54e-b588ae6ec9bd")
 		(property "Reference" "TP9"
@@ -2833,7 +2833,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 167.64 76.2 0)
 			(hide yes)
 			(show_name no)
@@ -3027,9 +3027,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "633f9576-08cf-4417-9386-5f386cd171b2")
 		(property "Reference" "TP11"
@@ -3054,7 +3054,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 189.23 74.93 0)
 			(hide yes)
 			(show_name no)
@@ -3462,7 +3462,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 72.39 102.87 0)
 			(hide yes)
 			(show_name no)
@@ -3692,9 +3692,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "7d3f0a69-5565-45c0-a71e-ff66cb206dbd")
 		(property "Reference" "TP7"
@@ -3719,7 +3719,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 154.94 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -3819,7 +3819,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 154.94 85.09 0)
 			(hide yes)
 			(show_name no)
@@ -3895,9 +3895,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "a129daf2-355b-46eb-9f80-be66373dad14")
 		(property "Reference" "TP10"
@@ -3922,7 +3922,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 199.39 69.85 0)
 			(hide yes)
 			(show_name no)
@@ -4242,9 +4242,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "a8946512-c740-4e65-9e23-941c12ae4aee")
 		(property "Reference" "TP12"
@@ -4269,7 +4269,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
 			(at 220.98 72.39 0)
 			(hide yes)
 			(show_name no)
@@ -4523,7 +4523,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 72.39 87.63 0)
 			(hide yes)
 			(show_name no)
@@ -4626,7 +4626,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 195.58 87.63 0)
 			(hide yes)
 			(show_name no)

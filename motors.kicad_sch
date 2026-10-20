@@ -1505,7 +1505,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 118.11 127.508 90)
 			(hide yes)
 			(show_name no)
@@ -1773,7 +1773,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp yes)
 		(uuid "3e728c47-6584-4d71-a16f-1adc1a5250ee")
 		(property "Reference" "R32"
@@ -1796,7 +1796,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 127.508 129.54 90)
 			(hide yes)
 			(show_name no)
@@ -1952,7 +1952,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp yes)
 		(uuid "532118fb-07ec-4aaf-ab08-cc914f74dc83")
 		(property "Reference" "R30"
@@ -1975,7 +1975,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 127.508 99.06 90)
 			(hide yes)
 			(show_name no)
@@ -2076,7 +2076,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 118.11 97.028 90)
 			(hide yes)
 			(show_name no)
@@ -2177,7 +2177,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 118.11 112.268 90)
 			(hide yes)
 			(show_name no)
@@ -2278,7 +2278,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 118.11 142.748 90)
 			(hide yes)
 			(show_name no)
@@ -2434,7 +2434,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp yes)
 		(uuid "a98fcc3b-16d5-4320-9713-5cf72c2601dc")
 		(property "Reference" "R33"
@@ -2457,7 +2457,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 127.508 144.78 90)
 			(hide yes)
 			(show_name no)
@@ -2613,7 +2613,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp yes)
 		(uuid "d242def0-b99a-4422-8062-ecb34e46c09a")
 		(property "Reference" "R31"
@@ -2636,7 +2636,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 127.508 114.3 90)
 			(hide yes)
 			(show_name no)
