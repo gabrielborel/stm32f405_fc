@@ -675,7 +675,7 @@
           "show": true
         },
         {
-          "group_by": true,
+          "group_by": false,
           "label": "Footprint",
           "name": "Footprint",
           "show": true
@@ -721,13 +721,25 @@
           "label": "LCSC Part",
           "name": "LCSC Part",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "KLC_S3.3",
+          "name": "KLC_S3.3",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "KLC_S4.1",
+          "name": "KLC_S4.1",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": true,
       "name": "",
-      "sort_asc": true,
+      "sort_asc": false,
       "sort_field": "Footprint"
     },
     "bus_aliases": {},
@@ -826,7 +838,7 @@
         "uuid": "c5608191-8184-49ae-9afd-f3995992ad6b"
       }
     ],
-    "used_designators": "TP1-15,FB1-2,C1-26,U1-6,SW1-2,Y1-2,D1-5,#PWR1-81,Q1,J1-9,R1-33,#FLG1-5",
+    "used_designators": "Q1,FB1-2,C1-26,U1-6,SW1-2,TP1-15,Y1-2,#PWR1-81,D1-5,J1-9,R1-33,#FLG1-5",
     "variants": []
   },
   "sheets": [
