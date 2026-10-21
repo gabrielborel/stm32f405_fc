@@ -1664,7 +1664,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_FC:SolderPads_1x04_P2.54mm"
 			(at 152.4 80.01 0)
 			(hide yes)
 			(show_name no)
@@ -1850,7 +1850,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_FC:SolderPads_1x04_P2.54mm"
 			(at 106.68 106.68 0)
 			(hide yes)
 			(show_name no)
@@ -2036,7 +2036,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_FC:SolderPads_1x03_P2.54mm"
 			(at 106.68 128.27 0)
 			(hide yes)
 			(show_name no)
@@ -2142,7 +2142,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_FC:SolderPads_1x06_P2.54mm"
 			(at 152.4 104.14 0)
 			(hide yes)
 			(show_name no)
@@ -2565,7 +2565,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_FC:SolderPads_1x06_P2.54mm"
 			(at 106.68 82.55 0)
 			(hide yes)
 			(show_name no)
