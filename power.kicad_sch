@@ -4155,7 +4155,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_Wire:SolderWire-0.25sqmm_1x04_P4.5mm_D0.65mm_OD2mm"
+		(property "Footprint" "Connector_Wire:SolderWire-0.25sqmm_1x04_P4.2mm_D0.65mm_OD1.7mm"
 			(at 100.33 73.66 0)
 			(hide yes)
 			(show_name no)
