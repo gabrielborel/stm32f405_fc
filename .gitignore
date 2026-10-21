@@ -49,3 +49,4 @@ Release/
 
 # Locks criados enquanto o projeto está aberto
 ~*.lck
+.DS_Store
