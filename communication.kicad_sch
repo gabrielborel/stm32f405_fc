@@ -12,7 +12,7 @@
 		(comment 1 "The first flight.")
 	)
 	(lib_symbols
-		(symbol "Connector_Generic:Conn_01x04"
+		(symbol "Connector_Generic_MountingPin:Conn_01x04_MountingPin"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -32,14 +32,15 @@
 					)
 				)
 			)
-			(property "Value" "Conn_01x04"
-				(at 0 -7.62 0)
+			(property "Value" "Conn_01x04_MountingPin"
+				(at 1.27 -7.62 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
 			(property "Footprint" ""
@@ -64,7 +65,7 @@
 					)
 				)
 			)
-			(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(property "Description" "Generic connectable mounting pin connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -86,7 +87,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
+			(property "ki_fp_filters" "Connector*:*_1x??-1MP*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -97,7 +98,7 @@
 					)
 				)
 			)
-			(symbol "Conn_01x04_1_1"
+			(symbol "Conn_01x04_MountingPin_1_1"
 				(rectangle
 					(start -1.27 3.81)
 					(end 1.27 -6.35)
@@ -151,6 +152,26 @@
 					)
 					(fill
 						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.016 -7.112) (xy 1.016 -7.112)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(text "Mounting"
+					(at 0 -6.731 0)
+					(effects
+						(font
+							(size 0.381 0.381)
+						)
 					)
 				)
 				(pin passive line
@@ -218,6 +239,24 @@
 						)
 					)
 					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -10.16 90)
+					(length 3.048)
+					(name "MountPin"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "MP"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -527,6 +566,14 @@
 			(justify left)
 		)
 		(uuid "e2ee3243-0bff-40fd-9196-562f3339eb3d")
+	)
+	(no_connect
+		(at 130.81 121.92)
+		(uuid "3b8b2f2b-1408-466d-b6aa-21413d2e99e4")
+	)
+	(no_connect
+		(at 172.72 121.92)
+		(uuid "d05bffe1-f60c-4fcf-8513-e11a444aca5c")
 	)
 	(wire
 		(pts
@@ -1053,7 +1100,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x04")
+		(lib_id "Connector_Generic_MountingPin:Conn_01x04_MountingPin")
 		(at 172.72 111.76 0)
 		(unit 1)
 		(body_style 1)
@@ -1085,7 +1132,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_JST:JST_GH_SM04B-GHS-TB_1x04-1MP_P1.25mm_Horizontal"
 			(at 172.72 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -1107,7 +1154,7 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+		(property "Description" "Generic connectable mounting pin connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 172.72 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -1152,6 +1199,9 @@
 		(pin "4"
 			(uuid "7c503b27-9dbb-46e8-a933-26eda21a0461")
 		)
+		(pin "MP"
+			(uuid "0462f375-0aa6-45c4-a6c0-7192d5c94e22")
+		)
 		(instances
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/e097f213-4cdf-421c-811d-2f15743a935b"
@@ -1162,7 +1212,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x04")
+		(lib_id "Connector_Generic_MountingPin:Conn_01x04_MountingPin")
 		(at 130.81 111.76 0)
 		(unit 1)
 		(body_style 1)
@@ -1194,7 +1244,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_JST:JST_GH_SM04B-GHS-TB_1x04-1MP_P1.25mm_Horizontal"
 			(at 130.81 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -1216,7 +1266,7 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+		(property "Description" "Generic connectable mounting pin connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 130.81 111.76 0)
 			(hide yes)
 			(show_name no)
@@ -1260,6 +1310,9 @@
 		)
 		(pin "4"
 			(uuid "1ecb9f6d-0726-4b19-b534-eb422e199c53")
+		)
+		(pin "MP"
+			(uuid "b57975ce-0a41-4db1-973f-11cb8f50f78a")
 		)
 		(instances
 			(project "STM32F405_FLIGHT_CONTROLLER"

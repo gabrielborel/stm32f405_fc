@@ -5859,7 +5859,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_QFP:LQFP-64_10x10mm_P0.5mm"
 			(at 123.19 153.67 0)
 			(hide yes)
 			(show_name no)

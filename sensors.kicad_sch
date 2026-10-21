@@ -2933,7 +2933,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_LGA:Bosch_LGA-8_2x2.5mm_P0.65mm_ClockwisePinNumbering"
 			(at 105.41 110.49 0)
 			(hide yes)
 			(show_name no)
@@ -4097,7 +4097,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_LGA:Bosch_LGA-14_3x2.5mm_P0.5mm"
 			(at 180.34 92.71 0)
 			(hide yes)
 			(show_name no)
