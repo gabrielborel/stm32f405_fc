@@ -2353,6 +2353,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C1525"
+			(at 90.17 74.93 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "389f5eee-0bd5-4915-a20a-125023cf86cf")
 		)
@@ -2521,6 +2532,17 @@
 			)
 		)
 		(property "KLC_S4.1" ""
+			(at 115.57 74.93 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
 			(at 115.57 74.93 90)
 			(hide yes)
 			(show_name no)
@@ -2978,6 +3000,17 @@
 			)
 		)
 		(property "KLC_S4.1" ""
+			(at 105.41 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C83291"
 			(at 105.41 92.71 0)
 			(hide yes)
 			(show_name no)
@@ -3517,6 +3550,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C23162"
+			(at 72.39 102.87 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "5ff41fee-5b76-49a7-b5f2-66635d9fe133")
 		)
@@ -3874,6 +3918,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C1525"
+			(at 154.94 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "820e3f5f-b389-47d6-a36d-eb31eb6ed880")
 		)
@@ -4152,17 +4207,6 @@
 				)
 			)
 		)
-		(property "LCSC Part" "C2836813"
-			(at 180.34 102.87 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
 		(property "KLC_S3.3" ""
 			(at 180.34 77.47 0)
 			(hide yes)
@@ -4175,6 +4219,17 @@
 			)
 		)
 		(property "KLC_S4.1" ""
+			(at 180.34 77.47 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2836813"
 			(at 180.34 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -4578,6 +4633,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C23162"
+			(at 72.39 87.63 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "05592330-29ab-47da-af1b-6d0fd9ee063c")
 		)
@@ -4671,6 +4737,17 @@
 			)
 		)
 		(property "KLC_S4.1" ""
+			(at 195.58 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C1525"
 			(at 195.58 87.63 0)
 			(hide yes)
 			(show_name no)

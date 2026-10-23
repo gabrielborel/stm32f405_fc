@@ -1,15 +1,12 @@
 .forge/
 
 # ===================== STM32 / CubeMX (CMake) =====================
-
 # Build output (CMakePresets.json: binaryDir = build/${presetName})
 build/
 out/
 cmake-build-*/
-
 # Presets locais de cada dev (não versionar)
 CMakeUserPresets.json
-
 # Artefatos de compilação / link, caso caiam fora de build/
 *.o
 *.d
@@ -21,33 +18,27 @@ CMakeUserPresets.json
 *.map
 *.list
 *.srec
-
 # clangd / IntelliSense
 compile_commands.json
 .cache/
 .clangd/
-
 # Backup do CubeMX ("Backup previously generated files when re-generating")
 **/Backup/
-
 # STM32CubeIDE, caso o projeto seja aberto nele um dia
 Debug/
 Release/
 .settings/
 *.launch
-
 # VS Code (extensão STM32): manter só config compartilhável
 .vscode/*
 !.vscode/launch.json
 !.vscode/tasks.json
 !.vscode/extensions.json
-
 # ===================== KiCad (arquivos locais) =====================
-
 # Local History do KiCad (tem .git próprio)
 .history/
-
 # Locks criados enquanto o projeto está aberto
 ~*.lck
 .DS_Store
 *.rpt
+docs/manuals/

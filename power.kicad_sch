@@ -662,171 +662,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:FerriteBead"
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "FB"
-				(at -3.81 0.635 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "FerriteBead"
-				(at 3.81 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at -1.778 0 90)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Ferrite bead"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "L ferrite bead inductor filter"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "Inductor_* L_* *Ferrite*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "FerriteBead_0_1"
-				(polyline
-					(pts
-						(xy -2.7686 0.4064) (xy -1.7018 2.2606) (xy 2.7686 -0.3048) (xy 1.6764 -2.159) (xy -2.7686 0.4064)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 1.27) (xy 0 1.2954)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -1.27) (xy 0 -1.2192)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "FerriteBead_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 2.54)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.54)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Device:R"
 			(pin_numbers
 				(hide yes)
@@ -1986,7 +1821,7 @@
 	)
 	(rectangle
 		(start 135.636 111.506)
-		(end 213.36 162.306)
+		(end 205.74 162.306)
 		(stroke
 			(width 0)
 			(type solid)
@@ -2019,9 +1854,9 @@
 		)
 		(uuid "17d19ae0-6113-473b-b942-bd430530889e")
 	)
-	(text "VDDA fed from the same 3V3 as VDD, filtered by a ferrite bead,\nwith two dedicated capacitors: 100nF ceramic + 1µF (tantalum or ceramic).\n(Ferrite bead ~100Ω @ 100MHz, low DCR)"
+	(text "VDDA fed from the same 3V3 as VDD through R34 (0R),\nwith two dedicated capacitors: 100nF ceramic + 1µF ceramic.\nR34 is a placeholder: fit a ~100Ω @ 100MHz, low-DCR ferrite\nbead (same 0603 footprint) if VDDA noise shows up."
 		(exclude_from_sim no)
-		(at 137.16 121.158 0)
+		(at 137.16 120.65 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2030,7 +1865,7 @@
 		)
 		(uuid "2e0aacaf-24e2-4dc9-81be-841cb3da9d1f")
 	)
-	(text "Both capacitors as close as possible to the VDDA pin.\nFerrite bead between 3.3V and 3.3VA , upstream of the capacitors."
+	(text "Both capacitors as close as possible to the VDDA pin.\nR34 between +3V3 and +3.3VA, upstream of the capacitors."
 		(exclude_from_sim no)
 		(at 136.906 128.016 0)
 		(effects
@@ -3028,6 +2863,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C1525"
+			(at 190.5 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "5fb5c896-fc3f-4515-a94c-99597795cb93")
 		)
@@ -3275,6 +3121,17 @@
 			)
 		)
 		(property "KLC_S4.1" ""
+			(at 199.39 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C15849"
 			(at 199.39 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -3773,6 +3630,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C14663"
+			(at 92.71 132.08 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "00f324c6-d5fd-4620-83cc-eecd5c80c667")
 		)
@@ -4041,7 +3909,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "1uF"
+		(property "Value" "1u"
 			(at 182.626 149.098 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4097,6 +3965,17 @@
 			)
 		)
 		(property "KLC_S4.1" ""
+			(at 180.34 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C15849"
 			(at 180.34 147.32 0)
 			(hide yes)
 			(show_name no)
@@ -4396,6 +4275,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C15850"
+			(at 82.55 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "64a266f3-5ebb-407f-9942-47161f845fab")
 		)
@@ -4488,6 +4378,17 @@
 			)
 		)
 		(property "KLC_S4.1" ""
+			(at 185.42 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C51118"
 			(at 185.42 87.63 0)
 			(hide yes)
 			(show_name no)
@@ -4594,6 +4495,96 @@
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/355d5058-b2dd-4ce1-9e79-9a489fe4bbc2"
 					(reference "#PWR024")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 170.18 143.51 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b59468e0-0d51-45cd-a1fa-a92fd6fbc00d")
+		(property "Reference" "R34"
+			(at 170.18 141.224 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "0R"
+			(at 170.18 145.796 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 170.18 145.288 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 170.18 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 170.18 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C21189"
+			(at 170.18 143.51 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "837b78f3-5675-4bfa-a191-c95bda1f50fe")
+		)
+		(pin "1"
+			(uuid "9f1ac454-1abd-450f-999c-b8c1685f6309")
+		)
+		(instances
+			(project "STM32F405_FLIGHT_CONTROLLER"
+				(path "/355d5058-b2dd-4ce1-9e79-9a489fe4bbc2"
+					(reference "R34")
 					(unit 1)
 				)
 			)
@@ -4752,6 +4743,17 @@
 			)
 		)
 		(property "KLC_S4.1" ""
+			(at 92.71 139.7 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C25804"
 			(at 92.71 139.7 90)
 			(hide yes)
 			(show_name no)
@@ -5119,6 +5121,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C15849"
+			(at 170.18 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "2206e730-aadd-4ccf-8619-4b2efc9a78eb")
 		)
@@ -5474,6 +5487,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C25803"
+			(at 78.74 135.89 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "b7d57f39-bdc9-4ebc-8ae4-302da75a27e1")
 		)
@@ -5582,107 +5606,6 @@
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/355d5058-b2dd-4ce1-9e79-9a489fe4bbc2"
 					(reference "TP3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:FerriteBead")
-		(at 170.18 143.51 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "f5f89920-9931-489d-8fe7-3ac2a3374da7")
-		(property "Reference" "FB1"
-			(at 173.482 140.208 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "~100Ω @ 100MHz"
-			(at 168.148 147.32 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Inductor_SMD:L_0603_1608Metric"
-			(at 170.18 141.732 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 170.18 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Ferrite bead"
-			(at 170.18 143.51 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 170.18 143.51 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 170.18 143.51 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6dbd9318-f87e-4c2a-8369-bc4c30a8b147")
-		)
-		(pin "2"
-			(uuid "bd5a3eef-a850-4a92-83a6-79569cf96983")
-		)
-		(instances
-			(project "STM32F405_FLIGHT_CONTROLLER"
-				(path "/355d5058-b2dd-4ce1-9e79-9a489fe4bbc2"
-					(reference "FB1")
 					(unit 1)
 				)
 			)

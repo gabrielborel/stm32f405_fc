@@ -1187,6 +1187,17 @@
 				)
 			)
 		)
+		(property "LCSC" "C189895"
+			(at 172.72 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "40e46330-7bbb-4291-8cc4-4c1d77698dfb")
 		)
@@ -1289,6 +1300,17 @@
 			)
 		)
 		(property "KLC_S4.1" ""
+			(at 130.81 111.76 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C189895"
 			(at 130.81 111.76 0)
 			(hide yes)
 			(show_name no)
