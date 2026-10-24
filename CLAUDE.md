@@ -4,7 +4,7 @@ Placa de flight controller autoral (inspirada no layout do SpeedyBee F7 V3, não
 
 ## Etapa atual
 
-Esquemático fechado (ERC 0 erros). Footprints e campo LCSC preenchidos. **Etapa: placement.** O Gabriel faz o roteamento depois, à mão. Não rotear, não criar trilhas, não mexer em zonas de cobre.
+Esquemático fechado (ERC 0 erros). Footprints e campo LCSC preenchidos. **Etapa: placement dos blocos da lista concluído** (ver "Blocos já posicionados"). Falta decidir as peças sem bloco e as decisões abertas. O Gabriel faz o roteamento depois, à mão. Não rotear, não criar trilhas, não mexer em zonas de cobre. Já existem trilhas e a zona `HSE_GND_POUR` (F.Cu) feitas por ele em volta do oscilador: não tocar.
 
 ## Como trabalhar
 
@@ -14,31 +14,66 @@ Esquemático fechado (ERC 0 erros). Footprints e campo LCSC preenchidos. **Etapa
 - O Gabriel quer aprender: explique o porquê das posições, não só as coordenadas. Ao estudar um manual, ele expõe o entendimento primeiro e a confirmação vem depois, com o texto real.
 - Não usar travessão (—), só hífen simples. Não usar tags HTML. Textos que vão dentro do esquemático do KiCad ficam em inglês.
 - Nunca inventar número (registrador, pino, corrente, capacitor). Sem certeza, dizer e localizar a seção.
+- Commit só quando o Gabriel pedir, só com a PCB (ou só o arquivo pedido), sem linha de Co-Authored-By.
 
 ## Segurança do arquivo
 
 1. Antes de qualquer edição, `git status` limpo ou commit feito. Cada bloco posicionado vira um commit.
-2. Só editar o `.kicad_pcb` com o KiCad fechado. Editar com ele aberto arrisca sobrescrita ao salvar.
+2. Só editar o `.kicad_pcb` com o KiCad fechado. Editar com ele aberto arrisca sobrescrita ao salvar. Conferir com `pgrep -il kicad` e `ls ~*.lck`: fechar a janela não encerra o aplicativo (é preciso Cmd+Q).
 3. Mostrar o diff e esperar aprovação antes de aplicar posições.
-4. Depois de cada bloco: exportar imagem da placa e rodar o DRC, e relatar sobreposições de courtyard.
+4. Depois de cada bloco: exportar imagem da placa e rodar o DRC, e relatar sobreposições de courtyard. A proposta é testada antes numa cópia (com o `.kicad_pro` ao lado); o DRC do projeto real deve dar o mesmo resultado da cópia.
 5. Claude não tem noção espacial confiável: a revisão visual final é do Gabriel. Dizer isso quando for relevante.
 
-## Ferramentas (confirmar na primeira sessão)
+## Ferramentas (confirmadas)
 
-- macOS. O `kicad-cli` normalmente fica em `/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli` (caminho não confirmado). Testar com `--version`.
-- O `pcbnew` em Python costuma importar só com o Python embutido no app do KiCad. Plano B: editar o `.kicad_pcb` como texto com `kiutils`. Não verifiquei se o `kiutils` lê o formato do KiCad 10: testar leitura antes de qualquer escrita.
-- Pontos a confirmar na documentação oficial do KiCad (não vêm dos manuais do projeto): flags do `kicad-cli`, API de scripting do KiCad 10.
+- macOS. O `kicad-cli` 10.0.6 fica em `/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli` (não está no PATH).
+- DRC: `kicad-cli pcb drc --output X --format json --units mm --severity-all ARQUIVO.kicad_pcb` (o `.kicad_pro` precisa estar ao lado para valerem as regras do projeto). Imagem: `kicad-cli pcb export svg --layers "F.Cu,F.Silkscreen,F.Courtyard,Edge.Cuts" --mode-single --page-size-mode 2 --exclude-drawing-sheet ARQUIVO.kicad_pcb`; a vista de baixo usa as camadas B e `--mirror`. Para PNG: `qlmanage -t -s 1800` (não há `rsvg-convert`).
+- O `pcbnew` em Python funciona com o Python do app: `/Applications/KiCad/KiCad.app/Contents/Frameworks/Python.framework/Versions/Current/bin/python3` (`LoadBoard` e `Save`; virar para a face de baixo: `Flip(pos, False)`). O aviso `wxApp assert` é inofensivo. O `kiutils` não está instalado e não foi necessário.
+- Cuidado: mover por script um footprint cujo pad toca uma trilha pode reatribuir as redes das trilhas ao salvar (aconteceu com o R1 numa cópia). Antes de gravar, comparar rede e geometria de todas as trilhas e vias, e abortar se mudar.
+- Não há `pdftotext`: extrair texto de PDF com PDFKit via `swift`, e renderizar página em PNG para ler figuras. PDF só com imagem (HRO TYPE-C-31-M-12) precisa ser lido como imagem.
+- Ainda não conferido na documentação oficial do KiCad: lista completa de flags do `kicad-cli` e a API de scripting do KiCad 10 (o que está acima foi testado, não lido).
 
 ## Estado da placa (decisões já tomadas)
 
 - Contorno 45 x 45 mm, raio de canto 2 mm, 4 furos M3 (MountingHole_3.2mm_M3) em 30,5 x 30,5 mm. As ferragens do stack ainda não estão definidas.
-- 4 camadas. Montagem SMD em uma face só (componentes em cima). O stackup da JLCPCB ainda não foi fechado.
-- USB-C (J3, HRO TYPE-C-31-M-12) na borda da frente (embaixo no editor): X 131 mm, Y 105,81 mm, rotação 0. Footprint padrão do KiCad, que difere cerca de 0,4 mm do desenho do HRO (decisão registrada). Solda das 4 pernas reforçada à mão no bring-up. O modelo 3D do J3 ainda não existe.
-- Test points: pad SMD redondo de cerca de 1,0 mm, **na face de baixo**. Pads de GPIO e de fio: em cima, na borda.
+- 4 camadas configuradas no KiCad (F.Cu, In1.Cu, In2.Cu, B.Cu). O stackup é o padrão do KiCad (1,6 mm, prepreg 0,1 mm, core 1,24 mm), não o da JLCPCB, e "Impedance controlled" está desligado. As zonas de GND (L2) e de alimentação (L3) ainda não existem. Montagem SMD em uma face só (componentes em cima).
+- USB-C (J3, HRO TYPE-C-31-M-12) na borda da frente (embaixo no editor): X 131 mm, Y 110,31 mm, rotação 0. Com essa posição a frente do corpo (7,4 mm de profundidade, Fab de Y 106,61 a 114,01) passa 0,48 mm da borda (Y 113,525). O valor antigo Y 105,81 deste arquivo era de um contorno anterior e deixaria a frente cerca de 4 mm para dentro. O desenho da HRO (layout recomendado, p.1) põe a borda da PCB a 5,79 mm do topo dos pads, o que sugere um conector saindo cerca de 2,5 a 3 mm além da borda ([inferência]: desenho fora de escala, pad do footprint mais curto que o da HRO). Decisão aberta. Footprint padrão do KiCad. Solda das 4 pernas reforçada à mão no bring-up. O modelo 3D do J3 ainda não existe.
+- Test points: pad SMD redondo de cerca de 1,0 mm, **na face de baixo** (TP1 a TP15 já estão em B.Cu). Pads de GPIO e de fio: em cima, na borda ou perto dela (J9 a J12 posicionados; o J13 não coube e continua estacionado fora da placa).
 - Pads de GPIO: SPI2 (PB12 a PB15), UART4 (PA0/PA1), PA2, PA10, PA15, PB7, PC2, PC14/PC15 (estes dois são os primeiros a sair se faltar área). Pads S1 a S4 + GND dos motores, BZ+/BZ-, J1 da PDB (pads para soldar fio, fixo).
-- Conectores JST GH de 4 pinos para ELRS (J5) e GPS (J6). SWD em J2 (1x6, DNP).
+- Conectores JST GH de 4 pinos para ELRS (J5) e GPS (J6). SWD em J2 (1x6, DNP, hoje em pino vertical).
 - Primeiro pedido: 5 placas montadas na JLCPCB. Um lado só.
 - Divergência: a página "A fazer" do Notion ainda cita meta de 36 x 36 mm e teto de 50 x 50 mm. A decisão mais recente é 45 x 45 mm.
+
+## Blocos já posicionados (um commit cada)
+
+| Bloco | Commit | Resumo |
+|---|---|---|
+| 4 camadas, MCU, HSE, VDD | e1b2cef (wip), 4935abb | Oscilador e capacitores já movidos por ele. C6 espelhado sob os pinos 63 e 64. |
+| Alimentação | 1448a49 | LDOs U2 e U6 embaixo à esquerda (22 mm do BMP280). VDDA (R34, C7, C8) junto dos pinos 12 e 13. Divisor de VBAT abaixo do cristal. |
+| IMU | ae644af | U5 girado 90 graus (sem cruzamento nas linhas do SPI1, SCK com 4,4 mm). C20 e C21 nos pinos 5 e 8. |
+| USB (apoio) | 7ae9b07 | U3 entre J3 e U1, R8 e R9 nas laterais, D4, R12, R10, R11 e C17 à direita do J3. |
+| microSD | 4beb8ea | Pull-ups no corredor entre J4 e U1, C24 abaixo deles, C25 acima do J4, R15 perto do U6. |
+| Motores e buzzer | fce4eec | R17, R24, R28 abaixo do U1, R25 e R26 acima. R30 a R33 ao lado de H3. Buzzer: Q1 e R29 à esquerda de H2. |
+| Barômetro | 45743bf | C18 acima do U4, C19 abaixo, R13 e R14 a leste e ao norte. |
+| Test points e pads | 8c7765d | TP1 a TP15 em B.Cu. J9 acima do J4, J11 ao lado, J12 na borda direita, J10 na borda esquerda. |
+
+## Decisões abertas e pendências
+
+1. J3 na borda: 0,48 mm hoje contra o que sugere o desenho da HRO. Ligação das abas do J3 ao GND (direto ou via RC).
+2. J2: trocar para footprint horizontal ou aceitar o pino vertical (bate no stack).
+3. VDD do cartão: C23 (1 uF) + C24 (10 uF) + C25 (0,1 uF) somam cerca de 11,1 uF, contra o máximo de 5 uF da Kingston SDCS2 (Tabela 6-6, p.13). Decisão de esquemático.
+4. C18 e C19 como capacitores do U4, C20 e C21 como os do U5: atribuído por proximidade no esquemático, a confirmar. O C18 está a 3,1 mm do pino 6 (VDDIO) do U4, e a Fig. 17 do BMP280 mostra o capacitor nesse pino.
+5. Q1 fica a 10,4 mm do J7 (H2 e o próprio J7 impedem algo mais perto). Alternativa: mover o J7 ao longo da borda.
+6. J13 (PC14 e PC15) não coube: remover do esquemático ou achar lugar. J10 (UART4) ficou a 34 mm dos pinos 14 e 15 do U1.
+7. Sem bloco no CLAUDE.md e ainda estacionadas fora da placa: SW1, SW2, LEDs D1 a D3 com R5 a R7, C15, R4 e R16.
+8. R1: courtyard sobreposto com Y1 e C14 e 5 erros de clearance contra o guard ring. Depende do roteamento do anel (dele).
+9. Zonas de GND (L2) e de alimentação (L3), ilha de GND do cristal (o AN2867 Seção 7.1 pede plano distinto, e a L2 seria GND sólido), stackup da JLCPCB (impedância de 90 ohm no USB e 50 ohm no SDIO).
+10. Roteamento apertado: pinos 14 a 16 do U1 (o grupo VDDA bloqueia a saída para leste), SDIO D2, D3, CK e CMD pela fileira de baixo do U1 (R17 está sob os pinos 51 a 55), mesmo número de vias nos dados.
+11. TP12 (SCK), TP14 e TP15 devem ser roteados passando pelo pad, sem ramal. TP12 acrescenta carga ao SCK (ES0182 Seção 2.12.4). As posições dos TPs provavelmente mudam depois do roteamento.
+12. Firmware: eixos da IMU mudaram com o U5 em rot 90 (o remapeamento do BMI270 vale só para as funções de interrupção, não para os registradores de dados). OSPEEDR alto no SCK.
+13. LDOs: sem orçamento de corrente. O AP2112 em SOT25 tem 184 C/W (DS39724, p.3).
+14. BMP280: folga de 0,1 mm acima da tampa e ventilação dependem do stack. Confirmar com a JLCPCB que não usam solda por fase de vapor (BMP280 Seção 7.6).
+15. DRC de referência no último commit: 214 violações (quase todas de silk) e 258 itens não conectados (esperado, sem roteamento). Limpar o silk por último.
 
 ## Regras de placement por bloco
 
@@ -46,7 +81,7 @@ Legenda da fonte: **[manual]** vem do documento citado. **[projeto]** é prátic
 
 ### Geral
 - Stackup de 4 camadas: top com sinais de alta velocidade + GND, L2 plano de GND, L3 plano de alimentação, bottom com sinais + GND. [manual] AN4488 Rev 7, Seção 8.1 e Figura 21 (a Seção 8.1 diz que 4 ou 6 camadas é o mínimo).
-- Desacoplamento: cada par de alimentação com 100 nF e um capacitor de 4,7 µF a 10 µF em paralelo, o mais perto possível dos pinos, ou embaixo da placa. [manual] AN4488 Rev 7, Seção 8.3. Divergência: o texto da seção cita "Figure 22", mas o layout VDD/VSS está na Figura 23 do PDF.
+- Desacoplamento: cada par de alimentação com 100 nF e um capacitor de 4,7 µF a 10 µF em paralelo, o mais perto possível dos pinos, ou embaixo da placa. [manual] AN4488 Rev 7, Seção 8.3. Divergência: o texto da seção cita "Figure 22", mas o layout VDD/VSS está na Figura 23 do PDF (p.38). O AN4488 Seção 2.2 (Power supply schemes) esclarece: um capacitor de 4,7 a 10 µF para o encapsulamento mais 100 nF por pino VDD, VDDA com 100 nF + 1 µF e VBAT sem bateria ligado a VDD com 100 nF. O projeto segue a Seção 2.2 (um único C2 de 4,7 µF).
 - Um capacitor de 100 nF por pino VDD do MCU (LQFP64: pinos 19, 32, 48, 64), colado no pino, caminho curto até o GND. Passivos de desacoplamento em 0402 ou 0603. [projeto] + AN4488 Seção 8.3.
 
 ### MCU e oscilador HSE
@@ -57,27 +92,28 @@ Legenda da fonte: **[manual]** vem do documento citado. **[projeto]** é prátic
 
 ### Alimentação
 - Dois AP2112K: um para MCU e sensores, outro para o microSD (+3V3_SD), por causa da térmica. Dar cobre ao redor deles e afastá-los da IMU. [projeto] / [inferência] (calor perto da IMU). Pendente: reavaliar o encapsulamento do LDO do cartão (SOT25 hoje).
-- Filtro VDDA (R34 = 0 ohm, capacitores mantidos): posição perto dos pinos VDDA/VSSA. [projeto]. A regra de posição não foi conferida nos manuais.
-- Divisor de VBAT: C26 (100 nF) em paralelo com o resistor de baixo, perto do pino do ADC. [projeto] (origem do C26: AN4073).
+- Filtro VDDA (R34 = 0 ohm, capacitores mantidos): posição perto dos pinos VDDA/VSSA. [projeto]. AN4488 Seção 2.2 pede 100 nF + 1 µF no VDDA (C8 e C7). O AN4073 Seção 2.2 só diz que o filtro reduz ruído, sem distância.
+- Divisor de VBAT: C26 (100 nF) em paralelo com o resistor de baixo, perto do pino do ADC. [projeto]. O texto extraído do AN4073 não traz essa regra do C26.
 
 ### IMU BMI270 (SPI1)
-- 100 nF nos pinos 5 (VDDIO) e 8 (VDD), colados no CI. [manual] BMI270 Datasheet Rev 1.6, Seção 7.2.
+- 100 nF nos pinos 5 (VDDIO) e 8 (VDD), colados no CI. [manual] BMI270 Datasheet Rev 1.6, Seção 7.2, p.136 (C20 e C21 no projeto).
 - Trilha de SCK do SPI1 curta, só com a IMU e sem capacitor na linha (carga capacitiva alta no SCK atrasa o feedback e corrompe o último bit). [manual] ES0182 Rev 19, Seção 2.12.4 (Tabela 5 dá a frequência de APB permitida por OSPEEDR a 30 pF). Firmware: OSPEEDR high ou very high no SCK.
-- IMU perto do centro da placa. [projeto]. Não achei no datasheet do BMI270 uma regra de posição. Afastar de LDOs, furos e bordas é [inferência] (o datasheet cita deriva de offset por estresse termomecânico, Seção da compensação IOC).
+- IMU perto do centro da placa. [projeto]. Não achei no datasheet do BMI270 uma regra de posição. Afastar de LDOs, furos e bordas é [inferência] (o datasheet cita deriva de offset por estresse termomecânico na Seção 4.13, p.66, e dá 0,010 mg por µstrain de deformação da PCB na p.13).
 
 ### Barômetro BMP280 (U4, I2C)
-- Folga de pelo menos 0,1 mm acima da tampa metálica, ventilação para a pressão ambiente, evitar luz forte, sem contato com líquidos. [manual] BMP280 Datasheet Rev 1.26, Seção 7.6.
-- Ficar longe de fontes de calor (a temperatura medida depende da temperatura da PCB). [manual] BMP280 Datasheet (descrição da temperatura medida) + [inferência] para a distância.
+- Folga de pelo menos 0,1 mm acima da tampa metálica, ventilação para a pressão ambiente, evitar luz forte, sem contato com líquidos. [manual] BMP280 Datasheet Rev 1.26, Seção 7.6, p.43 (e sem solda por fase de vapor). Fig. 17, p.37: 100 nF no VDD e no VDDIO.
+- Ficar longe de fontes de calor (a temperatura medida depende da temperatura da PCB). [manual] BMP280 Datasheet, p.9, nota 3 (a temperatura medida depende da temperatura da PCB e do autoaquecimento) + [inferência] para a distância.
 
 ### microSD (SDIO, 4 bits)
 - Sinais SDIO referenciados a plano de GND (ou PWR com 10 nF entre PWR e GND), impedância de 50 ohm +/-10%, trilha menor que 120 mm, descasamento entre dados e CK, e entre CK e CMD, menor que 10 mm, mesmo número de vias entre os sinais de dados, capacitância da trilha até 20 pF a 3,3 V. [manual] AN4488 Rev 7, Seção 8.4.1.
-- Soquete J4 (Molex 104031-0811) perto da borda e do MCU, para encurtar o barramento. 100 nF o mais perto possível do VDD do soquete. Limite C_HOST + C_BUS de 30 pF (Kingston SDCS2, Table 6-6). [projeto] vindo das Pendências do Notion, não conferido neste projeto (o documento da Kingston não está na pasta de manuais).
+- Soquete J4 (Molex 104031-0811) perto da borda e do MCU, para encurtar o barramento. 100 nF o mais perto possível do VDD do soquete. Kingston SDCS2, Tabela 6-6, p.13 (conferida): C_HOST + C_BUS até 30 pF por linha e capacitância ligada à alimentação até 5 µF. O cartão sai pela borda oeste, como no desenho da Molex (corpo do J4 passa 3,2 mm da borda). [manual] + [projeto].
 - Test points só em SDIO_CK e SDIO_CMD, como pads sobre a trilha, sem ramal. [projeto] (referência: AN4488 Seção 8.4.1).
 
 ### USB
 - ESD (USBLC6-2SC6) o mais perto possível do receptáculo. [manual] AN4879 Rev 12, Seção 2.3 (Tabela 11).
 - Par D+/D- curto e com impedância diferencial de 90 ohm. O valor está nas Pendências do Notion e depende do stackup da JLCPCB. O AN4879 Rev 12 não traz regra de roteamento nem de impedância do par. [projeto]
 - Diodo Schottky do VBUS (B5819W SL) e resistor de sangria perto do conector. [projeto]
+- Divisor de VBUS (33k e 82k, cerca de 3,57 V e 43 µA a 5 V, conta minha): dentro de < 4 V, > 0,7 x VDD e até 200 µA. [manual] AN4879 Rev 12, FAQ.
 - Abas de fixação do conector: ligação ao GND ainda por definir (direto ou via RC).
 
 ### Motores (DShot, TIM3)
@@ -87,11 +123,11 @@ Legenda da fonte: **[manual]** vem do documento citado. **[projeto]** é prátic
 - Resistor de gate perto do PB6. MOSFET (AO3400A), diodo e resistor de descarga perto dos pads BZ+/BZ-. [projeto]
 
 ### Debug
-- J2 (SWD 1x6, com SWO no pino 6): decidir se fica na lateral da placa (por exemplo a 90 graus) para não interferir no stack. Pendente.
+- J2 (SWD 1x6, com SWO no pino 6): decidir se fica na lateral da placa (por exemplo a 90 graus) para não interferir no stack. Pendente. Hoje é pino vertical na borda de baixo; a alternativa é o footprint `PinHeader_1x06_P2.54mm_Horizontal`.
 
 ## Manuais de referência
 
-Ficam em `docs/manuais/` (fora do git, listado no `.gitignore`). Abrir só o manual certo, não varrer a pasta. Tabelas extraídas de PDF podem sair com as colunas embaralhadas: conferir visualmente pinagem e tabelas de DMA.
+Ficam em `docs/manuals/` (fora do git, listado no `.gitignore`). Abrir só o manual certo, não varrer a pasta. Tabelas extraídas de PDF podem sair com as colunas embaralhadas: conferir visualmente pinagem e tabelas de DMA.
 
 | Arquivo | Para quê |
 |---|---|
@@ -102,7 +138,7 @@ Ficam em `docs/manuais/` (fora do git, listado no `.gitignore`). Abrir só o man
 | AN4879 (Rev 12) | USB no STM32: ESD, VBUS, esquemas |
 | AN4073 (Rev 5) | precisão do ADC |
 | AN2606 (Rev 70) | boot do bootloader de sistema (DFU, USART3 em PB10/PB11) |
-| BMI270 Datasheet (Rev 1.6) | IMU. O arquivo `.pdf` na pasta é texto puro, não um PDF de verdade |
+| BMI270 Datasheet (Rev 1.6) | IMU. É um PDF de verdade (150 páginas) |
 | BMP280 Datasheet (Rev 1.26) | barômetro, montagem, I2C |
 | SD Physical Layer Simplified Spec (Ver 9.10) | protocolo do cartão SD |
 | DS39724 (AP2112, Rev 2-2) | LDO 3V3 |
@@ -114,8 +150,8 @@ Ficam em `docs/manuais/` (fora do git, listado no `.gitignore`). Abrir só o man
 | Matek PDB-XT60 (manual) | PDB externa (5 V, 12 V, VBAT) |
 | Betaflight DSHOT, DShot Missing Handbook, dshot_command.h, Digital_Cmd_Spec.txt | protocolo DShot |
 
-O RM0090 não está nesta pasta: ele fica fatiado por capítulo no Drive. Pedir ao Gabriel o capítulo necessário.
+O RM0090 (Rev 22) está na pasta, completo e por capítulo, junto com o PM0214. Arquivos listados acima que **não** estão na pasta: X32258MOB4SI (YXC), USBLC6-2, UM1724 e dshot_command.h. O desenho da TYPE-C-31-M-12 é só imagem.
 
 ## Como entregar um placement
 
-Para cada bloco: (1) lista de designadores envolvidos, (2) regras aplicáveis com fonte, (3) tabela de ref, X, Y, rotação, face e justificativa em uma linha, (4) riscos e pendências, (5) pergunta de aprovação. Ordem sugerida: MCU e oscilador, desacoplamento VDD, alimentação (LDOs, VDDA), IMU, conectores e bordas (USB, J1, J5, J6, J2), microSD, motores e buzzer, barômetro, test points e pads.
+Para cada bloco: (1) lista de designadores envolvidos, (2) regras aplicáveis com fonte, (3) tabela de ref, X, Y, rotação, face e justificativa em uma linha, (4) riscos e pendências, (5) pergunta de aprovação. Ordem sugerida: MCU e oscilador, desacoplamento VDD, alimentação (LDOs, VDDA), IMU, conectores e bordas (USB, J1, J5, J6, J2), microSD, motores e buzzer, barômetro, test points e pads (todos já feitos). Depois de aplicar: comparar redes das trilhas antes e depois, rodar o DRC no projeto real e conferir que bate com o da cópia.
