@@ -4,7 +4,7 @@ Placa de flight controller autoral (inspirada no layout do SpeedyBee F7 V3, não
 
 ## Etapa atual
 
-Esquemático fechado (ERC 0 erros ativos em 2026-11-01, depois das mudanças da etapa 4; a PCB ainda não foi atualizada a partir dele: ver "Etapa 4" abaixo). Footprints e campo LCSC preenchidos. **Etapa: placement dos blocos da lista concluído** (ver "Blocos já posicionados"). Falta decidir as peças sem bloco e as decisões abertas. O Gabriel faz o roteamento depois, à mão. Não rotear, não criar trilhas, não mexer em zonas de cobre. Já existem trilhas e a zona `HSE_GND_POUR` (F.Cu) feitas por ele em volta do oscilador: não tocar.
+Esquemático fechado (ERC 0 erros ativos em 2026-11-01, depois das mudanças da etapa 4). PCB atualizada a partir dele e contorno de 58 x 44 mm aplicado. **Etapa: placement refeito na placa de 58 x 44 mm (2026-11-01)**, ver "Placement na placa de 58 x 44 mm". Falta a revisão visual do Gabriel, tirar o J11 do esquemático e as decisões abertas. O Gabriel faz o roteamento depois, à mão. Não rotear, não criar trilhas, não mexer em zonas de cobre. Já existem trilhas e a zona `HSE_GND_POUR` (F.Cu) feitas por ele em volta do oscilador: não tocar.
 
 ## Como trabalhar
 
@@ -20,7 +20,7 @@ Esquemático fechado (ERC 0 erros ativos em 2026-11-01, depois das mudanças da 
 
 1. Antes de qualquer edição, `git status` limpo ou commit feito. Cada bloco posicionado vira um commit.
 2. Só editar o `.kicad_pcb` com o KiCad fechado. Editar com ele aberto arrisca sobrescrita ao salvar. Conferir com `pgrep -il kicad` e `ls ~*.lck`: fechar a janela não encerra o aplicativo (é preciso Cmd+Q).
-3. Mostrar o diff e esperar aprovação antes de aplicar posições.
+3. Mostrar o diff e esperar aprovação antes de aplicar posições. **Exceção autorizada pelo Gabriel em 2026-11-01:** no placement, posso aplicar sem esperar, um bloco por commit, depois de testar na cópia (checagem de redes e DRC). Paro e pergunto se surgir sobreposição de courtyard que não resolvo, trilha ou via mudando de rede, decisão de projeto (não de posição) ou conflito entre regras. A revisão visual final continua sendo dele.
 4. Depois de cada bloco: exportar imagem da placa e rodar o DRC, e relatar sobreposições de courtyard. A proposta é testada antes numa cópia (com o `.kicad_pro` ao lado); o DRC do projeto real deve dar o mesmo resultado da cópia.
 5. Claude não tem noção espacial confiável: a revisão visual final é do Gabriel. Dizer isso quando for relevante.
 
@@ -66,7 +66,36 @@ Conversa de 2026-11-01. Tamanho fechado na Etapa 5 (58 x 44 mm). Enquanto a muda
 - A discutir, uma etapa por vez e conversando antes de propor: (1) tamanho, formato do contorno e fixação para a case; (2) interfaces extras; (3) crescer o contorno e reaproveitar os 8 blocos, ou reposicionar (os conectores da borda que crescer andam junto); (4) o que isso resolve das decisões abertas abaixo.
 - Perguntar antes de fixar qualquer medida.
 
-## Blocos já posicionados (um commit cada)
+## Placement na placa de 58 x 44 mm (2026-11-01)
+
+Contorno de (108,5; 68,5) a (166,5; 112,5), raio 2 mm; furos M2 a 3,5 mm da borda (`09bbbe8`). Sobras do MCU antigo apagadas (`71d68fb`). O grupo U1 + HSE **não se moveu**: com o canto superior esquerdo mantido, ele já fica no centro da placa nova (U1 em 134, 92, rot 180; grupo de X 127,25 a 148,9). Por isso as trilhas do oscilador e a zona `HSE_GND_POUR` ficaram intactas, e o desacoplamento do VDD, o filtro do VDDA, o divisor de VBAT, os pull-ups do SDIO e os resistores dos motores (posicionados antes em relação ao U1) também ficaram. A rotação 180 do U1 é a que casa com o mapa de lados (USB e SDIO saem a oeste, motores 1 e 2 ao sul).
+
+| Bloco | Commit | Resumo |
+|---|---|---|
+| USB (apoio) | `cd8eaa9` | U3, R8, R9, D4, R10 a R12 e C17 entre o J3 e o U1, no noroeste. J11 estacionado fora da placa (190, 80). |
+| Bordas | `99bdd37` | Oeste: J3 (rot 270, abre a oeste, mesma saliência de 0,48 mm) e J4 (desceu 2,3 mm). Norte: J9, J14, J2. Leste: J5 e J6 (rot 90, abrem a leste), J12. Sul: J1 (rot 180, pad +5V a oeste), J8, J7. |
+| Alimentação | `a514a83` | Linha R15, C22, U6, C23, C9, U2, C10 em Y 102,7, logo abaixo do J4; C16 junto do pad +5V do J1. |
+| IMU | `1eba637` | U5 em rot 270 (frente a leste), 1 mm para o norte (135,75; 81); C20 e C21 giradas 180 graus junto, para continuarem nos pinos 5 e 8. |
+| microSD | `de9b05d` | C25 a leste do J4 (122,6; 97,6). |
+| Motores e buzzer | `cf9a9d3` | R30 a R33 acima do J8. Q1, R29, D5 e R27 perto do J7, no sudeste. |
+| Barômetro | `bf83a05` | U4, C18, C19, R13 e R14 a leste (U4 em 155, 79), longe dos LDOs (oeste). |
+| Sem bloco | `be52df4` | SW1 e SW2 a leste do grupo do HSE; C15 e R4 junto deles; R16 perto do pino BOOT1; LEDs D1 a D3 com R5 a R7 ao norte; R35 a R37 junto do J14; J10 na segunda fileira norte; J13 acima do J8 (coube); R38, R39 e C27 junto do J12. |
+
+DRC depois do último bloco: 181 violações (era 244). Erros restantes, todos anteriores: os 2 `courtyards_overlap` e os 5 `clearance` do R1 no anel do HSE (decisão 8), 15 `annular_width` e 15 `via_dangling` das vias do anel. O resto é silk (limpar no fim). Não conectados: 259 (sem roteamento).
+
+**Riscos e pendências deste placement:**
+- SW1 e SW2 não ficaram perto do USB (não coube no noroeste); a ideia de botões perto do USB era só [inferência].
+- C15 (100 nF do NRST) ficou junto do SW1, não colado no pino 7: o lado leste do U1 é a região do oscilador, e o AN2867 Seção 7.1 pede sinais longe dele. Distância ao pino não conferida em manual.
+- R4 (pull-down do BOOT0) ficou junto do SW2, não do pino 60.
+- U5 em rot 270: as linhas do SPI1 podem se cruzar (o motivo da rot 90 antiga). Conferir no roteamento.
+- UART do GPS (pinos 37 e 38, oeste do U1) e do ELRS (pinos 29 e 30, norte) vão até o leste: trilhas longas, de baixa velocidade.
+- MOTOR3 e MOTOR4 saem pelo norte do U1 (R25 e R26) e vão até o J8 no sul.
+- J2 continua com o footprint vertical, na borda norte (decisão 2).
+- Test points (B.Cu) não foram mexidos: revisar depois do roteamento.
+- J11 continua no esquemático: falta o Gabriel apagar e rodar o `F8` com "Delete footprints with no symbols".
+- `kicad-cli` 10.0.7 regrava o `.kicad_pro` ao rodar o DRC (campos `td_enabled` e `net_colors`): é ruído, descartar com `git checkout`.
+
+## Blocos já posicionados na placa antiga de 45 x 45 mm (histórico, um commit cada)
 
 | Bloco | Commit | Resumo |
 |---|---|---|
