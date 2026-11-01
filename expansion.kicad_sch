@@ -682,6 +682,146 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:R"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "power:+3V3"
 			(power global)
 			(pin_numbers
@@ -939,7 +1079,7 @@
 	)
 	(text "Expansion pads"
 		(exclude_from_sim no)
-		(at 80.264 56.388 0)
+		(at 79.248 53.34 0)
 		(effects
 			(font
 				(size 2.4892 2.4892)
@@ -950,9 +1090,9 @@
 		)
 		(uuid "514aa255-82b0-4fdd-9cde-a3eae20decac")
 	)
-	(text "Expansion pads (top side, board edge): wire-solder pads, no connector fitted.\nFull peripherals named by function; loose pins named by pin (role set in firmware).\nPB7, PC2: 0 mA negative injection (DS8626 Table 47), keep wires short.\nPC14, PC15: power switch, 3 mA sink only, no source (DS8626 Table 7, note 3)."
+	(text "Expansion pads (top side, board edge): wire-solder pads, no connector fitted.\nFull peripherals named by function; loose pins named by pin (role set in firmware).\nPB7, PC2: 0 mA negative injection (DS8626 Table 47), keep wires short.\nPC14, PC15: power switch, 3 mA sink only, no source (DS8626 Table 7, note 3).\n\nAUX pads: AUX1 = PA2 (TIM2_CH3 / TIM5_CH3), AUX2 = PB7 (TIM4_CH2), AUX3 = PA10 (TIM1_CH3)\n220R series resistors, same as the motor outputs\nSignal and GND only: servo power comes from the PDB or BEC, not from the FC"
 		(exclude_from_sim no)
-		(at 80.518 62.738 0)
+		(at 79.502 63.5 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1013,6 +1153,26 @@
 	)
 	(wire
 		(pts
+			(xy 157.48 134.62) (xy 157.48 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1f36da7b-ac46-4026-af86-6e2d65166647")
+	)
+	(wire
+		(pts
+			(xy 135.89 138.43) (xy 144.78 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "224b3d5e-e9be-42a4-9d29-84d31ed095f7")
+	)
+	(wire
+		(pts
 			(xy 147.32 80.01) (xy 135.89 80.01)
 		)
 		(stroke
@@ -1043,6 +1203,26 @@
 	)
 	(wire
 		(pts
+			(xy 157.48 134.62) (xy 162.56 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3236ae6c-c7e7-4931-869f-ff2f8ba6d374")
+	)
+	(wire
+		(pts
+			(xy 160.02 137.16) (xy 162.56 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3aa64042-d1ef-47d0-9692-7ea10b07ff3e")
+	)
+	(wire
+		(pts
 			(xy 90.17 130.81) (xy 101.6 130.81)
 		)
 		(stroke
@@ -1070,6 +1250,16 @@
 			(type default)
 		)
 		(uuid "43a74818-3bc2-4fbf-a636-aba681ad09ad")
+	)
+	(wire
+		(pts
+			(xy 157.48 129.54) (xy 157.48 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b1fa90d-b1d4-4c1a-b7fc-4e627160f6e2")
 	)
 	(wire
 		(pts
@@ -1113,6 +1303,26 @@
 	)
 	(wire
 		(pts
+			(xy 157.48 132.08) (xy 162.56 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "54d93b5c-df52-47f4-81e0-b59052b0e06b")
+	)
+	(wire
+		(pts
+			(xy 157.48 132.08) (xy 157.48 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "56425935-0b45-435e-a6ea-2dcd557354b6")
+	)
+	(wire
+		(pts
 			(xy 147.32 73.66) (xy 147.32 77.47)
 		)
 		(stroke
@@ -1130,6 +1340,16 @@
 			(type default)
 		)
 		(uuid "64a4704d-24e8-4817-a1d9-0b9f8e04d837")
+	)
+	(wire
+		(pts
+			(xy 157.48 129.54) (xy 162.56 129.54)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "66f708a4-19c9-420b-bb61-568452b50fda")
 	)
 	(wire
 		(pts
@@ -1160,6 +1380,36 @@
 			(type default)
 		)
 		(uuid "756a2579-d8b4-44d5-a008-686893a30b1f")
+	)
+	(wire
+		(pts
+			(xy 157.48 123.19) (xy 152.4 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "760adb46-e974-4a8c-bc24-37c145a0f03f")
+	)
+	(wire
+		(pts
+			(xy 157.48 138.43) (xy 152.4 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "873b8bc4-69c6-4ddd-ab00-b5d7d85fd2b6")
+	)
+	(wire
+		(pts
+			(xy 135.89 123.19) (xy 144.78 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "88bf5e93-8524-4ec4-bbfd-7469cebccba4")
 	)
 	(wire
 		(pts
@@ -1210,6 +1460,16 @@
 			(type default)
 		)
 		(uuid "b90673fa-29f5-4105-9234-b783c368231a")
+	)
+	(wire
+		(pts
+			(xy 135.89 130.81) (xy 144.78 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c40ba738-d291-4787-88c7-337f13386681")
 	)
 	(wire
 		(pts
@@ -1270,6 +1530,46 @@
 			(type default)
 		)
 		(uuid "ee8cf4e9-741e-4e7e-aa22-852fb2a9aea6")
+	)
+	(wire
+		(pts
+			(xy 157.48 130.81) (xy 152.4 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f28e1dbf-856c-4fe5-8144-5f25a7865ece")
+	)
+	(label "AUX3_OUT"
+		(at 157.48 134.62 0)
+		(effects
+			(font
+				(size 0.762 0.762)
+			)
+			(justify left bottom)
+		)
+		(uuid "41ddea82-663f-4339-9d81-650fb74a23b7")
+	)
+	(label "AUX2_OUT"
+		(at 153.67 130.81 0)
+		(effects
+			(font
+				(size 0.762 0.762)
+			)
+			(justify left bottom)
+		)
+		(uuid "686e856c-ac23-4508-89bb-aa4c838a7286")
+	)
+	(label "AUX1_OUT"
+		(at 153.67 123.19 0)
+		(effects
+			(font
+				(size 0.762 0.762)
+			)
+			(justify left bottom)
+		)
+		(uuid "aec48ab7-8908-464d-9e53-269bd72c78d4")
 	)
 	(global_label "PC2"
 		(shape bidirectional)
@@ -1415,6 +1715,30 @@
 			)
 		)
 	)
+	(global_label "PB7"
+		(shape bidirectional)
+		(at 135.89 130.81 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "52d594ea-ef37-4133-80a0-5871990f7c97")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 128.044 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
 	(global_label "SPI2_MISO"
 		(shape input)
 		(at 90.17 87.63 180)
@@ -1476,6 +1800,30 @@
 		(uuid "6157d9c3-13c5-44d3-bd1d-9cb07fd6cbfb")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 128.2254 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "PA10"
+		(shape bidirectional)
+		(at 135.89 138.43 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7662b2c0-1a1b-4885-82dc-826984038c36")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 127.0159 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1572,6 +1920,30 @@
 		(uuid "d7597a87-d592-492f-befa-2d845e901f98")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 128.044 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "PA2"
+		(shape bidirectional)
+		(at 135.89 123.19 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d77d123d-6066-4e51-829a-1c6c5461bec3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 128.2254 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2104,6 +2476,195 @@
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/c5608191-8184-49ae-9afd-f3995992ad6b"
 					(reference "J13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 160.02 137.16 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "562f25be-d855-4fdc-ba23-b05a222619b7")
+		(property "Reference" "#PWR082"
+			(at 160.02 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 160.02 140.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 160.02 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 160.02 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 160.02 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9aed857a-1fba-4eb0-a4e8-7b34aba1843b")
+		)
+		(instances
+			(project "STM32F405_FLIGHT_CONTROLLER"
+				(path "/c5608191-8184-49ae-9afd-f3995992ad6b"
+					(reference "#PWR082")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 148.59 138.43 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "563da58d-558b-4875-959d-719ee9e7474f")
+		(property "Reference" "R37"
+			(at 148.59 136.144 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "220R"
+			(at 148.59 140.716 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 148.59 140.208 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 148.59 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 148.59 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 148.59 138.43 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 148.59 138.43 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22962"
+			(at 148.59 138.43 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "dc71dd8f-64bc-4ffb-b630-07ba67ad3b6a")
+		)
+		(pin "1"
+			(uuid "bc1e8f3f-7093-4834-9770-2cadc8902a3b")
+		)
+		(instances
+			(project "STM32F405_FLIGHT_CONTROLLER"
+				(path "/c5608191-8184-49ae-9afd-f3995992ad6b"
+					(reference "R37")
 					(unit 1)
 				)
 			)
@@ -2648,6 +3209,230 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 148.59 123.19 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c6f9bbea-fa4d-4310-bd13-499c4ab279b2")
+		(property "Reference" "R35"
+			(at 148.59 120.904 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "220R"
+			(at 148.59 125.476 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 148.59 124.968 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 148.59 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 148.59 123.19 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 148.59 123.19 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 148.59 123.19 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22962"
+			(at 148.59 123.19 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "a9882175-27d3-4194-b089-fcb871f926d4")
+		)
+		(pin "1"
+			(uuid "878253c9-1761-4fb3-becf-02484b5769e6")
+		)
+		(instances
+			(project "STM32F405_FLIGHT_CONTROLLER"
+				(path "/c5608191-8184-49ae-9afd-f3995992ad6b"
+					(reference "R35")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 148.59 130.81 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c8dfcd1f-71a8-492b-ae90-4e96ebb1f402")
+		(property "Reference" "R36"
+			(at 148.59 128.524 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "220R"
+			(at 148.59 133.096 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 148.59 132.588 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 148.59 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 148.59 130.81 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 148.59 130.81 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 148.59 130.81 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22962"
+			(at 148.59 130.81 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "d0380731-d38e-4c20-9f10-5b046c6087b9")
+		)
+		(pin "1"
+			(uuid "1ae45c4c-9693-40d2-8f15-56ed5b3da191")
+		)
+		(instances
+			(project "STM32F405_FLIGHT_CONTROLLER"
+				(path "/c5608191-8184-49ae-9afd-f3995992ad6b"
+					(reference "R36")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 140.97 73.66 0)
 		(unit 1)
@@ -2719,6 +3504,115 @@
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/c5608191-8184-49ae-9afd-f3995992ad6b"
 					(reference "#PWR077")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x04")
+		(at 167.64 132.08 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files no)
+		(dnp no)
+		(uuid "f2de2cda-a2d3-4dc0-af36-2fdd345a76cb")
+		(property "Reference" "J14"
+			(at 169.672 127 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "AUX pads"
+			(at 169.418 139.446 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_FC:SolderPads_1x04_P2.54mm"
+			(at 167.64 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 167.64 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 167.64 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 167.64 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 167.64 132.08 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "d036f99f-7ec3-4d4a-8910-407b752eb09b")
+		)
+		(pin "1"
+			(uuid "04a76ef4-1fd2-4f70-95ef-14a74d56769d")
+		)
+		(pin "3"
+			(uuid "fc853934-fdb4-466a-ae62-ae1388d7b0b0")
+		)
+		(pin "4"
+			(uuid "531d1168-4548-4632-836a-acdad5cf7586")
+		)
+		(instances
+			(project "STM32F405_FLIGHT_CONTROLLER"
+				(path "/c5608191-8184-49ae-9afd-f3995992ad6b"
+					(reference "J14")
 					(unit 1)
 				)
 			)
