@@ -2477,7 +2477,7 @@
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "27690350-1471-4e5b-b887-28ca09bb8d1d")
-		(at 126.7 100.3 -90)
+		(at 126.7 102.7 -90)
 		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C10"
@@ -7853,7 +7853,7 @@
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "555a2d0a-86ab-4a77-9230-6b1a7d456d34")
-		(at 112.6 100.3 -90)
+		(at 112.6 102.7 -90)
 		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C22"
@@ -9323,7 +9323,7 @@
 	(footprint "Capacitor_SMD:C_0805_2012Metric"
 		(layer "F.Cu")
 		(uuid "5bc79abd-cc3b-42fe-ad13-45736058ea57")
-		(at 125.6 73.6)
+		(at 116.75 107.88)
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor")
 		(property "Reference" "C16"
@@ -11558,7 +11558,7 @@
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "74ece89c-9c7d-4d74-9293-d900e8bbc247")
-		(at 120.8 100.3 -90)
+		(at 120.8 102.7 -90)
 		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C9"
@@ -13196,7 +13196,7 @@
 	(footprint "Package_TO_SOT_SMD:SOT-23-5"
 		(layer "F.Cu")
 		(uuid "89208e02-e1b8-4882-bfb0-85cd819aad9b")
-		(at 123.7 100.3)
+		(at 123.7 102.7)
 		(descr "SOT, 5 Pin (JEDEC MO-178 Var AA https://www.jedec.org/document_search?search_api_views_fulltext=MO-178)")
 		(tags "SOT TO_SOT_SMD")
 		(property "Reference" "U2"
@@ -15830,7 +15830,7 @@
 	(footprint "Package_TO_SOT_SMD:SOT-23-5"
 		(layer "F.Cu")
 		(uuid "a0b9d148-a8be-486e-87b4-e2614a542cac")
-		(at 115.5 100.3)
+		(at 115.5 102.7)
 		(descr "SOT, 5 Pin (JEDEC MO-178 Var AA https://www.jedec.org/document_search?search_api_views_fulltext=MO-178)")
 		(tags "SOT TO_SOT_SMD")
 		(property "Reference" "U6"
@@ -17888,7 +17888,7 @@
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "b3bac4ad-86f8-4731-8b52-0179ab530965")
-		(at 118.4 100.3 -90)
+		(at 118.4 102.7 -90)
 		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C23"
@@ -21226,7 +21226,7 @@
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "df73f904-9696-47b8-9c94-b6f1ce952cba")
-		(at 109.9 100.3 90)
+		(at 109.9 102.7 90)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor")
 		(property "Reference" "R15"
