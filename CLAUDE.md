@@ -4,7 +4,7 @@ Placa de flight controller autoral (inspirada no layout do SpeedyBee F7 V3, não
 
 ## Etapa atual
 
-Esquemático fechado (ERC 0 erros ativos em 2026-11-01, depois das mudanças da etapa 4). PCB atualizada a partir dele e contorno de 58 x 44 mm aplicado. **Etapa: placement refeito na placa de 58 x 44 mm (2026-11-01)**, ver "Placement na placa de 58 x 44 mm". Falta a revisão visual do Gabriel, tirar o J11 do esquemático e as decisões abertas. O Gabriel faz o roteamento depois, à mão. Não rotear, não criar trilhas, não mexer em zonas de cobre. Já existem trilhas e a zona `HSE_GND_POUR` (F.Cu) feitas por ele em volta do oscilador: não tocar.
+Esquemático fechado (ERC 0 erros ativos em 2026-11-01, depois das mudanças da etapa 4). PCB atualizada a partir dele e contorno de 58 x 44 mm aplicado. **Etapa: placement refeito na placa de 58 x 44 mm (2026-11-01)**, ver "Placement na placa de 58 x 44 mm". Revisão visual feita pelo Gabriel no KiCad ("ficou bom") e J11 removido (`daa0915`, ver abaixo). Falta a limpeza do silk, a seta de frente e as decisões abertas. O Gabriel faz o roteamento depois, à mão. Não rotear, não criar trilhas, não mexer em zonas de cobre. Já existem trilhas e a zona `HSE_GND_POUR` (F.Cu) feitas por ele em volta do oscilador: não tocar.
 
 ## Como trabalhar
 
@@ -39,7 +39,7 @@ Esquemático fechado (ERC 0 erros ativos em 2026-11-01, depois das mudanças da 
 - **Contorno decidido (2026-11-01): 58 x 44 mm, eixo longo frente-trás (leste-oeste no editor), raio de canto 2 mm, 4 furos M2 (`MountingHole_2.2mm_M2`) nos cantos, posição dos furos a definir.** Ver "Etapa 5" em "Decisão em andamento". **O `.kicad_pcb` ainda tem o contorno antigo** (45 x 45 mm, 4 furos M3 em 30,5 x 30,5 mm) até a mudança ser aplicada. As ferragens do stack não estão definidas.
 - 4 camadas configuradas no KiCad (F.Cu, In1.Cu, In2.Cu, B.Cu). O stackup é o padrão do KiCad (1,6 mm, prepreg 0,1 mm, core 1,24 mm), não o da JLCPCB, e "Impedance controlled" está desligado. As zonas de GND (L2) e de alimentação (L3) ainda não existem. Montagem SMD em uma face só (componentes em cima).
 - USB-C (J3, HRO TYPE-C-31-M-12) na borda da frente (embaixo no editor): X 131 mm, Y 110,31 mm, rotação 0. Com essa posição a frente do corpo (7,4 mm de profundidade, Fab de Y 106,61 a 114,01) passa 0,48 mm da borda (Y 113,525). O valor antigo Y 105,81 deste arquivo era de um contorno anterior e deixaria a frente cerca de 4 mm para dentro. O desenho da HRO (layout recomendado, p.1) põe a borda da PCB a 5,79 mm do topo dos pads, o que sugere um conector saindo cerca de 2,5 a 3 mm além da borda ([inferência]: desenho fora de escala, pad do footprint mais curto que o da HRO). Decisão aberta. Footprint padrão do KiCad. Solda das 4 pernas reforçada à mão no bring-up. O modelo 3D do J3 ainda não existe.
-- Test points: pad SMD redondo de cerca de 1,0 mm, **na face de baixo** (TP1 a TP15 já estão em B.Cu). Pads de GPIO e de fio: em cima, na borda ou perto dela (J9 a J12 posicionados; o J13 não coube e continua estacionado fora da placa).
+- Test points: pad SMD redondo de cerca de 1,0 mm, **na face de baixo** (TP1 a TP15 já estão em B.Cu). Pads de GPIO e de fio: em cima, na borda ou perto dela (na placa de 58 x 44 mm: J9, J10, J12, J13 e J14 posicionados; o J11 foi removido).
 - Pads de GPIO: SPI2 (PB12 a PB15), UART4 (PA0/PA1), PA15 e entrada de corrente em PC2 (J12, 3 pinos), AUX1 a AUX3 = PA2, PB7, PA10 (J14, com resistor série), PC14/PC15 (estes dois são os primeiros a sair se faltar área). Pads S1 a S4 + GND dos motores, BZ+/BZ-, J1 da PDB (pads para soldar fio, fixo).
 - Conectores JST GH: 4 pinos para ELRS (J5) e 6 pinos para GPS (J6: GND, +5V, GPS_TX, GPS_RX, I2C1_SCL, I2C1_SDA, ordem provisória até escolher o módulo). SWD em J2 (1x6, DNP, hoje em pino vertical).
 - Primeiro pedido: 5 placas montadas na JLCPCB. Um lado só.
@@ -72,7 +72,7 @@ Contorno de (108,5; 68,5) a (166,5; 112,5), raio 2 mm; furos M2 a 3,5 mm da bord
 
 | Bloco | Commit | Resumo |
 |---|---|---|
-| USB (apoio) | `cd8eaa9` | U3, R8, R9, D4, R10 a R12 e C17 entre o J3 e o U1, no noroeste. J11 estacionado fora da placa (190, 80). |
+| USB (apoio) | `cd8eaa9` | U3, R8, R9, D4, R10 a R12 e C17 entre o J3 e o U1, no noroeste. J11 estacionado fora da placa (190, 80), depois removido (`daa0915`). |
 | Bordas | `99bdd37` | Oeste: J3 (rot 270, abre a oeste, mesma saliência de 0,48 mm) e J4 (desceu 2,3 mm). Norte: J9, J14, J2. Leste: J5 e J6 (rot 90, abrem a leste), J12. Sul: J1 (rot 180, pad +5V a oeste), J8, J7. |
 | Alimentação | `a514a83` | Linha R15, C22, U6, C23, C9, U2, C10 em Y 102,7, logo abaixo do J4; C16 junto do pad +5V do J1. |
 | IMU | `1eba637` | U5 em rot 270 (frente a leste), 1 mm para o norte (135,75; 81); C20 e C21 giradas 180 graus junto, para continuarem nos pinos 5 e 8. |
@@ -83,6 +83,8 @@ Contorno de (108,5; 68,5) a (166,5; 112,5), raio 2 mm; furos M2 a 3,5 mm da bord
 
 DRC depois do último bloco: 181 violações (era 244). Erros restantes, todos anteriores: os 2 `courtyards_overlap` e os 5 `clearance` do R1 no anel do HSE (decisão 8), 15 `annular_width` e 15 `via_dangling` das vias do anel. O resto é silk (limpar no fim). Não conectados: 259 (sem roteamento).
 
+**J11 removido (2026-11-01, `daa0915`):** o Gabriel apagou o J11 (I2C pads) do esquemático, porque o J6 já leva o I2C1, e atualizou a PCB com "Delete footprints with no symbols". Nenhuma trilha, via ou zona mudou. O KiCad 10.0.7 também apagou campos antigos `KiLib_Generator` de 84 footprints e um `LCSC Part` antigo do U5 (o campo `LCSC`, usado por todas as peças, ficou igual: U5 = C2836813). ERC: 0 erros. DRC: 180 violações, 255 não conectados, paridade 0. A revisão visual do Gabriel no KiCad aprovou o placement. Para rodar ERC ou DRC numa cópia, copiar também `Connector_FC.pretty` e as tabelas de biblioteca; sem elas aparecem 7 `footprint_link_issues` falsos. O aviso `lib_symbol_issues` da EASYEDAKICAD aparece só na cópia.
+
 **Riscos e pendências deste placement:**
 - SW1 e SW2 não ficaram perto do USB (não coube no noroeste); a ideia de botões perto do USB era só [inferência].
 - C15 (100 nF do NRST) ficou junto do SW1, não colado no pino 7: o lado leste do U1 é a região do oscilador, e o AN2867 Seção 7.1 pede sinais longe dele. Distância ao pino não conferida em manual.
@@ -92,8 +94,7 @@ DRC depois do último bloco: 181 violações (era 244). Erros restantes, todos a
 - MOTOR3 e MOTOR4 saem pelo norte do U1 (R25 e R26) e vão até o J8 no sul.
 - J2 continua com o footprint vertical, na borda norte (decisão 2).
 - Test points (B.Cu) não foram mexidos: revisar depois do roteamento.
-- J11 continua no esquemático: falta o Gabriel apagar e rodar o `F8` com "Delete footprints with no symbols".
-- `kicad-cli` 10.0.7 regrava o `.kicad_pro` ao rodar o DRC (campos `td_enabled` e `net_colors`): é ruído, descartar com `git checkout`.
+- `kicad-cli` 10.0.7 regrava o `.kicad_pro` ao rodar o DRC (campos `td_enabled` e `net_colors`): é ruído, descartar com `git checkout`. Se foi o KiCad do Gabriel que salvou esses campos, commitar junto (senão voltam a cada salvamento).
 
 ## Blocos já posicionados na placa antiga de 45 x 45 mm (histórico, um commit cada)
 
@@ -115,8 +116,8 @@ DRC depois do último bloco: 181 violações (era 244). Erros restantes, todos a
 3. VDD do cartão: C23 (1 uF) + C24 (10 uF) + C25 (0,1 uF) somam cerca de 11,1 uF, contra o máximo de 5 uF da Kingston SDCS2 (Tabela 6-6, p.13). Decisão de esquemático.
 4. C18 e C19 como capacitores do U4, C20 e C21 como os do U5: atribuído por proximidade no esquemático, a confirmar. O C18 está a 3,1 mm do pino 6 (VDDIO) do U4, e a Fig. 17 do BMP280 mostra o capacitor nesse pino.
 5. Q1 fica a 10,4 mm do J7 (H2 e o próprio J7 impedem algo mais perto). Alternativa: mover o J7 ao longo da borda.
-6. J13 (PC14 e PC15) não coube: remover do esquemático ou achar lugar. J10 (UART4) ficou a 34 mm dos pinos 14 e 15 do U1.
-7. Sem bloco no CLAUDE.md e ainda estacionadas fora da placa: SW1, SW2, LEDs D1 a D3 com R5 a R7, C15, R4 e R16.
+6. Resolvida na placa de 58 x 44 mm: o J13 coube (acima do J8) e o J10 ficou na segunda fileira norte (`be52df4`).
+7. Resolvida na placa de 58 x 44 mm: SW1, SW2, LEDs, C15, R4 e R16 posicionados (`be52df4`); riscos de posição em "Placement na placa de 58 x 44 mm".
 8. R1: courtyard sobreposto com Y1 e C14 e 5 erros de clearance contra o guard ring. Depende do roteamento do anel (dele).
 9. Zonas de GND (L2) e de alimentação (L3), ilha de GND do cristal (o AN2867 Seção 7.1 pede plano distinto, e a L2 seria GND sólido), stackup da JLCPCB (impedância de 90 ohm no USB e 50 ohm no SDIO).
 10. Roteamento apertado: pinos 14 a 16 do U1 (o grupo VDDA bloqueia a saída para leste), SDIO D2, D3, CK e CMD pela fileira de baixo do U1 (R17 está sob os pinos 51 a 55), mesmo número de vias nos dados.
@@ -124,7 +125,7 @@ DRC depois do último bloco: 181 violações (era 244). Erros restantes, todos a
 12. Firmware: eixos da IMU mudaram com o U5 em rot 90 (o remapeamento do BMI270 vale só para as funções de interrupção, não para os registradores de dados). OSPEEDR alto no SCK.
 13. LDOs: sem orçamento de corrente. O AP2112 em SOT25 tem 184 C/W (DS39724, p.3).
 14. BMP280: folga de 0,1 mm acima da tampa e ventilação dependem do stack. Confirmar com a JLCPCB que não usam solda por fase de vapor (BMP280 Seção 7.6).
-15. DRC de referência no último commit: 214 violações (quase todas de silk) e 258 itens não conectados (esperado, sem roteamento). Limpar o silk por último.
+15. DRC de referência no último commit (`daa0915`): 180 violações (quase todas de silk) e 255 itens não conectados (esperado, sem roteamento). Limpar o silk por último.
 
 ## Regras de placement por bloco
 
