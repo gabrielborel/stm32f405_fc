@@ -1018,13 +1018,13 @@
 		(embedded_fonts no)
 		(model "${KICAD10_3DMODEL_DIR}/Connector_USB.3dshapes/USB_C_Receptacle_HRO_TYPE-C-31-M-12.step"
 			(offset
-				(xyz 0 0 0)
+				(xyz 0 -1 0)
 			)
 			(scale
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz -0 -0 -180)
 			)
 		)
 	)
@@ -25138,6 +25138,30 @@
 		(layer "B.Cu")
 		(net "GND")
 		(uuid "c524bfec-81cd-4d93-8b5e-02aeaa82135b")
+	)
+	(segment
+		(start 129.75 105.43688)
+		(end 129.75 106.265)
+		(width 0.3)
+		(layer "F.Cu")
+		(net "Net-(J3-CC1)")
+		(uuid "0820f85b-8db9-435b-b6c9-5397cadb544f")
+	)
+	(segment
+		(start 128.625 103.9)
+		(end 128.625 104.31188)
+		(width 0.3)
+		(layer "F.Cu")
+		(net "Net-(J3-CC1)")
+		(uuid "28b99e4d-b248-4e6c-a814-17e0dd704a5c")
+	)
+	(segment
+		(start 128.625 104.31188)
+		(end 129.75 105.43688)
+		(width 0.3)
+		(layer "F.Cu")
+		(net "Net-(J3-CC1)")
+		(uuid "930936c6-1001-4b74-8fd8-1f2ec54b65d3")
 	)
 	(segment
 		(start 246.295 142.245)
