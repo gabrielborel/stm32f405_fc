@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 5,
+    "active_layer": 0,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [
@@ -24,6 +24,7 @@
       "/Motors/M2_OUT",
       "+5V",
       "/Buzzer/BZ_NEG",
+      "+3V3",
       "Net-(D1-K)",
       "LED_GREEN",
       "/Motors/M4_OUT",
@@ -191,12 +192,14 @@
     "col_widths": [
       156,
       141,
-      121,
-      130,
-      129,
-      141,
-      144,
-      114,
+      103,
+      71,
+      103,
+      103,
+      103,
+      74,
+      103,
+      103,
       103,
       103
     ],
