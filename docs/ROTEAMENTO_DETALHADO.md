@@ -212,15 +212,56 @@ Medidas que travam o fanout [conta, pads de 1,55 x 0,3 mm]:
 | 18      | GND                      | C4.2                                          | passo 2                                                                                                                                                   |
 | 19      | +3V3                     | C4.1                                          | passo 2                                                                                                                                                   |
 | 20 a 23 | SPI1 CS, SCK, MISO, MOSI | U5 e TPs                                      | passo 8                                                                                                                                                   |
-| 24      | LED_GREEN                | R7.2 (148,43; 77,4)                           | Cruza o SPI1: via, L4 para o nordeste.                                                                                                                    |
-| 25      | LED_YELLOW               | R6.2 (148,43; 79,8)                           | Idem.                                                                                                                                                     |
-| 26      | MOTOR3                   | R25.1 (133,1; 84,33)                          | Reto para o norte, 2,0 mm, L1. Resistor perto do pino [projeto].                                                                                          |
-| 27      | MOTOR4                   | R26.1 (129,0; 83,42)                          | Fica a oeste e cruza os pinos 28 a 31 (inclusive o VCAP_1). Para dentro, via, L4, e sobe com via junto do R26.1. DShot, 2 vias sem problema [inferência]. |
-| 28      | BOOT1                    | R16.1 (131,0; 80,33)                          | Norte em L1, passando entre o C11 e o R25 (conferir espaço no KiCad).                                                                                     |
-| 29, 30  | ELRS_TX, ELRS_RX         | J5.3 e J5.4 (161,4; 79,16 e 77,91)            | 30 mm para o leste, cruzando tudo: para dentro, via, L4 (já previsto).                                                                                    |
+| 24, 25  | LED_GREEN, LED_YELLOW    | R7.2 e R6.2                                   | Plano do lado norte, abaixo.                                                                                                                              |
+| 26, 27  | MOTOR3, MOTOR4           | R25.1 e R26.1                                 | Plano do lado norte, abaixo (R25 movido para junto do R26).                                                                                               |
+| 28      | BOOT1                    | R16.1 (131,0; 80,33)                          | Plano do lado norte, abaixo.                                                                                                                              |
+| 29, 30  | ELRS_TX, ELRS_RX         | J5.3 e J5.4                                   | Plano do lado norte, abaixo.                                                                                                                              |
 | 31      | VCAP_1                   | C11                                           | passo 2                                                                                                                                                   |
 | 32      | +3V3                     | C3                                            | passo 2                                                                                                                                                   |
 
+
+#### Plano do lado norte (testado numa cópia em 2026-11-02; R25 movido em `9d636b1`)
+
+O R25 estava logo acima dos pinos 24 a 28 e, junto com as vias do C21, fechava a saída dos LEDs em L1. Ele foi para (129,0; 79,45), rot 90, empilhado acima do R26 (pad 1 MOTOR3 em (129,0; 80,275), pad 2 M3_OUT em (129,0; 78,625)). Referência do R11 escondida no silk. Com o esboço completo, o DRC não teve violação nova e as 7 linhas fecharam; as trilhas ficam por sua conta.
+
+Larguras: 0,2 mm (Default). Cantos a 45°. Pontos em mm.
+
+| Rede | Trecho | Pontos | Vias |
+| ---- | ------ | ------ | ---- |
+| BOOT1 | L1 | pino 28 (132,25; 86,325), (132,25; 85,45), (131,55; 84,75), (131,55; 82,3), (131,2; 81,95), (131,2; 80,525), R16.1 (131,0; 80,325) | - |
+| GND do R16.2 | L1 | (131,0; 78,675) até a via | (130,0; 77,6) |
+| LED_YELLOW | L1 | pino 25 (133,75; 86,325), (133,75; 85,35), (132,1; 83,7), (132,1; 82,3), (131,75; 81,95), (131,75; 78,9), (132,1; 78,55), via | (132,1; 78,0) |
+| | L4 | via, (133,7; 76,4), (149,9; 76,4), (150,2; 76,7), via | (150,2; 79,8) |
+| | L1 | via até R6.2 (148,425; 79,8) | - |
+| LED_GREEN | L1 | pino 24 (134,25; 86,325), (134,25; 85,35), (132,6; 83,7), (132,6; 82,3), (132,1; 81,8), (132,1; 79,9), (132,6; 79,4), via | (132,6; 78,9) |
+| | L4 | via, (134,65; 76,85), (149,2; 76,85), via | (149,5; 77,15) |
+| | L1 | via, (148,75; 77,4), R7.2 (148,425; 77,4) | - |
+| ELRS_RX | L1 | pino 30 (131,25; 86,325) reto até a via | (131,25; 88,5) |
+| | L4 | via, (131,0; 88,25), (131,0; 75,6), (131,3; 75,3), (159,45; 75,3), (159,75; 75,6), via | (159,75; 77,905) |
+| | L1 | via até J5.4 (161,4; 77,905) | - |
+| ELRS_TX | L1 | pino 29 (131,75; 86,325), (131,75; 87,4), via | (131,95; 87,6) |
+| | L4 | via, (131,5; 87,15), (131,5; 76,05), (131,8; 75,75), (158,7; 75,75), (159,0; 76,05), via | (159,0; 79,155) |
+| | L1 | via até J5.3 (161,4; 79,155) | - |
+| MOTOR4 | L1 | pino 27 (132,75; 86,325), (132,75; 87,25), (132,6; 87,4), via | (132,6; 88,45) |
+| | L4 | via, (132,6; 89,0), (132,3; 89,3), (127,9; 89,3), (127,6; 89,0), (127,6; 83,82), via | (128,0; 83,42) |
+| | L1 | via até R26.1 (129,0; 83,42) | - |
+| MOTOR3 | L1 | pino 26 (133,25; 86,325) reto até a via | (133,25; 89,4) |
+| | L4 | via, (132,75; 89,9), (127,45; 89,9), (127,15; 89,6), (127,15; 81,125), via | (128,0; 80,275) |
+| | L1 | via até R25.1 (129,0; 80,275) | - |
+
+Por que assim:
+
+- Os LEDs não têm saída para dentro do U1 (a saída do MOSI passa embaixo do pino 24) nem para o norte reto (vias do C21). Sobem em L1 pelo corredor onde estava o R25 e passam entre o R16 e as vias do C20, que é o gargalo (cabem duas trilhas, a 0,15 mm uma da outra) [conta].
+- ELRS e motores descem logo no U1 (vias desencontradas, porque os pinos são vizinhos). O ELRS sobe em L4 numa coluna curta; os motores vão para oeste por baixo do U1, ao sul das vias do ELRS, para não cruzar.
+- Faixa da L4 ao norte (barramento leste-oeste): ELRS_RX em Y 75,3, ELRS_TX em 75,75, LED_YELLOW em 76,4, LED_GREEN em 76,85. As linhas que sobem para os conectores do topo (UART4, PA2, PB7, PA10, SWD, NRST) cruzam essa faixa em L1.
+- O INT1 fica como está (ponto aberto 8): a faixa não precisou do espaço dele.
+
+Folgas apertadas (todas passam no DRC): par de LEDs no gargalo 0,15; LED_GREEN junto da via de GND do C21 0,166; LED_YELLOW junto do R16 0,175; coluna do ELRS_TX junto da via do LED_YELLOW 0,2; coluna do ELRS_RX junto das vias do pino 32 e do C11 0,2.
+
+Pendências que este plano cria:
+
+- M3_OUT e M4_OUT (do R25.2 e do R26.2 ao J8) não estão no plano. Na L4 eles ficam presos entre as colunas dos motores e a via de GND do C3; a saída provável é L1 para oeste e via perto de X 126,5 [não testado].
+- As linhas dos motores na L4 em Y 89,3 e 89,9 (X 127 a 133) fecham essa faixa por baixo do U1: SPI2 (pinos 33 a 36) e GPS (37 e 38) não podem ter via para dentro nesse trecho. Entra no plano do lado oeste.
 
 ### Lado oeste (pinos 33 a 48)
 
