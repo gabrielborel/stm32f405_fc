@@ -299,6 +299,23 @@ Pendências que este plano cria:
 | 64      | +3V3                 | C6.1                                | passo 2                                                                                                                                                                                                                                                                                            |
 
 
+#### Sul, parte 1: motores 1 e 2 e buzzer (`ecb5421`, testado numa cópia, DRC sem violação nova)
+
+| Rede | Camadas | Caminho | Vias |
+| ---- | ------- | ------- | ---- |
+| MOTOR1 | L1 | pino 56 desce até Y 99,95, diagonal até (133,35; 100,35), oeste até X 132,32 e entra no R17.1 por cima | 0 |
+| M1_OUT | L1 | R17.2 desce em X 130,68 até Y 103,95, diagonal até (132,0; 105,27), desce em X 132,0 (a oeste do R30) até o J8.1; ramal até o R30.2 em Y 105,47 | 0 |
+| MOTOR2 | L1 | pino 57 desce até Y 99,6, diagonal, leste em Y 99,97 entre o C6 e o C2 (folga 0,26 do C6.2), entra no R24.1 por cima | 0 |
+| M2_OUT | L1, L4, L1 | R24.2 até a via em (140,2; 100,8); L4 desce em X 140,2 até Y 106,9, oeste em Y 107,2 (abaixo dos resistores), via em (135,7; 108,6); L1 até o J8.2 e sobe em X 135,7 (entre R31 e R32) até o R31.2 | 2 |
+| BUZZER | L1, L4, L1 | via para dentro do U1 em (134,75; 96,4); L4 desce em X 134,75 até Y 99,5, diagonal até (137,3; 102,05), via ao sul do R28.1 em (137,68; 103,6) | 2 |
+| Gate do Q1 | L1 | R28.2, leste em Y 101,9 abaixo do C26, do R4 e do SW2, desce em X 151,56 até o Q1.1; segue até X 156,2 e desce até o R29.2 | 0 |
+
+Menor folga 0,25 mm (passo dos pinos do U1). O que isso reserva para depois:
+
+- O SDIO do sul (pinos 51 a 54) tem que virar para oeste acima de Y 99,97 (o MOTOR1 passa em Y 100,35, e o SDIO pede 0,2 mm de folga).
+- Os pinos 58 a 62 não saem para o sul em L1 (o MOTOR2 passa por baixo deles em Y 99,97): PB7, BOOT0 e I2C saem por via para dentro do U1.
+- L1 em Y 101,9 de X 140 a 156,2 ocupada pelo gate do Q1: o BOOT0 até o SW2 passa acima (perto de Y 101,2).
+
 ## 6. SDIO (classe SDIO_50, 0,151 mm, L1)
 
 AN4488 Rev 7, Seção 8.4.1, p.38 [manual]: referência em GND; 50 ohm ± 10%; skew entre dados e clock abaixo de 250 ps @ 10 mm; trilha abaixo de 120 mm; até 20 pF a 3,3 V; até 16 nH; "mismatch within data bus, data and CK or CK and CMD should be below 10mm"; "same number of vias between the data signals".
