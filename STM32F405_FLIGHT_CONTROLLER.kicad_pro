@@ -83,20 +83,20 @@
       ],
       "drc_exclusions": [
         [
-          "silk_overlap|144050000|92010000|0dadfd3f-f4ea-447b-8d90-753d732f2b01|5ce6b4fd-884b-400a-acfa-746eafe51250",
-          "Y1 and R1 silkscreen outlines cross because their courtyards overlap; R1 placement is open decision 8 (HSE guard ring)."
+          "silk_edge_clearance|131890000|112310000|66e87c5a-d304-46be-960d-96fae404cb57|a75d4e9c-3e5a-4e0f-ad4d-1665a20b00b0",
+          "J8 solder pad footprint silk line sits at the south edge; pads must stay at the edge for wire soldering."
         ],
         [
           "silk_edge_clearance|145290000|112310000|66e87c5a-d304-46be-960d-96fae404cb57|d60eb215-b25d-4f88-8067-a8a77fc68f11",
           "J7 solder pad footprint silk line sits at the south edge; pads must stay at the edge for wire soldering."
         ],
         [
-          "silk_edge_clearance|131890000|112310000|66e87c5a-d304-46be-960d-96fae404cb57|a75d4e9c-3e5a-4e0f-ad4d-1665a20b00b0",
-          "J8 solder pad footprint silk line sits at the south edge; pads must stay at the edge for wire soldering."
-        ],
-        [
           "silk_over_copper|156150000|80050000|8f010a57-6094-4475-b6dd-dc8bcb9f619d|00000000-0000-0000-0000-000000000000",
           "U4 (BMP280) library footprint silk touches pad 5 mask opening; the fab clips it, no electrical effect."
+        ],
+        [
+          "silk_overlap|144050000|92010000|0dadfd3f-f4ea-447b-8d90-753d732f2b01|5ce6b4fd-884b-400a-acfa-746eafe51250",
+          "Y1 and R1 silkscreen outlines cross because their courtyards overlap; R1 placement is open decision 8 (HSE guard ring)."
         ]
       ],
       "meta": {
