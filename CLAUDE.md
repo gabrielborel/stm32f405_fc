@@ -89,7 +89,9 @@ DRC depois do último bloco: 181 violações (era 244). Erros restantes, todos a
 - Seta de frente em F.Silkscreen: (139,6; 80,5), 3,5 mm, apontando para leste, entre o U5 e os LEDs.
 - Referências em cima (opção (a) do Gabriel): 40 visíveis (CIs, conectores, botões, Y1, Q1 e passivos isolados), cada uma junto da sua peça, sem cobrir pad nem borda, e só se ficar claramente mais perto da própria peça que de qualquer outra (folga de 0,6 mm na distância, regra minha para evitar ambiguidade). 58 escondidas no silk (passivos em áreas apertadas, H1 a H4, J3 e J4); continuam no F.Fab. Espessura de J7 a J14 e Y1 corrigida para 0,15 mm.
 - Rótulos de função dos pads no B.Silkscreen (espelhados, lidos virando a placa), atrás de cada pad: J9 (GND, 3V3, NSS, SCK, MISO, MOSI), J14 (AUX1 a AUX3, GND), J2 (3V3, CLK, GND, DIO, RST, SWO), J10 (GND, 5V, TX4, RX4), J8 (M1 a M4, GND), J7 (BZ+, BZ-), J1 (VBAT, 12V, GND, 5V), J12 (GND, PA15, CUR), J13 (GND, PC14, PC15). Em cima não cabiam completos (texto de 1 mm mede 1,3 a 3 mm para passo de 2,54 mm, e as peças junto das fileiras ocupam o espaço). J5 e J6 sem rótulo por pino (passo de 1,25 mm). TX4 é a saída da FC (UART4_TX).
-- DRC depois do silk: 55 violações, 255 não conectados, paridade 0. Silk restante, de propósito: 13 nas referências dos TPs (face de baixo, bloco dos test points depois do roteamento) e contornos dos próprios footprints (J3 cruzando a borda, J7 e J8 perto da borda, Y1 contra R1, U4 sobre cobre). Erros de cobre: os mesmos do anel do HSE.
+- Referências dos TPs (`77029d8`): os 15 reposicionados no B.Silkscreen com a mesma regra (junto do próprio TP, sem pad, sem outro TP, sem rótulo); nenhum escondido. Se os TPs mudarem no roteamento, refazer.
+- Exclusões de DRC (`77029d8`, no `.kicad_pro`, `drc_exclusions`, cada uma com comentário em inglês): Y1 contra R1 (`silk_overlap`, decisão 8), J7 e J8 na borda (`silk_edge_clearance`, os pads de fio ficam na borda), U4 (`silk_over_copper`, silk do footprint toca a abertura do pad 5; a fábrica corta). Formato conferido no KiCad 10.0.7 por teste numa cópia: `tipo|x_nm|y_nm|uuid_principal|uuid_auxiliar` (uuid nulo quando há um item só), lista de pares [chave, comentário]; a posição é a do marcador, não a do item, e precisa ser exata. Se a peça se mover, a exclusão deixa de casar e o aviso volta. O `kicad-cli` com `--severity-all` lista os excluídos com `excluded: true`; sem `--severity-exclusions` (usar `--severity-error --severity-warning`) eles não contam.
+- DRC depois do silk: 39 violações (sem os excluídos), 255 não conectados, paridade 0. Silk restante: só os 2 `silk_edge_clearance` do J3 (o conector cruza a borda), ativos até fechar a decisão 1. Erros de cobre: os mesmos do anel do HSE (15 `annular_width`, 15 `via_dangling`, 5 `clearance`, 2 `courtyards_overlap`).
 - Scripts usados (fora do repositório, no scratchpad da sessão): posicionador de referências por candidatos em volta do courtyard e rótulos de baixo por fileira.
 
 **Riscos e pendências deste placement:**
@@ -100,7 +102,7 @@ DRC depois do último bloco: 181 violações (era 244). Erros restantes, todos a
 - UART do GPS (pinos 37 e 38, oeste do U1) e do ELRS (pinos 29 e 30, norte) vão até o leste: trilhas longas, de baixa velocidade.
 - MOTOR3 e MOTOR4 saem pelo norte do U1 (R25 e R26) e vão até o J8 no sul.
 - J2 continua com o footprint vertical, na borda norte (decisão 2).
-- Test points (B.Cu) não foram mexidos: revisar depois do roteamento.
+- Test points (B.Cu): posições não mexidas (só as referências); revisar depois do roteamento.
 - `kicad-cli` 10.0.7 regrava o `.kicad_pro` ao rodar o DRC (campos `td_enabled` e `net_colors`): é ruído, descartar com `git checkout`. Se foi o KiCad do Gabriel que salvou esses campos, commitar junto (senão voltam a cada salvamento).
 
 ## Blocos já posicionados na placa antiga de 45 x 45 mm (histórico, um commit cada)
@@ -132,7 +134,7 @@ DRC depois do último bloco: 181 violações (era 244). Erros restantes, todos a
 12. Firmware: eixos da IMU mudaram com o U5 em rot 90 (o remapeamento do BMI270 vale só para as funções de interrupção, não para os registradores de dados). OSPEEDR alto no SCK.
 13. LDOs: sem orçamento de corrente. O AP2112 em SOT25 tem 184 C/W (DS39724, p.3).
 14. BMP280: folga de 0,1 mm acima da tampa e ventilação dependem do stack. Confirmar com a JLCPCB que não usam solda por fase de vapor (BMP280 Seção 7.6).
-15. DRC de referência depois do silk (2026-11-01): 55 violações e 255 itens não conectados (esperado, sem roteamento). Silk limpo; o que sobra está em "Silk" na seção do placement.
+15. DRC de referência depois do silk (2026-11-01, `77029d8`): 39 violações (4 avisos de footprint excluídos) e 255 itens não conectados (esperado, sem roteamento). Silk limpo; o que sobra está em "Silk" na seção do placement.
 
 ## Regras de placement por bloco
 
