@@ -103,7 +103,7 @@ DRC depois do último bloco: 181 violações (era 244). Erros restantes, todos a
 - U5 em rot 270: as linhas do SPI1 podem se cruzar (o motivo da rot 90 antiga). Conferir no roteamento.
 - UART do GPS (pinos 37 e 38, oeste do U1) e do ELRS (pinos 29 e 30, norte) vão até o leste: trilhas longas, de baixa velocidade.
 - MOTOR3 e MOTOR4 saem pelo norte do U1 (R25 e R26) e vão até o J8 no sul.
-- J2 continua com o footprint vertical, na borda norte (decisão 2).
+- J2 continua com o footprint vertical, na borda norte (decisão 2, resolvida: fica vertical).
 - Test points (B.Cu): posições não mexidas (só as referências); revisar depois do roteamento.
 - `kicad-cli` 10.0.7 regrava o `.kicad_pro` ao rodar o DRC (campos `td_enabled` e `net_colors`): é ruído, descartar com `git checkout`. Se foi o KiCad do Gabriel que salvou esses campos, commitar junto (senão voltam a cada salvamento).
 
@@ -123,7 +123,7 @@ DRC depois do último bloco: 181 violações (era 244). Erros restantes, todos a
 ## Decisões abertas e pendências
 
 1. J3 na borda: 0,48 mm hoje contra o que sugere o desenho da HRO. Ligação das abas do J3 ao GND (direto ou via RC).
-2. J2: trocar para footprint horizontal ou aceitar o pino vertical (bate no stack).
+2. Resolvida (2026-11-02): J2 continua `PinHeader_1x06_P2.54mm_Vertical`, DNP, na borda norte. Motivo do Gabriel: header de 2,54 mm aceita jumper dupont e facilita o debug. A FC não vai em stack (uso tipo Pixhawk, numa case 3D, sem nada empilhado; a página da 6C Mini no PX4 não fala em stack e usa um JST SH de 6 pinos, "FMU Debug Mini", para debug). Medido e descartado: header horizontal (corpo de 1,5 a 4,04 mm e pinos até 10,04 mm dos furos; com o corpo na borda, o courtyard invade o J10 em cerca de 1,2 mm, e deslocar bate no H2 ou deixa o plástico 1,15 mm fora da borda) e JST SH SM06B-SRSS-TB horizontal (cabia entre X 148 e 158, mas exigiria esquemático, LCSC e adaptador). Consequência: gravar com a tampa da case aberta ou com abertura em cima do J2 (definir na case).
 3. Resolvida (2026-11-01): VDD do cartão fica com C23 (1 uF) + C24 (10 uF) + C25 (0,1 uF), cerca de 11,1 uF. O "Capacity Connected to Power Line, CC, máx. 5 uF" da Kingston SDCS2 (Tabela 6-6, p.12, nota "To Prevent Inrush Current") é garantia do cartão (capacitância interna, limita o pico na inserção a quente), não limite do host [inferência; a Figure E-1 que explicaria foi removida da SD Spec simplificada]. Já estava corrigido no Notion (página "microSD (SDIO)", Erros e correções). Firmware: com o EN do U6 em baixo, a descarga de 60 ohm do AP2112 (DS39724, RDCHG) dá τ ≈ 0,67 ms; a SD Spec 9.10 Seção 6.4.1.2 pede a linha abaixo de 0,5 V por mais de 1 ms antes de religar, então esperar pelo menos uns 2,3 ms (conta do projeto) e pôr as linhas SDIO em nível baixo ou analógico antes de desligar.
 4. C18 e C19 como capacitores do U4, C20 e C21 como os do U5: atribuído por proximidade no esquemático, a confirmar. O C18 está a 3,1 mm do pino 6 (VDDIO) do U4, e a Fig. 17 do BMP280 mostra o capacitor nesse pino.
 5. Q1 fica a 10,4 mm do J7 (H2 e o próprio J7 impedem algo mais perto). Alternativa: mover o J7 ao longo da borda.
@@ -186,7 +186,7 @@ Legenda da fonte: **[manual]** vem do documento citado. **[projeto]** é prátic
 - Resistor de gate perto do PB6. MOSFET (AO3400A), diodo e resistor de descarga perto dos pads BZ+/BZ-. [projeto]
 
 ### Debug
-- J2 (SWD 1x6, com SWO no pino 6): decidir se fica na lateral da placa (por exemplo a 90 graus) para não interferir no stack. Pendente. Hoje é pino vertical na borda de baixo; a alternativa é o footprint `PinHeader_1x06_P2.54mm_Horizontal`.
+- J2 (SWD 1x6, com SWO no pino 6): header vertical de 2,54 mm, DNP, na borda norte (decisão 2, 2026-11-02). Sem stack; acesso pela tampa da case.
 
 ## Manuais de referência
 
