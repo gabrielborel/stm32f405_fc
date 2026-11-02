@@ -167,6 +167,8 @@ LDOs (todos na linha Y 102,7; regra de alimentação em [projeto], DS39724 para 
 | U6                         | pino 3 = SD_EN (114,36; 103,65), vem do U1 pino 11 e do R15.1 (109,9; 103,53) | -                                                                                                                                           | -                                                                        |
 
 
+Estado em 2026-11-02: passo 4 feito. U5 (`2c4ea27`), U4 (`161505b`: pino 6 ao C18 por baixo do corpo, pinos 1 e 7 juntos numa via a oeste, CSB na L3), LDOs (`48f4ddf`: EN do U2 ligado ao pino 1 por baixo do corpo, duas vias do +3V3 do U2 para a L3, uma no TP6; C9 e C23 dividem uma via de GND). DRC com as 6 violações antigas; 175 não conectados. Pendentes neste bloco: SD_EN (sai do U6 pelo sul até o R15), TP5 (GND, embaixo do pino 4 do U2, sem lugar para via no pad) e TP13 (+3V3_SD, liga com a trilha até o J4, passo 9).
+
 Decisão 13 [projeto]: preenchimento de GND em F.Cu em volta do U2 e do U6, com várias vias para a L2 junto do pino 2. Pode ser uma zona pequena de GND em F.Cu (fica para o passo 12, preenchimentos).
 
 ## 5. Saída dos pinos do U1, lado por lado
