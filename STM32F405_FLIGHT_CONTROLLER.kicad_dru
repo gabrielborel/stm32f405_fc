@@ -1,0 +1,10 @@
+(version 1)
+
+# Power neckdown at fine-pitch parts.
+# Power net class routes at 0.5 mm with 0.2 mm clearance. On U1 (LQFP64, 0.5 mm pitch,
+# 0.3 mm pads) the widest track that clears the neighbor pins is 0.30 mm; on U5
+# (BMI270 LGA, 0.5 mm pitch) it is 0.35 mm (project calculation, 2026-11-02).
+# Inside these courtyards the router uses 0.25 mm and DRC enforces at least 0.2 mm.
+(rule "Power neckdown U1 U5"
+    (condition "A.hasNetclass('Power') && (A.intersectsCourtyard('U1') || A.intersectsCourtyard('U5'))")
+    (constraint track_width (min 0.2mm) (opt 0.25mm)))
