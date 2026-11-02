@@ -140,16 +140,22 @@ Estado em 2026-11-02 (`5d3974d`): passo 3 feito. DRC com as 6 violações antiga
 
 | CI        | Pino                        | Rede | Capacitor                         | Distância | Fonte                                     |
 | --------- | --------------------------- | ---- | --------------------------------- | --------- | ----------------------------------------- |
-| U5 BMI270 | 5 (134,74; 80,5) VDDIO      | +3V3 | C20.2 (133,48; 80,5)              | 1,26      | BMI270 Rev 1.6, Seção 7.2, p.136 [manual] |
+| U5 BMI270 | 5 (134,74; 80,5) VDDIO      | +3V3 | C20.2 (133,6; 80,5), C20 rot 90   | 1,14      | BMI270 Rev 1.6, Seção 7.2, p.136 [manual] |
 | U5        | 8 (135,0; 82,26) VDD        | +3V3 | C21.2 (135,0; 83,52)              | 1,26      | idem                                      |
-| U5        | 6 e 7 (134,74; 81,0 e 81,5) | GND  | via própria (ou ao C20.1 / C21.1) | -         | -                                         |
+| U5        | 6 e 7 (134,74; 81,0 e 81,5) | GND  | C20.1 (133,6; 81,46), direto      | -         | -                                         |
 | U4 BMP280 | 6 (155,32; 79,8) VDDIO      | +3V3 | C18.2 (157,1; 79,32)              | 1,84      | BMP280 Rev 1.26, Figura 17, p.37 [manual] |
-| U4        | 8 (154,03; 79,8) VDD        | +3V3 | C19.1 (154,52; 81,4)              | 1,67      | idem                                      |
+| U4        | 8 (154,03; 79,8) VDD        | +3V3 | C19.1 (154,52; 80,9)              | 1,21      | idem                                      |
 | U4        | 1, 5, 7                     | GND  | vias para a L2                    | -         | -                                         |
 | U4        | 2 (154,68; 78,2)            | +3V3 | via para a L3                     | -         | -                                         |
 
 
-U5: o +3V3 sai do pino com 0,25 mm (neckdown); o pad do U5 aceita no máximo 0,35 mm [conta do `.kicad_dru`]. Os pinos 6 e 7 (GND) ficam entre os pinos 5 e 8: dá para ligar 6 e 7 juntos e descer com uma via a oeste do U5.
+U5: o +3V3 sai do pino com 0,25 mm (neckdown); o pad do U5 aceita no máximo 0,35 mm [conta do `.kicad_dru`].
+
+Revisão de 2026-11-02 (`2e5894d`), testada numa cópia com todas as ligações abaixo (DRC sem violação nova, vias ligadas aos planos):
+
+- **C20 na vertical** a oeste do U5: pad de +3V3 de frente para o pino 5 e pad de GND de frente para os pinos 6 e 7. Ligações retas em L1 (pino 5 ao C20.2 com 0,25 mm; pinos 6 e 7 juntos ao C20.1 com 0,2 mm), laço de desacoplamento todo em L1, como o C4 com o pino 18 [prática de projeto, padrão da AN4488 Figura 23]. Vias a oeste, 0,82 mm: +3V3 em (132,78; 80,5) com 0,5 mm (fora dos courtyards vale a largura Power) e GND em (132,78; 81,46).
+- **C21 fica** em (135; 84), rot 90: pino 8 ao C21.2 reto. Vias a oeste, 0,82 mm: +3V3 em (134,18; 83,52) com 0,5 mm e GND em (134,18; 84,48). A via de GND não pode ir ao sul (cairia sobre o pino 22 do U1).
+- **C19** subiu 0,5 mm (o C18 já encostava no U4). Aproximar o C20 e o C21 mais 0,15 mm não muda nada [inferência]; o ganho do C20 é o caminho de volta pelo GND.
 
 LDOs (todos na linha Y 102,7; regra de alimentação em [projeto], DS39724 para valores):
 
@@ -316,20 +322,26 @@ AN4879 Rev 12, Seção 2.3, Tabela 11 [manual]: ESD (U3) o mais perto possível 
 
 ## 8. SPI1 até a IMU (U5)
 
-ES0182 Rev 19, Seção 2.12.4 [manual]: SCK curto, só com a IMU, sem capacitor. TPs passando pelo pad (decisão 11). Os TPs estão na face de baixo, então a técnica é a mesma do passo 6: via no pad do TP, trilha seguindo em L1 por cima.
+ES0182 Rev 19, Seção 2.12.4 [manual]: SCK curto, só com a IMU, sem capacitor. TPs passando pelo pad (decisão 11). Os TPs ficam na face de baixo.
 
+**Plano testado numa cópia em 2026-11-02** (esboço completo, DRC sem violação nova, todas as linhas ligadas). Os TPs já estão nas posições abaixo (`2e5894d`); as trilhas são suas. Imagem do esboço fora do repositório.
 
-| Rede        | Pino U1            | Pino U5           | TP (baixo)           | Nota                                                                                                                                                                                                                    |
-| ----------- | ------------------ | ----------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SPI1_SCK    | 21 (135,75; 86,33) | 13 (136,76; 81,0) | TP12 (135,25; 84,17) | L1, a mais curta (5,4 mm em reta). Passa sobre a via do TP12.                                                                                                                                                           |
-| SPI1_IMU_CS | 20 (136,25; 86,33) | 12 (136,76; 81,5) | TP11 (133,4; 80,2)   | O TP11 fica a oeste do U5 e o pino 12 a leste: a via do TP pode ser usada para atravessar por L4.                                                                                                                       |
-| SPI1_MISO   | 22 (135,25; 86,33) | 1 (136,5; 79,74)  | TP8 (133,4; 82,8)    | Pino 1 fica na fileira norte do U5 (lado oposto ao U1).                                                                                                                                                                 |
-| SPI1_MOSI   | 23 (134,75; 86,33) | 14 (136,76; 80,5) | TP10 (131,5; 81,5)   | Sobra um cruzamento MOSI/MISO em qualquer rotação [conta, revisão do ratsnest]. Usar a via do TP8 ou do TP10 para cruzar por L4.                                                                                        |
-| IMU_INT1    | 17 (137,75; 86,33) | 4 (135,0; 79,74)  | TP9 (137,6; 84,0)    | O pino 17 fica embaixo do C4.2 (GND). Sair para nordeste contornando o C4.2 pelo leste (X 138,3 ou mais) e voltar para a via do TP9. A via em (137,6; 84,0) fica a 0,19 mm do C4.2: passa no clearance de 0,15 [conta]. |
+Por que três linhas em L4: andando em volta de cada CI no mesmo sentido, a ordem dos pinos do U1 (MOSI, MISO, SCK, CS, INT1) e a do U5 não casam em mais de um ponto [conta]. A nota antiga de "um cruzamento só" não se confirma. A L4 resolve sem custo para o SPI (não há regra de número de vias), e nas linhas em L4 a trilha passa direto sobre o pad do TP, sem via a mais.
 
+| Rede | Pino U1 | Pino U5 | Caminho | Vias | TP (baixo) | Comprimento |
+| ---- | ------- | ------- | ------- | ---- | ---------- | ----------- |
+| SPI1_SCK | 21 (135,75; 86,33) | 13 (136,76; 81,0) | L1: sobe em X 135,75 entre o C21 e o C4 até Y 83,25, leste até X 138,3, sobe até Y 81,0, oeste até o pino | 1 (a do TP) | TP12 (137,0; 83,25), via no pad | 9,4 mm |
+| IMU_INT1 | 17 (137,75; 86,33) | 4 (135,0; 79,74) | L1: sai do pino para leste em Y 86,33 até X 139,3, sobe até Y 77,9, oeste até X 135,0, desce ao pino | 1 (a do TP) | TP9 (139,3; 82,5), via no pad | 16,1 mm |
+| SPI1_IMU_CS | 20 (136,25; 86,33) | 12 (136,76; 81,5) | via para dentro do U1 em (135,8; 88,5); L4 sobe em X 135,8 até Y 81,95, leste até a via (137,65; 81,95); L1 ao pino | 2 | TP11 (135,8; 88,5), na via de dentro | 11,7 mm |
+| SPI1_MISO | 22 (135,25; 86,33) | 1 (136,5; 79,74) | via para dentro em (135,15; 87,65); L4 sobe em X 135,15 até Y 78,85, leste até a via (136,5; 78,85); L1 desce ao pino | 2 | TP8 (135,15; 80,0), na trilha da L4 | 12,4 mm |
+| SPI1_MOSI | 23 (134,75; 86,33) | 14 (136,76; 80,5) | via para dentro em (134,3; 88,45); L4 em X 133,5 (a oeste das vias do C21) até Y 78,2, leste até X 137,65, desce até a via (137,65; 79,95); L1 ao pino | 2 | TP10 (133,5; 86,3), na trilha da L4 | 19,8 mm |
 
-- [ ] Alternativa para o pino 17, se o contorno ficar ruim: ligar o pino 18 (GND) por uma via própria para dentro do U1, em vez de levá-lo ao C4.2. Isso libera o caminho reto do INT1 [inferência].
-- [ ] Pinos do U5 sem ligação: 2, 3, 9, 10 e 11 (sem rede).
+- As vias para dentro do U1 ficam desencontradas (pinos 20, 22 e 23 são vizinhos, e a via do pino 19 já está em (136,75; 87,6)). As distâncias foram conferidas pelo DRC; se mudar uma, conferir de novo.
+- Na L4, CS (X 135,8) e MISO (X 135,15) correm lado a lado; o TP de cada um fica onde o outro não passa.
+- O SCK em L1 e o CS em L4 se sobrepõem na vista de cima, mas ficam em camadas separadas pelos planos L2 e L3.
+- Pinos do U5 sem ligação: 2, 3, 9, 10 e 11 (sem rede).
+
+**Risco (planejar antes do lado norte):** o laço do INT1 em L1 e a linha do MOSI em L4 fecham a passagem direta para leste. Os pinos 24 a 30 do U1 (LED_GREEN, LED_YELLOW, MOTOR3, MOTOR4, BOOT1, ELRS_TX, ELRS_RX) saem pelo norte; LEDs e ELRS vão para leste e precisam passar ao norte do U5, na faixa de cerca de 2 mm entre Y 75,8 (J10) e Y 77,8 (topo do INT1) em L1, ou acima de Y 78 em L4 [conta]. As vias do C20 em X 132,78 ocupam parte do corredor a oeste.
 
 ## 9. Alimentação por trilha (classe Power, 0,5 mm)
 
