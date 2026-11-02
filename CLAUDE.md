@@ -124,7 +124,7 @@ DRC depois do último bloco: 181 violações (era 244). Erros restantes, todos a
 
 1. J3 na borda: 0,48 mm hoje contra o que sugere o desenho da HRO. Ligação das abas do J3 ao GND (direto ou via RC).
 2. J2: trocar para footprint horizontal ou aceitar o pino vertical (bate no stack).
-3. VDD do cartão: C23 (1 uF) + C24 (10 uF) + C25 (0,1 uF) somam cerca de 11,1 uF, contra o máximo de 5 uF da Kingston SDCS2 (Tabela 6-6, p.13). Decisão de esquemático.
+3. Resolvida (2026-11-01): VDD do cartão fica com C23 (1 uF) + C24 (10 uF) + C25 (0,1 uF), cerca de 11,1 uF. O "Capacity Connected to Power Line, CC, máx. 5 uF" da Kingston SDCS2 (Tabela 6-6, p.12, nota "To Prevent Inrush Current") é garantia do cartão (capacitância interna, limita o pico na inserção a quente), não limite do host [inferência; a Figure E-1 que explicaria foi removida da SD Spec simplificada]. Já estava corrigido no Notion (página "microSD (SDIO)", Erros e correções). Firmware: com o EN do U6 em baixo, a descarga de 60 ohm do AP2112 (DS39724, RDCHG) dá τ ≈ 0,67 ms; a SD Spec 9.10 Seção 6.4.1.2 pede a linha abaixo de 0,5 V por mais de 1 ms antes de religar, então esperar pelo menos uns 2,3 ms (conta do projeto) e pôr as linhas SDIO em nível baixo ou analógico antes de desligar.
 4. C18 e C19 como capacitores do U4, C20 e C21 como os do U5: atribuído por proximidade no esquemático, a confirmar. O C18 está a 3,1 mm do pino 6 (VDDIO) do U4, e a Fig. 17 do BMP280 mostra o capacitor nesse pino.
 5. Q1 fica a 10,4 mm do J7 (H2 e o próprio J7 impedem algo mais perto). Alternativa: mover o J7 ao longo da borda.
 6. Resolvida na placa de 58 x 44 mm: o J13 coube (acima do J8) e o J10 ficou na segunda fileira norte (`be52df4`).
@@ -169,7 +169,7 @@ Legenda da fonte: **[manual]** vem do documento citado. **[projeto]** é prátic
 
 ### microSD (SDIO, 4 bits)
 - Sinais SDIO referenciados a plano de GND (ou PWR com 10 nF entre PWR e GND), impedância de 50 ohm +/-10%, trilha menor que 120 mm, descasamento entre dados e CK, e entre CK e CMD, menor que 10 mm, mesmo número de vias entre os sinais de dados, capacitância da trilha até 20 pF a 3,3 V. [manual] AN4488 Rev 7, Seção 8.4.1.
-- Soquete J4 (Molex 104031-0811) perto da borda e do MCU, para encurtar o barramento. 100 nF o mais perto possível do VDD do soquete. Kingston SDCS2, Tabela 6-6, p.13 (conferida): C_HOST + C_BUS até 30 pF por linha e capacitância ligada à alimentação até 5 µF. O cartão sai pela borda oeste, como no desenho da Molex (corpo do J4 passa 3,2 mm da borda). [manual] + [projeto].
+- Soquete J4 (Molex 104031-0811) perto da borda e do MCU, para encurtar o barramento. 100 nF o mais perto possível do VDD do soquete. Kingston SDCS2, Tabela 6-6, p.13 (conferida): C_HOST + C_BUS até 30 pF por linha; o "CC até 5 uF" da mesma tabela é do cartão, não do host (decisão 3). O cartão sai pela borda oeste, como no desenho da Molex (corpo do J4 passa 3,2 mm da borda). [manual] + [projeto].
 - Test points só em SDIO_CK e SDIO_CMD, como pads sobre a trilha, sem ramal. [projeto] (referência: AN4488 Seção 8.4.1).
 
 ### USB
