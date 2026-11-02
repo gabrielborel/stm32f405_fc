@@ -8,3 +8,10 @@
 (rule "Power neckdown U1 U5"
     (condition "A.hasNetclass('Power') && (A.intersectsCourtyard('U1') || A.intersectsCourtyard('U5'))")
     (constraint track_width (min 0.2mm) (opt 0.25mm)))
+
+# Check: Power tracks must stay at 0.5 mm everywhere except the neckdown at U1 and U5
+# and the short links to their decoupling capacitors (C1 to C6, C20, C21). A pad scan
+# (2026-11-02) showed 0.5 mm fits every other Power pad on the board.
+(rule "Power width outside neckdown"
+    (condition "A.Type == 'Track' && A.hasNetclass('Power') && !(A.intersectsCourtyard('U1') || A.intersectsCourtyard('U5') || A.intersectsCourtyard('C1') || A.intersectsCourtyard('C2') || A.intersectsCourtyard('C3') || A.intersectsCourtyard('C4') || A.intersectsCourtyard('C5') || A.intersectsCourtyard('C6') || A.intersectsCourtyard('C20') || A.intersectsCourtyard('C21'))")
+    (constraint track_width (min 0.5mm)))
