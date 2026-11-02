@@ -6231,11 +6231,11 @@
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "4a976066-8938-4686-a781-a9b10075b4f7")
-		(at 133 80.5)
+		(at 133.6 80.98 90)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C20"
-			(at -2 2.68238 90)
+			(at -2 2.68238 180)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "ca107fbf-0adf-4d37-9d73-ffa56ca5cabb")
@@ -6247,7 +6247,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 0 1.16 0)
+			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "c591ca7f-b7fe-4faf-91f4-640e6d0bed40")
 			(effects
@@ -6258,7 +6258,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "701d7c40-2eec-4e33-8bb5-579d3e1c6028")
@@ -6269,7 +6269,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "4ae0801d-f553-47d5-9397-4fec740ff661")
@@ -6280,7 +6280,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 0 0 0)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -6293,7 +6293,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 0 0 0)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -6306,7 +6306,7 @@
 			)
 		)
 		(property "LCSC" "C1525"
-			(at 0 0 0)
+			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
@@ -6373,7 +6373,7 @@
 			(uuid "0f21b6ec-ff38-4aa4-97d2-44115e29af64")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 0)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(uuid "b9046185-e0c4-49eb-b0c4-de65c0de40ea")
 			(effects
@@ -6384,7 +6384,7 @@
 			)
 		)
 		(pad "1" smd roundrect
-			(at -0.48 0)
+			(at -0.48 0 90)
 			(size 0.56 0.62)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
@@ -6393,7 +6393,7 @@
 			(uuid "6946f813-5763-4fc6-a6f0-1373026c2221")
 		)
 		(pad "2" smd roundrect
-			(at 0.48 0)
+			(at 0.48 0 90)
 			(size 0.56 0.62)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
@@ -6417,7 +6417,7 @@
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "4aa1ef85-c6bc-482c-9da6-d2a56a9ee83f")
-		(at 155 81.4)
+		(at 155 80.9)
 		(descr "Capacitor SMD 0402 (1005 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "capacitor")
 		(property "Reference" "C19"
@@ -23092,11 +23092,11 @@
 	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "6712c0ae-6988-4450-8550-3a5757acba14")
-		(at 133.4 80.2 180)
+		(at 135.8 88.5 180)
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP11"
-			(at 0.001278 1.994523 0)
+			(at 0 -1.8 0)
 			(layer "B.SilkS")
 			(uuid "d37dcf27-f998-447d-b370-b7fc55f01833")
 			(effects
@@ -23235,11 +23235,11 @@
 	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "74278881-1e2f-42a0-835a-ffbc80c9a02a")
-		(at 133.4 82.8 180)
+		(at 135.15 80 180)
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP8"
-			(at 1.001278 -2.628415 90)
+			(at 1.8 0 90)
 			(layer "B.SilkS")
 			(uuid "d5aca7e6-192c-40c0-9ceb-659d694c26a6")
 			(effects
@@ -23521,11 +23521,11 @@
 	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "97b0bf29-636f-490b-a21b-6a0576d21cbe")
-		(at 137.6 84 180)
+		(at 139.3 82.5 180)
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP9"
-			(at -2.627141 0.000001 0)
+			(at -1.77 -1.77 0)
 			(layer "B.SilkS")
 			(uuid "a161a072-3cd8-44a8-9ad3-8a34a1df7507")
 			(effects
@@ -23807,11 +23807,11 @@
 	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "cd321621-770c-4821-b096-a0cc78386778")
-		(at 135.25 84.17 180)
+		(at 137 83.25 180)
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP12"
-			(at 0.501278 -3.104605 90)
+			(at 1.8 0 90)
 			(layer "B.SilkS")
 			(uuid "aee211c0-3c69-4342-b95d-ffed0545eb33")
 			(effects
@@ -23950,11 +23950,11 @@
 	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "cda78d23-0869-4a9f-8c23-1b35b36bc880")
-		(at 131.5 81.5 180)
+		(at 133.5 86.3 180)
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP10"
-			(at 3.105887 0.000001 0)
+			(at 1.770001 -1.77 0)
 			(layer "B.SilkS")
 			(uuid "a5108922-aa07-4efe-87cf-dd52adae331b")
 			(effects
@@ -24379,11 +24379,11 @@
 	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
 		(layer "B.Cu")
 		(uuid "dfa9ecc5-b83d-47b7-9962-52470f2adc89")
-		(at 138.5 80 180)
+		(at 140.4 80 180)
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP7"
-			(at -2.627141 0.000001 0)
+			(at -2.5 0 0)
 			(layer "B.SilkS")
 			(uuid "cacf8e5b-3ea4-402a-afcd-fbdb9ea6a35e")
 			(effects
