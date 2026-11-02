@@ -76,9 +76,9 @@
           "width": 0.0
         },
         {
-          "gap": 0.3,
-          "via_gap": 0.5,
-          "width": 0.3
+          "gap": 0.203,
+          "via_gap": 0.203,
+          "width": 0.154
         }
       ],
       "drc_exclusions": [
@@ -181,8 +181,8 @@
         "min_text_height": 1.0,
         "min_text_thickness": 0.15,
         "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.2,
-        "min_via_annular_width": 0.2,
+        "min_track_width": 0.15,
+        "min_via_annular_width": 0.15,
         "min_via_diameter": 0.6,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
@@ -237,6 +237,9 @@
       "track_widths": [
         0.0,
         0.15,
+        0.151,
+        0.154,
+        0.2,
         0.25,
         0.3,
         0.5,
@@ -560,7 +563,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -571,26 +574,11 @@
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.25,
+        "track_width": 0.2,
         "tuning_profile": "",
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6
-      },
-      {
-        "clearance": 0.127,
-        "diff_pair_gap": 0.25,
-        "diff_pair_width": 0.2,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
-        "name": "Fanout/BGA",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.127,
-        "tuning_profile": "",
-        "via_diameter": 0.4,
-        "via_drill": 0.2
       },
       {
         "clearance": 0.2,
@@ -606,6 +594,37 @@
         "tuning_profile": "",
         "via_diameter": 0.6,
         "via_drill": 0.3
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.151,
+        "tuning_profile": "",
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
+        "name": "SDIO_50",
+        "priority": 2
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.203,
+        "diff_pair_width": 0.154,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.154,
+        "tuning_profile": "",
+        "via_diameter": 0.6,
+        "via_drill": 0.3,
+        "name": "USB_90",
+        "priority": 3,
+        "diff_pair_via_gap": 0.203
       }
     ],
     "meta": {
@@ -613,7 +632,72 @@
     },
     "net_colors": {},
     "netclass_assignments": {},
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "SDIO_50",
+        "pattern": "SDIO_CK"
+      },
+      {
+        "netclass": "SDIO_50",
+        "pattern": "SDIO_CMD"
+      },
+      {
+        "netclass": "SDIO_50",
+        "pattern": "SDIO_D0"
+      },
+      {
+        "netclass": "SDIO_50",
+        "pattern": "SDIO_D1"
+      },
+      {
+        "netclass": "SDIO_50",
+        "pattern": "SDIO_D2"
+      },
+      {
+        "netclass": "SDIO_50",
+        "pattern": "SDIO_D3"
+      },
+      {
+        "netclass": "USB_90",
+        "pattern": "USB_D+"
+      },
+      {
+        "netclass": "USB_90",
+        "pattern": "USB_D-"
+      },
+      {
+        "netclass": "USB_90",
+        "pattern": "/USB/USB_CONN_D+"
+      },
+      {
+        "netclass": "USB_90",
+        "pattern": "/USB/USB_CONN_D-"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+5V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/USB/VBUS_RAW"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+3V3"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+3V3_SD"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/+VBAT"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+12V"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
