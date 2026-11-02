@@ -22666,7 +22666,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP14"
-			(at 0 1.448 0)
+			(at 3.105887 -0.499999 0)
 			(layer "B.SilkS")
 			(uuid "7d26db9e-4c00-4022-80c4-2e8676fa569e")
 			(effects
@@ -22809,7 +22809,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP13"
-			(at 0 1.448 0)
+			(at 0.001278 1.994523 0)
 			(layer "B.SilkS")
 			(uuid "3fcd5df7-2ae7-4418-bc5e-0a2249e43f9e")
 			(effects
@@ -22952,7 +22952,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP5"
-			(at 0 1.448 0)
+			(at 0.001278 2.628416 90)
 			(layer "B.SilkS")
 			(uuid "bd74d839-272f-49fa-8f45-87bd4892e427")
 			(effects
@@ -23095,7 +23095,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP11"
-			(at 0 1.448 0)
+			(at 0.001278 1.994523 0)
 			(layer "B.SilkS")
 			(uuid "d37dcf27-f998-447d-b370-b7fc55f01833")
 			(effects
@@ -23238,7 +23238,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP8"
-			(at 0 1.448 0)
+			(at 1.001278 -2.628415 90)
 			(layer "B.SilkS")
 			(uuid "d5aca7e6-192c-40c0-9ceb-659d694c26a6")
 			(effects
@@ -23381,7 +23381,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP6"
-			(at 0 1.448 0)
+			(at -2.627141 0.000001 0)
 			(layer "B.SilkS")
 			(uuid "40e34a5c-1356-49b5-8307-57accdfdec32")
 			(effects
@@ -23524,7 +23524,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP9"
-			(at 0 1.448 0)
+			(at -2.627141 0.000001 0)
 			(layer "B.SilkS")
 			(uuid "a161a072-3cd8-44a8-9ad3-8a34a1df7507")
 			(effects
@@ -23667,7 +23667,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP15"
-			(at 0 1.448 0)
+			(at 0.001278 1.994523 0)
 			(layer "B.SilkS")
 			(uuid "5682b71d-d01e-46a8-94f5-c89bb21f8172")
 			(effects
@@ -23810,7 +23810,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP12"
-			(at 0 1.448 0)
+			(at 0.501278 -3.104605 90)
 			(layer "B.SilkS")
 			(uuid "aee211c0-3c69-4342-b95d-ffed0545eb33")
 			(effects
@@ -23953,7 +23953,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP10"
-			(at 0 1.448 0)
+			(at 3.105887 0.000001 0)
 			(layer "B.SilkS")
 			(uuid "a5108922-aa07-4efe-87cf-dd52adae331b")
 			(effects
@@ -24096,7 +24096,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP3"
-			(at 0 1.448 0)
+			(at 0.001278 1.994523 0)
 			(layer "B.SilkS")
 			(uuid "494579d8-da35-41a8-9ea7-ec75cbee0fe9")
 			(effects
@@ -24239,7 +24239,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP4"
-			(at 0 1.448 0)
+			(at 0.001278 1.994523 0)
 			(layer "B.SilkS")
 			(uuid "97ad8142-7b58-4cd1-9a26-c5826376b048")
 			(effects
@@ -24382,7 +24382,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP7"
-			(at 0 1.448 0)
+			(at -2.627141 0.000001 0)
 			(layer "B.SilkS")
 			(uuid "cacf8e5b-3ea4-402a-afcd-fbdb9ea6a35e")
 			(effects
@@ -24525,7 +24525,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP1"
-			(at 0 1.448 0)
+			(at -2.627141 0.000001 0)
 			(layer "B.SilkS")
 			(uuid "c7ce4ffe-985e-4549-9fdc-fd37cccae17d")
 			(effects
@@ -24668,7 +24668,7 @@
 		(descr "SMD pad as test Point, diameter 1.0mm")
 		(tags "test point SMD pad")
 		(property "Reference" "TP2"
-			(at 0 1.448 0)
+			(at 0.001278 -1.994522 0)
 			(layer "B.SilkS")
 			(uuid "5309a8f9-b614-4f86-b9ee-94a3e6d1b537")
 			(effects
