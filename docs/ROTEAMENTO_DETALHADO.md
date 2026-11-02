@@ -425,4 +425,11 @@ L4 tem a L3 como referência. Todos em classe Default, 0,2 mm.
 5. C1.2 (GND) também fica em cima da perna sul: a via vai ao sul, Y 97,4 ou mais (passo 2).
 6. TPs do SDIO e do SPI1 na face de baixo: via no pad do TP, sem trocar a trilha de camada (passos 6 e 8) [inferência].
 7. Área proibida embaixo do J4: conferir no desenho da Molex (passo 6).
+8. SPI1, folgas de 0,15 mm (2026-11-02, `dd3ddef`, decisão do Gabriel: deixar para depois). Tudo passa no DRC; são pontos que dá para folgar se sobrar espaço:
+   - INT1 junto das vias do MISO (136,5; 78,85) e do MOSI (137,65; 79,95): subir o trecho de cima de Y 78,3 para 77,9. **Decidir junto com o lado norte:** subir o INT1 come a faixa por onde LEDs e ELRS passam ao norte do U5.
+   - MOSI (L4) junto da via do MISO: horizontal de Y 78,3 para 78,1.
+   - MOSI (L4) junto do TP8: subir em X 133,5 até Y 79,0 antes da diagonal.
+   - Saídas do U1: MOSI junto da via do MISO (0,15) e CS junto do pad 21 (0,18); voltar a uma diagonal única do pad à via dá cerca de 0,23.
+   - CS (L4) junto do TP12 e SCK junto da via do CS: manter (mexer exige deslocar o TP12).
+   Os casos de 0,25 a 0,275 mm na saída dos pinos do U1 e do U5 vêm do passo de 0,5 mm e não mudam.
 
