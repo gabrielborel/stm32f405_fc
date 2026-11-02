@@ -4881,7 +4881,7 @@
 			(uuid "a20d8339-23c2-48c8-94ba-33b20fa275a5")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Button_Switch_SMD.3dshapes/SW_Push_1P1T_XKB_TS-1187A.step"
+		(model "${KIPRJMOD}/lib/3dmodels/SW_Push_1P1T_XKB_TS-1187A.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -14669,7 +14669,7 @@
 			(uuid "c3d36613-cffe-4de9-9721-c97f7ed76d8c")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Button_Switch_SMD.3dshapes/SW_Push_1P1T_XKB_TS-1187A.step"
+		(model "${KIPRJMOD}/lib/3dmodels/SW_Push_1P1T_XKB_TS-1187A.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -20944,7 +20944,7 @@
 			(uuid "4216fda1-2bdd-403f-a6d0-3ecb39418f3c")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Connector_Card.3dshapes/microSD_HC_Molex_104031-0811.step"
+		(model "${KIPRJMOD}/lib/3dmodels/microSD_HC_Molex_104031-0811.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -20952,7 +20952,7 @@
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz 0 0 180)
 			)
 		)
 	)
