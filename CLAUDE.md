@@ -96,11 +96,18 @@ DRC depois do último bloco: 181 violações (era 244). Erros restantes, todos a
 - DRC depois do silk: 39 violações (sem os excluídos), 255 não conectados, paridade 0. Silk restante: só os 2 `silk_edge_clearance` do J3 (o conector cruza a borda), ativos até fechar a decisão 1. Erros de cobre: os mesmos do anel do HSE (15 `annular_width`, 15 `via_dangling`, 5 `clearance`, 2 `courtyards_overlap`).
 - Scripts usados (fora do repositório, no scratchpad da sessão): posicionador de referências por candidatos em volta do courtyard e rótulos de baixo por fileira.
 
+**Revisão do ratsnest (2026-11-02, antes do roteamento):** imagem por MST entre pads (sem GND e +3V3), comprimentos em linha reta, não de trilha. Nenhuma peça mudou. Regras de camada combinadas para o roteamento do Gabriel:
+- Lado oeste do U1, de cima para baixo: GPS_TX/RX (37, 38), SDIO_D0/D1 (39, 40), USB_D-/D+ (44, 45). O USB sobe até o U3 (Y 80,3) e o SDIO D0/D1 vai a oeste até o J4: na mesma camada um cruza o outro. Proposta [inferência]: par USB passa sob o SDIO D0/D1 em L4 com duas vias simétricas por linha (stackup simétrico, então 0,154 / 0,203 mm em L4 referenciado à L3 também dá cerca de 90 ohm; USB FS de 12 Mbit/s tolera bem); SDIO todo em L1, sem vias ("mesmo número de vias", AN4488 Seção 8.4.1).
+- Em L4 (referência L3, longe do vão da ilha da L2): GPS_TX/RX (cerca de 33 mm, via junto do pino), ELRS_TX/RX (31 mm), I2C1 SCL/SDA (39 a 44 mm, contornar o oscilador pelo sul e leste), M3_OUT e M4_OUT (29 a 31 mm, do R25/R26 ao J8 passando sob o U1).
+- NRST: o pino 7 fica colado nos pinos 5 e 6 do oscilador. Caminho sem cruzar o vão: sair a leste até X ≈ 140,5, subir rente ao U1 (o vão começa em X 140,7) até Y ≈ 88,5 e seguir a leste por cima da ilha até C15, SW1 e J2. C15 a cerca de 9 mm do pino (o DS8626 não dá distância).
+- OK: SDIO 22 a 32 mm (com pull-ups e TPs, limite de 120 mm), USB do U3 ao U1 cerca de 16 a 17,5 mm, motores 1 e 2 direto do lado sul ao J8, +5V por trilha da classe Power.
+- Imagem e script fora do repositório (scratchpad da sessão).
+
 **Riscos e pendências deste placement:**
 - SW1 e SW2 não ficaram perto do USB (não coube no noroeste); a ideia de botões perto do USB era só [inferência].
 - C15 (100 nF do NRST) ficou junto do SW1, não colado no pino 7: o lado leste do U1 é a região do oscilador, e o AN2867 Seção 7.1 pede sinais longe dele. Distância ao pino não conferida em manual.
 - R4 (pull-down do BOOT0) ficou junto do SW2, não do pino 60.
-- U5 em rot 270: as linhas do SPI1 podem se cruzar (o motivo da rot 90 antiga). Conferir no roteamento.
+- U5 fica em rot 270 (revisão do ratsnest, 2026-11-02, decidido com o Gabriel). Conta minha: a ordem cíclica dos sinais em volta do BMI270 (MISO, INT1, CS, SCK, MOSI) não muda com a rotação, e a ordem dos pinos 17 a 23 do U1 (MOSI, MISO, SCK, CS, INT1) só difere dela pela troca MOSI/MISO: sobra exatamente um cruzamento em qualquer rotação. A nota antiga de que a rot 90 saía "sem cruzamento" não se confirma. Como cada linha do SPI1 já tem TP na face de baixo (TP10 MOSI, TP8 MISO, TP12 SCK, TP11 CS, TP9 INT1), o cruzamento usa a via que já existe para o TP; nenhuma via extra. SCK em L1 até o U1, passando pelo TP12 sem ramal (decisão 11). Sem remapear a IMU no firmware.
 - UART do GPS (pinos 37 e 38, oeste do U1) e do ELRS (pinos 29 e 30, norte) vão até o leste: trilhas longas, de baixa velocidade.
 - MOTOR3 e MOTOR4 saem pelo norte do U1 (R25 e R26) e vão até o J8 no sul.
 - J2 continua com o footprint vertical, na borda norte (decisão 2, resolvida: fica vertical).
@@ -113,7 +120,7 @@ DRC depois do último bloco: 181 violações (era 244). Erros restantes, todos a
 |---|---|---|
 | 4 camadas, MCU, HSE, VDD | e1b2cef (wip), 4935abb | Oscilador e capacitores já movidos por ele. C6 espelhado sob os pinos 63 e 64. |
 | Alimentação | 1448a49 | LDOs U2 e U6 embaixo à esquerda (22 mm do BMP280). VDDA (R34, C7, C8) junto dos pinos 12 e 13. Divisor de VBAT abaixo do cristal. |
-| IMU | ae644af | U5 girado 90 graus (sem cruzamento nas linhas do SPI1, SCK com 4,4 mm). C20 e C21 nos pinos 5 e 8. |
+| IMU | ae644af | U5 girado 90 graus (nota da época: "sem cruzamento nas linhas do SPI1", não confirmada em 2026-11-02; SCK com 4,4 mm). C20 e C21 nos pinos 5 e 8. |
 | USB (apoio) | 7ae9b07 | U3 entre J3 e U1, R8 e R9 nas laterais, D4, R12, R10, R11 e C17 à direita do J3. |
 | microSD | 4beb8ea | Pull-ups no corredor entre J4 e U1, C24 abaixo deles, C25 acima do J4, R15 perto do U6. |
 | Motores e buzzer | fce4eec | R17, R24, R28 abaixo do U1, R25 e R26 acima. R30 a R33 ao lado de H3. Buzzer: Q1 e R29 à esquerda de H2. |
