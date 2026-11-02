@@ -260,7 +260,7 @@ Folgas apertadas (todas passam no DRC): par de LEDs no gargalo 0,15; LED_GREEN j
 
 Pendências que este plano cria:
 
-- M3_OUT e M4_OUT (do R25.2 e do R26.2 ao J8) não estão no plano. Na L4 eles ficam presos entre as colunas dos motores e a via de GND do C3; a saída provável é L1 para oeste e via perto de X 126,5 [não testado].
+- Resolvido (`631b066`): M3_OUT e M4_OUT. Via junto do R25.2 em (128,0; 78,625) e, para o M4_OUT, trilha em L1 do R26.2 para oeste até a via em (126,0; 81,78). Na L4 descem em X 126,75 (M3) e 126,0 (M4), a oeste das colunas dos motores; logo abaixo da faixa dos motores (Y 90,3) entram sob os pads oeste do U1 (X 128,1 e 127,6) para desviar do TP1 e do TP2. O M3 vai para leste em Y 100,8 (logo abaixo do U1), desce a oeste do C2 em X 133,4 e corre em Y 105,3; o M4 volta para X 126,0 (entre o TP5 e a via de GND do C10) e corre em Y 105,8. Sobem por vias ao norte do R32.2 (136,6; 104,5) e do R33.2 (138,4; 104,5) e seguem em L1 até J8.3 e J8.4, passando entre os resistores. 45,2 e 49,5 mm, 2 vias cada. Menor folga 0,2 mm (M3_OUT contra o MOTOR3). Ficam bloqueados na L4: a faixa X 126 a 128 a oeste do U1 (Y 79 a 102) e a faixa Y 100,8 a 106 ao sul do U1 até X 138,4. O I2C e o BUZZER, que saem pelo sul, devem ficar acima de Y 104 e a leste de X 133,4.
 - As linhas dos motores na L4 em Y 89,3 e 89,9 (X 127 a 133) fecham essa faixa por baixo do U1: SPI2 (pinos 33 a 36) e GPS (37 e 38) não podem ter via para dentro nesse trecho. Entra no plano do lado oeste.
 
 ### Lado oeste (pinos 33 a 48)
