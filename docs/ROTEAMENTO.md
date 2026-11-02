@@ -1,6 +1,6 @@
 # Guia de roteamento da FC (placa de 58 x 44 mm)
 
-Guia para o roteamento manual no KiCad 10. Resume o que foi decidido antes do roteamento (2026-11-01 e 2026-11-02). O registro completo, com o histórico das decisões, está no `CLAUDE.md`.
+Guia para o roteamento manual no KiCad 10. Resume o que foi decidido antes do roteamento (2026-11-01 e 2026-11-02). O registro completo, com o histórico das decisões, está no `CLAUDE.md`. O passo a passo com referência, pino e coordenada de cada ligação está em `docs/ROTEAMENTO_DETALHADO.md`.
 
 Legenda da fonte: **[manual]** vem do documento citado. **[projeto]** é prática ou decisão do projeto. **[inferência]** é dedução, não está em manual.
 
@@ -61,6 +61,8 @@ Do mais restrito para o mais livre. O U1 é o ponto mais apertado, então o rote
 ### 4.2 Desacoplamento
 
 - [ ] Cada 100 nF ligado direto ao seu pino, curto, com via para o plano junto do pad (AN4488 Seção 8.3, "as close as possible", "as low impedance as possible") [manual].
+- [ ] Ordem: pino, capacitor e só depois a via, do lado de fora do capacitor: via para a L3 no pad de +3V3 e via para a L2 no pad de GND (AN4488 Figura 23, p.38) [manual].
+- [ ] Nenhuma via de GND dentro do vão da ilha na L2 (X 140,7 a 149,6 nas faixas Y 89,2 a 89,7 e Y 96,4 a 96,9; X 149,1 a 149,6): ali a via não encosta no plano e o DRC não acusa. Caso do C1: via de GND ao sul, Y 97,4 ou mais [conta].
 - [ ] U1: pinos de VDD 19, 32, 48, 64 e o pino 1 (VBAT ligado ao +3V3) com C1 a C6 (C2 é o de 4,7 µF).
 - [ ] VDDA (pino 13, rede +3.3VA): R34, C7 e C8 junto dos pinos 12 e 13.
 - [ ] U5 (BMI270): C20 no pino 5 (VDDIO) e C21 no pino 8 (VDD), 1,26 mm cada (BMI270 Seção 7.2) [manual].
@@ -69,7 +71,8 @@ Do mais restrito para o mais livre. O U1 é o ponto mais apertado, então o rote
 
 ### 4.3 Saída dos pinos do U1 (fanout)
 
-- [ ] Decisão 10: pinos 14 a 16 (UART4 e vizinhos) apertados pelo grupo do VDDA; SDIO D2, D3, CK e CMD saem pelo lado sul, com o R17 embaixo dos pinos 51 a 55.
+- [ ] Decisão 10: pinos 14 a 16 (UART4 e vizinhos) apertados pelo grupo do VDDA (entre os pads e o C7 cabe uma trilha só, 0,57 mm); SDIO D2, D3, CK e CMD saem pelo lado sul, com o R17 embaixo dos pinos 51 a 55 (sobram 0,78 mm, cabe uma linha SDIO). Resolvido (`995dbbf`): R17 em (131,5; 101,2) rot 180, corredor de 2,28 mm; referência do C2 em (135; 103,25).
+- [ ] Lado leste: entre a ponta dos pads (X 140,455) e o vão da L2 (X 140,7) não passa trilha. Os sinais desse lado (SD_CD, PC14, PC15, NRST, VBAT_SENSE, LED_RED, PC2, SD_EN, UART4_TX) saem para dentro do U1, descem numa via sob o corpo e seguem em L4 [conta / prática de projeto].
 - [ ] Lado oeste, de cima para baixo: GPS_TX/RX (37, 38), SDIO_D0/D1 (39, 40), USB_D-/D+ (44, 45).
 - [ ] GPS_TX/RX: via para L4 logo junto dos pinos.
 
@@ -85,7 +88,7 @@ Do mais restrito para o mais livre. O U1 é o ponto mais apertado, então o rote
 - [ ] Tudo em L1, sem vias (garante o "mesmo número de vias" entre os dados).
 - [ ] Comprimento abaixo de 120 mm (hoje 22 a 32 mm em linha reta).
 - [ ] Diferença entre dados e CK, e entre CK e CMD, pequena: o manual pede skew abaixo de 250 ps @ 10 mm.
-- [ ] Test points TP15 (CK) e TP14 (CMD) passando pelo pad, sem ramal (decisão 11).
+- [ ] Test points TP15 (CK) e TP14 (CMD) passando pelo pad, sem ramal (decisão 11). Eles ficam na face de baixo: a trilha segue em L1 e passa sobre uma via no centro do pad do TP, sem trocar de camada. Isso põe uma via no CK e no CMD, não nos dados [inferência].
 
 ### 4.5 SPI1 até a IMU
 
@@ -112,7 +115,7 @@ L4 se referencia à L3 e não passa pelo vão da ilha da L2.
 
 ### 4.8 NRST e BOOT0
 
-- [ ] NRST: o pino 7 fica colado nos pinos 5 e 6 do oscilador. Sair para leste até X ≈ 140,5, subir rente ao U1 (o vão começa em X 140,7) até Y ≈ 88,5 e seguir para leste por cima da ilha até C15, SW1 e J2.
+- [ ] NRST: o pino 7 fica colado nos pinos 5 e 6 do oscilador. Sair para dentro do U1, descer numa via sob o corpo, seguir em L4 até perto do C15 e subir com via até C15, SW1 e J2. (Corrigido em 2026-11-02: o caminho antigo, subindo em L1 em X ≈ 140,5, não cabe; a ponta dos pads fica em X 140,455 e o vão começa em X 140,7, sobram 0,245 mm [conta].)
 - [ ] BOOT0: do pino 60 (sul) até R4 e SW2.
 
 ### 4.9 Fim
@@ -123,7 +126,9 @@ L4 se referencia à L3 e não passa pelo vão da ilha da L2.
 
 ## 5. Não fazer
 
-- Não cruzar o vão da ilha do oscilador na L2 com trilhas de L1.
+- Não cruzar o vão da ilha do oscilador na L2 com trilhas de L1. Exceção em aberto: o C8.1 (+3.3VA) já fica em cima da perna norte do vão (ver `ROTEAMENTO_DETALHADO.md`, passo 3).
+- Não pôr via de GND dentro do vão (não liga ao plano).
+- BUZZER (pino 58) e MOTOR2 (pino 57) se cruzam em L1 entre o C2 e o R24: BUZZER por dentro do U1 e L4.
 - Não passar sinais de alta frequência perto do oscilador (AN2867 Seção 7.1, Figura 16) [manual].
 - Não deixar ramal (stub) nos test points do SPI1 e do SDIO.
 - Não alimentar servos pelos pads AUX: a corrente vem da PDB ou do BEC [projeto].
