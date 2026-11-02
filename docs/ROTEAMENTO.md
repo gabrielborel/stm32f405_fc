@@ -126,7 +126,7 @@ L4 se referencia à L3 e não passa pelo vão da ilha da L2.
 
 ## 5. Não fazer
 
-- Não cruzar o vão da ilha do oscilador na L2 com trilhas de L1. Exceção em aberto: o C8.1 (+3.3VA) já fica em cima da perna norte do vão (ver `ROTEAMENTO_DETALHADO.md`, passo 3).
+- Não cruzar o vão da ilha do oscilador na L2 com trilhas de L1. Exceção aceita (2026-11-02): o C8.1 (+3.3VA) fica em cima da perna norte do vão e a trilha do VDDA cruza o vão; é alimentação filtrada, risco baixo [inferência] (ver `ROTEAMENTO_DETALHADO.md`, passo 3).
 - Não pôr via de GND dentro do vão (não liga ao plano).
 - BUZZER (pino 58) e MOTOR2 (pino 57) se cruzam em L1 entre o C2 e o R24: BUZZER por dentro do U1 e L4.
 - Não passar sinais de alta frequência perto do oscilador (AN2867 Seção 7.1, Figura 16) [manual].

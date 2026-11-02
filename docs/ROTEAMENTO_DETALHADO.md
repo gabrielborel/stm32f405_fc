@@ -117,7 +117,7 @@ Estado em 2026-11-02 (`da8c2d1` e `129a801`): passo 2 feito. DRC com as 6 viola�
 - [x] C2 só por vias: +3V3 em (134,05; 102,85) e GND em (135,95; 102,85).
 - [x] Nenhuma via de GND dentro do vão da ilha (a do C1 ficou em Y 97,6).
 - [x] Conferência e padronização das vias (`129a801`).
-- [ ] Pendente, segue no passo 3: a trilha +3.3VA do pino 13 ao C8.1 passa sobre a perna norte do vão (ponto aberto 4).
+- [x] A trilha +3.3VA do pino 13 ao C8.1 passa sobre a perna norte do vão: aceita como exceção (passo 3, ponto aberto 4).
 
 ## 3. VDDA (filtro do analógico)
 
@@ -125,13 +125,15 @@ Cadeia: +3V3 no R34.1 (145,03; 88,4), R34 de 0 ohm, R34.2 (143,38; 88,4) = +3.3V
 
 AN4488 Seção 2.2 [manual]: VDDA com 100 nF + 1 µF (C8 e C7). O filtro perto dos pinos 12 e 13 é [projeto].
 
-- [ ] R34.1: via para a L3 (é +3V3) ao lado do pad.
-- [ ] R34.2 ao C7.1 e o C7.1 ao C8.1 (classe Default, 0,2 mm).
-- [ ] C8.1 ao pino 13, curto (1,83 mm).
-- [ ] C7.2 (141,5; 86,78): via para a L2 com o centro em Y 88,7 ou menos (fora da perna norte) [conta].
-- [ ] TP4: a rede chega pela via no próprio pad do TP (ver passo 7, "TP na face de baixo").
+Estado em 2026-11-02 (`5d3974d`): passo 3 feito. DRC com as 6 violações antigas, 216 não conectados; as duas vias novas ligadas aos planos.
 
-**Ponto aberto (sua decisão):** o pad C8.1 (Y 89,24 a 89,8) já fica em cima da perna norte do vão (Y 89,2 a 89,7), então a ligação do C7 ao C8 cruza o vão. É uma linha de alimentação filtrada, sem borda rápida; o laço de desacoplamento (pino 13, C8, pino 12) fica todo em L1 [inferência: risco baixo]. A regra "não cruzar o vão" foi pensada para sinais. Opções: aceitar e registrar como exceção, ou mexer no C8/C7 (decisão de placement).
+- [x] R34.1: via para a L3 em (146,145; 88,4), a leste, 1,12 mm (padrão 0603), trilha de 0,5 mm (classe Power).
+- [x] R34.2 ao C7.1 e o C7.1 ao C8.1 (classe Default, 0,2 mm). O degrau de 0,075 mm junto do R34.2 vem da diferença de Y entre os centros dos pads (88,325 e 88,4), não do mouse.
+- [x] C8.1 ao pino 13.
+- [x] C7.2: via para a L2 em (141,5; 85,655), ao norte, 1,12 mm, longe do vão.
+- [x] TP4: trilha em L1 do R34.2 até uma via no centro do pad do TP4 (145; 87).
+
+**Exceção aceita (decisão do Gabriel, 2026-11-02):** o pad C8.1 (Y 89,24 a 89,8) já fica em cima da perna norte do vão (Y 89,2 a 89,7), então a ligação do C7 ao C8 cruza o vão. É uma linha de alimentação filtrada, sem borda rápida; o laço de desacoplamento (pino 13, C8, pino 12) fica todo em L1 [inferência: risco baixo]. A regra "não cruzar o vão" foi pensada para sinais. Decisão: fica como está, sem mexer no C7/C8.
 
 ## 4. Desacoplamento dos outros CIs
 
@@ -407,7 +409,7 @@ L4 tem a L3 como referência. Todos em classe Default, 0,2 mm.
 1. Resolvido (`995dbbf`): saída sul do SDIO. R17 em (131,5; 101,2) rot 180 e referência do C2 em (135; 103,25).
 2. NRST: o caminho de L1 não cabe; nova proposta por L4 (passo 11). Já corrigido no `ROTEAMENTO.md`.
 3. BUZZER (pino 58) cruza o MOTOR2 (pino 57) na passagem entre o C2 e o R24: BUZZER por dentro do U1 e L4 (passo 5, lado sul).
-4. VDDA: o C8.1 fica em cima da perna norte do vão; aceitar como exceção ou mexer no C7/C8 (passo 3).
+4. Resolvido (2026-11-02, exceção aceita): o C8.1 fica em cima da perna norte do vão e a trilha +3.3VA cruza o vão; alimentação filtrada, risco baixo [inferência] (passo 3).
 5. C1.2 (GND) também fica em cima da perna sul: a via vai ao sul, Y 97,4 ou mais (passo 2).
 6. TPs do SDIO e do SPI1 na face de baixo: via no pad do TP, sem trocar a trilha de camada (passos 6 e 8) [inferência].
 7. Área proibida embaixo do J4: conferir no desenho da Molex (passo 6).
