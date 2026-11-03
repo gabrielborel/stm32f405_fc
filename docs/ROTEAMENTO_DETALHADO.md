@@ -263,6 +263,15 @@ Pendências que este plano cria:
 - Resolvido (`631b066`): M3_OUT e M4_OUT. Via junto do R25.2 em (128,0; 78,625) e, para o M4_OUT, trilha em L1 do R26.2 para oeste até a via em (126,0; 81,78). Na L4 descem em X 126,75 (M3) e 126,0 (M4), a oeste das colunas dos motores; logo abaixo da faixa dos motores (Y 90,3) entram sob os pads oeste do U1 (X 128,1 e 127,6) para desviar do TP1 e do TP2. O M3 vai para leste em Y 100,8 (logo abaixo do U1), desce a oeste do C2 em X 133,4 e corre em Y 105,3; o M4 volta para X 126,0 (entre o TP5 e a via de GND do C10) e corre em Y 105,8. Sobem por vias ao norte do R32.2 (136,6; 104,5) e do R33.2 (138,4; 104,5) e seguem em L1 até J8.3 e J8.4, passando entre os resistores. 45,2 e 49,5 mm, 2 vias cada. Menor folga 0,2 mm (M3_OUT contra o MOTOR3). Ficam bloqueados na L4: a faixa X 126 a 128 a oeste do U1 (Y 79 a 102) e a faixa Y 100,8 a 106 ao sul do U1 até X 138,4. O I2C e o BUZZER, que saem pelo sul, devem ficar acima de Y 104 e a leste de X 133,4.
 - As linhas dos motores na L4 em Y 89,3 e 89,9 (X 127 a 133) fecham essa faixa por baixo do U1: SPI2 (pinos 33 a 36) e GPS (37 e 38) não podem ter via para dentro nesse trecho. Entra no plano do lado oeste.
 
+#### Leste, parte 1 (2026-11-02, testado numa cópia, DRC sem violação nova)
+
+- Vias movidas (`9e61881`): GND do pino 63 e do C6 saiu de dentro do U1 para junto do C6.2, em (136,34; 99,3); via do BUZZER para logo abaixo do pino 58, em (134,95; 99,15). Liberam o leque dos pinos 59 a 62.
+- UART4 (`573d1d8`): TX (pino 14) por via funda em (137,55; 89,25) e canal nordeste na L4 (X 137,55, depois 138,25), sobe em (138,25; 77,6) e cruza a faixa do norte em L1 em Y 75,8 até o J10.3. RX (pino 15) por via rasa em (138,4; 88,6) e corredor leste (X 140,05), sobe em (140,05; 77,6) e cruza em Y 76,4 até o J10.4. TP7 (GND) mudou para (143,2; 83,9), com via no pad.
+- LED_RED e NRST (`b1fb9cb`): LED_RED (pino 9) por via funda em (137,45; 91,75), corredor leste em X 140,5, leste em Y 82,2 até a via a leste do R5.2. NRST (pino 7) por via em (137,45; 93,45), corredor em X 140,95, leste em Y 87,8 (entre o TP4 e a via do R34), via junto do C15.1; L1 até o C15 e por baixo do SW1 até os dois pads 2. Passa na L4 por baixo dos pads do oscilador [inferência: os planos L2 e L3 blindam]. Falta o NRST até o J2.5.
+- Leque reservado para os pinos 8 e 10: vias em (136,6; 92,6) e (136,6; 90,9).
+
+Capacidade que sobra (ponto aberto): o canal nordeste e o corredor leste estão cheios (UART4, LED_RED, NRST). O PA2 fica sem caminho por ali. Tudo o que vai para leste ou sudeste (I2C, BOOT0, PA15, VBAT_SENSE, PC14, PC15, PC2) precisa do canto sudeste do U1 e da faixa da L4 sob o R2 e o R3, que comporta 4 linhas para 8 [conta]. Opções: tirar PC14 e PC15 do J13 (o `CLAUDE.md` os marca como os primeiros a sair) e revisar posições no sudeste (grupo do VBAT_SENSE, R4, J13, grupo do PC2).
+
 ### Lado oeste (pinos 33 a 48)
 
 
