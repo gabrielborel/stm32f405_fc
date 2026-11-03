@@ -270,7 +270,28 @@ Pendências que este plano cria:
 - LED_RED e NRST (`b1fb9cb`): LED_RED (pino 9) por via funda em (137,45; 91,75), corredor leste em X 140,5, leste em Y 82,2 até a via a leste do R5.2. NRST (pino 7) por via em (137,45; 93,45), corredor em X 140,95, leste em Y 87,8 (entre o TP4 e a via do R34), via junto do C15.1; L1 até o C15 e por baixo do SW1 até os dois pads 2. Passa na L4 por baixo dos pads do oscilador [inferência: os planos L2 e L3 blindam]. Falta o NRST até o J2.5.
 - Leque reservado para os pinos 8 e 10: vias em (136,6; 92,6) e (136,6; 90,9).
 
-Capacidade que sobra (ponto aberto): o canal nordeste e o corredor leste estão cheios (UART4, LED_RED, NRST). O PA2 fica sem caminho por ali. Tudo o que vai para leste ou sudeste (I2C, BOOT0, PA15, VBAT_SENSE, PC14, PC15, PC2) precisa do canto sudeste do U1 e da faixa da L4 sob o R2 e o R3, que comporta 4 linhas para 8 [conta]. Opções: tirar PC14 e PC15 do J13 (o `CLAUDE.md` os marca como os primeiros a sair) e revisar posições no sudeste (grupo do VBAT_SENSE, R4, J13, grupo do PC2).
+Capacidade que sobra (ponto aberto, resolvido na parte 2): o canal nordeste e o corredor leste estão cheios (UART4, LED_RED, NRST). O PA2 fica sem caminho por ali. O J13 saiu (`894256c`, PC14 e PC15 sem ligação).
+
+#### Leste, parte 2: canto sudeste e I2C (`91912c6`, 2026-11-02, testado numa cópia, DRC sem violação nova, 144 para 119 não conectados)
+
+A "reserva" da parte 1 (vias em X 136,6) não foi usada. Sem cruzamento fora do U1: o PC2 cruza por dentro do U1 em L1.
+
+| Rede | Caminho | Vias |
+| ---- | ------- | ---- |
+| VBAT_SENSE | pino 8, L1 para dentro até a via (136,4; 92,6); L4 desce, leste em Y 94,2 (abaixo da via do NRST), corredor X 141,45, leste em Y 96,9 até o TP3, agora em (145,6; 97,3) com via no pad; L1 ao R2.2, ao R3.1 e ao C26.1. 21,6 mm | 2 |
+| PC2 | pino 10, L1 a oeste em Y 91,15 (acima da via do LED_RED) e desce em X 133,9 até a via entre os pinos 56 e 57 (133,9; 96,35); faixa; via (157,9; 99,0) a oeste do R39; L1 ao R39.2, ao R38.1 e ao C27.2. 44,1 mm | 2 |
+| PA15 | via (131,0; 95,75); faixa; via (162,89; 102,34); L1 ao J12.2. 39,9 mm | 2 |
+| BOOT0 | via (135,75; 95,35); faixa; via (150,9; 98,55) entre o R4 e o SW2.1; L1 ao R4.1 e, em Y 98,55 por baixo do SW2, aos dois pads SW2.2. 34,2 mm | 2 |
+| I2C1_SCL | via (136,35; 96,15); faixa; sobe em X 150,15; leste em Y 89,75 até a via (157,85; 89,75), L1 pelo R13.2 até o J6.5; coluna X 157,2 até a via (157,2; 77,7) a leste do U4.4 | 3 |
+| I2C1_SDA | via (137,0; 95,45); faixa; sobe em X 149,7; leste em Y 89,2; coluna X 156,4 com via (156,4; 88,5), L1 pelo R14.2 até o J6.6; via (155,325; 76,5) ao norte do U4.3 | 3 |
+| /Power/+VBAT | R2.1, L1 até a via (143,175; 100,7) ao sul da faixa; L4 de 0,5 mm desce e vai a oeste em Y 109,5 até o J1.1 (pad passante). 25,3 mm | 1 |
+
+- Faixa na L4: embaixo dos pads sul do U1, de norte a sul, SDA 97,06, SCL 97,44, BOOT0 97,82, PC2 98,2, PA15 98,58; diagonais de 45 graus entre a via do C1 (141,3; 97,6) e a via do M2_OUT (140,2; 100,8); a leste, Y 98,25, 98,7, 99,15, 99,6 e 100,05.
+- Peças movidas: TP3 para (145,6; 97,3); R14 (pull-up do SDA) para (157,6; 87,675), rot 270; R13 (SCL) para (159,2; 90,575), rot 90. Referências do J6 para (159,0; 93,9) e do SW1 para (153,84; 84,25), na horizontal.
+- Também: via de GND (148,6; 97,35) para o R3.2, o C26.2 e o R4.2 (a faixa ocupa a L4 embaixo deles); vias de +3V3 nos dois pads SW2.1 (151,965; 93,1 e 101,2) e nos pull-ups (158,2; 91,4 e 158,6; 86,85).
+- Folgas abaixo de 0,25 mm: linhas embaixo dos pads sul 0,18; PA15 contra a via do BUZZER 0,17; VBAT_SENSE contra o NRST na saída do pino 8 cerca de 0,19; grupo de vias BOOT0, SCL e SDA 0,2.
+- Risco: as vias do BOOT0, do SCL e do SDA, com as duas de +3V3 dos pinos 1 e 64, abrem na L2 uma fenda de cerca de 3,7 mm sob o U1. Só sinais lentos passam por cima [inferência].
+- Pendentes: GPS_TX e GPS_RX sem caminho até o J6 (a faixa sob os pads sul está cheia); via de GND do R39.1 e do C27.1; CURR_IN (R38.2 ao J12.3). Para o SD_CD (pino 2) sobra a L4 em Y 94,75 (entre o VBAT_SENSE e as vias do sul); o PB7 (pino 59) sai em L1 para o norte em X 135,1.
 
 ### Lado oeste (pinos 33 a 48)
 
