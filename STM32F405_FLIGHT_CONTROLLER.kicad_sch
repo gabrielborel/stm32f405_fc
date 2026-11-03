@@ -2632,6 +2632,18 @@
 		(color 0 0 0 0)
 		(uuid "d0002e59-2642-4d29-9183-7d2019b70f00")
 	)
+	(no_connect
+		(at 120.65 125.73)
+		(uuid "10a9625c-6b25-4300-9970-77f08356f1c0")
+	)
+	(no_connect
+		(at 120.65 128.27)
+		(uuid "13f4915a-deb3-4ce8-b102-69dc587032a5")
+	)
+	(no_connect
+		(at 99.06 128.27)
+		(uuid "9ac1935f-7218-412e-a6c8-59362cdb4073")
+	)
 	(wire
 		(pts
 			(xy 115.57 80.01) (xy 120.65 80.01)
@@ -2851,16 +2863,6 @@
 			(type default)
 		)
 		(uuid "48b314f3-6e12-4d44-9805-e7f87dc47a79")
-	)
-	(wire
-		(pts
-			(xy 115.57 128.27) (xy 120.65 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4d1c8df0-0b10-49fa-b53e-f8134401e472")
 	)
 	(wire
 		(pts
@@ -3281,16 +3283,6 @@
 			(type default)
 		)
 		(uuid "c9ab9586-d9e4-4200-a0a4-1852806963a3")
-	)
-	(wire
-		(pts
-			(xy 115.57 125.73) (xy 120.65 125.73)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cb8e57ff-0d22-4170-8c64-c93d9c697150")
 	)
 	(wire
 		(pts
@@ -3797,30 +3789,6 @@
 		(uuid "3b9de707-4dee-4786-aee6-c2c66e5cf04f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 106.5977 123.19 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
-	(global_label "PC14"
-		(shape bidirectional)
-		(at 115.57 125.73 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "4c6be8ac-c49b-4fb5-9f7d-296331e4447e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 106.5145 125.73 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4525,30 +4493,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-			)
-		)
-	)
-	(global_label "PC15"
-		(shape bidirectional)
-		(at 115.57 128.27 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "ece15f30-11cf-4a8c-8b8b-a22bed1161ad")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 106.5145 128.27 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
 			)
 		)
 	)

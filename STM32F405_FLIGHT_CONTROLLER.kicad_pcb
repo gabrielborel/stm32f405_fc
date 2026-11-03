@@ -5265,163 +5265,6 @@
 			)
 		)
 	)
-	(footprint "Connector_FC:SolderPads_1x03_P2.54mm"
-		(layer "F.Cu")
-		(uuid "3d2a90df-17a2-43dd-88d5-94fca29051a4")
-		(at 142.3 105.9 90)
-		(property "Reference" "J13"
-			(at 4.38325 0 0)
-			(unlocked yes)
-			(layer "F.SilkS")
-			(uuid "d4bf9453-00d8-4037-8b3b-a8cc71eabf5c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Value" "PC14-PC15 pads"
-			(at 0 2.5 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(uuid "36cacd2b-6a1b-4b71-8464-44be71857a3a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "9f8977cc-c50f-4e83-9d4b-34e2aca4bfde")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "f673ac00-7d30-47ef-8583-c4cefb44855a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "13f35eb5-a4e0-4222-9724-c44f47aa8036")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(hide yes)
-			(uuid "27f4a2d8-1381-4a16-bc11-99a2d962f556")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(property ki_fp_filters "Connector*:*_1x??_*")
-		(path "/55764b2b-5b30-4ec6-893b-0ae4ca11dbaf")
-		(sheetname "/Expansion/")
-		(sheetfile "expansion.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2" "3")
-			)
-		)
-		(attr smd exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_line
-			(start -3.14 1.4)
-			(end -1.94 1.4)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(layer "F.SilkS")
-			(uuid "6c453914-894b-4f94-90f9-bae0112e2860")
-		)
-		(fp_rect
-			(start -3.39 -1.25)
-			(end 3.39 1.25)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "F.CrtYd")
-			(uuid "c9cf0b2d-7b8c-485e-a10c-ef9f56dfda8d")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 0 90)
-			(unlocked yes)
-			(layer "F.Fab")
-			(uuid "9c801bd4-4633-4fcf-8aaa-8ba7c709bcd0")
-			(effects
-				(font
-					(size 0.5 0.5)
-					(thickness 0.15)
-				)
-			)
-		)
-		(pad "1" smd roundrect
-			(at -2.54 0 90)
-			(size 1.2 2)
-			(layers "F.Cu" "F.Mask" "F.Paste")
-			(roundrect_rratio 0.15)
-			(net "GND")
-			(pinfunction "Pin_1_1")
-			(pintype "passive")
-			(uuid "7a323869-f323-4a13-be4d-5f1037cc2f56")
-		)
-		(pad "2" smd roundrect
-			(at 0 0 90)
-			(size 1.2 2)
-			(layers "F.Cu" "F.Mask" "F.Paste")
-			(roundrect_rratio 0.15)
-			(net "PC14")
-			(pinfunction "Pin_2_2")
-			(pintype "passive")
-			(uuid "280c9925-66b6-4a32-bd0c-001a716e4dcc")
-		)
-		(pad "3" smd roundrect
-			(at 2.54 0 90)
-			(size 1.2 2)
-			(layers "F.Cu" "F.Mask" "F.Paste")
-			(roundrect_rratio 0.15)
-			(net "PC15")
-			(pinfunction "Pin_3_3")
-			(pintype "passive")
-			(uuid "4e5abac0-b580-4a00-8594-59a863040a3a")
-		)
-		(embedded_fonts no)
-	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "3d428017-6eae-4f41-880f-b8532c7a5a51")
@@ -8178,9 +8021,9 @@
 			(size 1.55 0.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
-			(net "PC14")
+			(net "unconnected-(U1-PC14-Pad3)")
 			(pinfunction "PC14_3")
-			(pintype "bidirectional")
+			(pintype "bidirectional+no_connect")
 			(uuid "70c55119-cfc4-4656-a668-aee60bf1b4ef")
 		)
 		(pad "4" smd roundrect
@@ -8188,9 +8031,9 @@
 			(size 1.55 0.3)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
-			(net "PC15")
+			(net "unconnected-(U1-PC15-Pad4)")
 			(pinfunction "PC15_4")
-			(pintype "bidirectional")
+			(pintype "bidirectional+no_connect")
 			(uuid "2c368bcf-7508-459c-9a85-c55b1b86bb98")
 		)
 		(pad "5" smd roundrect

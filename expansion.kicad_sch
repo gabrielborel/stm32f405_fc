@@ -1245,9 +1245,9 @@
 		)
 		(uuid "514aa255-82b0-4fdd-9cde-a3eae20decac")
 	)
-	(text "Expansion pads (top side, board edge): wire-solder pads, no connector fitted.\nFull peripherals named by function; loose pins named by pin (role set in firmware).\nPB7, PC2: 0 mA negative injection (DS8626 Table 47), keep wires short.\nPC14, PC15: power switch, 3 mA sink only, no source (DS8626 Table 7, note 3).\n\nAUX pads: AUX1 = PA2 (TIM2_CH3 / TIM5_CH3), AUX2 = PB7 (TIM4_CH2), AUX3 = PA10 (TIM1_CH3)\n220R series resistors, same as the motor outputs\nSignal and GND only: servo power comes from the PDB or BEC, not from the FC\n\nJ12: PA15 GPIO + current sense input (PC2, ADC123_IN12) with 0R series and DNP RC/divider footprints, values TBD (AN4073)."
+	(text "Expansion pads (top side, board edge): wire-solder pads, no connector fitted.\nFull peripherals named by function; loose pins named by pin (role set in firmware).\nPB7, PC2: 0 mA negative injection (DS8626 Table 47), keep wires short.\n\nAUX pads: AUX1 = PA2 (TIM2_CH3 / TIM5_CH3), AUX2 = PB7 (TIM4_CH2), AUX3 = PA10 (TIM1_CH3)\n220R series resistors, same as the motor outputs\nSignal and GND only: servo power comes from the PDB or BEC, not from the FC\n\nJ12: PA15 GPIO + current sense input (PC2, ADC123_IN12) with 0R series and DNP RC/divider footprints, values TBD (AN4073)."
 		(exclude_from_sim no)
-		(at 76.962 60.706 0)
+		(at 76.962 59.944 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1360,16 +1360,6 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 116.84) (xy 107.95 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3be169de-c924-464d-9afb-88a5ad146d4a")
-	)
-	(wire
-		(pts
 			(xy 168.91 111.76) (xy 168.91 105.41)
 		)
 		(stroke
@@ -1407,16 +1397,6 @@
 			(type default)
 		)
 		(uuid "533a685e-1a79-476b-9fff-8889e612f369")
-	)
-	(wire
-		(pts
-			(xy 96.52 114.3) (xy 107.95 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5376721a-5d03-487f-b592-a0ddacc5ad18")
 	)
 	(wire
 		(pts
@@ -1550,16 +1530,6 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 107.95) (xy 101.6 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9e16a537-3d27-43ff-9cf7-ea8fc6c12183")
-	)
-	(wire
-		(pts
 			(xy 167.64 137.16) (xy 167.64 133.35)
 		)
 		(stroke
@@ -1567,16 +1537,6 @@
 			(type default)
 		)
 		(uuid "b60a8aa5-d2a5-4da9-8d92-9af2ea730d14")
-	)
-	(wire
-		(pts
-			(xy 107.95 107.95) (xy 107.95 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b90673fa-29f5-4105-9234-b783c368231a")
 	)
 	(wire
 		(pts
@@ -1717,54 +1677,6 @@
 			(justify left bottom)
 		)
 		(uuid "dd18de4a-52a8-4732-9e26-e92e179c6856")
-	)
-	(global_label "PC15"
-		(shape bidirectional)
-		(at 96.52 116.84 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "05129b43-8922-4fcd-b5d2-d7904415ea13")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 87.4645 116.84 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
-	(global_label "PC14"
-		(shape bidirectional)
-		(at 96.52 114.3 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "266cb1e9-d7da-491d-9188-c4432a772476")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 87.4645 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
 	)
 	(global_label "UART4_TX"
 		(shape output)
@@ -2329,112 +2241,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 113.03 114.3 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(in_pos_files no)
-		(dnp no)
-		(uuid "55764b2b-5b30-4ec6-893b-0ae4ca11dbaf")
-		(property "Reference" "J13"
-			(at 114.808 109.474 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "PC14-PC15 pads"
-			(at 114.808 118.872 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_FC:SolderPads_1x03_P2.54mm"
-			(at 113.03 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 113.03 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 113.03 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 113.03 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 113.03 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "898c4a93-3295-4247-9878-b6bb52ea106f")
-		)
-		(pin "3"
-			(uuid "4f58cbfd-663c-4977-8d7f-cf8cff0d8038")
-		)
-		(pin "1"
-			(uuid "6c45c548-f292-4d22-a69d-cb92e030013a")
-		)
-		(instances
-			(project "STM32F405_FLIGHT_CONTROLLER"
-				(path "/c5608191-8184-49ae-9afd-f3995992ad6b"
-					(reference "J13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 171.45 119.38 0)
 		(unit 1)
@@ -2724,83 +2530,6 @@
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/c5608191-8184-49ae-9afd-f3995992ad6b"
 					(reference "J12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 101.6 107.95 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7d679a80-aca4-4a41-b70b-138721dbec9a")
-		(property "Reference" "#PWR080"
-			(at 101.6 114.3 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 101.6 111.76 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 101.6 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 101.6 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 101.6 107.95 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "05b8695e-39a7-4be4-9e08-9d2552afb601")
-		)
-		(instances
-			(project "STM32F405_FLIGHT_CONTROLLER"
-				(path "/c5608191-8184-49ae-9afd-f3995992ad6b"
-					(reference "#PWR080")
 					(unit 1)
 				)
 			)
