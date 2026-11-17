@@ -15,3 +15,12 @@
 (rule "Power width outside neckdown"
     (condition "A.Type == 'Track' && A.hasNetclass('Power') && !(A.intersectsCourtyard('U1') || A.intersectsCourtyard('U5') || A.intersectsCourtyard('C1') || A.intersectsCourtyard('C2') || A.intersectsCourtyard('C3') || A.intersectsCourtyard('C4') || A.intersectsCourtyard('C5') || A.intersectsCourtyard('C6') || A.intersectsCourtyard('C20') || A.intersectsCourtyard('C21'))")
     (constraint track_width (min 0.5mm)))
+
+# Copper pour away from the controlled-impedance lines.
+# The 50 ohm SDIO (0.151 mm) and 90 ohm USB (0.154 mm pair) widths were calculated with the
+# plane as the only reference and no coplanar copper (JLCPCB calculator, 3313 prepreg 0.0994 mm).
+# A pour closer than a few dielectric heights lowers the impedance, so pours on the signal
+# layers keep 0.5 mm (about 5 dielectric heights) from these tracks [project practice].
+(rule "GND pour clearance SDIO USB"
+    (condition "A.Type == 'Zone' && B.Type == 'Track' && (B.hasNetclass('SDIO_50') || B.hasNetclass('USB_90'))")
+    (constraint clearance (min 0.5mm)))
