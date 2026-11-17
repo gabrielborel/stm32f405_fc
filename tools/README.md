@@ -18,6 +18,7 @@ O aviso `wxApp assert` ao rodar é inofensivo.
 | `pcb_find_free_spot.py` | posição livre mais perto de um alvo, gera `moves.json` | não |
 | `pcb_apply_moves.py` | aplica `moves.json` (move e vira para B.Cu) com checagem de redes | **sim** |
 | `pcb_router.py` | roteador A* de duas camadas (módulo): lê pads, trilhas e vias da PCB e acha caminhos de 45 graus com via | **sim**, só em cópia |
+| `pcb_gnd_vias.py` | liga pads de GND sem plano ao `GND_L2` com trilha curta e via (acha sozinho os pads) | **sim**, só em cópia |
 | `pcb_route_nets.py` | linha de comando do roteador: `REDE REF1 PAD1 REF2 PAD2` | **sim**, só em cópia |
 | `drc_compare.py` | compara dois DRC em JSON | não |
 | `pdf_text.swift` | texto de PDF via PDFKit (`swift tools/pdf_text.swift A.pdf S.txt`) | não |
