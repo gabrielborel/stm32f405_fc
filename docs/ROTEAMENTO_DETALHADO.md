@@ -420,6 +420,24 @@ Os pinos saem na ordem D0 (39, Y 91,25) em cima e D1 (40, Y 91,75) embaixo, mas 
 - Pernas da serpentina a 0,6 mm de centro: acoplamento próprio pequeno [inferência]. Se for preciso mais espaço, passar a 0,8 mm e perder um período.
 - Folgas mínimas de projeto: via do D0 a 0,6 mm da linha do D1; pad 5 e pad 6 do J4 não tocados.
 
+#### Ajuste da W2 para abrir o corredor do USB
+
+A serpentina do D0 na L4 (X 113 a 123, Y 91 a 93,4) e a linha do D1 na L1 (Y 91,85) formavam uma barreira entre o U3 (norte) e o U1 (sul): o par do USB não tinha por onde cruzar. O D0 foi refeito: a via de saída passou de (123,2; 91,25) para (120,2; 91,25) e a serpentina de 3 períodos ficou em X 115,0 a 118,6. Comprimento e vias iguais (31,00 mm, 2 vias). O corredor livre em L4 para o par fica em X 121,1 a 121,5 [conta].
+
+### W3a: par USB do U3 ao U1 (2026-11-17, DRC igual: 6 violações antigas, 111 para 109 não conectados)
+
+Largura 0,154 mm, passo do par 0,357 mm (classe USB_90; 90 ohm de calculadora da JLCPCB para L1, e em L4 com referência na L3 é [inferência] do stackup simétrico).
+
+| Trecho | Pontos |
+| ------ | ------ |
+| U1 (pinos 44 e 45) | D- sai em Y 93,75, sobe 0,3 mm em 45 graus até a via (126,9; 93,45); D+ reto em Y 94,25 até a via (126,9; 94,25). As vias não cabem mais perto: o TP2 (125,0 a 126,0; 94,3 a 95,3) e o C12 (topo em Y 94,78) limitam; o M4_OUT (X 127,6) fica a 0,3 mm. |
+| L4, leste a oeste | D- em Y 93,45, D+ em Y 93,807, no corredor entre o TP1 (base 92,75) e o TP2 (topo 94,3). |
+| L4, curva ao norte | D- interno (chanfro de 0,4 mm) em X 121,45; D+ externo (chanfro de 0,609 mm, para o par manter o passo) em X 121,093. Sobem por baixo do D0 e do D1. |
+| L4, até o U3 | D+ vai em diagonal de 45 graus de (121,093; 81,5) até (119,55; 79,957) e sobe até a via (119,55; 77,7). D- sobe reto até a via (121,45; 77,7). Stubs de L1 de cada via até os pinos 4 e 6 do U3. |
+
+- Comprimentos: USB_D+ 25,26 mm (L4 22,4), USB_D- 23,97 mm (L4 21,0); diferença 1,29 mm. O AN4879 Rev 12 não dá limite de comprimento nem de passo do par (CLAUDE.md). Igualar com uma dobra depois do lado do conector [projeto].
+- Falta o lado do conector: J3 até o U3 (D+ e D- com o cruzamento dos pares A e B), `VBUS_RAW`, CC1 e CC2, abas e o GND do U3.
+
 ### TP14 e TP15 estão na face de baixo
 
 "SDIO sem vias" e "TP passando pelo pad, sem ramal" só convivem assim [inferência]: a trilha segue em L1 e passa por cima de uma via colocada no centro do pad do TP (via no pad do TP; o TP não recebe componente, então não há problema de solda). A linha não troca de camada; o único efeito é o stub da via na espessura da placa (1,56 mm), desprezível para o SDIO. Isso coloca uma via no CK e no CMD, mas não nos dados, então a regra do manual (vias iguais entre os dados) continua atendida.
