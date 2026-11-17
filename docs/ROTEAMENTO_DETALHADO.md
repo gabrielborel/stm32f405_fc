@@ -532,6 +532,22 @@ Largura 0,151 mm, em L1, sem vias. Com o R21, o R22 e o R23 na B.Cu, a região a
 - Capacitância do ramal (AN4488 8.4.1: 20 pF por linha) não estimada; conferir no fim, com o comprimento de cada linha [inferência].
 - Sobram para fechar o cartão: +3V3_SD dos R19 e R20, do C24, do C25 e do J4.4.
 
+### W4c: +3V3_SD do cartão (2026-11-17, 81 para 75 não conectados; DRC igual: as 6 violações antigas e 2 avisos de silk)
+
+Trilhas de 0,5 mm (classe Power). Parte do tronco já existia: via em (119,6; 101,75) ligada ao tronco de L1 do C23 e, na B.Cu, vertical em X 119,6 com ramos em Y 97,45, 99,0 e 99,95 (W4a).
+
+| Destino | Caminho |
+| ------- | ------- |
+| TP13 | stub de B.Cu de (121,0; 101,0) a (119,6; 101,0) |
+| J4.4 (109,55; 93,11), numa bolsa fechada na F.Cu | stub de L1 de 1,65 mm até a via em (111,2; 93,11); a B.Cu sobe o tronco de (119,6; 97,45) a (119,6; 94,0), corre em Y 94,0 até X 112,0 e entra na via em diagonal |
+| C25.1 | via em (121,2; 97,45), sobre o ramo B.Cu de Y 97,45, e stub de L1 ao pad |
+| C24.1 | stub de L1 de (123,25; 93,3) a (123,25; 95,0), via aí, B.Cu em diagonal até o pad 1 do R22 em (122,8; 97,45) |
+| R20.1 e R19.1 (norte) | da via do J4.4 sobe em B.Cu por X 111,2 até Y 88,0 e corre até a via em (120,4; 88,0); **cruza o par USB (L4) em L1**, Y 88,0, até (122,9; 88,0) e sobe ao R20.1; no meio, via em (122,2; 88,0), B.Cu até (124,6; 88,0) (por baixo do ramal do D0), via, e L1 ao R19.1 |
+
+- **Ramal do D0 refeito** (substitui o de `cbf9df2`): sai da linha em (123,75; 91,25), sobe por X 123,75 (vão entre as colunas do R20 e do R19, 0,3 mm de folga de cada lado) até Y 85,17 e entra no R20.2 por leste. O de X 121,9 bloquearia a passagem da L1 em Y 88,0.
+- Erros do caminho: a primeira versão passava a B.Cu em Y 88,0 por cima do par USB (L4 vertical em X 121,09 e 121,45): o DRC acusou `tracks_crossing`. O par é uma barreira de Y 77,8 a 93,8 em L4; só se cruza em L1.
+- Sobra no cartão: SD_CD (pino 2) e SD_EN (pino 11), decisão sobre o PB12 e o PA8 ou mover o M2, M3 e M4_OUT; e o PA8, o VBUS_DET e o PA10.
+
 ### TP14 e TP15 estão na face de baixo
 
 "SDIO sem vias" e "TP passando pelo pad, sem ramal" só convivem assim [inferência]: a trilha segue em L1 e passa por cima de uma via colocada no centro do pad do TP (via no pad do TP; o TP não recebe componente, então não há problema de solda). A linha não troca de camada; o único efeito é o stub da via na espessura da placa (1,56 mm), desprezível para o SDIO. Isso coloca uma via no CK e no CMD, mas não nos dados, então a regra do manual (vias iguais entre os dados) continua atendida.
