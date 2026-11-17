@@ -52,6 +52,7 @@ Atenção: a seção "Etapa atual" do `CLAUDE.md` ainda diz "não rotear". Isso 
 | Cobre em volta do U2 e do U6 (decisão 13): zona `GND_LDO_F` em F.Cu (79,5 mm2 preenchidos, clearance 0,3 mm), 12 vias de costura e 3 vias junto dos pinos 2 (a segunda do U2 não achou lugar); DRC igual (8 violações, 6 não conectados). Ganho térmico não medido (bancada) | `c053fd2` |
 | Zonas de GND em F.Cu (`GND_F`, 1215 mm2) e B.Cu (`GND_B`, 1573 mm2), clearance 0,2 mm, vão em volta do oscilador (X 140,8 a 149,9, Y 88,8 a 97,3), regra no `.kicad_dru` com 0,5 mm entre o cobre e as trilhas de SDIO e USB (folga mínima medida 0,500 mm), J2.3, U1.18 e J4.6 ligados direto à zona, 121 vias de costura em grade de 4 mm; DRC 8 violações, 6 não conectados | `e0a771c` |
 | R1 0,1 mm para leste (zera os 2 `clearance` do anel do HSE), referência do TP13 escondida (zera os 2 avisos de silk) e regra `R1 courtyard overlap accepted` no `.kicad_dru` (pads do R1 a 0,245 mm do C14 e 0,325 mm do Y1); DRC: 2 violações ativas (silk de borda do J3) e 6 não conectados | `7b3417c` |
+| Assinatura no silk de baixo (B.Silkscreen, grupo `assinatura_B_silk`): silhueta de caça de lado com o nariz para a frente da placa, 2 linhas de velocidade, "Gabriel Borel" e "2026-11", X 148,06 a 165,14 e Y 80,66 a 93,90; só silk, DRC igual | `bf0eb91` |
 
 ### O que falta (lista do DRC de 2026-11-17)
 
