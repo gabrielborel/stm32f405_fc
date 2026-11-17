@@ -484,6 +484,25 @@ Classe Default, 0,2 mm. O corredor Y 77,0 é do VBUS, então os dois CC sobem pe
 - Sinais de DC lentos: o desvio por L4 não afeta nada [inferência].
 - Sobram no lado do conector: os pads de GND (J3 norte e sul, U3.2) e as abas SH do J3.
 
+### W3c: GND do lado do conector do USB (2026-11-17, DRC igual: 6 violações antigas, 97 para 89 não conectados)
+
+12 vias de GND (0,6 / 0,3 mm) com trilha de 0,2 mm até o pad, todas para a L2. A busca foi por script (8 direções, passo de 0,05 mm, folga de 0,2 mm contra qualquer rede e de 0,5 mm do centro da via a qualquer pad, para não pôr via em pad) [projeto].
+
+| Pad | Via (X; Y) |
+| --- | ---------- |
+| J3 GND norte (A1/B12) | (115,98; 76,57) |
+| J3 GND sul (A12/B1) | (115,98; 84,63) |
+| J3 aba SH noroeste e nordeste | (110,11; 77,28) e (114,29; 75,28) |
+| J3 aba SH sudoeste e sudeste | (110,11; 85,92) e (114,29; 85,92) |
+| U3.2 | (122,4; 80,3), por um canal de 0,95 mm entre as fileiras do U3, para leste (a trilha passa 0,37 mm do pad 5 e 0,38 mm do pad 3) |
+| R8.2 e R9.2 | (119,4; 73,58) e (121,2; 73,58) |
+| C17.1 | (122,32; 82,0) |
+| R12.2 | (124,04; 77,72), a 0,2 mm do R12.1 e do R10.2 |
+| R11.2 | (126,9; 76,08) |
+
+- A primeira versão pôs as vias do GND do J3 dentro das abas SH vizinhas (mesma rede, o DRC aceita). Foi corrigido: o centro da via fica a no mínimo 0,5 mm de qualquer pad.
+- Com isso o lado do conector do USB está completo. Sobram 30 itens de GND no total, nenhum do USB.
+
 ### TP14 e TP15 estão na face de baixo
 
 "SDIO sem vias" e "TP passando pelo pad, sem ramal" só convivem assim [inferência]: a trilha segue em L1 e passa por cima de uma via colocada no centro do pad do TP (via no pad do TP; o TP não recebe componente, então não há problema de solda). A linha não troca de camada; o único efeito é o stub da via na espessura da placa (1,56 mm), desprezível para o SDIO. Isso coloca uma via no CK e no CMD, mas não nos dados, então a regra do manual (vias iguais entre os dados) continua atendida.
