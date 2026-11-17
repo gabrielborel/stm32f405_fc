@@ -406,6 +406,20 @@ Caminho (largura 0,151 mm, cantos de 45 graus, tudo em L1 salvo os saltos):
 - O pad 10 (SD_CD) e o pad 9 (GND) do J4 ficam acima das linhas (Y 98,44 a 99,64): acessíveis pelo norte, dentro do corpo, ou pelo sul se sobrar espaço.
 - **Parede da L4 a oeste do U1 (achado):** M4_OUT (X 126,0 e 127,6) e M3_OUT (X 126,75 e 128,1), mais MOTOR3 e MOTOR4 em Y 89,3 e 89,9, fecham a L4 entre Y 79 e 101. O corredor sul da L4 (Y 106 a 109) também está fechado em X 135,7 (M2_OUT, via em (135,7; 108,6) e +VBAT em Y 109,5). Por isso o SD_CD (pino 2) e o SD_EN (pino 11), que saem pelo leste, não chegam ao oeste pela L4 sem mudar algo. Decisão em aberto (W4): trocar o SD_CD com o PB12 (pino 33, SPI2_NSS, sem perda real) e ver o SD_EN, ou mover o M2/M3/M4_OUT. O SPI2 nos pads J9 fica (decisão do Gabriel).
 
+### W2: SDIO D0 e D1 aplicado (`2666c02`, 2026-11-17, DRC igual: 6 violações antigas, 113 para 111 não conectados)
+
+Os pinos saem na ordem D0 (39, Y 91,25) em cima e D1 (40, Y 91,75) embaixo, mas os pads do J4 pedem D1 (pad 8, Y 88,75) ao norte de D0 (pad 7, Y 89,81): um cruzamento. Resolvido com os saltos que o AN4488 8.4.1 já pedia (2 vias por dado), sem cruzar na L1 [conta].
+
+| Linha | Caminho (0,151 mm, 45 graus) |
+| ----- | ----------------------------- |
+| D0 | L1 reto em Y 91,25 até a via (123,2; 91,25); L4 com serpentina de 3 períodos (pernas a 0,6 mm, X 122,2 a 118,6, para baixo até Y cerca de 93,4) sob o corpo do J4; via (113,4; 91,25); L1 em X 111,2 até o pad 7. |
+| D1 | L1 em Y 91,75 até X 127,3, desce 0,1 para Y 91,85 (a via do D0 fica a 0,6 mm); salto curto de 2 vias (125,0; 91,85) e (123,9; 91,85); L1 até X 119,6; diagonal de 45 graus até (118,1; 90,35); serpentina de 3 períodos em L1 (pernas para cima, até Y cerca de 88,4); depois X 112,0 até Y 88,75 e o pad 8. |
+
+- Comprimentos medidos (todos em mm): D0 31,00, D1 31,00, D2 29,64, D3 30,75, CK 32,61, CMD 31,63. Diferença entre os dados 1,36; maior diferença dado contra CK 2,96; CK contra CMD 0,98. O limite do AN4488 8.4.1 é 10. Vias: D0 2, D1 2, D2 2, D3 2, CK 1, CMD 1.
+- O D0 tem 20,9 mm na L4. A impedância de cerca de 50 ohm na L4, com referência na L3, é [inferência] do stackup simétrico.
+- Pernas da serpentina a 0,6 mm de centro: acoplamento próprio pequeno [inferência]. Se for preciso mais espaço, passar a 0,8 mm e perder um período.
+- Folgas mínimas de projeto: via do D0 a 0,6 mm da linha do D1; pad 5 e pad 6 do J4 não tocados.
+
 ### TP14 e TP15 estão na face de baixo
 
 "SDIO sem vias" e "TP passando pelo pad, sem ramal" só convivem assim [inferência]: a trilha segue em L1 e passa por cima de uma via colocada no centro do pad do TP (via no pad do TP; o TP não recebe componente, então não há problema de solda). A linha não troca de camada; o único efeito é o stub da via na espessura da placa (1,56 mm), desprezível para o SDIO. Isso coloca uma via no CK e no CMD, mas não nos dados, então a regra do manual (vias iguais entre os dados) continua atendida.
@@ -536,7 +550,7 @@ L4 tem a L3 como referência. Todos em classe Default, 0,2 mm.
 4. Resolvido (2026-11-02, exceção aceita): o C8.1 fica em cima da perna norte do vão e a trilha +3.3VA cruza o vão; alimentação filtrada, risco baixo [inferência] (passo 3).
 5. C1.2 (GND) também fica em cima da perna sul: a via vai ao sul, Y 97,4 ou mais (passo 2).
 6. TPs do SDIO e do SPI1 na face de baixo: via no pad do TP, sem trocar a trilha de camada (passos 6 e 8) [inferência]. TP14 e TP15 já estão sobre as subidas do CMD e do CK, sob o corpo do J4 (W1, `c63db33`).
-9. W2 (D0 e D1): D0 e D1 saem do oeste e ficam com cerca de 20 a 22 mm [conta, sem rotear] contra 30 a 33 mm das linhas do sul. O AN4488 8.4.1 pede menos de 10 mm de diferença entre dados e CK: serpentina de pelo menos 10 mm em cada um (corredor Y 90,6 a 92,7), mais o salto simétrico de 2 vias em cada.
+9. Resolvido (`2666c02`): W2, D0 e D1 com serpentina e salto de 2 vias; diferença de 1,36 mm entre os dados e de 2,96 mm contra o CK.
 10. Ramais dos pull-ups (R19 a R23) ainda sem ligação: de 6 a 15 mm das linhas. Decisão do Gabriel: manter e medir a capacitância no fim (limite 20 pF, AN4488 8.4.1).
 11. J4.4 (+3V3_SD) entra por L4; J4.10 (SD_CD) e J4.9 (GND) pelo norte (W4).
 12. SD_CD e SD_EN: parede da L4 (ver W1 acima). Opções: SD_CD no PB12; SD_EN por PA8 (perde o TP de clock MCO1) ou mover o M2/M3/M4_OUT..
