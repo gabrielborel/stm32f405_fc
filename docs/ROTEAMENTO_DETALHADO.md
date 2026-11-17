@@ -454,6 +454,23 @@ Solução: usar a **face oeste dos pads** (livre, sob o corpo do conector), e um
 - A trilha do D+ passa sob o corpo do J3 (L1, coberta pela máscara). O desenho da HRO é só imagem e não li as notas de proibição sob o conector [pendente].
 - Falta no lado do conector: CC1 e CC2 até R8 e R9, `VBUS_RAW` (2 pads do J3 até U3.5, C17, R10, R12 e D4), abas SH e GND do J3 e do U3.
 
+### W3b-2: VBUS_RAW (2026-11-17, DRC igual: 6 violações antigas, 105 para 99 não conectados)
+
+Classe Power, 0,5 mm, tudo em L1. Para abrir a passagem entre o R8/R9 (base em Y 76,53) e as vias do par USB sobre o U3, as duas vias (D+ e D-) desceram 0,1 mm, de Y 77,7 para 77,8 (a folga era 0,87 mm e a trilha pede 0,9 mm [conta]); as trilhas ligadas a elas acompanharam.
+
+| Trecho | Pontos |
+| ------ | ------ |
+| J3 norte (A4/B9) até o corredor | (115,2; 78,15), (116,5; 78,15), diagonal até (117,65; 77,0), leste em Y 77,0 até X 122,3. |
+| U3.5 | de (120,5; 77,0) desce por X 120,5, entre os stubs do D+ (X 119,55) e do D- (X 121,45), até o pino 5 (120,5; 79,16). |
+| R12.1 e R10.1 | de (122,3; 77,0) desce por X 122,3 até Y 78,62 e segue em Y 78,62 até X 125,1. |
+| C17.2 | de (123,3; 78,62) desce até Y 80,6, diagonal até (124,08; 81,38) e sobe ao pad (124,08; 82,0). |
+| D4.2 | de (122,3; 77,0) sobe por X 122,3 até Y 75,6, leste até X 126,2, diagonal até (127,15; 74,65) e ao pad (127,15; 74,0). |
+| J3 sul (A9/B4) | (115,2; 83,05), (116,3; 83,05), diagonal até (116,85; 83,6), leste em Y 83,6 até X 124,08 e sobe ao C17.2. Passa a 0,9 mm do tronco do D- (Y 82,7). |
+
+- Total de trilha: 35,86 mm. Sem conta de corrente (0,5 mm é [projeto]).
+- Folga mínima do corredor Y 77,0: 0,22 mm contra o R8/R9 e 0,25 mm contra as vias.
+- Ficou sem espaço para o CC1 e o CC2 passarem pelo mesmo corredor: eles chegam ao R8.1 e ao R9.1 pelas laterais (R8.1 por oeste, R9.1 por leste, onde a vertical do VBUS em X 122,3 fica a 0,38 mm).
+
 ### TP14 e TP15 estão na face de baixo
 
 "SDIO sem vias" e "TP passando pelo pad, sem ramal" só convivem assim [inferência]: a trilha segue em L1 e passa por cima de uma via colocada no centro do pad do TP (via no pad do TP; o TP não recebe componente, então não há problema de solda). A linha não troca de camada; o único efeito é o stub da via na espessura da placa (1,56 mm), desprezível para o SDIO. Isso coloca uma via no CK e no CMD, mas não nos dados, então a regra do manual (vias iguais entre os dados) continua atendida.
