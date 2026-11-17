@@ -30211,6 +30211,14 @@
 		(uuid "f43973f1-8b4a-4ecf-9c23-843c30cc633e")
 	)
 	(segment
+		(start 121.9 85.17)
+		(end 122.9 85.17)
+		(width 0.151)
+		(layer "F.Cu")
+		(net "SDIO_D0")
+		(uuid "185579c0-59d1-49a0-92f8-7510cd41d710")
+	)
+	(segment
 		(start 111.2 90.06)
 		(end 110.95 89.81)
 		(width 0.151)
@@ -30233,6 +30241,14 @@
 		(layer "F.Cu")
 		(net "SDIO_D0")
 		(uuid "4fe85afc-3ced-4195-9b7f-57a0358f7cdd")
+	)
+	(segment
+		(start 121.9 91.25)
+		(end 121.9 85.17)
+		(width 0.151)
+		(layer "F.Cu")
+		(net "SDIO_D0")
+		(uuid "7eab5e03-fc8a-4bea-9631-da5f6fd85ab4")
 	)
 	(segment
 		(start 111.2 91)
@@ -30491,6 +30507,14 @@
 		(uuid "0830a4d1-b700-4ea3-a0bc-68e63eef4c2c")
 	)
 	(segment
+		(start 119.35 84.3)
+		(end 124.6 84.3)
+		(width 0.151)
+		(layer "F.Cu")
+		(net "SDIO_D1")
+		(uuid "102b61fc-a90e-4b4c-8979-ae836ac71c90")
+	)
+	(segment
 		(start 115.1 90.1)
 		(end 115.1 88.621489)
 		(width 0.151)
@@ -30619,6 +30643,14 @@
 		(uuid "9239e6c0-ac63-4fc1-9dcc-3c5a72e153c5")
 	)
 	(segment
+		(start 124.6 84.3)
+		(end 124.6 85.17)
+		(width 0.151)
+		(layer "F.Cu")
+		(net "SDIO_D1")
+		(uuid "a1ae4698-a78f-4d47-a20d-2dd20e001046")
+	)
+	(segment
 		(start 114.25 90.35)
 		(end 112.25 90.35)
 		(width 0.151)
@@ -30705,6 +30737,14 @@
 		(layer "F.Cu")
 		(net "SDIO_D1")
 		(uuid "c3fc0b53-caec-46fc-8c66-136fbf3ae8e5")
+	)
+	(segment
+		(start 119.35 91.6)
+		(end 119.35 84.3)
+		(width 0.151)
+		(layer "F.Cu")
+		(net "SDIO_D1")
+		(uuid "c6301d09-f01b-4b7d-8450-45625b0eed16")
 	)
 	(segment
 		(start 114.85 88.371489)
