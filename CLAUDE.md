@@ -4,6 +4,8 @@ Placa de flight controller autoral (inspirada no layout do SpeedyBee F7 V3, não
 
 ## Etapa atual
 
+**Atualização (2026-11-17): o roteamento está em andamento, feito em conjunto com o Claude. O estado atual, o que falta e os combinados de trabalho estão em `docs/HANDOFF.md`; ler antes de continuar. O parágrafo abaixo é de antes do roteamento.**
+
 Esquemático fechado (ERC 0 erros ativos em 2026-11-01, depois das mudanças da etapa 4). PCB atualizada a partir dele e contorno de 58 x 44 mm aplicado. **Etapa: placement refeito na placa de 58 x 44 mm (2026-11-01)**, ver "Placement na placa de 58 x 44 mm". Revisão visual feita pelo Gabriel no KiCad ("ficou bom") e J11 removido (`daa0915`, ver abaixo). Silk limpo, seta de frente e rótulos dos pads feitos (ver "Silk" abaixo), aprovados pelo Gabriel no KiCad. Falta o roteamento (dele), os test points depois do roteamento e as decisões abertas. O Gabriel faz o roteamento depois, à mão. Não rotear, não criar trilhas, não mexer em zonas de cobre. Já existem trilhas e a zona `HSE_GND_POUR` (F.Cu) feitas por ele em volta do oscilador: não tocar.
 
 ## Como trabalhar
