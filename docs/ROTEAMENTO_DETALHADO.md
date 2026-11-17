@@ -519,6 +519,19 @@ Classe Default, 0,2 mm. O corredor Y 77,0 é do VBUS, então os dois CC sobem pe
 - **Avisos de silk novos:** a referência do TP13 fica sobre uma trilha da B.Cu e encosta no silk do R22 (limpeza de silk, última etapa).
 - Pendentes dos pull-ups: **R19 (D1) e R20 (D0)** na F.Cu ao norte, com ramais em L1 (D0 por X 121,9; D1 por X 119,3 e Y 84,3, cerca de 14 mm).
 
+### W4b: ramais dos pull-ups do D0 e do D1 (2026-11-17, 83 para 81 não conectados; DRC igual: as 6 violações antigas e 2 avisos de silk)
+
+Largura 0,151 mm, em L1, sem vias. Com o R21, o R22 e o R23 na B.Cu, a região ao norte ficou livre.
+
+| Linha | Caminho | Ramal |
+| ----- | ------- | ----- |
+| D0 → R20.2 (122,9; 85,17) | de (121,9; 91,25) sobe por X 121,9 (0,85 mm do pad SH do J4, 0,44 mm do R20) até Y 85,17 e entra no pad por oeste | 7,08 mm |
+| D1 → R19.2 (124,6; 85,17) | da diagonal do D1 em (119,35; 91,6) sobe por X 119,35 até Y 84,3, corre para leste em Y 84,3 (0,38 mm do R20 e 0,35 mm da trilha de VBUS_RAW do J3 sul, Y 83,6) e desce em X 124,6 ao pad | 13,42 mm |
+
+- O D1 só alcança o R19 pela oeste do D0, porque ali o D0 já está em L4 (a via a0 em (120,2; 91,25)). Os dois ramais não se cruzam.
+- Capacitância do ramal (AN4488 8.4.1: 20 pF por linha) não estimada; conferir no fim, com o comprimento de cada linha [inferência].
+- Sobram para fechar o cartão: +3V3_SD dos R19 e R20, do C24, do C25 e do J4.4.
+
 ### TP14 e TP15 estão na face de baixo
 
 "SDIO sem vias" e "TP passando pelo pad, sem ramal" só convivem assim [inferência]: a trilha segue em L1 e passa por cima de uma via colocada no centro do pad do TP (via no pad do TP; o TP não recebe componente, então não há problema de solda). A linha não troca de camada; o único efeito é o stub da via na espessura da placa (1,56 mm), desprezível para o SDIO. Isso coloca uma via no CK e no CMD, mas não nos dados, então a regra do manual (vias iguais entre os dados) continua atendida.
