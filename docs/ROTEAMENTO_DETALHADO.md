@@ -438,6 +438,22 @@ Largura 0,154 mm, passo do par 0,357 mm (classe USB_90; 90 ohm de calculadora da
 - Comprimentos: USB_D+ 25,26 mm (L4 22,4), USB_D- 23,97 mm (L4 21,0); diferença 1,29 mm. O AN4879 Rev 12 não dá limite de comprimento nem de passo do par (CLAUDE.md). Igualar com uma dobra depois do lado do conector [projeto].
 - Falta o lado do conector: J3 até o U3 (D+ e D- com o cruzamento dos pares A e B), `VBUS_RAW`, CC1 e CC2, abas e o GND do U3.
 
+### W3b-1: D+ e D- do J3 ao U3 (2026-11-17, DRC igual: 6 violações antigas, 109 para 105 não conectados)
+
+**Por que não foi direto.** Os pads do J3 têm passo de 0,5 mm e a via é de 0,6 mm: não cabe via entre duas linhas vizinhas (precisa de 0,577 mm do centro da via à linha e 0,8 mm entre vias) [conta]. As linhas do USB intercalam (de cima para baixo: B7 D-, A6 D+, A7 D-, B6 D+), então há um cruzamento inevitável entre os dois pares.
+
+Solução: usar a **face oeste dos pads** (livre, sob o corpo do conector), e uma só via no D-.
+
+| Rede | Caminho |
+| ---- | ------- |
+| D+ (/USB/USB_CONN_D+) | B6 volta pelo oeste em X 113,9 (laço de 45 graus) até o A6, tudo em L1. Tronco do A6 em Y 80,35 até X 117,86, diagonal até (118,95; 81,44) e entra no pino 1 do U3 por oeste. 8,05 mm, sem vias. |
+| D- (/USB/USB_CONN_D-) | B7 sai para oeste até a via (113,4; 79,85); L4 por baixo dos pads (Y 79,85, diagonal até (117,2; 81,75)); via sobre o tronco do A7 em (117,2; 81,75). Tronco do A7 em Y 80,85, diagonal até (118,15; 82,7), contorna o U3 por baixo (Y 82,7) e sobe no pino 3 por X 121,45. 14,66 mm (L4 4,59), 2 vias. |
+
+- Diferença total do par do J3 ao U1: D+ 33,31 mm contra D- 38,63 mm, ou seja, 5,3 mm. O AN4879 Rev 12 não dá limite de comprimento; igualar com uma dobra no D+ depois [projeto].
+- Largura 0,154 mm (classe USB_90); só o par do U3 ao U1 (W3a) segue o passo de 0,357 mm.
+- A trilha do D+ passa sob o corpo do J3 (L1, coberta pela máscara). O desenho da HRO é só imagem e não li as notas de proibição sob o conector [pendente].
+- Falta no lado do conector: CC1 e CC2 até R8 e R9, `VBUS_RAW` (2 pads do J3 até U3.5, C17, R10, R12 e D4), abas SH e GND do J3 e do U3.
+
 ### TP14 e TP15 estão na face de baixo
 
 "SDIO sem vias" e "TP passando pelo pad, sem ramal" só convivem assim [inferência]: a trilha segue em L1 e passa por cima de uma via colocada no centro do pad do TP (via no pad do TP; o TP não recebe componente, então não há problema de solda). A linha não troca de camada; o único efeito é o stub da via na espessura da placa (1,56 mm), desprezível para o SDIO. Isso coloca uma via no CK e no CMD, mas não nos dados, então a regra do manual (vias iguais entre os dados) continua atendida.
