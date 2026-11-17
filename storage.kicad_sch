@@ -1419,8 +1419,8 @@
 		)
 	)
 	(rectangle
-		(start 13.97 13.97)
-		(end 85.09 69.85)
+		(start 39.37 34.29)
+		(end 110.49 85.09)
 		(stroke
 			(width 0)
 			(type default)
@@ -1431,8 +1431,8 @@
 		(uuid "9a9d86ad-014e-4d5c-8612-80a30939c85e")
 	)
 	(rectangle
-		(start 113.03 27.94)
-		(end 240.03 148.59)
+		(start 113.03 34.29)
+		(end 245.11 148.59)
 		(stroke
 			(width 0)
 			(type default)
@@ -1444,7 +1444,7 @@
 	)
 	(text "C24/C25 as close as possible to VDD (pin 4), 100nF closest.\n"
 		(exclude_from_sim no)
-		(at 202.184 57.912 0)
+		(at 199.136 53.594 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1456,7 +1456,7 @@
 	)
 	(text "References: DS39724 (Typical Applications Circuit, Note 4,\nEN characteristics), DS8626 (Table 48)"
 		(exclude_from_sim no)
-		(at 14.986 33.528 0)
+		(at 40.386 48.768 0)
 		(effects
 			(font
 				(size 0.8 0.8)
@@ -1466,9 +1466,9 @@
 		)
 		(uuid "13590d9f-6ee1-4795-a69e-af6b66f8f5cc")
 	)
-	(text "10k pull-ups on CMD and DAT0-3 go to +3V3_SD, NOT +3V3:\nwith the card off, its pins must stay below VDD + 0.3V.\nAllowed range 10k-100k; 10k chosen for noise margin.\nCLK has no pull-up (always driven by the host).\n\nCard detect uses the socket switch (DET_A/DET_B), not DAT3/CD:\nthe DAT3 pull-up keeps it high with or without a card.\nSD_CD (PC13) is active low: card inserted = 0. R18 on +3V3.\n\nDecoupling values are common practice, not from a manual."
+	(text "10k pull-ups on CMD and DAT0-3 go to +3V3_SD, NOT +3V3:\nwith the card off, its pins must stay below VDD + 0.3V.\nAllowed range 10k-100k; 10k chosen for noise margin.\nCLK has no pull-up (always driven by the host).\n\nDecoupling values are common practice, not from a manual."
 		(exclude_from_sim no)
-		(at 171.704 45.72 0)
+		(at 168.656 45.974 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1479,7 +1479,7 @@
 	)
 	(text "References: DS8626 (sec. 3.27, Tables 7, 9, 48, 88), RM0090 ch. 31,\nSD Physical Layer Simplified Spec v9.10 (Table 3-1),\nKingston SDCS2 (Tables 6-2, 6-5, 6-6), Molex SD-104031-001"
 		(exclude_from_sim no)
-		(at 171.45 73.66 0)
+		(at 168.91 77.724 0)
 		(effects
 			(font
 				(size 0.8 0.8)
@@ -1489,9 +1489,9 @@
 		)
 		(uuid "1d1afde4-03e4-448e-ab0e-93f9e7946a04")
 	)
-	(text "Dedicated LDO for the SD card: splits the heat from the main\nLDO and isolates the MCU rail from card inrush.\nEN driven by SD_EN (PC3). R15 holds EN low during reset:\nthe internal 3 MΩ pull-down is too weak against GPIO leakage.\nPulling EN low power-cycles the card (output discharged internally)."
+	(text "Dedicated LDO for the SD card: splits the heat from the main\nLDO and isolates the MCU rail from card inrush."
 		(exclude_from_sim no)
-		(at 14.986 24.13 0)
+		(at 40.132 42.418 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1502,7 +1502,7 @@
 	)
 	(text "C22 and C23 close to U6."
 		(exclude_from_sim no)
-		(at 27.686 30.988 0)
+		(at 53.086 46.228 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1514,7 +1514,7 @@
 	)
 	(text "TPs on the trace itself, \nno stub (SDIO trace ≤ 20 pF, AN4488 Sec. 8.4.1)."
 		(exclude_from_sim no)
-		(at 172.466 123.19 0)
+		(at 171.196 127 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1525,7 +1525,7 @@
 	)
 	(text "MICROSD CARD (SDIO 4-BIT)"
 		(exclude_from_sim no)
-		(at 199.39 33.02 0)
+		(at 196.088 37.592 0)
 		(effects
 			(font
 				(size 2.5 2.5)
@@ -1535,9 +1535,9 @@
 		)
 		(uuid "a801ba3f-0b4f-4d71-94f4-692e9be2685c")
 	)
-	(text ">> FIRMWARE: init in 1-bit mode at low clock, then 4-bit (ACMD6)\n   and High-Speed (CMD6) before going above 25 MHz.\n   Disconnect the DAT3 internal pull-up (ACMD42).\n   Enable SD_EN only after SD_CD = 0; drive SDIO pins low\n   before turning the card off."
+	(text ">> FIRMWARE: init in 1-bit mode at low clock, then 4-bit (ACMD6)\n   and High-Speed (CMD6) before going above 25 MHz.\n   Disconnect the DAT3 internal pull-up (ACMD42).\n\nRev 1: SD_EN (PC3) and SD_CD (PC13) removed, no route between the MCU\nand the SD LDO or socket.\nU6 EN is tied to +5V (VEN high is 1.5 to 6.0 V, DS39724),\nso the card is powered whenever 5 V is present.\nThe card is detected by trying to initialize it.\nBoth MCU pins are left unconnected. Revisit in rev 2."
 		(exclude_from_sim no)
-		(at 171.958 66.04 0)
+		(at 168.91 65.278 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1548,7 +1548,7 @@
 	)
 	(text "MICROSD LDO (+3V3_SD)"
 		(exclude_from_sim no)
-		(at 38.608 16.51 0)
+		(at 64.008 38.1 0)
 		(effects
 			(font
 				(size 2.5 2.5)
@@ -1559,110 +1559,102 @@
 		(uuid "c9add7e4-dd46-4f1b-be47-76690ac0adcb")
 	)
 	(junction
-		(at 63.5 45.72)
+		(at 88.9 60.96)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "00eb0050-b940-41e8-ba50-bea01ccf0da0")
 	)
 	(junction
-		(at 63.5 48.26)
+		(at 88.9 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0da1235b-f4aa-4c39-bb2c-bfbf288a3b97")
 	)
 	(junction
-		(at 143.51 116.84)
+		(at 142.24 120.65)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "172a5d0b-3c5d-45cf-9501-927a7c5014df")
 	)
 	(junction
-		(at 143.51 128.27)
+		(at 62.23 63.5)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "34dd255b-1a9d-4b39-a4e1-5d0553f15cfa")
+	)
+	(junction
+		(at 142.24 132.08)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "793a3d56-ac8e-4ae2-9a82-d551eb94fd54")
 	)
 	(junction
-		(at 148.59 85.09)
+		(at 147.32 88.9)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8a73519b-88d2-46cb-865f-a04cb7fbec89")
 	)
 	(junction
-		(at 138.43 95.25)
+		(at 137.16 99.06)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9266ca51-d3c4-4011-b465-97ec27474e84")
 	)
 	(junction
-		(at 152.4 106.68)
+		(at 151.13 110.49)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "aaf7af90-649c-4823-bb18-9f72c35f51eb")
 	)
 	(junction
-		(at 143.51 58.42)
+		(at 142.24 62.23)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b2454fa1-7684-4865-a39b-f9b4f8448863")
 	)
 	(junction
-		(at 143.51 140.97)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b3e5e0a7-0501-4570-8d08-fbeab397a604")
-	)
-	(junction
-		(at 127 95.25)
+		(at 125.73 99.06)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b615b091-d248-42d8-b3b3-05f4b01b1df8")
 	)
 	(junction
-		(at 25.4 48.26)
+		(at 50.8 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bcad0827-942c-493c-afb6-0dcbc7400a30")
 	)
 	(junction
-		(at 127 102.87)
+		(at 125.73 106.68)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c2e2872a-eef9-4c60-b8fc-debe932293af")
 	)
 	(junction
-		(at 143.51 85.09)
+		(at 142.24 88.9)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "cac99fa6-169a-4588-aa21-c45f8d9713bc")
 	)
 	(junction
-		(at 49.53 58.42)
+		(at 74.93 73.66)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e7e797c1-5429-41b0-8eb2-3619748842e1")
 	)
 	(junction
-		(at 38.1 58.42)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e970c9bf-f25f-4fde-80d4-365d53d350c6")
-	)
-	(junction
-		(at 143.51 71.12)
+		(at 142.24 74.93)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ecabb129-0698-4607-89ff-97a349ffc6e9")
 	)
-	(junction
-		(at 38.1 50.8)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "fa0007d8-fa41-48f3-a7ba-f15d0e5a5cfb")
+	(no_connect
+		(at 170.18 110.49)
+		(uuid "d7066471-d7f7-4c22-89cf-af3381b2d612")
 	)
 	(wire
 		(pts
-			(xy 127 95.25) (xy 148.59 95.25)
+			(xy 125.73 99.06) (xy 147.32 99.06)
 		)
 		(stroke
 			(width 0)
@@ -1672,7 +1664,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 116.84) (xy 143.51 120.65)
+			(xy 142.24 120.65) (xy 142.24 124.46)
 		)
 		(stroke
 			(width 0)
@@ -1682,7 +1674,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 67.31) (xy 134.62 67.31)
+			(xy 125.73 71.12) (xy 133.35 71.12)
 		)
 		(stroke
 			(width 0)
@@ -1692,7 +1684,7 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 99.06) (xy 171.45 99.06)
+			(xy 158.75 102.87) (xy 170.18 102.87)
 		)
 		(stroke
 			(width 0)
@@ -1702,7 +1694,7 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 109.22) (xy 168.91 113.03)
+			(xy 167.64 113.03) (xy 167.64 116.84)
 		)
 		(stroke
 			(width 0)
@@ -1712,7 +1704,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 102.87) (xy 127 104.14)
+			(xy 125.73 106.68) (xy 125.73 107.95)
 		)
 		(stroke
 			(width 0)
@@ -1722,7 +1714,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 128.27) (xy 143.51 128.27)
+			(xy 138.43 132.08) (xy 142.24 132.08)
 		)
 		(stroke
 			(width 0)
@@ -1732,7 +1724,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 120.65) (xy 127 120.65)
+			(xy 142.24 124.46) (xy 125.73 124.46)
 		)
 		(stroke
 			(width 0)
@@ -1742,7 +1734,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 80.01) (xy 134.62 80.01)
+			(xy 125.73 83.82) (xy 133.35 83.82)
 		)
 		(stroke
 			(width 0)
@@ -1752,7 +1744,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 106.68) (xy 152.4 106.68)
+			(xy 148.59 110.49) (xy 151.13 110.49)
 		)
 		(stroke
 			(width 0)
@@ -1762,17 +1754,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 140.97) (xy 134.62 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2803010b-e4d8-4202-b3bd-9f034ff6310a")
-	)
-	(wire
-		(pts
-			(xy 41.91 48.26) (xy 25.4 48.26)
+			(xy 67.31 63.5) (xy 62.23 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1782,7 +1764,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 104.14) (xy 165.1 128.27)
+			(xy 163.83 107.95) (xy 163.83 132.08)
 		)
 		(stroke
 			(width 0)
@@ -1792,7 +1774,7 @@
 	)
 	(wire
 		(pts
-			(xy 25.4 48.26) (xy 25.4 50.8)
+			(xy 50.8 63.5) (xy 50.8 66.04)
 		)
 		(stroke
 			(width 0)
@@ -1802,7 +1784,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 54.61) (xy 143.51 58.42)
+			(xy 142.24 58.42) (xy 142.24 62.23)
 		)
 		(stroke
 			(width 0)
@@ -1812,7 +1794,17 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 58.42) (xy 127 58.42)
+			(xy 62.23 63.5) (xy 50.8 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4250283f-c3ed-415f-89a1-26f97100691a")
+	)
+	(wire
+		(pts
+			(xy 142.24 62.23) (xy 125.73 62.23)
 		)
 		(stroke
 			(width 0)
@@ -1822,7 +1814,17 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 48.26) (xy 63.5 48.26)
+			(xy 62.23 63.5) (xy 62.23 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45ff8864-76b3-4e90-bf49-3ddd7a70f2cc")
+	)
+	(wire
+		(pts
+			(xy 82.55 63.5) (xy 88.9 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1832,7 +1834,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 85.09) (xy 127 85.09)
+			(xy 142.24 88.9) (xy 125.73 88.9)
 		)
 		(stroke
 			(width 0)
@@ -1842,17 +1844,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 140.97) (xy 143.51 146.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4f889e55-f83e-44ff-8c61-16b677acee60")
-	)
-	(wire
-		(pts
-			(xy 156.21 96.52) (xy 171.45 96.52)
+			(xy 154.94 100.33) (xy 170.18 100.33)
 		)
 		(stroke
 			(width 0)
@@ -1862,7 +1854,7 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 96.52) (xy 156.21 106.68)
+			(xy 154.94 100.33) (xy 154.94 110.49)
 		)
 		(stroke
 			(width 0)
@@ -1872,7 +1864,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 85.09) (xy 143.51 85.09)
+			(xy 147.32 88.9) (xy 142.24 88.9)
 		)
 		(stroke
 			(width 0)
@@ -1882,7 +1874,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 93.98) (xy 148.59 95.25)
+			(xy 147.32 97.79) (xy 147.32 99.06)
 		)
 		(stroke
 			(width 0)
@@ -1892,17 +1884,7 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 50.8) (xy 38.1 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6934e4e8-3517-4229-89b5-1582d52251db")
-	)
-	(wire
-		(pts
-			(xy 143.51 116.84) (xy 163.83 116.84)
+			(xy 142.24 120.65) (xy 162.56 120.65)
 		)
 		(stroke
 			(width 0)
@@ -1912,7 +1894,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 109.22) (xy 168.91 109.22)
+			(xy 170.18 113.03) (xy 167.64 113.03)
 		)
 		(stroke
 			(width 0)
@@ -1922,7 +1904,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 67.31) (xy 139.7 67.31)
+			(xy 142.24 71.12) (xy 138.43 71.12)
 		)
 		(stroke
 			(width 0)
@@ -1932,7 +1914,7 @@
 	)
 	(wire
 		(pts
-			(xy 214.63 109.22) (xy 220.98 109.22)
+			(xy 213.36 113.03) (xy 219.71 113.03)
 		)
 		(stroke
 			(width 0)
@@ -1942,7 +1924,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 58.42) (xy 63.5 58.42)
+			(xy 74.93 73.66) (xy 88.9 73.66)
 		)
 		(stroke
 			(width 0)
@@ -1952,7 +1934,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 101.6) (xy 163.83 101.6)
+			(xy 170.18 105.41) (xy 162.56 105.41)
 		)
 		(stroke
 			(width 0)
@@ -1962,7 +1944,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 71.12) (xy 127 71.12)
+			(xy 142.24 74.93) (xy 125.73 74.93)
 		)
 		(stroke
 			(width 0)
@@ -1972,7 +1954,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 132.08) (xy 143.51 128.27)
+			(xy 142.24 135.89) (xy 142.24 132.08)
 		)
 		(stroke
 			(width 0)
@@ -1982,7 +1964,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 58.42) (xy 143.51 58.42)
+			(xy 165.1 62.23) (xy 142.24 62.23)
 		)
 		(stroke
 			(width 0)
@@ -1992,7 +1974,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 116.84) (xy 134.62 116.84)
+			(xy 125.73 120.65) (xy 133.35 120.65)
 		)
 		(stroke
 			(width 0)
@@ -2002,7 +1984,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 93.98) (xy 148.59 93.98)
+			(xy 170.18 97.79) (xy 147.32 97.79)
 		)
 		(stroke
 			(width 0)
@@ -2012,17 +1994,7 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 55.88) (xy 38.1 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9de114e2-411c-4f2d-ad64-7f98ee29ec6e")
-	)
-	(wire
-		(pts
-			(xy 143.51 80.01) (xy 139.7 80.01)
+			(xy 142.24 83.82) (xy 138.43 83.82)
 		)
 		(stroke
 			(width 0)
@@ -2032,7 +2004,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 88.9) (xy 165.1 88.9)
+			(xy 170.18 92.71) (xy 163.83 92.71)
 		)
 		(stroke
 			(width 0)
@@ -2042,7 +2014,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 93.98) (xy 127 95.25)
+			(xy 125.73 97.79) (xy 125.73 99.06)
 		)
 		(stroke
 			(width 0)
@@ -2052,17 +2024,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 140.97) (xy 139.7 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ad90ae67-6ed3-447d-9388-db8d85dc508e")
-	)
-	(wire
-		(pts
-			(xy 25.4 58.42) (xy 38.1 58.42)
+			(xy 50.8 73.66) (xy 74.93 73.66)
 		)
 		(stroke
 			(width 0)
@@ -2072,7 +2034,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 106.68) (xy 156.21 106.68)
+			(xy 151.13 110.49) (xy 154.94 110.49)
 		)
 		(stroke
 			(width 0)
@@ -2082,7 +2044,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 128.27) (xy 165.1 128.27)
+			(xy 142.24 132.08) (xy 163.83 132.08)
 		)
 		(stroke
 			(width 0)
@@ -2092,7 +2054,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 43.18) (xy 63.5 45.72)
+			(xy 88.9 58.42) (xy 88.9 60.96)
 		)
 		(stroke
 			(width 0)
@@ -2102,17 +2064,7 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 58.42) (xy 49.53 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b1af7e4d-75f4-4082-bc14-2939dda75c6e")
-	)
-	(wire
-		(pts
-			(xy 163.83 91.44) (xy 163.83 85.09)
+			(xy 162.56 95.25) (xy 162.56 88.9)
 		)
 		(stroke
 			(width 0)
@@ -2122,17 +2074,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 140.97) (xy 166.37 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bb082ec1-6c5c-4e4e-bd98-8b2f494062cb")
-	)
-	(wire
-		(pts
-			(xy 63.5 48.26) (xy 63.5 50.8)
+			(xy 88.9 63.5) (xy 88.9 66.04)
 		)
 		(stroke
 			(width 0)
@@ -2142,17 +2084,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 106.68) (xy 166.37 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bc333b2d-dd1e-4f70-9284-7c7e4d72c1ac")
-	)
-	(wire
-		(pts
-			(xy 165.1 71.12) (xy 165.1 88.9)
+			(xy 163.83 74.93) (xy 163.83 92.71)
 		)
 		(stroke
 			(width 0)
@@ -2162,7 +2094,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 116.84) (xy 139.7 116.84)
+			(xy 142.24 120.65) (xy 138.43 120.65)
 		)
 		(stroke
 			(width 0)
@@ -2172,7 +2104,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 109.22) (xy 220.98 110.49)
+			(xy 219.71 113.03) (xy 219.71 114.3)
 		)
 		(stroke
 			(width 0)
@@ -2182,7 +2114,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 45.72) (xy 63.5 48.26)
+			(xy 88.9 60.96) (xy 88.9 63.5)
 		)
 		(stroke
 			(width 0)
@@ -2192,7 +2124,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 85.09) (xy 148.59 85.09)
+			(xy 162.56 88.9) (xy 147.32 88.9)
 		)
 		(stroke
 			(width 0)
@@ -2202,7 +2134,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 101.6) (xy 163.83 116.84)
+			(xy 162.56 105.41) (xy 162.56 120.65)
 		)
 		(stroke
 			(width 0)
@@ -2212,7 +2144,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 128.27) (xy 134.62 128.27)
+			(xy 125.73 132.08) (xy 133.35 132.08)
 		)
 		(stroke
 			(width 0)
@@ -2222,7 +2154,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 86.36) (xy 166.37 86.36)
+			(xy 170.18 90.17) (xy 165.1 90.17)
 		)
 		(stroke
 			(width 0)
@@ -2232,7 +2164,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 132.08) (xy 143.51 132.08)
+			(xy 125.73 135.89) (xy 142.24 135.89)
 		)
 		(stroke
 			(width 0)
@@ -2242,7 +2174,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 54.61) (xy 134.62 54.61)
+			(xy 125.73 58.42) (xy 133.35 58.42)
 		)
 		(stroke
 			(width 0)
@@ -2252,17 +2184,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 106.68) (xy 166.37 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e276b2c4-eb6a-4094-9e5d-7da7c1126c0f")
-	)
-	(wire
-		(pts
-			(xy 171.45 91.44) (xy 163.83 91.44)
+			(xy 170.18 95.25) (xy 162.56 95.25)
 		)
 		(stroke
 			(width 0)
@@ -2272,7 +2194,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 104.14) (xy 165.1 104.14)
+			(xy 170.18 107.95) (xy 163.83 107.95)
 		)
 		(stroke
 			(width 0)
@@ -2282,7 +2204,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 54.61) (xy 139.7 54.61)
+			(xy 142.24 58.42) (xy 138.43 58.42)
 		)
 		(stroke
 			(width 0)
@@ -2292,7 +2214,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 67.31) (xy 143.51 71.12)
+			(xy 142.24 71.12) (xy 142.24 74.93)
 		)
 		(stroke
 			(width 0)
@@ -2302,7 +2224,7 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 50.8) (xy 41.91 50.8)
+			(xy 62.23 66.04) (xy 67.31 66.04)
 		)
 		(stroke
 			(width 0)
@@ -2312,7 +2234,7 @@
 	)
 	(wire
 		(pts
-			(xy 138.43 102.87) (xy 127 102.87)
+			(xy 137.16 106.68) (xy 125.73 106.68)
 		)
 		(stroke
 			(width 0)
@@ -2322,7 +2244,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 58.42) (xy 49.53 63.5)
+			(xy 74.93 73.66) (xy 74.93 78.74)
 		)
 		(stroke
 			(width 0)
@@ -2332,7 +2254,7 @@
 	)
 	(wire
 		(pts
-			(xy 25.4 43.18) (xy 25.4 48.26)
+			(xy 50.8 58.42) (xy 50.8 63.5)
 		)
 		(stroke
 			(width 0)
@@ -2342,7 +2264,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 80.01) (xy 143.51 85.09)
+			(xy 142.24 83.82) (xy 142.24 88.9)
 		)
 		(stroke
 			(width 0)
@@ -2352,7 +2274,7 @@
 	)
 	(wire
 		(pts
-			(xy 166.37 58.42) (xy 166.37 86.36)
+			(xy 165.1 62.23) (xy 165.1 90.17)
 		)
 		(stroke
 			(width 0)
@@ -2362,7 +2284,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 71.12) (xy 143.51 71.12)
+			(xy 163.83 74.93) (xy 142.24 74.93)
 		)
 		(stroke
 			(width 0)
@@ -2370,19 +2292,9 @@
 		)
 		(uuid "fb3d3e0c-cfba-4804-9125-4a3ac362e3c0")
 	)
-	(wire
-		(pts
-			(xy 143.51 146.05) (xy 127 146.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ff415da0-ecc1-4281-b242-d52e3a240acd")
-	)
 	(global_label "SDIO_CK"
 		(shape input)
-		(at 149.86 106.68 180)
+		(at 148.59 110.49 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2392,31 +2304,7 @@
 		)
 		(uuid "1c714ea0-5e2e-4b91-a69e-b9c71ea4c053")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 138.9524 106.68 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
-	(global_label "SD_CD"
-		(shape output)
-		(at 127 146.05 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "2f21f65f-39da-4056-beaa-59506c8f670e")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 118.0277 146.05 0)
+			(at 137.6824 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2430,7 +2318,7 @@
 	)
 	(global_label "SDIO_D3"
 		(shape bidirectional)
-		(at 127 71.12 180)
+		(at 125.73 74.93 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2440,7 +2328,7 @@
 		)
 		(uuid "3d798c75-7afd-4c95-9600-4300c8be13e8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 115.0416 71.12 0)
+			(at 113.7716 74.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2454,7 +2342,7 @@
 	)
 	(global_label "SDIO_D2"
 		(shape bidirectional)
-		(at 127 58.42 180)
+		(at 125.73 62.23 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2464,7 +2352,7 @@
 		)
 		(uuid "4de4b023-614e-4849-b8d9-79571453ea7c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 115.0416 58.42 0)
+			(at 113.7716 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2478,7 +2366,7 @@
 	)
 	(global_label "SDIO_D0"
 		(shape bidirectional)
-		(at 127 120.65 180)
+		(at 125.73 124.46 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2488,31 +2376,7 @@
 		)
 		(uuid "5c738318-17ea-4a0a-997e-78e605858918")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 115.0416 120.65 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-	)
-	(global_label "SD_EN"
-		(shape input)
-		(at 36.83 50.8 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "7c898f93-ff71-41d1-8a1e-30e26379ecc4")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 27.9182 50.8 0)
+			(at 113.7716 124.46 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2526,7 +2390,7 @@
 	)
 	(global_label "SDIO_CMD"
 		(shape bidirectional)
-		(at 127 85.09 180)
+		(at 125.73 88.9 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2536,7 +2400,7 @@
 		)
 		(uuid "e1884a56-b598-45ed-a564-40dce7516039")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 113.5297 85.09 0)
+			(at 112.2597 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2550,7 +2414,7 @@
 	)
 	(global_label "SDIO_D1"
 		(shape bidirectional)
-		(at 127 132.08 180)
+		(at 125.73 135.89 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2560,7 +2424,7 @@
 		)
 		(uuid "f542efc4-6745-4310-acb5-8ee3b138be29")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 115.0416 132.08 0)
+			(at 113.7716 135.89 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2574,7 +2438,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 168.91 113.03 0)
+		(at 167.64 116.84 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2584,7 +2448,7 @@
 		(dnp no)
 		(uuid "06458971-0058-4482-b607-e852b863d0b1")
 		(property "Reference" "#PWR045"
-			(at 168.91 119.38 0)
+			(at 167.64 123.19 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2595,7 +2459,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 168.91 116.84 0)
+			(at 167.64 120.65 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2605,7 +2469,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 168.91 113.03 0)
+			(at 167.64 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2616,7 +2480,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 168.91 113.03 0)
+			(at 167.64 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2627,7 +2491,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 168.91 113.03 0)
+			(at 167.64 116.84 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2641,6 +2505,12 @@
 			(uuid "d61160bc-af43-4263-afa1-a2afe6382523")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "#PWR045")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "#PWR045")
@@ -2651,7 +2521,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Micro_SD_Card_Det2")
-		(at 194.31 96.52 0)
+		(at 193.04 100.33 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2661,7 +2531,7 @@
 		(dnp no)
 		(uuid "08f0a1b2-8ee0-4607-ac8e-734312dbc1d9")
 		(property "Reference" "J4"
-			(at 213.36 78.232 0)
+			(at 212.09 82.042 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2671,7 +2541,7 @@
 			)
 		)
 		(property "Value" "Micro SD Card"
-			(at 208.28 114.808 0)
+			(at 207.01 118.618 0)
 			(show_name no)
 			(do_not_autoplace yes)
 			(effects
@@ -2681,7 +2551,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Card:microSD_HC_Molex_104031-0811"
-			(at 246.38 78.74 0)
+			(at 245.11 82.55 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2692,7 +2562,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.hirose.com/en/product/document?clcode=&productname=&series=DM3&documenttype=Catalog&lang=en&documentid=D49662_en"
-			(at 196.85 93.98 0)
+			(at 195.58 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2703,7 +2573,7 @@
 			)
 		)
 		(property "Description" "Micro SD Card Socket with two card detection pins"
-			(at 194.31 96.52 0)
+			(at 193.04 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2714,7 +2584,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 194.31 96.52 0)
+			(at 193.04 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2725,7 +2595,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 194.31 96.52 0)
+			(at 193.04 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2736,7 +2606,7 @@
 			)
 		)
 		(property "LCSC" "C585350"
-			(at 194.31 96.52 0)
+			(at 193.04 100.33 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2780,6 +2650,12 @@
 			(uuid "3b00c9cc-4bb4-46e4-a989-0afcf13ec64a")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "J4")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "J4")
@@ -2790,7 +2666,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 127 54.61 0)
+		(at 125.73 58.42 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2800,7 +2676,7 @@
 		(dnp no)
 		(uuid "0be34a7c-4d45-4c20-a63c-7c94d5d75d33")
 		(property "Reference" "#PWR057"
-			(at 127 58.42 0)
+			(at 125.73 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2811,7 +2687,7 @@
 			)
 		)
 		(property "Value" "+3V3_SD"
-			(at 126.492 50.8 0)
+			(at 125.222 54.61 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2821,7 +2697,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 127 54.61 0)
+			(at 125.73 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2832,7 +2708,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 54.61 0)
+			(at 125.73 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2843,7 +2719,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 127 54.61 0)
+			(at 125.73 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2857,6 +2733,12 @@
 			(uuid "3170860b-0279-449e-8019-d83f89708a78")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "#PWR057")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "#PWR057")
@@ -2866,120 +2748,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 38.1 53.34 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "15f8cc2d-ce38-4d1f-af20-c96ea6a72f87")
-		(property "Reference" "R15"
-			(at 40.64 52.07 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 40.894 54.61 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 38.1 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 38.1 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 38.1 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 38.1 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 38.1 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C25804"
-			(at 38.1 53.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "a58f9595-0c00-4a47-a074-0388b0885538")
-		)
-		(pin "2"
-			(uuid "540498aa-3e78-4543-afaa-c7ea88ffc666")
-		)
-		(instances
-			(project "STM32F405_FLIGHT_CONTROLLER"
-				(path "/47d13329-6723-42ae-820f-35e936b9439d"
-					(reference "R15")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 127 104.14 0)
+		(at 125.73 107.95 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2989,7 +2759,7 @@
 		(dnp no)
 		(uuid "1bab2d5a-f2d0-4e86-9846-67936183df55")
 		(property "Reference" "#PWR050"
-			(at 127 110.49 0)
+			(at 125.73 114.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3000,7 +2770,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 127 107.95 0)
+			(at 125.73 111.76 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3010,7 +2780,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 127 104.14 0)
+			(at 125.73 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3021,7 +2791,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 104.14 0)
+			(at 125.73 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3032,7 +2802,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 127 104.14 0)
+			(at 125.73 107.95 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3046,6 +2816,12 @@
 			(uuid "cd3ffaab-3428-4717-92a7-cf1d8405d8f9")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "#PWR050")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "#PWR050")
@@ -3056,17 +2832,17 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 137.16 54.61 90)
+		(at 135.89 58.42 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "1d5b9ecb-9b94-4576-94e3-19d7ecf75723")
 		(property "Reference" "R23"
-			(at 137.16 52.832 90)
+			(at 135.89 56.642 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3076,7 +2852,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 137.16 56.642 90)
+			(at 135.89 60.452 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3086,7 +2862,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 137.16 54.61 0)
+			(at 135.89 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3097,7 +2873,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 137.16 54.61 0)
+			(at 135.89 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3108,7 +2884,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 137.16 54.61 0)
+			(at 135.89 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3119,7 +2895,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 137.16 54.61 90)
+			(at 135.89 58.42 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3130,7 +2906,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 137.16 54.61 90)
+			(at 135.89 58.42 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3141,7 +2917,7 @@
 			)
 		)
 		(property "LCSC" "C25804"
-			(at 137.16 54.61 90)
+			(at 135.89 58.42 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3158,6 +2934,12 @@
 			(uuid "8ef6752e-190f-4027-b5b1-40c2fa033580")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "R23")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "R23")
@@ -3168,7 +2950,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 63.5 54.61 0)
+		(at 88.9 69.85 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3178,7 +2960,7 @@
 		(dnp no)
 		(uuid "24ac25ab-44d2-4055-a94d-a40f9696a8c2")
 		(property "Reference" "C23"
-			(at 65.786 53.086 0)
+			(at 91.186 68.326 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3189,7 +2971,7 @@
 			)
 		)
 		(property "Value" "1u"
-			(at 65.786 56.388 0)
+			(at 91.186 71.628 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3200,7 +2982,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 64.4652 58.42 0)
+			(at 89.8652 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3211,7 +2993,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 63.5 54.61 0)
+			(at 88.9 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3222,7 +3004,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 63.5 54.61 0)
+			(at 88.9 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3233,7 +3015,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 63.5 54.61 0)
+			(at 88.9 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3244,7 +3026,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 63.5 54.61 0)
+			(at 88.9 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3255,7 +3037,7 @@
 			)
 		)
 		(property "LCSC" "C15849"
-			(at 63.5 54.61 0)
+			(at 88.9 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3272,6 +3054,12 @@
 			(uuid "e0041272-f885-4a47-ae03-bfb17cfde568")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "C23")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "C23")
@@ -3282,7 +3070,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 137.16 128.27 90)
+		(at 135.89 132.08 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3292,7 +3080,7 @@
 		(dnp no)
 		(uuid "2b77d25a-3432-42cf-9b14-735c6facaf1a")
 		(property "Reference" "R19"
-			(at 137.16 126.492 90)
+			(at 135.89 130.302 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3302,7 +3090,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 137.16 130.302 90)
+			(at 135.89 134.112 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3312,7 +3100,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 137.16 128.27 0)
+			(at 135.89 132.08 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3323,7 +3111,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 137.16 128.27 0)
+			(at 135.89 132.08 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3334,7 +3122,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 137.16 128.27 0)
+			(at 135.89 132.08 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3345,7 +3133,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 137.16 128.27 90)
+			(at 135.89 132.08 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3356,7 +3144,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 137.16 128.27 90)
+			(at 135.89 132.08 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3367,7 +3155,7 @@
 			)
 		)
 		(property "LCSC" "C25804"
-			(at 137.16 128.27 90)
+			(at 135.89 132.08 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3384,6 +3172,12 @@
 			(uuid "fcf7da6f-08fd-4450-9cbb-6ee4f1f53a4d")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "R19")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "R19")
@@ -3394,7 +3188,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 63.5 45.72 270)
+		(at 88.9 60.96 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3404,7 +3198,7 @@
 		(dnp no)
 		(uuid "2dab2097-71c7-4e6f-856a-a337265496a3")
 		(property "Reference" "TP13"
-			(at 67.564 44.196 90)
+			(at 92.964 59.436 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3415,7 +3209,7 @@
 			)
 		)
 		(property "Value" "+3V3_SD"
-			(at 67.31 46.99 90)
+			(at 92.71 62.23 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3426,7 +3220,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 63.5 50.8 0)
+			(at 88.9 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3437,7 +3231,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 63.5 50.8 0)
+			(at 88.9 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3448,7 +3242,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 63.5 45.72 0)
+			(at 88.9 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3459,7 +3253,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 63.5 45.72 90)
+			(at 88.9 60.96 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3470,7 +3264,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 63.5 45.72 90)
+			(at 88.9 60.96 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3484,6 +3278,12 @@
 			(uuid "190f0754-26c2-4d90-aa5e-51bf8cef7ef1")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "TP13")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "TP13")
@@ -3494,7 +3294,7 @@
 	)
 	(symbol
 		(lib_id "Regulator_Linear:AP2112K-3.3")
-		(at 49.53 50.8 0)
+		(at 74.93 66.04 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3505,7 +3305,7 @@
 		(fields_autoplaced yes)
 		(uuid "3d75228f-fe07-4df8-9a44-ab9a3bb9997b")
 		(property "Reference" "U6"
-			(at 49.53 41.91 0)
+			(at 74.93 57.15 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3515,7 +3315,7 @@
 			)
 		)
 		(property "Value" "AP2112K-3.3"
-			(at 49.53 44.45 0)
+			(at 74.93 59.69 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3525,7 +3325,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
-			(at 49.53 42.545 0)
+			(at 74.93 57.785 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3536,7 +3336,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP2112.pdf"
-			(at 49.53 48.26 0)
+			(at 74.93 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3547,7 +3347,7 @@
 			)
 		)
 		(property "Description" "600mA low dropout linear regulator, with enable pin, 3.8V-6V input voltage range, 3.3V fixed positive output, SOT-23-5"
-			(at 49.53 50.8 0)
+			(at 74.93 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3558,7 +3358,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 49.53 50.8 0)
+			(at 74.93 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3569,7 +3369,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 49.53 50.8 0)
+			(at 74.93 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3580,7 +3380,7 @@
 			)
 		)
 		(property "LCSC" "C51118"
-			(at 49.53 50.8 0)
+			(at 74.93 66.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3606,6 +3406,12 @@
 			(uuid "e0bb05c3-d694-4452-bff9-5229984c637e")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "U6")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "U6")
@@ -3615,120 +3421,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 137.16 140.97 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "50ded7c7-b062-4d29-a575-2abe0dc2ee38")
-		(property "Reference" "R18"
-			(at 137.16 139.192 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "10k"
-			(at 137.16 143.002 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 137.16 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 137.16 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 137.16 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 137.16 140.97 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 137.16 140.97 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" "C25804"
-			(at 137.16 140.97 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "80b5fbf9-1ce2-4459-887e-434cb12ef2f0")
-		)
-		(pin "2"
-			(uuid "96da24e9-1d82-49fe-a43e-20c0d11cb6f5")
-		)
-		(instances
-			(project "STM32F405_FLIGHT_CONTROLLER"
-				(path "/47d13329-6723-42ae-820f-35e936b9439d"
-					(reference "R18")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
-		(at 25.4 54.61 0)
+		(at 50.8 69.85 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3738,7 +3432,7 @@
 		(dnp no)
 		(uuid "528beccc-b697-4922-9b4e-5855d6f87c2f")
 		(property "Reference" "C22"
-			(at 27.686 53.086 0)
+			(at 53.086 68.326 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3749,7 +3443,7 @@
 			)
 		)
 		(property "Value" "1u"
-			(at 27.686 56.388 0)
+			(at 53.086 71.628 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3760,7 +3454,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 26.3652 58.42 0)
+			(at 51.7652 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3771,7 +3465,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 25.4 54.61 0)
+			(at 50.8 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3782,7 +3476,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 25.4 54.61 0)
+			(at 50.8 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3793,7 +3487,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 25.4 54.61 0)
+			(at 50.8 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3804,7 +3498,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 25.4 54.61 0)
+			(at 50.8 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3815,7 +3509,7 @@
 			)
 		)
 		(property "LCSC" "C15849"
-			(at 25.4 54.61 0)
+			(at 50.8 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3832,6 +3526,12 @@
 			(uuid "527796bc-2390-4026-9b82-3ebfd0433629")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "C22")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "C22")
@@ -3842,7 +3542,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 152.4 106.68 180)
+		(at 151.13 110.49 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3852,7 +3552,7 @@
 		(dnp no)
 		(uuid "5309d2e8-661c-4d27-869d-f83e1b707dc5")
 		(property "Reference" "TP15"
-			(at 156.718 108.458 0)
+			(at 155.448 112.268 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3863,7 +3563,7 @@
 			)
 		)
 		(property "Value" "SD_CK"
-			(at 159.512 111.506 0)
+			(at 158.242 115.316 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3874,7 +3574,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 147.32 106.68 0)
+			(at 146.05 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3885,7 +3585,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 147.32 106.68 0)
+			(at 146.05 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3896,7 +3596,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 152.4 106.68 0)
+			(at 151.13 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3907,7 +3607,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 152.4 106.68 0)
+			(at 151.13 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3918,7 +3618,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 152.4 106.68 0)
+			(at 151.13 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3932,6 +3632,12 @@
 			(uuid "73bfa52d-fb27-45da-bae9-c5c1e7195ede")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "TP15")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "TP15")
@@ -3942,7 +3648,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 220.98 110.49 0)
+		(at 219.71 114.3 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3952,7 +3658,7 @@
 		(dnp no)
 		(uuid "58a5f707-fd8c-4b50-90df-310852690a3a")
 		(property "Reference" "#PWR043"
-			(at 220.98 116.84 0)
+			(at 219.71 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3963,7 +3669,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 220.98 114.3 0)
+			(at 219.71 118.11 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3973,7 +3679,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 220.98 110.49 0)
+			(at 219.71 114.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3984,7 +3690,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 220.98 110.49 0)
+			(at 219.71 114.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3995,7 +3701,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 220.98 110.49 0)
+			(at 219.71 114.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4009,6 +3715,12 @@
 			(uuid "b42c6330-aadb-4bc9-bd08-3f937b759701")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "#PWR043")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "#PWR043")
@@ -4019,7 +3731,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 160.02 99.06 0)
+		(at 158.75 102.87 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4029,7 +3741,7 @@
 		(dnp no)
 		(uuid "74a2b954-191d-44ec-998e-f626430f8e8a")
 		(property "Reference" "#PWR044"
-			(at 160.02 105.41 0)
+			(at 158.75 109.22 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4040,7 +3752,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 160.02 102.87 0)
+			(at 158.75 106.68 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4050,7 +3762,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 160.02 99.06 0)
+			(at 158.75 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4061,7 +3773,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 160.02 99.06 0)
+			(at 158.75 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4072,7 +3784,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 160.02 99.06 0)
+			(at 158.75 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4086,6 +3798,12 @@
 			(uuid "58974dab-df70-403b-b7e8-35d4d4e5ccf6")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "#PWR044")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "#PWR044")
@@ -4096,7 +3814,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 127 99.06 0)
+		(at 125.73 102.87 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4106,7 +3824,7 @@
 		(dnp no)
 		(uuid "834011db-fb3c-4f67-be7b-41478e56bc95")
 		(property "Reference" "C24"
-			(at 129.286 97.282 0)
+			(at 128.016 101.092 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4117,7 +3835,7 @@
 			)
 		)
 		(property "Value" "10uF,25V"
-			(at 127.254 101.092 0)
+			(at 125.984 104.902 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4128,7 +3846,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 127.9652 102.87 0)
+			(at 126.6952 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4139,7 +3857,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 99.06 0)
+			(at 125.73 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4150,7 +3868,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 127 99.06 0)
+			(at 125.73 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4161,7 +3879,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 127 99.06 0)
+			(at 125.73 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4172,7 +3890,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 127 99.06 0)
+			(at 125.73 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4183,7 +3901,7 @@
 			)
 		)
 		(property "LCSC" "C15850"
-			(at 127 99.06 0)
+			(at 125.73 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4200,6 +3918,12 @@
 			(uuid "16a372e4-cbbc-4d47-adf3-d23b5bdff2eb")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "C24")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "C24")
@@ -4210,7 +3934,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 127 116.84 0)
+		(at 125.73 120.65 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4220,7 +3944,7 @@
 		(dnp no)
 		(uuid "91b949c1-a69e-46a7-8c07-1a3e028f5d36")
 		(property "Reference" "#PWR054"
-			(at 127 120.65 0)
+			(at 125.73 124.46 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4231,7 +3955,7 @@
 			)
 		)
 		(property "Value" "+3V3_SD"
-			(at 126.492 113.03 0)
+			(at 125.222 116.84 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4241,7 +3965,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 127 116.84 0)
+			(at 125.73 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4252,7 +3976,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 116.84 0)
+			(at 125.73 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4263,7 +3987,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 127 116.84 0)
+			(at 125.73 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4277,6 +4001,12 @@
 			(uuid "6965759f-d324-42a2-b107-29d6d666ac74")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "#PWR054")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "#PWR054")
@@ -4286,85 +4016,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3V3")
-		(at 127 140.97 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "97412e12-8991-42ee-bd10-9c3aca5c3021")
-		(property "Reference" "#PWR052"
-			(at 127 144.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 126.492 137.16 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 127 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 127 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 127 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "2df20444-f79d-49d9-92d7-94c7e518641f")
-		)
-		(instances
-			(project "STM32F405_FLIGHT_CONTROLLER"
-				(path "/47d13329-6723-42ae-820f-35e936b9439d"
-					(reference "#PWR052")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_Small")
-		(at 137.16 116.84 90)
+		(at 135.89 120.65 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4374,7 +4027,7 @@
 		(dnp no)
 		(uuid "a54b4daf-2938-41b6-b5c7-6dbb721b00ec")
 		(property "Reference" "R20"
-			(at 137.16 115.062 90)
+			(at 135.89 118.872 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4384,7 +4037,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 137.16 118.872 90)
+			(at 135.89 122.682 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4394,7 +4047,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 137.16 116.84 0)
+			(at 135.89 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4405,7 +4058,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 137.16 116.84 0)
+			(at 135.89 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4416,7 +4069,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 137.16 116.84 0)
+			(at 135.89 120.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4427,7 +4080,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 137.16 116.84 90)
+			(at 135.89 120.65 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4438,7 +4091,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 137.16 116.84 90)
+			(at 135.89 120.65 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4449,7 +4102,7 @@
 			)
 		)
 		(property "LCSC" "C25804"
-			(at 137.16 116.84 90)
+			(at 135.89 120.65 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4466,6 +4119,12 @@
 			(uuid "3ff3cde8-7049-432a-ab96-288cebd50777")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "R20")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "R20")
@@ -4476,7 +4135,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 127 67.31 0)
+		(at 125.73 71.12 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4486,7 +4145,7 @@
 		(dnp no)
 		(uuid "b8480f17-6ad6-46d8-85c5-097d6b8669b5")
 		(property "Reference" "#PWR056"
-			(at 127 71.12 0)
+			(at 125.73 74.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4497,7 +4156,7 @@
 			)
 		)
 		(property "Value" "+3V3_SD"
-			(at 126.492 63.5 0)
+			(at 125.222 67.31 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4507,7 +4166,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 127 67.31 0)
+			(at 125.73 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4518,7 +4177,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 67.31 0)
+			(at 125.73 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4529,7 +4188,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 127 67.31 0)
+			(at 125.73 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4543,6 +4202,12 @@
 			(uuid "83714ec7-a300-4af5-9ba6-a8d4b9a4d3eb")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "#PWR056")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "#PWR056")
@@ -4553,7 +4218,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 63.5 43.18 0)
+		(at 88.9 58.42 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4563,7 +4228,7 @@
 		(dnp no)
 		(uuid "c55470d7-08ea-493b-8940-de8b0cd19b88")
 		(property "Reference" "#PWR048"
-			(at 63.5 46.99 0)
+			(at 88.9 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4574,7 +4239,7 @@
 			)
 		)
 		(property "Value" "+3V3_SD"
-			(at 62.992 39.37 0)
+			(at 88.392 54.61 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4584,7 +4249,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 63.5 43.18 0)
+			(at 88.9 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4595,7 +4260,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 63.5 43.18 0)
+			(at 88.9 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4606,7 +4271,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 63.5 43.18 0)
+			(at 88.9 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4620,6 +4285,12 @@
 			(uuid "cc81cbac-0249-4982-8abb-6ba8a4b89fbc")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "#PWR048")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "#PWR048")
@@ -4630,7 +4301,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 127 128.27 0)
+		(at 125.73 132.08 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4640,7 +4311,7 @@
 		(dnp no)
 		(uuid "c6d0ea78-d194-4988-96f9-61205b040086")
 		(property "Reference" "#PWR053"
-			(at 127 132.08 0)
+			(at 125.73 135.89 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4651,7 +4322,7 @@
 			)
 		)
 		(property "Value" "+3V3_SD"
-			(at 126.492 124.46 0)
+			(at 125.222 128.27 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4661,7 +4332,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 127 128.27 0)
+			(at 125.73 132.08 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4672,7 +4343,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 128.27 0)
+			(at 125.73 132.08 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4683,7 +4354,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 127 128.27 0)
+			(at 125.73 132.08 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4697,6 +4368,12 @@
 			(uuid "6a150066-eb30-420f-8562-b763e3c8ac67")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "#PWR053")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "#PWR053")
@@ -4707,7 +4384,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 148.59 85.09 0)
+		(at 147.32 88.9 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4717,7 +4394,7 @@
 		(dnp no)
 		(uuid "c7fd0a86-1fee-4342-ab42-a9cf3c64ded4")
 		(property "Reference" "TP14"
-			(at 149.352 80.264 0)
+			(at 148.082 84.074 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4728,7 +4405,7 @@
 			)
 		)
 		(property "Value" "SD_CMD"
-			(at 149.606 83.312 0)
+			(at 148.336 87.122 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4739,7 +4416,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
-			(at 153.67 85.09 0)
+			(at 152.4 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4750,7 +4427,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 153.67 85.09 0)
+			(at 152.4 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4761,7 +4438,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 148.59 85.09 0)
+			(at 147.32 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4772,7 +4449,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 148.59 85.09 0)
+			(at 147.32 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4783,7 +4460,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 148.59 85.09 0)
+			(at 147.32 88.9 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4797,6 +4474,12 @@
 			(uuid "d49fd98e-36c2-4210-93df-90bd56af11c2")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "TP14")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "TP14")
@@ -4807,7 +4490,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 25.4 43.18 0)
+		(at 50.8 58.42 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4817,7 +4500,7 @@
 		(dnp no)
 		(uuid "d9c1508c-8fd8-4749-98af-68876c5aee70")
 		(property "Reference" "#PWR046"
-			(at 25.4 46.99 0)
+			(at 50.8 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4828,7 +4511,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 25.4 39.37 0)
+			(at 50.8 54.61 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4838,7 +4521,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 25.4 43.18 0)
+			(at 50.8 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4849,7 +4532,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 25.4 43.18 0)
+			(at 50.8 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4860,7 +4543,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 25.4 43.18 0)
+			(at 50.8 58.42 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4874,6 +4557,12 @@
 			(uuid "930df9a5-0b00-4319-90bc-4a37b76df656")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "#PWR046")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "#PWR046")
@@ -4884,17 +4573,17 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 137.16 67.31 90)
+		(at 135.89 71.12 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "df38b43f-1784-421a-870a-a218c4483bf0")
 		(property "Reference" "R22"
-			(at 137.16 65.532 90)
+			(at 135.89 69.342 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4904,7 +4593,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 137.16 69.342 90)
+			(at 135.89 73.152 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4914,7 +4603,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 137.16 67.31 0)
+			(at 135.89 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4925,7 +4614,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 137.16 67.31 0)
+			(at 135.89 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4936,7 +4625,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 137.16 67.31 0)
+			(at 135.89 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4947,7 +4636,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 137.16 67.31 90)
+			(at 135.89 71.12 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4958,7 +4647,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 137.16 67.31 90)
+			(at 135.89 71.12 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4969,7 +4658,7 @@
 			)
 		)
 		(property "LCSC" "C25804"
-			(at 137.16 67.31 90)
+			(at 135.89 71.12 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4986,6 +4675,12 @@
 			(uuid "076045d4-6720-40f3-a8ac-ba21de8fee4a")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "R22")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "R22")
@@ -4996,7 +4691,7 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 138.43 99.06 0)
+		(at 137.16 102.87 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5006,7 +4701,7 @@
 		(dnp no)
 		(uuid "eef9e8f6-8801-4637-a486-3cbc30fabaff")
 		(property "Reference" "C25"
-			(at 140.462 97.282 0)
+			(at 139.192 101.092 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5017,7 +4712,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 140.716 100.584 0)
+			(at 139.446 104.394 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5028,7 +4723,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
-			(at 139.3952 102.87 0)
+			(at 138.1252 106.68 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5039,7 +4734,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 138.43 99.06 0)
+			(at 137.16 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5050,7 +4745,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
-			(at 138.43 99.06 0)
+			(at 137.16 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5061,7 +4756,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 138.43 99.06 0)
+			(at 137.16 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5072,7 +4767,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 138.43 99.06 0)
+			(at 137.16 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5083,7 +4778,7 @@
 			)
 		)
 		(property "LCSC" "C1525"
-			(at 138.43 99.06 0)
+			(at 137.16 102.87 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5100,6 +4795,12 @@
 			(uuid "5bdaa35f-89d6-45e1-900c-17bb2bebb448")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "C25")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "C25")
@@ -5110,7 +4811,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 127 93.98 0)
+		(at 125.73 97.79 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5120,7 +4821,7 @@
 		(dnp no)
 		(uuid "f6aa316f-0c4f-4f57-b842-b42ec42f6723")
 		(property "Reference" "#PWR049"
-			(at 127 97.79 0)
+			(at 125.73 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5131,7 +4832,7 @@
 			)
 		)
 		(property "Value" "+3V3_SD"
-			(at 126.492 90.17 0)
+			(at 125.222 93.98 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5141,7 +4842,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 127 93.98 0)
+			(at 125.73 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5152,7 +4853,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 93.98 0)
+			(at 125.73 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5163,7 +4864,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 127 93.98 0)
+			(at 125.73 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5177,6 +4878,12 @@
 			(uuid "a82a47a6-165e-4ce9-ad78-75b147b14d3b")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "#PWR049")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "#PWR049")
@@ -5187,7 +4894,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 49.53 63.5 0)
+		(at 74.93 78.74 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5197,7 +4904,7 @@
 		(dnp no)
 		(uuid "f9b75c94-fffc-4330-bf4c-216aa1a6c48d")
 		(property "Reference" "#PWR047"
-			(at 49.53 69.85 0)
+			(at 74.93 85.09 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5208,7 +4915,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 49.53 67.31 0)
+			(at 74.93 82.55 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5218,7 +4925,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 49.53 63.5 0)
+			(at 74.93 78.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5229,7 +4936,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 49.53 63.5 0)
+			(at 74.93 78.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5240,7 +4947,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 49.53 63.5 0)
+			(at 74.93 78.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5254,6 +4961,12 @@
 			(uuid "a6604f82-c1bb-4f44-9293-351d93c83322")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "#PWR047")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "#PWR047")
@@ -5264,17 +4977,17 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 137.16 80.01 90)
+		(at 135.89 83.82 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "f9fcc4b6-cf3b-4c15-a179-b1fd84de9215")
 		(property "Reference" "R21"
-			(at 137.16 78.232 90)
+			(at 135.89 82.042 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5284,7 +4997,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 137.16 82.042 90)
+			(at 135.89 85.852 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5294,7 +5007,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 137.16 80.01 0)
+			(at 135.89 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5305,7 +5018,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 137.16 80.01 0)
+			(at 135.89 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5316,7 +5029,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 137.16 80.01 0)
+			(at 135.89 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5327,7 +5040,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 137.16 80.01 90)
+			(at 135.89 83.82 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5338,7 +5051,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 137.16 80.01 90)
+			(at 135.89 83.82 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5349,7 +5062,7 @@
 			)
 		)
 		(property "LCSC" "C25804"
-			(at 137.16 80.01 90)
+			(at 135.89 83.82 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5366,6 +5079,12 @@
 			(uuid "7038fc11-d5eb-4432-9cae-4eac49bb9a0a")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "R21")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "R21")
@@ -5376,7 +5095,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 127 80.01 0)
+		(at 125.73 83.82 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5386,7 +5105,7 @@
 		(dnp no)
 		(uuid "fd7d44b9-9b74-4057-94c5-54a898893d3a")
 		(property "Reference" "#PWR055"
-			(at 127 83.82 0)
+			(at 125.73 87.63 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5397,7 +5116,7 @@
 			)
 		)
 		(property "Value" "+3V3_SD"
-			(at 126.492 76.2 0)
+			(at 125.222 80.01 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5407,7 +5126,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 127 80.01 0)
+			(at 125.73 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5418,7 +5137,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 127 80.01 0)
+			(at 125.73 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5429,7 +5148,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 127 80.01 0)
+			(at 125.73 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5443,6 +5162,12 @@
 			(uuid "f2f0bad6-f2db-43d9-899a-3cc7fb23794d")
 		)
 		(instances
+			(project "storage"
+				(path "/0f244fa4-1982-47fe-8e9a-3853a8731b93"
+					(reference "#PWR055")
+					(unit 1)
+				)
+			)
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/47d13329-6723-42ae-820f-35e936b9439d"
 					(reference "#PWR055")
