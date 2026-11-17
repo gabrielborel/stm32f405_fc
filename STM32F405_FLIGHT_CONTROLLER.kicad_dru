@@ -24,3 +24,12 @@
 (rule "GND pour clearance SDIO USB"
     (condition "A.Type == 'Zone' && B.Type == 'Track' && (B.hasNetclass('SDIO_50') || B.hasNetclass('USB_90'))")
     (constraint clearance (min 0.5mm)))
+
+# R1 (series resistor of the HSE crystal) sits inside the rigid oscillator group.
+# Its library courtyard (0.25 mm margin) overlaps those of Y1 and C14, but its pads keep
+# at least 0.245 mm from the pads of C14 and 0.325 mm from those of Y1 (project measurement,
+# 2026-11-17, R1 moved 0.1 mm east). Accept the courtyard overlap.
+(rule "R1 courtyard overlap accepted"
+    (severity ignore)
+    (condition "A.Reference == 'R1' && (B.Reference == 'Y1' || B.Reference == 'C14')")
+    (constraint courtyard_clearance (min 0mm)))
