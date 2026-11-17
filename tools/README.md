@@ -20,6 +20,7 @@ O aviso `wxApp assert` ao rodar é inofensivo.
 | `pcb_router.py` | roteador A* de duas camadas (módulo): lê pads, trilhas e vias da PCB e acha caminhos de 45 graus com via | **sim**, só em cópia |
 | `pcb_gnd_vias.py` | liga pads de GND sem plano ao `GND_L2` com trilha curta e via (acha sozinho os pads; `PLANE_NET`, `PLANE_ZONE` e `PLANE_W` trocam rede, zona e largura, ex. +3V3 e `3V3_L3`) | **sim**, só em cópia |
 | `pcb_connect_islands.py` | liga as ilhas de uma rede (sem plano) pelo par de pads mais perto, com a largura dada (`REDE LARGURA`) | **sim**, só em cópia |
+| `jlcpcb_export.py` | gera `bom.csv` e `cpl.csv` no formato da JLCPCB a partir da PCB (fica de fora DNP, excluídos da BOM e dos arquivos de posição); avisa de peça sem LCSC, em B.Cu ou THT | não |
 | `pcb_route_nets.py` | linha de comando do roteador: `REDE REF1 PAD1 REF2 PAD2` | **sim**, só em cópia |
 | `drc_compare.py` | compara dois DRC em JSON | não |
 | `pdf_text.swift` | texto de PDF via PDFKit (`swift tools/pdf_text.swift A.pdf S.txt`) | não |

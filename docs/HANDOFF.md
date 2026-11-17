@@ -71,6 +71,15 @@ Sugestão de ordem: lado oeste (SDIO e USB primeiro, são os mais restritos), de
 - Decisão 8 (R1 e o anel do HSE): resolvida em `7b3417c` (R1 0,1 mm para leste e regra que aceita a sobreposição de courtyard com o Y1 e o C14). O DRC não acusa mais o R1.
 - Firmware e fabricação: ver `ROTEAMENTO.md` seção 7.
 
+### Fabricação (JLCPCB), 2026-11-17
+
+- **Origem:** a origem de furos e posições está gravada na PCB em (108,5; 112,5), o canto inferior esquerdo (`5b15efe`). Gerbers, furos e CPL usam essa origem (Y para cima).
+- **BOM e CPL:** `PY tools/jlcpcb_export.py STM32F405_FLIGHT_CONTROLLER.kicad_pcb SAIDA/` gera `bom.csv` (74 peças em 35 linhas) e `cpl.csv` (74 peças, todas na face de cima). Não use `kicad-cli sch export bom`: ele leu só 4 linhas (a hierarquia de folhas não foi lida).
+- **Gerbers:** `kicad-cli pcb export gerbers --output SAIDA --layers "F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts" --use-drill-file-origin --subtract-soldermask --precision 6 ARQUIVO.kicad_pcb` (sem `--check-zones`, que reencheria a `HSE_GND_POUR`).
+- **Furos:** `kicad-cli pcb export drill --output SAIDA/ --format excellon --drill-origin plot --excellon-units mm --excellon-separate-th --excellon-zeros-format decimal ARQUIVO.kicad_pcb` (PTH: 367 furos; NPTH: 6). Zip com os 10 Gerbers e os 2 `.drl`.
+- **Fora da BOM e do CPL:** DNP (J2, R30 a R33, R39, C27), R21 a R23 (B.Cu, solda manual), 4 furos, 15 TPs e os pads de fio (J1, J7, J8, J9, J10, J12, J14). Marcar "Exclude from BOM" e "Exclude from position files" no esquemático em J2, R39 e C27 (hoje só têm DNP; a ferramenta os ignora, mas outras exportações incluiriam, sem LCSC).
+- **Não verificado:** estoque e tipo (Basic ou Extended) dos 34 LCSC, e os desvios de rotação da JLCPCB por encapsulamento (U1, U2, U3, U6, Q1, LEDs, Y1, J3 a J6, SW1, SW2, U4, U5): conferir no visualizador da JLCPCB. O silk do J3 passa da borda (X = -1,24 mm no `F_Silkscreen`); a fábrica corta.
+
 ## 2. Como trabalhamos (combinados com o Claude)
 
 Estas preferências estavam na memória local do Claude Code, que não vai junto para o outro computador:
