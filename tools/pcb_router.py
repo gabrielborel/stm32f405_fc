@@ -29,9 +29,10 @@ class Router:
         nx,ny=self.nx,self.ny
         self.blk=[bytearray(nx*ny),bytearray(nx*ny)]   # centro da trilha
         self.vblk=bytearray(nx*ny)                       # centro de via
-        tr,vi=clr+hw,clr+vr
+        tr,vi=clr+hw+0.02,clr+vr+0.02   # 0,02 mm de folga de seguranca contra arredondamento
         def mark(arr,cx0,cy0,cx1,cy1,fn,thr):
             i0,j0=self.idx(cx0-thr,cy0-thr); i1,j1=self.idx(cx1+thr,cy1+thr)
+            i0-=8; j0-=8; i1+=8; j1+=8   # 0,4 mm de margem: cobre a meia-largura de trilhas largas
             for j in range(max(j0,0),min(j1,ny-1)+1):
                 row=j*nx
                 for i in range(max(i0,0),min(i1,nx-1)+1):
@@ -54,7 +55,12 @@ class Router:
                     if p.IsOnLayer(ly): mark(self.blk[k],a,b_,c,d,fn,tr)
                 if p.IsOnLayer(FC) or p.IsOnLayer(BC): mark(self.vblk,a,b_,c,d,fn,vi)
         for t in self.b.GetTracks():
-            if t.GetNetname()==net: continue
+            if t.GetNetname()==net:
+                if t.Type()==pcbnew.PCB_VIA_T:
+                    x,y=mm(t.GetPosition().x),mm(t.GetPosition().y)
+                    fn2=lambda xx,yy,x=x,y=y: math.hypot(xx-x,yy-y)-0.3
+                    mark(self.vblk,x-0.3,y-0.3,x+0.3,y+0.3,fn2,0.5)
+                continue
             if t.Type()==pcbnew.PCB_VIA_T:
                 x,y=mm(t.GetPosition().x),mm(t.GetPosition().y); r=0.3
                 fn=lambda xx,yy,x=x,y=y,r=r: math.hypot(xx-x,yy-y)-r
@@ -72,7 +78,7 @@ class Router:
         for z in self.b.Zones():
             if z.GetZoneName()=="HSE_GND_POUR" and net!="GND":
                 r=z.GetBoundingBox(); a,b_,c,d=mm(r.GetX()),mm(r.GetY()),mm(r.GetRight()),mm(r.GetBottom())
-                fn=rectd(a,b_,c,d); mark(self.blk[0],a,b_,c,d,fn,tr); mark(self.vblk,a,b_,c,d,fn,vi)
+                fn=rectd(a,b_,c,d); mark(self.blk[0],a,b_,c,d,fn,0.5+hw); mark(self.vblk,a,b_,c,d,fn,0.5+vr)
         # borda da placa
         m=0.7
         for j in range(ny):
