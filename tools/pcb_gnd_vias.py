@@ -7,12 +7,14 @@ centros de vias a pelo menos 0,8 mm) e acrescenta a regra de que o centro da via
 
 Uso: PY tools/pcb_gnd_vias.py ARQUIVO.kicad_pcb [REF PAD ...]
 Sem REF PAD, acha sozinho os pads de GND que nao chegam ao plano. Depois: reencher GND_L2 e 3V3_L3, rodar o DRC.
+Variaveis de ambiente (padroes GND, GND_L2, 0.2): PLANE_NET, PLANE_ZONE, PLANE_W. Ex.: PLANE_NET=+3V3 PLANE_ZONE=3V3_L3 PLANE_W=0.5
 """
 import os, sys, math, heapq
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import pcbnew
 from pcb_router import Router, mm, M, FC, BC, G
 
+NET = os.environ.get("PLANE_NET", "GND"); ZONE = os.environ.get("PLANE_ZONE", "GND_L2"); W = float(os.environ.get("PLANE_W", "0.2"))
 MAXLEN = float(os.environ.get("GND_MAXLEN", "4.0"))   # mm de trilha ate a via (variavel GND_MAXLEN)
 PAD_VIA = 0.5  # mm: centro da via a esta distancia de qualquer pad
 
@@ -21,7 +23,7 @@ def pads_sem_plano(b):
     zs = [z for z in b.Zones() if z.GetZoneName() in ("GND_L2", "3V3_L3")]
     pcbnew.ZONE_FILLER(b).Fill(zs)
     b.BuildConnectivity(); cn = b.GetConnectivity()
-    gnd = b.FindNet("GND").GetNetCode(); out = []
+    gnd = b.FindNet(NET).GetNetCode(); out = []
     for f in b.GetFootprints():
         for p in f.Pads():
             if p.GetNetCode() != gnd: continue
@@ -33,7 +35,7 @@ def pads_sem_plano(b):
                     if u in seen: continue
                     seen.add(u)
                     if n.Type() == pcbnew.PCB_ZONE_T:
-                        if n.GetZoneName() == "GND_L2": ok = True; break
+                        if n.GetZoneName() == ZONE: ok = True; break
                         continue
                     todo.append(n)
             if not ok: out.append(p)
@@ -42,7 +44,7 @@ def pads_sem_plano(b):
 
 class GndVias(Router):
     def prepara(self):
-        self.build("GND")
+        self.build(NET, W)
         nx = self.nx
         for fp in self.b.GetFootprints():
             for p in fp.Pads():
@@ -89,9 +91,9 @@ class GndVias(Router):
         while path[-1] in prev: path.append(prev[path[-1]])
         path = path[::-1]
         c0 = (mm(pad.GetPosition().x), mm(pad.GetPosition().y)); gx, gy = self.xy(goal[0], goal[1])
-        items, _ = self.to_items(path, c0, (gx, gy), "GND", l0, l0)
+        items, _ = self.to_items(path, c0, (gx, gy), NET, l0, l0)
         L = sum(math.dist(a, b_) for kk, pts in items for a, b_ in zip(pts[:-1], pts[1:]))
-        self.add("GND", items, [(gx, gy)], 0.2)
+        self.add(NET, items, [(gx, gy)], W)
         self.marca_via(gx, gy)
         return L, (gx, gy)
 
@@ -105,7 +107,7 @@ if __name__ == "__main__":
             pads += [p for p in r.b.FindFootprintByReference(args[i]).Pads() if p.GetNumber() == args[i + 1]]
     else:
         pads = pads_sem_plano(r.b)
-    print(len(pads), "pads de GND sem ligacao ao plano", flush=True)
+    print(len(pads), "pads de %s sem ligacao ao plano" % NET, flush=True)
     r.prepara(); falhou = 0
     for p in pads:
         f = p.GetParentFootprint(); res = r.liga(p)
