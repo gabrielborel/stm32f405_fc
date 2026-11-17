@@ -45,6 +45,7 @@ def pads_sem_plano(b):
 class GndVias(Router):
     def prepara(self):
         self.build(NET, W)
+        self.furos()
         nx = self.nx
         for fp in self.b.GetFootprints():
             for p in fp.Pads():
@@ -55,6 +56,20 @@ class GndVias(Router):
                     for i in range(max(i0, 0), min(i1, nx - 1) + 1):
                         x, y = self.xy(i, j)
                         if math.hypot(max(a - x, 0, x - c), max(b_ - y, 0, y - d)) < PAD_VIA: self.vblk[j * nx + i] = 1
+
+    def furos(self):
+        """vias a pelo menos 0,5 mm (borda a borda, min_hole_to_hole do projeto) de qualquer furo de pad (PTH e NPTH)"""
+        nx = self.nx
+        for fp in self.b.GetFootprints():
+            for p in fp.Pads():
+                d = mm(p.GetDrillSize().x)
+                if d <= 0: continue
+                R = d / 2 + 0.15 + 0.5 + 0.02; c = p.GetPosition(); cx, cy = mm(c.x), mm(c.y)
+                i0, j0 = self.idx(cx - R, cy - R); i1, j1 = self.idx(cx + R, cy + R)
+                for j in range(max(j0, 0), min(j1, self.ny - 1) + 1):
+                    for i in range(max(i0, 0), min(i1, nx - 1) + 1):
+                        x, y = self.xy(i, j)
+                        if math.hypot(x - cx, y - cy) < R: self.vblk[j * nx + i] = 1
 
     def marca_via(self, x, y):
         nx = self.nx; R = 0.8
