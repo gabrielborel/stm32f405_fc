@@ -80,12 +80,15 @@ class Router:
                 r=z.GetBoundingBox(); a,b_,c,d=mm(r.GetX()),mm(r.GetY()),mm(r.GetRight()),mm(r.GetBottom())
                 fn=rectd(a,b_,c,d); mark(self.blk[0],a,b_,c,d,fn,0.5+hw); mark(self.vblk,a,b_,c,d,fn,0.5+vr)
         # borda da placa
-        m=0.7
+        # borda: o DRC pede 0,5 mm de cobre ate a borda (min_copper_edge_clearance); vale para a meia-largura da trilha e o raio da via
+        mt,mv=0.5+hw+0.02,0.5+vr+0.02
         for j in range(ny):
             for i in range(nx):
                 x,y=self.xy(i,j)
-                if not (self.x0+m<x<self.x1-m and self.y0+m<y<self.y1-m):
-                    self.blk[0][j*nx+i]=1; self.blk[1][j*nx+i]=1; self.vblk[j*nx+i]=1
+                if not (self.x0+mt<x<self.x1-mt and self.y0+mt<y<self.y1-mt):
+                    self.blk[0][j*nx+i]=1; self.blk[1][j*nx+i]=1
+                if not (self.x0+mv<x<self.x1-mv and self.y0+mv<y<self.y1-mv):
+                    self.vblk[j*nx+i]=1
     def pad_nodes(self,pad,layer):
         r=pad.GetBoundingBox(); a,b_,c,d=mm(r.GetX()),mm(r.GetY()),mm(r.GetRight()),mm(r.GetBottom())
         i0,j0=self.idx(a,b_); i1,j1=self.idx(c,d); k=0 if layer==FC else 1

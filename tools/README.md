@@ -31,7 +31,7 @@ O aviso `wxApp assert` ao rodar é inofensivo.
 5. Só com o KiCad fechado (`pgrep -il kicad` vazio e sem `~*.lck`) e com aprovação, rodar `pcb_apply_moves.py` no projeto real e conferir que o DRC dá o mesmo resultado da cópia.
 
 ## Roteador (`pcb_router.py`)
-Usado a partir de 2026-11-17 (PA8, VBUS_DET e PA10 foram achados por ele em cerca de 18 segundos). Lê as folgas reais da PCB (pad pela caixa que o envolve, trilha, via, zona `HSE_GND_POUR`, borda a 0,7 mm), grade de 0,05 mm, folga de 0,2 mm, trilha de 0,2 mm. Ignora as larguras de classe (SDIO, USB, Power) e o `.kicad_dru`, e é guloso: a ordem das redes importa (as mais difíceis primeiro). Sempre numa cópia; depois reencher `GND_L2` e `3V3_L3`, rodar o DRC e só então aplicar no arquivo real.
+Usado a partir de 2026-11-17 (PA8, VBUS_DET e PA10 foram achados por ele em cerca de 18 segundos). Lê as folgas reais da PCB (pad pela caixa que o envolve, trilha, via, zona `HSE_GND_POUR`, borda a 0,62 mm para trilha e 0,82 mm para via, de acordo com `min_copper_edge_clearance` de 0,5 mm), grade de 0,05 mm, folga de 0,2 mm, trilha de 0,2 mm. Ignora as larguras de classe (SDIO, USB, Power) e o `.kicad_dru`, e é guloso: a ordem das redes importa (as mais difíceis primeiro). Sempre numa cópia; depois reencher `GND_L2` e `3V3_L3`, rodar o DRC e só então aplicar no arquivo real.
 
 ## Cuidados
 - `pcb_apply_moves.py` aborta se qualquer trilha ou via mudar de rede ou geometria. Mesmo assim, não mova por script um footprint cujo pad toca uma trilha.
