@@ -548,6 +548,16 @@ Trilhas de 0,5 mm (classe Power). Parte do tronco já existia: via em (119,6; 10
 - Erros do caminho: a primeira versão passava a B.Cu em Y 88,0 por cima do par USB (L4 vertical em X 121,09 e 121,45): o DRC acusou `tracks_crossing`. O par é uma barreira de Y 77,8 a 93,8 em L4; só se cruza em L1.
 - Sobra no cartão: SD_CD (pino 2) e SD_EN (pino 11), decisão sobre o PB12 e o PA8 ou mover o M2, M3 e M4_OUT; e o PA8, o VBUS_DET e o PA10.
 
+### Decisão: SD_CD e SD_EN removidos (2026-11-17, 75 para 69 não conectados; DRC igual: as 6 violações antigas e 2 avisos de silk)
+
+**Por quê.** O J4.10 (detecção) e o U6.3 (EN do LDO do cartão) ficam do lado sul do feixe do SDIO; o MCU (pinos 2 e 11) fica do lado norte. Entre eles ficam as linhas D0 e D1 em L1, o par USB em L4, as colunas do M3 e do M4_OUT e os alimentadores de +3V3_SD em B.Cu. Foram testadas todas as passagens e trocar o pino (PB12 ou PA8) não resolve, porque o destino é que está fechado. Escolha do Gabriel: remover os dois neste primeiro protótipo.
+
+- **Esquemático:** R15 (pull-down do EN) e R18 (pull-up do detect) removidos; etiquetas `SD_EN` e `SD_CD` apagadas; **EN do U6 ligado ao +5V** (VEN alto de 1,5 a 6,0 V, DS39724); PC3 (pino 11) e PC13 (pino 2) do U1 e o pino de detect do J4 com marca de "sem conexão". Notas da folha `storage` atualizadas, em inglês.
+- **PCB:** R15 e R18 removidos pelo "Update PCB from Schematic"; as 831 trilhas e vias antigas ficaram intactas. Trilha nova de **0,5 mm** em F.Cu do pad 3 do U6 (114,36; 103,65) a (115,5; 103,65), a (115,5; 101,75) e ao pad 1 (114,36; 101,75), pelo lado leste do corpo (o pino 2, GND, fica no meio): 0,22 mm de folga dos pads vizinhos.
+- **O que se perde** (conta do Notion e minha): o reset de energia só do cartão (SD Physical Layer 6.4.1.2; um cartão travado se recupera tirando a bateria ou o USB) e a detecção por hardware (o firmware descobre tentando inicializar). Ganha: some o risco de falso "cartão removido" em voo e a regra do firmware de baixar as linhas SDIO antes de cortar o cartão. Para restaurar, só em nova revisão da placa.
+- **BOM e posições (JLCPCB):** R21, R22 e R23 (B.Cu, solda manual) **fora** da BOM e do arquivo de posições; R17, R24, R25 e R26 (220R dos motores) **dentro**. A primeira atualização da PCB trocou esses atributos por engano (marcas aplicadas na folha errada); corrigido no esquemático e na PCB, e conferido contra o commit anterior.
+- ERC (`kicad-cli sch erc`): 5 erros e 97 avisos contra 5 erros e 101 avisos antes; os 5 erros são os mesmos de antes (`#PWR02`, `#PWR04`, `#PWR010`, NRST e BOOT0 do U1, "não dirigidos").
+
 ### TP14 e TP15 estão na face de baixo
 
 "SDIO sem vias" e "TP passando pelo pad, sem ramal" só convivem assim [inferência]: a trilha segue em L1 e passa por cima de uma via colocada no centro do pad do TP (via no pad do TP; o TP não recebe componente, então não há problema de solda). A linha não troca de camada; o único efeito é o stub da via na espessura da placa (1,56 mm), desprezível para o SDIO. Isso coloca uma via no CK e no CMD, mas não nos dados, então a regra do manual (vias iguais entre os dados) continua atendida.
