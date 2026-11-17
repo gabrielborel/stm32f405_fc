@@ -16,7 +16,7 @@ Atenção: a seção "Etapa atual" do `CLAUDE.md` ainda diz "não rotear". Isso 
 
 - Esquemático fechado, ERC 0 erros. Mudança recente: J13 removido, PC14 e PC15 sem ligação (`894256c`, `c621dd6`).
 - PCB 58 x 44 mm, 4 camadas (JLC04161H-3313), placement aprovado, roteamento em andamento.
-- DRC em 2026-11-17 (cópia do HEAD, `--severity-error --severity-warning`): **6 violações, todas antigas**: 2 `courtyards_overlap` e 2 `clearance` do R1 no anel do HSE (decisão 8) e 2 `silk_edge_clearance` do J3 (o conector cruza a borda de propósito). **119 itens não conectados** (eram 249 antes do roteamento). Depois do SDIO sul (`c63db33`) e de D0 e D1 (`2666c02`), 2026-11-17: mesmas 6 violações e **111 não conectados**; com o par USB (U3 ao U1): **109**; com D+ e D- do J3 ao U3: **105**; com o VBUS_RAW: **99**; com CC1 e CC2: **97**; com o GND do USB: **89**; com os pull-ups R21 a R23 na B.Cu: **83** (e 2 avisos de silk do TP13 e do R22); com os ramais do D0 e do D1: **81**; com o +3V3_SD do cartão: **75**; sem o SD_CD e o SD_EN (e o EN do U6 ao +5V): **69**. Firmware: sem SD_EN nem SD_CD (o cartão liga junto com o +5V e é detectado tentando inicializar).
+- DRC em 2026-11-17 (cópia do HEAD, `--severity-error --severity-warning`): **6 violações, todas antigas**: 2 `courtyards_overlap` e 2 `clearance` do R1 no anel do HSE (decisão 8) e 2 `silk_edge_clearance` do J3 (o conector cruza a borda de propósito). **119 itens não conectados** (eram 249 antes do roteamento). Depois do SDIO sul (`c63db33`) e de D0 e D1 (`2666c02`), 2026-11-17: mesmas 6 violações e **111 não conectados**; com o par USB (U3 ao U1): **109**; com D+ e D- do J3 ao U3: **105**; com o VBUS_RAW: **99**; com CC1 e CC2: **97**; com o GND do USB: **89**; com os pull-ups R21 a R23 na B.Cu: **83** (e 2 avisos de silk do TP13 e do R22); com os ramais do D0 e do D1: **81**; com o +3V3_SD do cartão: **75**; sem o SD_CD e o SD_EN (e o EN do U6 ao +5V): **69**. Firmware: sem SD_EN nem SD_CD (o cartão liga junto com o +5V e é detectado tentando inicializar). Com o PA8, o VBUS_DET e o PA10: **65**.
 
 ### Já roteado (cada bloco é um commit, detalhes no `ROTEAMENTO_DETALHADO.md`)
 
@@ -43,10 +43,11 @@ Atenção: a seção "Etapa atual" do `CLAUDE.md` ainda diz "não rotear". Isso 
 | Ramais dos pull-ups do D0 (R20) e do D1 (R19) em L1 | `cbf9df2` (o do D0 foi refeito em `6072787`) |
 | +3V3_SD do cartão (J4.4, TP13, C24, C25, R19, R20) e ramal do D0 refeito | `6072787` |
 | SD_CD e SD_EN removidos (esquemático e PCB, R15 e R18 fora); EN do U6 ao +5V | esquemático `2397ca6`, PCB `a0c2172` |
+| PA8 (TP1), VBUS_DET (R10 e R11) e PA10 (R37) por busca A* pelo miolo do U1 | `a6385ea` |
 
 ### O que falta (lista do DRC de 2026-11-17)
 
-- **Oeste do U1:** os seis sinais do SDIO e os cinco pull-ups estão roteados (R21 a R23 na B.Cu, solda manual; **no esquemático marcar R21 a R23 como Exclude from BOM e Exclude from position files**); o cartão está completo (o SD_CD e o SD_EN foram removidos de propósito, ver "Decisão: SD_CD e SD_EN removidos" no `ROTEAMENTO_DETALHADO.md`); falta o PA8, o VBUS_DET e o PA10, que agora têm o corredor livre; o USB está completo (D+, D-, VBUS_RAW, CC1, CC2 e GND) (par de 90 ohm, VBUS_RAW, CC1/CC2, VBUS_DET), SD_CD, SD_EN, PA8 (TP1).
+- **Oeste do U1:** os seis sinais do SDIO e os cinco pull-ups estão roteados (R21 a R23 na B.Cu, solda manual; **no esquemático marcar R21 a R23 como Exclude from BOM e Exclude from position files**); o cartão está completo (o SD_CD e o SD_EN foram removidos de propósito, ver "Decisão: SD_CD e SD_EN removidos" no `ROTEAMENTO_DETALHADO.md`); o PA8, o VBUS_DET e o PA10 já estão roteados (A* pelo miolo do U1); o USB está completo (D+, D-, VBUS_RAW, CC1, CC2 e GND) (par de 90 ohm, VBUS_RAW, CC1/CC2, VBUS_DET), SD_CD, SD_EN, PA8 (TP1).
 - **Norte:** SWDIO, SWCLK, SWO até o J2; NRST até o J2.5; SPI2 (4 linhas) até o J9; AUX: PA2, PB7, PA10 até R35 a R37 e deles ao J14. Conflito conhecido: as vias dos LEDs em (132,1; 78,0) e (132,6; 78,9) atrapalham R35 a R37. LEDs: catodos D1 a D3 aos resistores.
 - **GPS_TX e GPS_RX** (pinos 37 e 38, oeste) até o J6 (leste): **sem caminho hoje**, a faixa da L4 sob os pads sul do U1 está cheia. Precisa de estudo.
 - **CURR_IN** (R38.2 ao J12.3).

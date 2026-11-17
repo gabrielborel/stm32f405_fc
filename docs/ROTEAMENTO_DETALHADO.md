@@ -558,6 +558,20 @@ Trilhas de 0,5 mm (classe Power). Parte do tronco já existia: via em (119,6; 10
 - **BOM e posições (JLCPCB):** R21, R22 e R23 (B.Cu, solda manual) **fora** da BOM e do arquivo de posições; R17, R24, R25 e R26 (220R dos motores) **dentro**. A primeira atualização da PCB trocou esses atributos por engano (marcas aplicadas na folha errada); corrigido no esquemático e na PCB, e conferido contra o commit anterior.
 - ERC (`kicad-cli sch erc`): 5 erros e 97 avisos contra 5 erros e 101 avisos antes; os 5 erros são os mesmos de antes (`#PWR02`, `#PWR04`, `#PWR010`, NRST e BOOT0 do U1, "não dirigidos").
 
+### W5: PA8, VBUS_DET e PA10 (2026-11-17, 69 para 65 não conectados; DRC igual: as 6 violações antigas e 2 avisos de silk)
+
+Roteados por um **roteador de busca** (A* em duas camadas, passo de 0,05 mm, 8 direções, folga de 0,2 mm, trilha de 0,2 mm, via de 0,6 / 0,3 mm), que lê da própria PCB os pads, trilhas, vias e a zona `HSE_GND_POUR` das outras redes e a borda da placa (a 0,7 mm). Achou os três em cerca de 18 segundos; o DRC confirmou o modelo de folgas. O script (`router.py`) está no scratchpad da sessão, fora do repositório [pendente: decidir se vai para `tools/`].
+
+| Rede | Caminho | Comprimento | Vias |
+| ---- | ------- | ----------- | ---- |
+| PA8 (MCO1), pino 41 até o TP1 | L1 até o TP1 (126,3; 92,25) e uma via dentro do pad do TP1, em (126,72; 92,47) (o D1 passa 0,4 mm acima, então a via não pode ir no centro do pad) | 2,2 mm | 1 |
+| VBUS_DET, pino 42 até o R10.2 e dali ao R11.1 | **inteiro em L1**: sai do pad 42 para o miolo do U1 e sai pela quina noroeste, entre os pads de canto, até o divisor | 19,1 mm mais 2,4 mm | 0 |
+| PA10 (AUX3), pino 43 até o R37.1 | **inteiro em L1**, também pelo miolo do U1 e pela quina nordeste, até o R37 | 27,5 mm | 0 |
+
+- **O que isso corrige:** o `ROTEAMENTO_DETALHADO.md` e eu dávamos o VBUS_DET e o PA10 como bloqueados no oeste. Em L1, por dentro do corpo do U1 (o LQFP64 não tem pad central) e pelas folgas das quinas, existia caminho.
+- **Risco:** os dois consomem corredores do miolo do U1 que serviriam a vias "para dentro" de outros sinais (SWD, SPI2, GPS). O roteador é guloso: o que sai primeiro toma o corredor. Ordem sugerida para o resto: GPS e SWD primeiro, depois SPI2, NRST, AUX, CURR_IN e LEDs.
+- Sinais lentos (o VBUS_DET é o ponto médio do divisor de 33 k e 82 k) [inferência].
+
 ### TP14 e TP15 estão na face de baixo
 
 "SDIO sem vias" e "TP passando pelo pad, sem ramal" só convivem assim [inferência]: a trilha segue em L1 e passa por cima de uma via colocada no centro do pad do TP (via no pad do TP; o TP não recebe componente, então não há problema de solda). A linha não troca de camada; o único efeito é o stub da via na espessura da placa (1,56 mm), desprezível para o SDIO. Isso coloca uma via no CK e no CMD, mas não nos dados, então a regra do manual (vias iguais entre os dados) continua atendida.
