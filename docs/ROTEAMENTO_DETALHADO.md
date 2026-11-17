@@ -503,6 +503,22 @@ Classe Default, 0,2 mm. O corredor Y 77,0 é do VBUS, então os dois CC sobem pe
 - A primeira versão pôs as vias do GND do J3 dentro das abas SH vizinhas (mesma rede, o DRC aceita). Foi corrigido: o centro da via fica a no mínimo 0,5 mm de qualquer pad.
 - Com isso o lado do conector do USB está completo. Sobram 30 itens de GND no total, nenhum do USB.
 
+### W4a: pull-ups R21, R22 e R23 na face de baixo (2026-11-17, 89 para 83 não conectados; DRC: as 6 violações antigas e 2 avisos de silk)
+
+**Por que na B.Cu.** Os pull-ups ficavam ao norte (Y 85 a 90) e as linhas D2, D3 e CMD ao sul (Y 98 a 101). Nas duas camadas o caminho está fechado: D0 e D1 em L1, o par USB em L4 e as colunas do M3_OUT e do M4_OUT. Tirando o C24 e o C25 da zona, só cabem 2 resistores 0402 (varredura sem trilha a 0,25 mm), e o CMD ainda precisaria cruzar o CK. Os pull-ups precisam ir para o **+3V3_SD, não para o +3V3** (Kingston SDCS2, Table 6-2: com o cartão desligado o limite é VDD + 0,3 V; Notion "microSD (SDIO)"), então os pull-ups internos do STM32 não substituem. Dupla face na JLCPCB só no serviço Standard (setup US$ 51,12 contra 8,18 no Economic; páginas da JLCPCB com valores diferentes, a conferir na cotação). Decisão: R21, R22 e R23 na face de baixo, **soldados à mão**, fora da BOM e do arquivo de posições da JLCPCB.
+
+| Resistor | Linha | Posição na B.Cu (pad 1 = +3V3_SD, pad 2 = sinal) | Ligação ao sinal |
+| -------- | ----- | ----------------------------------------------- | ---------------- |
+| R22 | D3 | em pé, centro (122,8; 98,275); pad 1 (122,8; 97,45), pad 2 (122,8; 99,1) | stub de 1,4 mm em Y 99,1 até o trecho em L4 do salto do D3 (X 124,2); sem via nova |
+| R21 | CMD | na horizontal, centro (116,625; 99,0); pad 1 (117,45; 99,0), pad 2 (115,8; 99,0) | via nova em (113,5; 99,0) sobre a subida do CMD (a 0,8 mm das subidas do D3 e do CK) e trilha de 2,3 mm |
+| R23 | D2 | em pé, centro (110,4; 99,125); pad 1 (110,4; 99,95), pad 2 (110,4; 98,3) | via nova em (111,9; 98,3) sobre a subida do D2 e trilha de 1,5 mm |
+
+- **Alimentação +3V3_SD** (0,5 mm): trilha de L1 de (118,4; 101,92) (C23.1) a (119,6; 101,75), via nesse ponto, e na B.Cu: vertical em X 119,6 de Y 101,75 até 97,45, com ramo em Y 97,45 até o pad 1 do R22, ramo em Y 99,0 até o pad 1 do R21 e ramo em Y 99,95 até o pad 1 do R23.
+- Tentativa descartada: R23 entre os trechos de L4 do D3 e do D2 (X 124,9). As vias de ponta do salto do D3 em X 124,2 deixam 1,0 mm, e o pad mais as folgas pedem 1,2 mm: deu 4 violações.
+- **Esquemático (Gabriel):** marcar R21, R22 e R23 como "Exclude from BOM" e "Exclude from position files" para a JLCPCB não tentar montá-los (no PCB foi marcado, mas uma atualização a partir do esquemático pode desfazer).
+- **Avisos de silk novos:** a referência do TP13 fica sobre uma trilha da B.Cu e encosta no silk do R22 (limpeza de silk, última etapa).
+- Pendentes dos pull-ups: **R19 (D1) e R20 (D0)** na F.Cu ao norte, com ramais em L1 (D0 por X 121,9; D1 por X 119,3 e Y 84,3, cerca de 14 mm).
+
 ### TP14 e TP15 estão na face de baixo
 
 "SDIO sem vias" e "TP passando pelo pad, sem ramal" só convivem assim [inferência]: a trilha segue em L1 e passa por cima de uma via colocada no centro do pad do TP (via no pad do TP; o TP não recebe componente, então não há problema de solda). A linha não troca de camada; o único efeito é o stub da via na espessura da placa (1,56 mm), desprezível para o SDIO. Isso coloca uma via no CK e no CMD, mas não nos dados, então a regra do manual (vias iguais entre os dados) continua atendida.
