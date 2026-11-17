@@ -51,6 +51,7 @@ Atenção: a seção "Etapa atual" do `CLAUDE.md` ainda diz "não rotear". Isso 
 | +5V (13 ligações), BZ_NEG (3) e o +3V3 do J9.2 (`tools/pcb_connect_islands.py` e `pcb_gnd_vias.py`, trilha de 0,5 mm; DRC 8 violações, 6 não conectados) | `37e0335` |
 | Cobre em volta do U2 e do U6 (decisão 13): zona `GND_LDO_F` em F.Cu (79,5 mm2 preenchidos, clearance 0,3 mm), 12 vias de costura e 3 vias junto dos pinos 2 (a segunda do U2 não achou lugar); DRC igual (8 violações, 6 não conectados). Ganho térmico não medido (bancada) | `c053fd2` |
 | Zonas de GND em F.Cu (`GND_F`, 1215 mm2) e B.Cu (`GND_B`, 1573 mm2), clearance 0,2 mm, vão em volta do oscilador (X 140,8 a 149,9, Y 88,8 a 97,3), regra no `.kicad_dru` com 0,5 mm entre o cobre e as trilhas de SDIO e USB (folga mínima medida 0,500 mm), J2.3, U1.18 e J4.6 ligados direto à zona, 121 vias de costura em grade de 4 mm; DRC 8 violações, 6 não conectados | `e0a771c` |
+| R1 0,1 mm para leste (zera os 2 `clearance` do anel do HSE), referência do TP13 escondida (zera os 2 avisos de silk) e regra `R1 courtyard overlap accepted` no `.kicad_dru` (pads do R1 a 0,245 mm do C14 e 0,325 mm do Y1); DRC: 2 violações ativas (silk de borda do J3) e 6 não conectados | `7b3417c` |
 
 ### O que falta (lista do DRC de 2026-11-17)
 
@@ -67,7 +68,7 @@ Sugestão de ordem: lado oeste (SDIO e USB primeiro, são os mais restritos), de
 
 - SPI1 com folgas de 0,15 mm em alguns pontos (passa no DRC; `ROTEAMENTO_DETALHADO.md`, ponto aberto 8).
 - Canto sudeste com folgas de 0,17 a 0,2 mm e uma fenda de cerca de 3,7 mm na L2 sob o U1 (vias de BOOT0, SCL, SDA e dos pinos 1 e 64). Só sinais lentos por cima [inferência].
-- Decisão 8 (R1 e o anel do HSE): marcada como feita no `ROTEAMENTO.md`, mas o DRC ainda acusa os 4 erros do R1. Conferir.
+- Decisão 8 (R1 e o anel do HSE): resolvida em `7b3417c` (R1 0,1 mm para leste e regra que aceita a sobreposição de courtyard com o Y1 e o C14). O DRC não acusa mais o R1.
 - Firmware e fabricação: ver `ROTEAMENTO.md` seção 7.
 
 ## 2. Como trabalhamos (combinados com o Claude)
@@ -96,7 +97,7 @@ Estas preferências estavam na memória local do Claude Code, que não vai junto
 
 ## 4. Para começar no outro computador
 
-1. `git pull`, abrir o projeto no KiCad, apertar `B` e rodar o DRC: deve dar as mesmas 6 violações e 119 não conectados.
+1. `git pull`, abrir o projeto no KiCad, apertar `B` e rodar o DRC: deve dar 2 violações ativas (`silk_edge_clearance` do J3, o conector cruza a borda de propósito), 4 excluídas e 6 não conectados (GPS_TX, GPS_RX, SWO, SPI2_MOSI, PB7 e J4.6).
 2. Copiar `docs/manuals/`.
 3. Para a case: `pip install cadquery` (e `vtk` para o render), depois `python3 case/case.py`.
 4. Pedir ao Claude para ler este arquivo e o `ROTEAMENTO_DETALHADO.md` antes do próximo bloco.
