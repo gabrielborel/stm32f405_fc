@@ -91,7 +91,7 @@ Do mais restrito para o mais livre. O U1 é o ponto mais apertado, então o rote
 
 **SDIO (SDIO_50)** (AN4488 Rev 7, Seção 8.4.1) [manual]
 
-- [ ] Tudo em L1, sem vias (garante o "mesmo número de vias" entre os dados).
+- [ ] Em L1, com saltos pela L4 onde a ordem dos pinos não casa com a do J4 (D2 e D3, 2 vias cada). O manual pede o mesmo número de vias entre os dados (AN4488 8.4.1): D0 e D1 recebem um salto simétrico de 2 vias na W2. Ver `ROTEAMENTO_DETALHADO.md`, "W1: SDIO sul aplicado".
 - [ ] Comprimento abaixo de 120 mm (hoje 22 a 32 mm em linha reta).
 - [ ] Diferença entre dados e CK, e entre CK e CMD, pequena: o manual pede skew abaixo de 250 ps @ 10 mm.
 - [ ] Test points TP15 (CK) e TP14 (CMD) passando pelo pad, sem ramal (decisão 11). Eles ficam na face de baixo: a trilha segue em L1 e passa sobre uma via no centro do pad do TP, sem trocar de camada. Isso põe uma via no CK e no CMD, não nos dados [inferência].

@@ -384,6 +384,28 @@ Solução escolhida: **R17 de (131,5; 99,7) rot 0 para (131,5; 101,2) rot 180.**
 
 Alternativas descartadas: levar D2, D3, CK e CMD por L4 (exigiria vias também em D0 e D1, pela regra "same number of vias between the data signals"); descer só o CMD entre o R17 e o C2 (as outras três continuariam sem saída).
 
+### W1: SDIO sul aplicado (`c63db33`, 2026-11-17, testado numa cópia, DRC igual ao do repositório: 6 violações antigas, 119 para 113 não conectados)
+
+**Correção do plano acima.** "Tudo em L1, sem vias, retas" não é possível. De cima para baixo, os pinos saem em D2 (51), D3 (52), CK (53), CMD (54). No J4, de norte para sul, os pads são CK (Y 92,0), CMD (94,2), D3 (95,31), D2 (96,41). Como o feixe vem do sul, a ordem de cima para baixo precisaria ser CK, CMD, D3, D2: 5 dos 6 pares estão invertidos [conta]. O mínimo são duas linhas na L4: D2 e D3 saltam por baixo das outras. A regra do AN4488 8.4.1 é "mesmo número de vias entre os dados", não "zero vias": D2 e D3 ficaram com 2 vias, então **D0 e D1 recebem um salto simétrico de 2 vias na W2** [inferência: uma via a mais por linha é desprezível a 25 ou 50 MHz].
+
+Caminho (largura 0,151 mm, cantos de 45 graus, tudo em L1 salvo os saltos):
+
+| Trecho | Níveis (Y) e pontos |
+| ------ | ------------------- |
+| Saída dos pinos (passo 0,36 mm) | D2 98,75, D3 99,11, CK 99,47, CMD 99,83. Descem retos do pino e viram para oeste (o D2 a 0,2 mm da ponta dos pinos 49 e 50). O MOTOR1 (Y 100,35 a oeste de X 133,35) fica a 0,34 mm do CMD. |
+| Afastamento (X 129,9 a 128,8) | D2 sobe para 98,4 (antes do D3, senão ficam a 0,25 mm), depois D3 99,0, CK 99,6, CMD 100,2 (passo 0,6 mm, para caber vias de 0,6 mm entre as linhas). |
+| Salto do D2 | vias em (125,6; 98,4) e (125,6; 100,9), trecho de L4 em X 125,6. Volta à L1 abaixo do CMD. |
+| Reajuste (X 125,2 a 124,7) | D3, CK e CMD sobem 0,5: D3 98,5, CK 99,1, CMD 99,7. |
+| Salto do D3 | vias em (124,2; 98,5) e (124,2; 100,3), trecho de L4 em X 124,2. Volta entre o CMD e o D2. Ordem final de cima para baixo: CK 99,1, CMD 99,7, D3 100,3, D2 100,9. |
+| Descida (X 123,2 a 120,8, em degraus de 45 graus, de baixo para cima) | CK 100,0, CMD 100,36, D3 100,72, D2 101,08 (passo 0,36). Passam **abaixo** dos pads 9 e 10 do J4 (Y 98,44 a 99,64) e do pad SH (120,38; 95,54), a 0,28 mm de folga. O C25 **não** precisou sair. |
+| Subidas até o J4 | CK em X 114,3 até Y 92,0; CMD em X 113,5 até 94,2; D3 em X 112,7 até 95,31; D2 em X 111,9 até 96,41. Chegam horizontais aos pads em X 109,55. A linha mais ao norte sobe por último de leste, sem cruzar. |
+
+- **TP15 (CK)** foi para (114,3; 95,0) e **TP14 (CMD)** para (113,5; 97,8), sobre as subidas, com via no pad (pads na face de baixo, sob o corpo do J4). As referências ficaram ocultas até a limpeza de silk (com elas visíveis dava `silk_overlap`).
+- Comprimentos medidos: D2 29,64 mm, D3 30,75, CK 32,61, CMD 31,63. Vias: D2 2, D3 2, CK 1, CMD 1.
+- J4.4 (+3V3_SD, 109,55; 93,11) ficou numa bolsa fechada entre as horizontais do CMD (94,2) e do CK (92,0), com a subida do CK (X 114,3) no lado leste: o +3V3_SD tem que entrar por L4 (via junto do pad).
+- O pad 10 (SD_CD) e o pad 9 (GND) do J4 ficam acima das linhas (Y 98,44 a 99,64): acessíveis pelo norte, dentro do corpo, ou pelo sul se sobrar espaço.
+- **Parede da L4 a oeste do U1 (achado):** M4_OUT (X 126,0 e 127,6) e M3_OUT (X 126,75 e 128,1), mais MOTOR3 e MOTOR4 em Y 89,3 e 89,9, fecham a L4 entre Y 79 e 101. O corredor sul da L4 (Y 106 a 109) também está fechado em X 135,7 (M2_OUT, via em (135,7; 108,6) e +VBAT em Y 109,5). Por isso o SD_CD (pino 2) e o SD_EN (pino 11), que saem pelo leste, não chegam ao oeste pela L4 sem mudar algo. Decisão em aberto (W4): trocar o SD_CD com o PB12 (pino 33, SPI2_NSS, sem perda real) e ver o SD_EN, ou mover o M2/M3/M4_OUT. O SPI2 nos pads J9 fica (decisão do Gabriel).
+
 ### TP14 e TP15 estão na face de baixo
 
 "SDIO sem vias" e "TP passando pelo pad, sem ramal" só convivem assim [inferência]: a trilha segue em L1 e passa por cima de uma via colocada no centro do pad do TP (via no pad do TP; o TP não recebe componente, então não há problema de solda). A linha não troca de camada; o único efeito é o stub da via na espessura da placa (1,56 mm), desprezível para o SDIO. Isso coloca uma via no CK e no CMD, mas não nos dados, então a regra do manual (vias iguais entre os dados) continua atendida.
@@ -513,7 +535,11 @@ L4 tem a L3 como referência. Todos em classe Default, 0,2 mm.
 3. BUZZER (pino 58) cruza o MOTOR2 (pino 57) na passagem entre o C2 e o R24: BUZZER por dentro do U1 e L4 (passo 5, lado sul).
 4. Resolvido (2026-11-02, exceção aceita): o C8.1 fica em cima da perna norte do vão e a trilha +3.3VA cruza o vão; alimentação filtrada, risco baixo [inferência] (passo 3).
 5. C1.2 (GND) também fica em cima da perna sul: a via vai ao sul, Y 97,4 ou mais (passo 2).
-6. TPs do SDIO e do SPI1 na face de baixo: via no pad do TP, sem trocar a trilha de camada (passos 6 e 8) [inferência].
+6. TPs do SDIO e do SPI1 na face de baixo: via no pad do TP, sem trocar a trilha de camada (passos 6 e 8) [inferência]. TP14 e TP15 já estão sobre as subidas do CMD e do CK, sob o corpo do J4 (W1, `c63db33`).
+9. W2 (D0 e D1): D0 e D1 saem do oeste e ficam com cerca de 20 a 22 mm [conta, sem rotear] contra 30 a 33 mm das linhas do sul. O AN4488 8.4.1 pede menos de 10 mm de diferença entre dados e CK: serpentina de pelo menos 10 mm em cada um (corredor Y 90,6 a 92,7), mais o salto simétrico de 2 vias em cada.
+10. Ramais dos pull-ups (R19 a R23) ainda sem ligação: de 6 a 15 mm das linhas. Decisão do Gabriel: manter e medir a capacitância no fim (limite 20 pF, AN4488 8.4.1).
+11. J4.4 (+3V3_SD) entra por L4; J4.10 (SD_CD) e J4.9 (GND) pelo norte (W4).
+12. SD_CD e SD_EN: parede da L4 (ver W1 acima). Opções: SD_CD no PB12; SD_EN por PA8 (perde o TP de clock MCO1) ou mover o M2/M3/M4_OUT..
 7. Área proibida embaixo do J4: conferir no desenho da Molex (passo 6).
 8. SPI1, folgas de 0,15 mm (2026-11-02, `dd3ddef`, decisão do Gabriel: deixar para depois). Tudo passa no DRC; são pontos que dá para folgar se sobrar espaço:
    - INT1 junto das vias do MISO (136,5; 78,85) e do MOSI (137,65; 79,95): subir o trecho de cima de Y 78,3 para 77,9. **Decidir junto com o lado norte:** subir o INT1 come a faixa por onde LEDs e ELRS passam ao norte do U5.

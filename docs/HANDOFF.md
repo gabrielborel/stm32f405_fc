@@ -16,7 +16,7 @@ Atenção: a seção "Etapa atual" do `CLAUDE.md` ainda diz "não rotear". Isso 
 
 - Esquemático fechado, ERC 0 erros. Mudança recente: J13 removido, PC14 e PC15 sem ligação (`894256c`, `c621dd6`).
 - PCB 58 x 44 mm, 4 camadas (JLC04161H-3313), placement aprovado, roteamento em andamento.
-- DRC em 2026-11-17 (cópia do HEAD, `--severity-error --severity-warning`): **6 violações, todas antigas**: 2 `courtyards_overlap` e 2 `clearance` do R1 no anel do HSE (decisão 8) e 2 `silk_edge_clearance` do J3 (o conector cruza a borda de propósito). **119 itens não conectados** (eram 249 antes do roteamento).
+- DRC em 2026-11-17 (cópia do HEAD, `--severity-error --severity-warning`): **6 violações, todas antigas**: 2 `courtyards_overlap` e 2 `clearance` do R1 no anel do HSE (decisão 8) e 2 `silk_edge_clearance` do J3 (o conector cruza a borda de propósito). **119 itens não conectados** (eram 249 antes do roteamento). Depois do SDIO sul (`c63db33`, 2026-11-17): mesmas 6 violações e **113 não conectados**.
 
 ### Já roteado (cada bloco é um commit, detalhes no `ROTEAMENTO_DETALHADO.md`)
 
@@ -32,10 +32,11 @@ Atenção: a seção "Etapa atual" do `CLAUDE.md` ainda diz "não rotear". Isso 
 | Sul: motores 1 e 2, BUZZER, gate do Q1 | `ecb5421`, `9e61881` |
 | Leste: UART4, LED_RED, NRST até C15 e SW1 | `573d1d8`, `b1fb9cb` |
 | Canto sudeste: VBAT_SENSE, PC2, PA15, BOOT0, I2C (U4, J6, R13, R14), +VBAT | `91912c6` |
+| SDIO sul (D2, D3, CK, CMD) até o J4, com saltos de D2 e D3 pela L4; TP14 e TP15 movidos | `c63db33` |
 
 ### O que falta (lista do DRC de 2026-11-17)
 
-- **Oeste do U1:** SDIO (D0 a D3, CK, CMD, 0,151 mm em L1, mesmo número de vias nos dados), USB (par de 90 ohm, VBUS_RAW, CC1/CC2, VBUS_DET), SD_CD, SD_EN, PA8 (TP1).
+- **Oeste do U1:** SDIO D0 e D1 (W2: serpentina de 10 mm ou mais e salto de 2 vias cada, para igualar com D2 e D3), ramais dos pull-ups, USB (par de 90 ohm, VBUS_RAW, CC1/CC2, VBUS_DET), SD_CD, SD_EN, PA8 (TP1).
 - **Norte:** SWDIO, SWCLK, SWO até o J2; NRST até o J2.5; SPI2 (4 linhas) até o J9; AUX: PA2, PB7, PA10 até R35 a R37 e deles ao J14. Conflito conhecido: as vias dos LEDs em (132,1; 78,0) e (132,6; 78,9) atrapalham R35 a R37. LEDs: catodos D1 a D3 aos resistores.
 - **GPS_TX e GPS_RX** (pinos 37 e 38, oeste) até o J6 (leste): **sem caminho hoje**, a faixa da L4 sob os pads sul do U1 está cheia. Precisa de estudo.
 - **CURR_IN** (R38.2 ao J12.3).
@@ -71,6 +72,7 @@ Estas preferências estavam na memória local do Claude Code, que não vai junto
 - **Zonas:** reencher só `GND_L2` e `3V3_L3` por `pcbnew.ZONE_FILLER`. **Não reencher a `HSE_GND_POUR`** (por isso não usar `kicad-cli pcb drc --refill-zones`). Sem reencher, aparecem `clearance` falsos de plano desatualizado. No KiCad, depois de adicionar vias, apertar `B`.
 - **DRC:** `kicad-cli pcb drc --output X.json --format json --units mm --severity-error --severity-warning ARQUIVO.kicad_pcb`. O `kicad-cli` regrava o `.kicad_pro` (`td_enabled`, `net_colors`): descartar com `git checkout`. A checagem de paridade dá cerca de 98 `extra_footprint` falsos neste Linux (também no HEAD): ignorar.
 - **Scripts em pcbnew:** apagar com `b.Delete`, não `b.Remove` em loop (segfault). Mover footprint cujo pad toca trilha pode trocar a rede da trilha ao salvar: comparar redes antes de gravar. Comparar arquivo real e cópia depois de normalizar os UUIDs.
+- **`pcbnew` salvando com outro nome:** `LoadBoard(a)` e `Save(b)` em outra pasta ou nome grava o `.kicad_pro` da pasta com regras padrão (perde net classes, clearance 0,2). O DRC então dá dezenas de erros falsos. Recopiar o `.kicad_pro` do repositório antes do DRC, e no arquivo real descartar a mudança com `git checkout -- STM32F405_FLIGHT_CONTROLLER.kicad_pro`.
 - **Restaurar backup do KiCad:** em 2026-11-02 o "restore backup" trocou o `.kicad_pro` por uma versão velha (perdeu net classes e exclusões). Se o KiCad oferecer, recusar e conferir o `git diff` do `.kicad_pro`.
 - Os scripts do roteamento (por bloco) ficaram no scratchpad da sessão, fora do repositório; as coordenadas finais estão no `ROTEAMENTO_DETALHADO.md` e no próprio `.kicad_pcb`.
 - `docs/manuals/` está fora do git: copiar os PDFs à mão para o outro computador.
