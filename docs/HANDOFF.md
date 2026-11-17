@@ -16,7 +16,7 @@ Atenção: a seção "Etapa atual" do `CLAUDE.md` ainda diz "não rotear". Isso 
 
 - Esquemático fechado, ERC 0 erros. Mudança recente: J13 removido, PC14 e PC15 sem ligação (`894256c`, `c621dd6`).
 - PCB 58 x 44 mm, 4 camadas (JLC04161H-3313), placement aprovado, roteamento em andamento.
-- DRC em 2026-11-17 (cópia do HEAD, `--severity-error --severity-warning`): **6 violações, todas antigas**: 2 `courtyards_overlap` e 2 `clearance` do R1 no anel do HSE (decisão 8) e 2 `silk_edge_clearance` do J3 (o conector cruza a borda de propósito). **119 itens não conectados** (eram 249 antes do roteamento). Depois do SDIO sul (`c63db33`) e de D0 e D1 (`2666c02`), 2026-11-17: mesmas 6 violações e **111 não conectados**; com o par USB (U3 ao U1): **109**; com D+ e D- do J3 ao U3: **105**; com o VBUS_RAW: **99**.
+- DRC em 2026-11-17 (cópia do HEAD, `--severity-error --severity-warning`): **6 violações, todas antigas**: 2 `courtyards_overlap` e 2 `clearance` do R1 no anel do HSE (decisão 8) e 2 `silk_edge_clearance` do J3 (o conector cruza a borda de propósito). **119 itens não conectados** (eram 249 antes do roteamento). Depois do SDIO sul (`c63db33`) e de D0 e D1 (`2666c02`), 2026-11-17: mesmas 6 violações e **111 não conectados**; com o par USB (U3 ao U1): **109**; com D+ e D- do J3 ao U3: **105**; com o VBUS_RAW: **99**; com CC1 e CC2: **97**.
 
 ### Já roteado (cada bloco é um commit, detalhes no `ROTEAMENTO_DETALHADO.md`)
 
@@ -37,10 +37,11 @@ Atenção: a seção "Etapa atual" do `CLAUDE.md` ainda diz "não rotear". Isso 
 | Par USB D+/D- do U3 ao U1 em L4; D0 refeito para abrir o corredor | `e16cf6b` |
 | USB D+ e D- do J3 ao U3: face oeste dos pads e uma via L4 no D- | `e0ed237` |
 | VBUS_RAW (J3 norte e sul, U3.5, C17, R12, R10, D4); vias do par USB descidas 0,1 mm | `dadfcc3` |
+| CC1 e CC2 do J3 até R8.1 e R9.1, por L4 | `7d97a6f` |
 
 ### O que falta (lista do DRC de 2026-11-17)
 
-- **Oeste do U1:** ramais dos pull-ups do SDIO (R19 a R23); USB, lado do conector: CC1 e CC2 (R8 e R9), abas e GND do J3 e do U3 (D+, D- e VBUS_RAW já feitos) (par de 90 ohm, VBUS_RAW, CC1/CC2, VBUS_DET), SD_CD, SD_EN, PA8 (TP1).
+- **Oeste do U1:** ramais dos pull-ups do SDIO (R19 a R23); USB, lado do conector: abas e GND do J3 e do U3 (D+, D-, VBUS_RAW, CC1 e CC2 já feitos) (par de 90 ohm, VBUS_RAW, CC1/CC2, VBUS_DET), SD_CD, SD_EN, PA8 (TP1).
 - **Norte:** SWDIO, SWCLK, SWO até o J2; NRST até o J2.5; SPI2 (4 linhas) até o J9; AUX: PA2, PB7, PA10 até R35 a R37 e deles ao J14. Conflito conhecido: as vias dos LEDs em (132,1; 78,0) e (132,6; 78,9) atrapalham R35 a R37. LEDs: catodos D1 a D3 aos resistores.
 - **GPS_TX e GPS_RX** (pinos 37 e 38, oeste) até o J6 (leste): **sem caminho hoje**, a faixa da L4 sob os pads sul do U1 está cheia. Precisa de estudo.
 - **CURR_IN** (R38.2 ao J12.3).

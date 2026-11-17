@@ -471,6 +471,19 @@ Classe Power, 0,5 mm, tudo em L1. Para abrir a passagem entre o R8/R9 (base em Y
 - Folga mínima do corredor Y 77,0: 0,22 mm contra o R8/R9 e 0,25 mm contra as vias.
 - Ficou sem espaço para o CC1 e o CC2 passarem pelo mesmo corredor: eles chegam ao R8.1 e ao R9.1 pelas laterais (R8.1 por oeste, R9.1 por leste, onde a vertical do VBUS em X 122,3 fica a 0,38 mm).
 
+### W3b-3: CC1 e CC2 (2026-11-17, DRC igual: 6 violações antigas, 99 para 97 não conectados)
+
+Classe Default, 0,2 mm. O corredor Y 77,0 é do VBUS, então os dois CC sobem pela L4 e chegam aos resistores pelas laterais.
+
+| Rede | Caminho |
+| ---- | ------- |
+| CC1 (A5, Y 79,35) | L1 até a via (116,6; 79,35); L4 em diagonal até X 117,2 e vertical até Y 76,12 (por baixo do tronco do VBUS); via (117,2; 76,12); L1 em Y 76,12 até o R8.1 (119,4; 76,12), por oeste. |
+| CC2 (B5, Y 82,35) | L1 até a via (116,3; 82,25); L4 em Y 82,5 (passa 0,75 mm abaixo da via do D- em (117,2; 81,75)) até X 118,0 e vertical até Y 75,3; via (118,0; 75,3); L1 em Y 75,3 pela faixa de 0,84 mm entre os pads do R8 (folga de 0,32 mm de cada lado) até X 121,2, e desce ao R9.1. |
+
+- As duas verticais da L4 (X 117,2 e 118,0) ficam a 0,8 mm e não se cruzam; o CC1 fica ao norte da dobra do D- e o CC2 ao sul dela.
+- Sinais de DC lentos: o desvio por L4 não afeta nada [inferência].
+- Sobram no lado do conector: os pads de GND (J3 norte e sul, U3.2) e as abas SH do J3.
+
 ### TP14 e TP15 estão na face de baixo
 
 "SDIO sem vias" e "TP passando pelo pad, sem ramal" só convivem assim [inferência]: a trilha segue em L1 e passa por cima de uma via colocada no centro do pad do TP (via no pad do TP; o TP não recebe componente, então não há problema de solda). A linha não troca de camada; o único efeito é o stub da via na espessura da placa (1,56 mm), desprezível para o SDIO. Isso coloca uma via no CK e no CMD, mas não nos dados, então a regra do manual (vias iguais entre os dados) continua atendida.
