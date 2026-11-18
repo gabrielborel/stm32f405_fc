@@ -12,6 +12,20 @@ Resumo para retomar o trabalho em outro computador, sem o histórico das convers
 
 Atenção: a seção "Etapa atual" do `CLAUDE.md` ainda diz "não rotear". Isso ficou velho: desde 2026-11-02 o roteamento é feito em conjunto (o Claude planeja, testa numa cópia e aplica). Este arquivo vale para o estado atual.
 
+## 0. Atualização de 2026-11-18: placement refeito em blocos (branch `sch-v1-simplify`)
+
+Depois da simplificação do esquemático (ver "Etapa atual" no `CLAUDE.md`), o Gabriel decidiu refazer o placement e o roteamento quase do zero. A placa roteada antiga está na tag `v1-pcb-roteada-claude`. As seções 1 e seguintes deste arquivo descrevem essa placa antiga e servem de histórico.
+
+| Commit | O que fez |
+|---|---|
+| `3698ebe` | Tirou todo o roteamento, menos o do U1 (desacoplamento C1 a C6, C11, C12), o do oscilador (Y1, C13, C14, R1, anel, `HSE_GND_POUR`, vão da ilha na L2) e o do VDDA (R34, C7, C8, TP4). Apagou as zonas `GND_F`, `GND_B` e `GND_LDO_F` e as vias de costura. Cada bloco funcional virou um grupo do KiCad (`B01` a `B19`); o `B01_MCU_HSE_VDDA` fica no centro da placa e os outros 17 ficaram fora do contorno, do lado onde devem ir. |
+| `dd61637` | TP1 a TP15 para cima (F.Cu); 9 andaram até 6,8 mm para não bater em nada. TP4 sem via, ligado direto pela trilha do +3.3VA. Referências dos TPs e do R34 escondidas até a limpeza do silk. |
+| `8c07e4f`, `71f7de0` | R21 a R23 (pull-ups do SDIO) para cima e de volta na BOM e nos arquivos de posição. Nenhum componente fica embaixo; só a assinatura no silk. |
+
+Estado: ERC 0; DRC 36 (`solder_mask_bridge` da abertura de máscara do BMP581, de propósito, Seção 8.2 do datasheet; excluir no DRC depois) e 197 ligações a rotear. O `--schematic-parity` dá 87 `extra_footprint` falsos neste Linux.
+
+Próximo passo: o Gabriel posiciona os blocos no KiCad (arrastar o grupo inteiro; dois cliques para mexer numa peça) e roteia, pedindo ajuda por bloco. Os blocos guardam a arrumação interna antiga; dentro deles, só o `B01` tem trilhas.
+
 ## 1. Onde o projeto está
 
 - Esquemático fechado, ERC 0 erros. Mudança recente: J13 removido, PC14 e PC15 sem ligação (`894256c`, `c621dd6`).
@@ -57,7 +71,7 @@ Atenção: a seção "Etapa atual" do `CLAUDE.md` ainda diz "não rotear". Isso 
 
 ### O que falta (lista do DRC de 2026-11-17)
 
-- **Oeste do U1:** os seis sinais do SDIO e os cinco pull-ups estão roteados (R21 a R23 na B.Cu, solda manual; **no esquemático marcar R21 a R23 como Exclude from BOM e Exclude from position files**); o cartão está completo (o SD_CD e o SD_EN foram removidos de propósito, ver "Decisão: SD_CD e SD_EN removidos" no `ROTEAMENTO_DETALHADO.md`); o PA8, o VBUS_DET e o PA10 já estão roteados (A* pelo miolo do U1); o USB está completo (D+, D-, VBUS_RAW, CC1, CC2 e GND) (par de 90 ohm, VBUS_RAW, CC1/CC2, VBUS_DET), SD_CD, SD_EN, PA8 (TP1).
+- **Oeste do U1:** os seis sinais do SDIO e os cinco pull-ups estão roteados (R21 a R23 na B.Cu, solda manual; em 2026-11-18 voltaram para cima e para a BOM, `8c07e4f` e `71f7de0`); o cartão está completo (o SD_CD e o SD_EN foram removidos de propósito, ver "Decisão: SD_CD e SD_EN removidos" no `ROTEAMENTO_DETALHADO.md`); o PA8, o VBUS_DET e o PA10 já estão roteados (A* pelo miolo do U1); o USB está completo (D+, D-, VBUS_RAW, CC1, CC2 e GND) (par de 90 ohm, VBUS_RAW, CC1/CC2, VBUS_DET), SD_CD, SD_EN, PA8 (TP1).
 - **Norte:** SWO até o J2.6 (sem caminho pelo roteador, ver abaixo); **SPI2_MOSI** (pino 36 ao J9.6) e **PB7** (pino 59 ao R36.1, AUX2) sem caminho pelo roteador: em 6 ordens o SPI2 nunca passou de 3 das 4 linhas (MOSI fecha só perdendo o MISO e o NSS), e o PB7 não fechou em nenhuma, nem com o R36 movido para o sul (PB7 ao R36 fecha com 17,1 mm, mas o R36 ao J14 não passa do sul para o norte). Feitos em `3e4b1ad`: SPI2 NSS, SCK e MISO (o MISO tem 55,6 mm e 4 vias), PA2 ao R35 e AUX1 a AUX3 ao J14. Os catodos dos LEDs e o CURR_IN estão feitos (cada catodo usa 2 vias por B.Cu num trecho de 4 a 5 mm; pode ser refeito à mão em L1).
 - **GPS_TX e GPS_RX** (pinos 37 e 38, oeste) até o J6 (leste) e **SWO** (pino 55): **sem caminho pelo roteador A\***. Estudo de 2026-11-17, tudo em cópia (a PCB real não foi tocada): (1) mover o J2 para o sul não cabe (só há 13,8 mm livres, o J2 precisa de 16,3; a busca de posição livre só acha a posição atual no norte), e forçando ali SWO, NRST e GPS continuam sem caminho; (2) trilha e folga de 0,15 mm não destravam o GPS e violam regras do projeto (vias de 0,55 / 0,25 mm dão `drill_out_of_range` e `via_diameter`; classe Power pede 0,2 mm); (3) apagando o PA10 e rodando 6 ordens: o GPS fecha com no máximo um fio do SWD, nunca com SWDIO e SWCLK juntos; apagando também o VBUS_DET, o GPS (38,5 mm e 60,1 mm, L1) fecha e derruba o SWD inteiro; (4) SWD sozinho com o PA10 mantido: SWCLK, SWDIO e NRST fecham, o SWO não (com o PA10 apagado o SWO fecha, 59,6 mm). Mover o J6 para o noroeste não foi avaliado (a busca de posição livre só põe peças no interior) e traria o I2C1 (pinos 61 e 62, sul) para o lado errado. O roteador não empurra trilhas: à mão, com push and shove no KiCad, pode passar. **Alternativa sem roteamento [inferência, a conferir no firmware]:** ligar o GPS UART pelo J10 (GND, +5V, UART4_TX, UART4_RX, já roteados), deixando o J6 só com a alimentação e o I2C da bússola.
 - **Alimentação por trilha:** feita (`37e0335`). Observação: o roteador liga ilhas pelo par de pads mais perto, então o +5V tem trechos longos em B.Cu (um de 57 mm do D4.1 ao J10.2, outros de 16 a 26 mm); passa no DRC, mas um barramento ou um preenchimento de cobre seria mais limpo.
