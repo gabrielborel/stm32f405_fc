@@ -669,7 +669,7 @@
 	)
 	(text "UART4 connector (J10): JST GH 4-pin, pin order GND, +5V, UART4_TX, UART4_RX.\nPin order is a project choice, not from a manual."
 		(exclude_from_sim no)
-		(at 76.962 59.944 0)
+		(at 77.216 53.086 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -678,9 +678,13 @@
 		)
 		(uuid "a2239d15-4743-46c0-8415-9edb4a25c3c4")
 	)
+	(no_connect
+		(at 127 77.47)
+		(uuid "e446ff9f-0e86-4d09-9001-2fcaffcc2fe0")
+	)
 	(wire
 		(pts
-			(xy 106.68 82.55) (xy 95.25 82.55)
+			(xy 121.92 67.31) (xy 110.49 67.31)
 		)
 		(stroke
 			(width 0)
@@ -690,7 +694,7 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 76.2) (xy 106.68 80.01)
+			(xy 121.92 60.96) (xy 121.92 64.77)
 		)
 		(stroke
 			(width 0)
@@ -700,7 +704,7 @@
 	)
 	(wire
 		(pts
-			(xy 95.25 85.09) (xy 106.68 85.09)
+			(xy 110.49 69.85) (xy 121.92 69.85)
 		)
 		(stroke
 			(width 0)
@@ -710,7 +714,7 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 76.2) (xy 100.33 76.2)
+			(xy 121.92 60.96) (xy 115.57 60.96)
 		)
 		(stroke
 			(width 0)
@@ -720,7 +724,7 @@
 	)
 	(wire
 		(pts
-			(xy 95.25 87.63) (xy 106.68 87.63)
+			(xy 110.49 72.39) (xy 121.92 72.39)
 		)
 		(stroke
 			(width 0)
@@ -730,7 +734,7 @@
 	)
 	(wire
 		(pts
-			(xy 95.25 82.55) (xy 95.25 80.01)
+			(xy 110.49 67.31) (xy 110.49 64.77)
 		)
 		(stroke
 			(width 0)
@@ -740,7 +744,7 @@
 	)
 	(global_label "UART4_TX"
 		(shape output)
-		(at 95.25 85.09 180)
+		(at 110.49 69.85 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -750,7 +754,7 @@
 		)
 		(uuid "2dec46d3-3cbb-46de-a456-3e35a5ec2160")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 83.2539 85.09 0)
+			(at 98.4939 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -764,7 +768,7 @@
 	)
 	(global_label "UART4_RX"
 		(shape input)
-		(at 95.25 87.63 180)
+		(at 110.49 72.39 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -774,7 +778,7 @@
 		)
 		(uuid "3c465832-a2c6-4904-a7f5-f35dab065c9c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 82.9515 87.63 0)
+			(at 98.1915 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -788,7 +792,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic_MountingPin:Conn_01x04_MountingPin")
-		(at 111.76 82.55 0)
+		(at 127 67.31 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -798,7 +802,7 @@
 		(dnp no)
 		(uuid "1d7419d1-d14d-44ab-8526-300969a839b4")
 		(property "Reference" "J10"
-			(at 113.792 77.47 0)
+			(at 129.032 62.23 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -809,7 +813,7 @@
 			)
 		)
 		(property "Value" "UART4 conn"
-			(at 113.538 89.916 0)
+			(at 128.778 74.676 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -820,7 +824,7 @@
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_GH_SM04B-GHS-TB_1x04-1MP_P1.25mm_Horizontal"
-			(at 111.76 82.55 0)
+			(at 127 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -831,7 +835,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 111.76 82.55 0)
+			(at 127 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -842,7 +846,7 @@
 			)
 		)
 		(property "Description" "Generic connectable mounting pin connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 111.76 82.55 0)
+			(at 127 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -853,7 +857,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 111.76 82.55 0)
+			(at 127 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -864,7 +868,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 111.76 82.55 0)
+			(at 127 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -875,7 +879,7 @@
 			)
 		)
 		(property "LCSC" "C189895"
-			(at 111.76 82.55 0)
+			(at 127 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -911,7 +915,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 95.25 80.01 0)
+		(at 110.49 64.77 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -921,7 +925,7 @@
 		(dnp no)
 		(uuid "9afc8fae-a504-4eaa-882e-79f1947c4e54")
 		(property "Reference" "#PWR076"
-			(at 95.25 83.82 0)
+			(at 110.49 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -932,7 +936,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 95.25 76.2 0)
+			(at 110.49 60.96 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -942,7 +946,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 95.25 80.01 0)
+			(at 110.49 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -953,7 +957,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 95.25 80.01 0)
+			(at 110.49 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -964,7 +968,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 95.25 80.01 0)
+			(at 110.49 64.77 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -988,7 +992,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 100.33 76.2 0)
+		(at 115.57 60.96 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -998,7 +1002,7 @@
 		(dnp no)
 		(uuid "e059ce31-a05f-44fe-b704-f02ce3e2bd75")
 		(property "Reference" "#PWR077"
-			(at 100.33 82.55 0)
+			(at 115.57 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1009,7 +1013,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 100.33 80.01 0)
+			(at 115.57 64.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1019,7 +1023,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 100.33 76.2 0)
+			(at 115.57 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1030,7 +1034,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 100.33 76.2 0)
+			(at 115.57 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1041,7 +1045,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 100.33 76.2 0)
+			(at 115.57 60.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
