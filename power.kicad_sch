@@ -135,7 +135,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector_Generic:Conn_01x04"
+		(symbol "Connector_Generic:Conn_01x03"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -155,8 +155,8 @@
 					)
 				)
 			)
-			(property "Value" "Conn_01x04"
-				(at 0 -7.62 0)
+			(property "Value" "Conn_01x03"
+				(at 0 -5.08 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -187,7 +187,7 @@
 					)
 				)
 			)
-			(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -220,10 +220,10 @@
 					)
 				)
 			)
-			(symbol "Conn_01x04_1_1"
+			(symbol "Conn_01x03_1_1"
 				(rectangle
 					(start -1.27 3.81)
-					(end 1.27 -6.35)
+					(end 1.27 -3.81)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -257,17 +257,6 @@
 				(rectangle
 					(start -1.27 -2.413)
 					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -4.953)
-					(end 0 -5.207)
 					(stroke
 						(width 0.1524)
 						(type default)
@@ -323,24 +312,6 @@
 						)
 					)
 					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -5.08 0)
-					(length 3.81)
-					(name "Pin_4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -986,145 +957,6 @@
 						)
 					)
 					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "power:+12V"
-			(power global)
-			(pin_numbers
-				(hide yes)
-			)
-			(pin_names
-				(offset 0)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "#PWR"
-				(at 0 -3.81 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "+12V"
-				(at 0 3.556 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"+12V\""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "global power"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "+12V_0_1"
-				(polyline
-					(pts
-						(xy -0.762 1.27) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "+12V_1_1"
-				(pin power_in line
-					(at 0 0 90)
-					(length 0)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1901,7 +1733,7 @@
 		)
 		(uuid "447cd73c-59aa-4c33-a17d-6522f165d4ac")
 	)
-	(text "FC powered by the PDB over 4 wires:\nVBAT/+12V/GND/+5V\n\nBulk capacitor between +5V and GND:\n10uF ceramic X5R/X7R, 25V"
+	(text "FC powered by the PDB over 3 wires:\nVBAT/GND/+5V\n\nBulk capacitor between +5V and GND:\n10uF ceramic X5R/X7R, 25V"
 		(exclude_from_sim no)
 		(at 69.088 55.626 0)
 		(effects
@@ -2021,7 +1853,7 @@
 		(uuid "0f5a6037-0def-4692-b445-d8ab5424a746")
 	)
 	(junction
-		(at 82.55 76.2)
+		(at 82.55 73.66)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "16e83df1-556e-4dce-856b-a7c817200db8")
@@ -2051,7 +1883,7 @@
 		(uuid "829c41de-3bfd-49f1-9382-200ec60aaecf")
 	)
 	(junction
-		(at 82.55 81.28)
+		(at 82.55 78.74)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "91daffca-a3f2-4480-8aeb-3ae4dcd6fb30")
@@ -2144,7 +1976,7 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 76.2) (xy 82.55 76.2)
+			(xy 78.74 73.66) (xy 82.55 73.66)
 		)
 		(stroke
 			(width 0)
@@ -2234,7 +2066,7 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 81.28) (xy 74.93 81.28)
+			(xy 82.55 78.74) (xy 74.93 78.74)
 		)
 		(stroke
 			(width 0)
@@ -2254,7 +2086,7 @@
 	)
 	(wire
 		(pts
-			(xy 95.25 81.28) (xy 82.55 81.28)
+			(xy 95.25 78.74) (xy 82.55 78.74)
 		)
 		(stroke
 			(width 0)
@@ -2344,23 +2176,13 @@
 	)
 	(wire
 		(pts
-			(xy 233.68 152.4) (xy 233.68 156.21)
+			(xy 248.92 152.4) (xy 248.92 156.21)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "8d99cd63-6135-406a-ac59-272d368e3a90")
-	)
-	(wire
-		(pts
-			(xy 95.25 78.74) (xy 95.25 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "95002389-ed6d-4461-92fe-580af9a36ac5")
 	)
 	(wire
 		(pts
@@ -2434,6 +2256,16 @@
 	)
 	(wire
 		(pts
+			(xy 95.25 76.2) (xy 95.25 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd64ee97-7860-4f9f-a3eb-e1b99f5ce07d")
+	)
+	(wire
+		(pts
 			(xy 180.34 151.13) (xy 185.42 151.13)
 		)
 		(stroke
@@ -2454,7 +2286,7 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 76.2) (xy 95.25 76.2)
+			(xy 82.55 73.66) (xy 95.25 73.66)
 		)
 		(stroke
 			(width 0)
@@ -2484,17 +2316,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 73.66) (xy 95.25 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "efc3ae4f-6eef-4a4c-a7a8-bfd2be389fb4")
-	)
-	(wire
-		(pts
-			(xy 74.93 81.28) (xy 74.93 73.66)
+			(xy 74.93 78.74) (xy 74.93 71.12)
 		)
 		(stroke
 			(width 0)
@@ -2564,7 +2386,7 @@
 		(uuid "734068b9-701c-42b2-9a28-d46ab4f8d2ae")
 	)
 	(label "+VBAT"
-		(at 233.68 152.4 0)
+		(at 248.92 152.4 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2595,83 +2417,6 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:PWR_FLAG")
-		(at 248.92 156.21 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "002a089e-b11c-43d3-9100-24854176dabb")
-		(property "Reference" "#FLG03"
-			(at 248.92 158.115 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "PWR_FLAG"
-			(at 248.666 160.02 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 248.92 156.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 248.92 156.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 248.92 156.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b645f7f1-9011-4d0e-969c-80d176273d29")
-		)
-		(instances
-			(project "STM32F405_FLIGHT_CONTROLLER"
-				(path "/355d5058-b2dd-4ce1-9e79-9a489fe4bbc2"
-					(reference "#FLG03")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -2884,83 +2629,6 @@
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/355d5058-b2dd-4ce1-9e79-9a489fe4bbc2"
 					(reference "C8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+12V")
-		(at 81.28 73.66 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "0aeec491-d187-4ca3-8302-82a74a9e362f")
-		(property "Reference" "#PWR022"
-			(at 81.28 77.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+12V"
-			(at 81.28 70.104 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 81.28 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 81.28 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+12V\""
-			(at 81.28 73.66 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c246b1f3-fc90-48fd-9332-7483fcea2b8b")
-		)
-		(instances
-			(project "STM32F405_FLIGHT_CONTROLLER"
-				(path "/355d5058-b2dd-4ce1-9e79-9a489fe4bbc2"
-					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -3658,7 +3326,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 222.25 156.21 180)
+		(at 237.49 156.21 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3668,7 +3336,7 @@
 		(dnp no)
 		(uuid "73901b25-e2fd-4b51-9cc4-0a69e42803b5")
 		(property "Reference" "#FLG05"
-			(at 222.25 158.115 0)
+			(at 237.49 158.115 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3679,7 +3347,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 221.996 160.02 0)
+			(at 237.236 160.02 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3689,7 +3357,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 222.25 156.21 0)
+			(at 237.49 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3700,7 +3368,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 222.25 156.21 0)
+			(at 237.49 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3711,7 +3379,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 222.25 156.21 0)
+			(at 237.49 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3728,83 +3396,6 @@
 			(project "STM32F405_FLIGHT_CONTROLLER"
 				(path "/355d5058-b2dd-4ce1-9e79-9a489fe4bbc2"
 					(reference "#FLG05")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+12V")
-		(at 248.92 156.21 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "76a8c931-645b-4c34-8d14-09699d999bf1")
-		(property "Reference" "#PWR025"
-			(at 248.92 160.02 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+12V"
-			(at 248.92 152.4 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 248.92 156.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 248.92 156.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+12V\""
-			(at 248.92 156.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "147e7113-cd45-42d7-a789-42e0879a6778")
-		)
-		(instances
-			(project "STM32F405_FLIGHT_CONTROLLER"
-				(path "/355d5058-b2dd-4ce1-9e79-9a489fe4bbc2"
-					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -4002,14 +3593,14 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x04")
+		(lib_id "Connector_Generic:Conn_01x03")
 		(at 100.33 73.66 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom no)
+		(in_bom yes)
 		(on_board yes)
-		(in_pos_files no)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "8872f34d-0945-4307-bfdd-d6060d01af26")
 		(property "Reference" "J1"
@@ -4034,7 +3625,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_Wire:SolderWire-0.25sqmm_1x04_P4.2mm_D0.65mm_OD1.7mm"
+		(property "Footprint" "Connector_Wire:SolderWire-0.25sqmm_1x03_P4.2mm_D0.65mm_OD1.7mm"
 			(at 100.33 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -4056,7 +3647,7 @@
 				)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
+		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 100.33 73.66 0)
 			(hide yes)
 			(show_name no)
@@ -4091,9 +3682,6 @@
 		)
 		(pin "3"
 			(uuid "59df312c-adfa-4b1c-a431-b0b2c8671c06")
-		)
-		(pin "4"
-			(uuid "1bdd7907-bfb9-47dd-8cd5-24e61c98a801")
 		)
 		(pin "2"
 			(uuid "7b659153-8966-4e59-92c1-28583ff73123")
@@ -4189,7 +3777,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 82.55 78.74 0)
+		(at 82.55 76.2 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4199,7 +3787,7 @@
 		(dnp no)
 		(uuid "95dd3977-7451-44fd-b53a-a3305b647961")
 		(property "Reference" "C16"
-			(at 84.074 77.47 0)
+			(at 84.074 74.93 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4210,7 +3798,7 @@
 			)
 		)
 		(property "Value" "10uF,25V"
-			(at 84.074 79.756 0)
+			(at 84.074 77.216 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4221,7 +3809,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
-			(at 82.55 78.74 0)
+			(at 82.55 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4232,7 +3820,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 82.55 78.74 0)
+			(at 82.55 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4243,7 +3831,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 82.55 88.9 0)
+			(at 82.55 86.36 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4254,7 +3842,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 82.55 78.74 0)
+			(at 82.55 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4265,7 +3853,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 82.55 78.74 0)
+			(at 82.55 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4276,7 +3864,7 @@
 			)
 		)
 		(property "LCSC" "C15850"
-			(at 82.55 78.74 0)
+			(at 82.55 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4425,7 +4013,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 74.93 73.66 0)
+		(at 74.93 71.12 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4435,7 +4023,7 @@
 		(dnp no)
 		(uuid "a7ddbc8d-d294-4bc1-a8b6-59f07bb7e397")
 		(property "Reference" "#PWR024"
-			(at 74.93 77.47 0)
+			(at 74.93 74.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4446,7 +4034,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 74.93 70.104 0)
+			(at 74.93 67.564 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4456,7 +4044,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 74.93 73.66 0)
+			(at 74.93 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4467,7 +4055,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 74.93 73.66 0)
+			(at 74.93 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4478,7 +4066,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 74.93 73.66 0)
+			(at 74.93 71.12 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4592,7 +4180,7 @@
 	)
 	(symbol
 		(lib_id "power:PWR_FLAG")
-		(at 233.68 156.21 180)
+		(at 248.92 156.21 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4602,7 +4190,7 @@
 		(dnp no)
 		(uuid "c2791bed-4b47-49e8-9aa0-a12b962a4aae")
 		(property "Reference" "#FLG04"
-			(at 233.68 158.115 0)
+			(at 248.92 158.115 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4613,7 +4201,7 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 233.426 160.02 0)
+			(at 248.666 160.02 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4623,7 +4211,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 233.68 156.21 0)
+			(at 248.92 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4634,7 +4222,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 233.68 156.21 0)
+			(at 248.92 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4645,7 +4233,7 @@
 			)
 		)
 		(property "Description" "Special symbol for telling ERC where power comes from"
-			(at 233.68 156.21 0)
+			(at 248.92 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5326,7 +4914,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 222.25 156.21 0)
+		(at 237.49 156.21 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5336,7 +4924,7 @@
 		(dnp no)
 		(uuid "e3c42247-767d-4608-a8fb-32d84e056069")
 		(property "Reference" "#PWR051"
-			(at 222.25 160.02 0)
+			(at 237.49 160.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5347,7 +4935,7 @@
 			)
 		)
 		(property "Value" "+3.3VA"
-			(at 222.25 152.654 0)
+			(at 237.49 152.654 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5357,7 +4945,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 222.25 156.21 0)
+			(at 237.49 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5368,7 +4956,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 222.25 156.21 0)
+			(at 237.49 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5379,7 +4967,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 222.25 156.21 0)
+			(at 237.49 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5613,7 +5201,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 78.74 76.2 0)
+		(at 78.74 73.66 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5623,7 +5211,7 @@
 		(dnp no)
 		(uuid "f67dcaab-3355-4124-92b1-29d92bf76ba5")
 		(property "Reference" "#PWR023"
-			(at 78.74 82.55 0)
+			(at 78.74 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5634,7 +5222,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 78.74 79.756 0)
+			(at 78.74 77.216 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5644,7 +5232,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 78.74 76.2 0)
+			(at 78.74 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5655,7 +5243,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 78.74 76.2 0)
+			(at 78.74 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5666,7 +5254,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 78.74 76.2 0)
+			(at 78.74 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
