@@ -849,7 +849,7 @@
 	)
 	(text "Notes:\n- Labels from the MCU point of view (ELRS_TX = MCU TX -> receiver RX)\n- J5: JST GH 4-pin. Order: 1 GND, 2 +5V, 3 TX, 4 RX\n- J6: JST GH 6-pin (provisional). Order: 1 GND, 2 +5V, 3 TX, 4 RX, 5 I2C1_SCL, 6 I2C1_SDA (compass on GPS module)\n- ELRS and GPS powered from +5V (PDB), not from the 3V3 LDOs\n- USART3 (PB10/PB11) is a system bootloader interface (AN2606 Rev 70, Table 73)"
 		(exclude_from_sim no)
-		(at 109.22 87.884 0)
+		(at 109.22 87.122 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -871,7 +871,7 @@
 	)
 	(text "References: DS8626 Rev 12, Table 9"
 		(exclude_from_sim no)
-		(at 109.474 81.534 0)
+		(at 109.474 94.488 0)
 		(effects
 			(font
 				(size 0.762 0.762)
