@@ -895,7 +895,7 @@
 						(type none)
 					)
 				)
-				(pin unspecified line
+				(pin power_in line
 					(at -11.43 5.08 0)
 					(length 2.54)
 					(name "VDDIO"
@@ -913,7 +913,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin input line
 					(at -11.43 2.54 0)
 					(length 2.54)
 					(name "SCK"
@@ -931,7 +931,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin power_in line
 					(at -11.43 0 0)
 					(length 2.54)
 					(name "VSS"
@@ -949,7 +949,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin bidirectional line
 					(at -11.43 -2.54 0)
 					(length 2.54)
 					(name "SDI"
@@ -967,7 +967,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin bidirectional line
 					(at -11.43 -5.08 0)
 					(length 2.54)
 					(name "SDO"
@@ -985,7 +985,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin input line
 					(at 11.43 -5.08 180)
 					(length 2.54)
 					(name "CSB"
@@ -1003,7 +1003,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin output line
 					(at 11.43 -2.54 180)
 					(length 2.54)
 					(name "INT"
@@ -1021,7 +1021,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin power_in line
 					(at 11.43 0 180)
 					(length 2.54)
 					(name "VSS"
@@ -1039,7 +1039,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin power_in line
 					(at 11.43 2.54 180)
 					(length 2.54)
 					(name "VSS"
@@ -1057,7 +1057,7 @@
 						)
 					)
 				)
-				(pin unspecified line
+				(pin power_in line
 					(at 11.43 5.08 180)
 					(length 2.54)
 					(name "VDD"

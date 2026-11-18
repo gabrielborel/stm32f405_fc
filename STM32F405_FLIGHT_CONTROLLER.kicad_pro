@@ -324,8 +324,8 @@
   "erc": {
     "erc_exclusions": [
       [
-        "pin_to_pin|952500|927100|b0b7092a-88b0-4ad1-9c23-752c2938ea2b|1a8dddc1-89c1-469a-9e10-c750cd614839|/eb3e9e5a-421d-484a-821c-799fff7ec893|/eb3e9e5a-421d-484a-821c-799fff7ec893|/355d5058-b2dd-4ce1-9e79-9a489fe4bbc2",
-        "SDO = I2C address LSB input; CSB tied high locks I2C (BMP280 DS Sec. 5.1/5.2)"
+        "pin_to_pin|914400|977900|5a789b18-aaa5-4ec8-9744-439ec15913a3|1a8dddc1-89c1-469a-9e10-c750cd614839|/eb3e9e5a-421d-484a-821c-799fff7ec893|/eb3e9e5a-421d-484a-821c-799fff7ec893|/355d5058-b2dd-4ce1-9e79-9a489fe4bbc2",
+        "SDO = I2C address LSB input, tied to GND for 0x46 (BMP581 DS Rev 1.13 Sec. 5.6, Fig. 26); CSB tied to VDDIO selects I2C (Sec. 6.2.3)"
       ]
     ],
     "meta": {
