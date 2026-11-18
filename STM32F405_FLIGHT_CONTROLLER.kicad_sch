@@ -2512,7 +2512,7 @@
 		)
 		(uuid "c5da6ea1-7bf9-4fd5-844b-389fba6b41bb")
 	)
-	(text "STM32F405 FLIGHT CONTROLLER (v1)\nSTM32F405RGT6 @ 168 MHz, BMI270 (SPI1), BMP581 (I2C1),\nmicroSD (SDIO 4-bit), USB-C, GPS and ELRS/CRSF UARTs.\nPowered by an external PDB (5V, VBAT).\nSheets: Oscillator, Power, Debug & Boot, Status LEDs,\nSensors, USB, Storage, Communication.\n"
+	(text "STM32F405 FLIGHT CONTROLLER (v1)\nSTM32F405RGT6 @ 168 MHz, BMI270 (SPI1), BMP581 (I2C1),\nmicroSD (SDIO 4-bit), USB-C, GPS and ELRS/CRSF UARTs.\nPowered by an external PDB (5V, VBAT).\nSheets: Oscillator, Power, Debug & Boot, Status LEDs,\nSensors, USB, Storage, Communication,\nMotors, Buzzer, Expansion.\n"
 		(exclude_from_sim no)
 		(at 14.732 26.67 0)
 		(effects
