@@ -4522,6 +4522,143 @@
 			)
 		)
 	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "33af99dd-faa4-4270-a6bc-ddb2c0a26af2")
+		(at 91.2 92.9)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP14"
+			(at 3.105887 0.499999 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "7d26db9e-4c00-4022-80c4-2e8676fa569e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "SD_CMD"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "8a21b9fe-f68a-490a-9f41-6e9d3d90476a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9a88c337-302e-42e3-9cbc-e1ad79aba7dc")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "20da625d-1431-4cb7-83b2-ee0ec354088c")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "371ffd19-bd73-4f7a-8e60-7de462277ff7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2f4e85fb-1bbc-4fc8-87da-646bc3cb5858")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/c7fd0a86-1fee-4342-ab42-a9cf3c64ded4")
+		(sheetname "/Storage/")
+		(sheetfile "storage.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "b8dc24b6-6f23-45ff-baf5-f9bed3c70f73")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "38d097ad-af90-4ad8-a7ae-8d147cf0a128")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "6e388323-1091-4b50-b32b-72e292ddb3e8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "SDIO_CMD")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "e365835e-71c9-49bb-92ef-fe9cbeb4caa1")
+		)
+		(embedded_fonts no)
+	)
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "3a2ecb28-6f12-4279-a80d-b00c47a2eef2")
@@ -8093,6 +8230,143 @@
 			)
 		)
 	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "56c79bd6-e772-43c3-8f04-5b0628e76739")
+		(at 101.455002 69.546273)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP13"
+			(at 0.001278 -1.994523 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "3fcd5df7-2ae7-4418-bc5e-0a2249e43f9e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "+3V3_SD"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "c8abb23d-31b3-48d5-9ab4-db21a96378c3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e6f623d1-a68d-41c4-a01b-e544f351e458")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8bf65dac-5745-470a-bcc4-1ccd613bc3e2")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "36c2b82b-9198-4e0d-91eb-142da31219a2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "26c03364-e815-4d9a-b24f-98e733231d44")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/2dab2097-71c7-4e6f-856a-a337265496a3")
+		(sheetname "/Storage/")
+		(sheetfile "storage.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "a78cb483-efb1-46bd-add2-7dda3c49f331")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "84ab2ada-8cee-4f84-b9d3-c704b805961b")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "790e1ab2-e04e-4546-834d-b90c0f7ef890")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "+3V3_SD")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "121387e9-3f33-4a46-8e56-6834cb7ab4f9")
+		)
+		(embedded_fonts no)
+	)
 	(footprint "Capacitor_SMD:C_0805_2012Metric"
 		(layer "F.Cu")
 		(uuid "5bc79abd-cc3b-42fe-ad13-45736058ea57")
@@ -8463,6 +8737,143 @@
 				(xyz 0 0 0)
 			)
 		)
+	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "5f408c04-b2ea-416d-af66-3fa8cdcdb362")
+		(at 142 123.2)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP5"
+			(at 0.001278 -2.628416 90)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "bd74d839-272f-49fa-8f45-87bd4892e427")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "40bd65c7-555c-4375-bd49-ef39a406d8db")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "02684cc2-ec24-4b36-8b0a-bb155ddb8275")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3c9dde05-2a26-4279-b7e4-205c3007864a")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "dee02128-1fe8-4335-9edc-c80bf545e764")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0af3c6b0-3d54-42fc-9ae4-cc055cabb22f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/09a6fdb2-1f05-4d66-a051-066722515ace")
+		(sheetname "/Power/")
+		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "aa11deea-00a3-4024-a707-1c138da03844")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "6f19f972-8abe-45fb-8760-fa8dc42ae6e2")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "2bd26be7-32fb-410a-8e9d-a6b7bcb09f9f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "GND")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "816bbff7-bc9c-4c8f-907b-0450dd4c2d0b")
+		)
+		(embedded_fonts no)
 	)
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
@@ -8835,6 +9246,143 @@
 				(xyz 0 0 0)
 			)
 		)
+	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "6712c0ae-6988-4450-8550-3a5757acba14")
+		(at 111.847553 61.453728)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP11"
+			(at 0 1.8 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "d37dcf27-f998-447d-b370-b7fc55f01833")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "CS"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "0e0de9e1-df85-49f7-988c-70d337985da1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ef2250e4-8d5c-4696-ac08-7af5d9f1ca43")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2c06b3a9-feb2-470b-b7b0-c5be14aea853")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5b420345-623f-4e00-9459-a1b24dc8c88c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "638047e1-9a39-47ca-b9c9-32b0f15302af")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/633f9576-08cf-4417-9386-5f386cd171b2")
+		(sheetname "/Sensors/")
+		(sheetfile "sensors.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "fa0dca96-daeb-4ba2-8cd9-d32db47447bf")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "0bc9a637-5ef7-4d7f-b965-ccb354771eee")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "f85f9c34-214b-476b-89ba-571e5c73a5df")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "SPI1_IMU_CS")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "e5908ac6-e69d-4510-8bd5-dedc91910675")
+		)
+		(embedded_fonts no)
 	)
 	(footprint "LED_SMD:LED_0805_2012Metric"
 		(layer "F.Cu")
@@ -9922,6 +10470,143 @@
 				(xyz 0 0 0)
 			)
 		)
+	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "74278881-1e2f-42a0-835a-ffbc80c9a02a")
+		(at 108.8 51.65)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP8"
+			(at 1.8 0 90)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "d5aca7e6-192c-40c0-9ceb-659d694c26a6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "MISO"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "1277e466-a3a5-4a93-93e3-fe84c711a69a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "082a23e1-37b9-4b47-be1a-ede7fbeee5d6")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9a4306a2-948b-4414-8123-169ac6a9f1f2")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "70de86da-7bb9-47dc-9e23-836b1f490b16")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a67f19f9-4c22-4df1-bb6c-425c118da53b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/43911673-9408-48b6-b2b8-a0093f7eb8c9")
+		(sheetname "/Sensors/")
+		(sheetfile "sensors.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "0d1b9670-6e8b-4a14-ba74-48053cfbe3fd")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "9a5fc730-ce83-49f6-aeb7-03b1523b2bc9")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "9db7a3ea-f746-4d74-a826-2cf781e8b403")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "SPI1_MISO")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "45f94d17-000d-4076-961a-17bdc18bbd82")
+		)
+		(embedded_fonts no)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
@@ -11940,6 +12625,143 @@
 			)
 		)
 	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "8f36e533-4328-494d-96a4-6d3faa13fac5")
+		(at 145.3 122.25)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP6"
+			(at -2.627141 -0.000001 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "40e34a5c-1356-49b5-8307-57accdfdec32")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "bb97a313-5de2-4b21-8c8a-bf80c7ca9de0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a33a65e9-958f-4b1d-8fec-5556aa3e2a37")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f3d0a136-f476-46de-9835-0f3cdb59f1d0")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5e3a0eec-a15a-460e-8833-871fe790e6dd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "84372596-7992-4ae4-a7ee-bd2d69c36ed3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/c843539b-25e4-4a59-a409-4537f003030e")
+		(sheetname "/Power/")
+		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "e9092386-2b4c-4a67-b4a5-df46fd6ef6a3")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "ee4cc749-d880-4cfe-8c1e-7e24cd41e17f")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "9c19112a-31fe-48fe-ac1f-f1b440bc2450")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "+3V3")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "dfc181ca-b56f-413a-a87c-2c3e34c4250a")
+		)
+		(embedded_fonts no)
+	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "8f56480b-508e-4a4b-b230-7d53fdad464a")
@@ -11949,6 +12771,7 @@
 		(property "Reference" "R34"
 			(at -0.5 1.72325 0)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "57c893ea-5fd6-4359-a3a3-e48713a9ed87")
 			(effects
 				(font
@@ -13473,6 +14296,143 @@
 				(xyz 0 0 0)
 			)
 		)
+	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "97b0bf29-636f-490b-a21b-6a0576d21cbe")
+		(at 115.347553 55.453728)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP9"
+			(at -0.3 -1.8 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "a161a072-3cd8-44a8-9ad3-8a34a1df7507")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "INT1"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "34eae73b-0773-41f6-bc91-cd3a801c3ecf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c22d5360-992e-47c6-a2ce-b37e44687bae")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "50d068c6-a169-4be0-9300-8147f5ea7a09")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1c7ea81c-2ae0-4e88-9caf-9fa1557703d2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "65dcbb9a-cb20-4ac4-84e2-570ec6fe129b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/486d82d8-fdb6-4674-a54e-b588ae6ec9bd")
+		(sheetname "/Sensors/")
+		(sheetfile "sensors.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "c6ad5e85-c1ca-473d-aabb-590c074a251e")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "a941f6c3-b689-437d-8466-1182ef411cbc")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "885c7eba-20ee-4514-931e-dd2182ad180f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "IMU_INT1")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "a9f6a7ad-0b84-416b-b30c-0563405833ce")
+		)
+		(embedded_fonts no)
 	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
@@ -17100,6 +18060,143 @@
 			)
 		)
 	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "c0781298-93f2-4ee7-97c7-cc38415d835f")
+		(at 88.9 93)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP15"
+			(at 0.001278 -1.994523 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "5682b71d-d01e-46a8-94f5-c89bb21f8172")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "SD_CK"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "e0d9dcb3-2813-4a51-9df0-2846deb17f7b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5c350d79-1849-4886-bb6c-194e35e25e63")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f912fc28-77e3-486b-b2dd-9bf005a40ad0")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "065aad62-5268-4481-b620-f9610158cb9b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a71ae3aa-3629-4480-9d02-e9b115175efb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/5309d2e8-661c-4d27-869d-f83e1b707dc5")
+		(sheetname "/Storage/")
+		(sheetfile "storage.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "5e887832-e0e4-4bff-a93a-cb5ec7ac8a67")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "975c3657-089f-4b58-b8d7-30da991f706c")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "e66979b3-a9a7-49ba-8be8-9e874001cf87")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "SDIO_CK")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "a9f20a16-013c-444f-b36e-077e21121d34")
+		)
+		(embedded_fonts no)
+	)
 	(footprint "Capacitor_SMD:C_0402_1005Metric"
 		(layer "F.Cu")
 		(uuid "c893f975-fe94-4375-af66-b4b33a215f5c")
@@ -17286,6 +18383,280 @@
 			)
 		)
 	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "cd321621-770c-4821-b096-a0cc78386778")
+		(at 113.05 57.2)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP12"
+			(at 1.8 0 90)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "aee211c0-3c69-4342-b95d-ffed0545eb33")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "SCK"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "63358783-e00d-42b4-a4f6-bf61fcd01e1e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "715eec9f-88ae-484a-94f2-68b04cdae513")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d665bb26-96ad-4b43-95e4-3a5c952fbee2")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7106c84d-ff1e-4fbe-8411-040764f05762")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "06f43b71-614f-45a8-a5f4-c40a717d1087")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/a8946512-c740-4e65-9e23-941c12ae4aee")
+		(sheetname "/Sensors/")
+		(sheetfile "sensors.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "073e4f78-7f99-4582-960f-3017b0fef8cd")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "95e16108-faf3-4450-8a8b-7ea792b3ac0f")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "91c81b60-d693-4b4f-b81c-a7d8be7b9360")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "SPI1_SCK")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "36d35fed-e62f-41c1-b166-4ed4f9fa9d4d")
+		)
+		(embedded_fonts no)
+	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "cda78d23-0869-4a9f-8c23-1b35b36bc880")
+		(at 109.547553 59.253728)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP10"
+			(at 1.770001 1.77 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "a5108922-aa07-4efe-87cf-dd52adae331b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "MOSI"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "222afe3c-be29-4f6f-a35a-80adb9726665")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5b1acdf6-3deb-4c82-89aa-58aa8372c64a")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3b4f511c-27b2-43f2-8c6f-13260e681f87")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b8930ff5-3dfa-4fac-8e81-8c042bfe3ecb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b6c35c4f-be89-419f-b457-31e4dba5ad1d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/a129daf2-355b-46eb-9f80-be66373dad14")
+		(sheetname "/Sensors/")
+		(sheetfile "sensors.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "cfda3e03-bf9f-4572-9334-db0c69986362")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "19b8b355-8761-4a4d-957e-c97d74f4605c")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "59d57cf1-9b3c-4b16-bf28-2491633cfbb9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "SPI1_MOSI")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "167bdf4b-c3ec-48f6-84ee-d95d815258f8")
+		)
+		(embedded_fonts no)
+	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "cf5eb983-367a-4dca-b4c5-f4c71bf8921b")
@@ -17471,6 +18842,143 @@
 				(xyz 0 0 0)
 			)
 		)
+	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "d2cf09d3-eb76-468b-b384-0d695b7a5e64")
+		(at 111.45 118.8)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP3"
+			(at 0.001278 -1.994523 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "494579d8-da35-41a8-9ea7-ec75cbee0fe9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "VBAT_SENSE"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "456aa497-6487-47a7-8f70-d3890863a10c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "054b37fc-1419-4b4e-9aba-d41c90845174")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7ecae44b-28fd-4775-b4cb-487fba8916d3")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a6911941-a6e0-4c13-b4ab-8c8ced9313a9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "da7f31ab-4395-41ff-808b-eaaea56ac86e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/f5509604-d64b-4f91-80a4-0477763e0ba3")
+		(sheetname "/Power/")
+		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "c1f5f60a-2999-47fb-956e-d9fa5cf21888")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "64e0d541-3674-4848-89cd-4bfa74efd6f5")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "d87444b1-181d-4cc1-8b39-0f50966be19d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "VBAT_SENSE")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "01dee785-a5d4-4b67-948f-f2e4515f789e")
+		)
+		(embedded_fonts no)
 	)
 	(footprint "Connector_FC:SolderPads_1x05_P2.54mm"
 		(layer "F.Cu")
@@ -17835,6 +19343,143 @@
 			)
 		)
 	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "de4a4e45-f43c-4630-b7f3-0d2addac3829")
+		(at 145 86.4)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP4"
+			(at 0.001278 -1.994523 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "97ad8142-7b58-4cd1-9a26-c5826376b048")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "VDDA"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "c16cbb01-23be-4886-bdc2-94162cda826c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "654b42a4-b6ce-4867-b2e0-f1a94bd81384")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6b800f16-31c2-4224-9db2-5f74dce957d5")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d7bf69b4-2614-42c8-ade2-0b0ef5ea96f9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b83d49cd-1530-4c7b-98fa-54fb256f0bcb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/d5b944ad-3e07-4e39-afb1-4e2fa72c3af9")
+		(sheetname "/Power/")
+		(sheetfile "power.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "f084e545-bee3-4327-b4ba-63c4b5a90436")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "48994273-b459-4918-966d-212cdc8d9bfc")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "3aab9c9c-2d25-44ea-abf2-44de379a94c0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "+3.3VA")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "272f5338-0a5e-4bbb-ab90-421965025665")
+		)
+		(embedded_fonts no)
+	)
 	(footprint "easyeda2kicad:LGA-10_L2.0-W2.0-P0.50-TL_BMP581"
 		(layer "F.Cu")
 		(uuid "de979b19-177a-4a8d-b8e5-3fffa7be462a")
@@ -18161,6 +19806,143 @@
 				(xyz 0 0 0)
 			)
 		)
+	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "dfa9ecc5-b83d-47b7-9962-52470f2adc89")
+		(at 119.247553 56.853728)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP7"
+			(at -0.4 -1.9 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "cacf8e5b-3ea4-402a-afcd-fbdb9ea6a35e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "fc487805-21c0-4aa0-87f6-2a83a89d8cc4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6fd1edba-6bad-4db0-88a1-7cb7a5dd0d1e")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bf7ef285-24d2-48d1-9fec-971f87d53e3d")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "bdf31158-9ba6-497f-9b36-5077b23d7c6a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3c5d5fb1-b948-4f84-8493-bb4a19a299f4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/7d3f0a69-5565-45c0-a71e-ff66cb206dbd")
+		(sheetname "/Sensors/")
+		(sheetfile "sensors.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "76330029-9c99-4b5c-ba45-749d1b19faf0")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "dfe92116-f29d-4832-8aba-f3eddc26f924")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "d3ac7138-ffe9-4d70-b407-0d179411bb08")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "GND")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "8986e98a-2471-4734-ba4c-472b6bc36a2a")
+		)
+		(embedded_fonts no)
 	)
 	(footprint "Connector_Card:microSD_HC_Molex_104031-0811"
 		(layer "F.Cu")
@@ -18910,6 +20692,7 @@
 		(property "Reference" "TP16"
 			(at 0 -1.448 0)
 			(layer "F.SilkS")
+			(hide yes)
 			(uuid "00d2741f-216b-400b-94ef-57cd300a2866")
 			(effects
 				(font
@@ -19894,6 +21677,143 @@
 			)
 		)
 	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "eeb39551-cfa3-4090-b533-9fc8fc251e36")
+		(at 126.05 92.25)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP1"
+			(at -2.627141 -0.000001 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "c7ce4ffe-985e-4549-9fdc-fd37cccae17d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "MCO1"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "c856b408-5c4a-4f0f-a0f3-b1296094a271")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "24a05eef-2724-43fa-bfcc-f33dbb0ad5ee")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "605137cb-eb80-4567-9b5d-321df5491d1e")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9b711fdf-7971-4359-9730-de15c99fc055")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "66370b3b-61eb-4894-bc2a-dfcf2c8f5a04")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/095a72e0-a5dc-4037-a933-679844dab270")
+		(sheetname "/MCU/")
+		(sheetfile "STM32F405_FLIGHT_CONTROLLER.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "6c9c5312-24fb-4a30-8774-c4944eae0642")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "b56ff8c1-e5b8-432b-bf4d-6025cc4b39f7")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "fd538f06-6c6c-40eb-90fc-f08733173f01")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "Net-(U1-PA8)")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "59db6368-dd2d-422d-81fa-06bc1ff31300")
+		)
+		(embedded_fonts no)
+	)
 	(footprint "MountingHole:MountingHole_2.2mm_M2"
 		(layer "F.Cu")
 		(uuid "ef03ea2c-bfa3-4598-be97-135d0386d530")
@@ -20370,6 +22290,143 @@
 			)
 		)
 	)
+	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
+		(layer "F.Cu")
+		(uuid "f98dac92-b0e9-4314-af50-f5d6ca1f5b99")
+		(at 123.6 93.2)
+		(descr "SMD pad as test Point, diameter 1.0mm")
+		(tags "test point SMD pad")
+		(property "Reference" "TP2"
+			(at 0.001278 1.994522 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "5309a8f9-b614-4f86-b9ee-94a3e6d1b537")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 0 1.55 0)
+			(layer "F.Fab")
+			(uuid "5eb48f87-8c5c-440c-89bc-c7912989bbae")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "304a3ad5-7a14-4b9c-9d04-567317668f44")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a1143cbc-9299-46a2-b366-b5fa25f7a585")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "41abead7-cd4c-49f7-9447-7ccb4ee8f9cc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "76837f89-0d76-4603-a231-cec9165d7c3f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/623d5859-191d-4bdf-9fa1-95d000111906")
+		(sheetname "/MCU/")
+		(sheetfile "STM32F405_FLIGHT_CONTROLLER.kicad_sch")
+		(units
+			(unit
+				(name "A")
+				(pins "1")
+			)
+		)
+		(attr exclude_from_pos_files exclude_from_bom)
+		(duplicate_pad_numbers_are_jumpers no)
+		(fp_circle
+			(center 0 0)
+			(end 0 0.7)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.SilkS")
+			(uuid "4cd2f873-d561-4409-a66a-51cd925cd55f")
+		)
+		(fp_circle
+			(center 0 0)
+			(end 1 0)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(fill no)
+			(layer "F.CrtYd")
+			(uuid "e8531baa-e304-4da3-bc43-142c2f7f3fdb")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 -1.45 0)
+			(layer "F.Fab")
+			(uuid "64e2f081-af16-4dca-8620-a66f6e7f6508")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd circle
+			(at 0 0)
+			(size 1 1)
+			(layers "F.Cu" "F.Mask")
+			(net "GND")
+			(pinfunction "1_1")
+			(pintype "passive")
+			(uuid "287c0d14-7911-4920-b579-237e5906f7fd")
+		)
+		(embedded_fonts no)
+	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "B.Cu")
 		(uuid "0e123a44-0a1c-4403-929c-20c91f5a128a")
@@ -20563,866 +22620,6 @@
 				(xyz 0 0 0)
 			)
 		)
-	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "33af99dd-faa4-4270-a6bc-ddb2c0a26af2")
-		(at 90.055001 89.316273 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP14"
-			(at 3.105887 -0.499999 0)
-			(layer "B.SilkS")
-			(hide yes)
-			(uuid "7d26db9e-4c00-4022-80c4-2e8676fa569e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "SD_CMD"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "8a21b9fe-f68a-490a-9f41-6e9d3d90476a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9a88c337-302e-42e3-9cbc-e1ad79aba7dc")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "20da625d-1431-4cb7-83b2-ee0ec354088c")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "371ffd19-bd73-4f7a-8e60-7de462277ff7")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "2f4e85fb-1bbc-4fc8-87da-646bc3cb5858")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/c7fd0a86-1fee-4342-ab42-a9cf3c64ded4")
-		(sheetname "/Storage/")
-		(sheetfile "storage.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "b8dc24b6-6f23-45ff-baf5-f9bed3c70f73")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "38d097ad-af90-4ad8-a7ae-8d147cf0a128")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "6e388323-1091-4b50-b32b-72e292ddb3e8")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "SDIO_CMD")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "e365835e-71c9-49bb-92ef-fe9cbeb4caa1")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "56c79bd6-e772-43c3-8f04-5b0628e76739")
-		(at 101.455002 69.546273 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP13"
-			(at 0.001278 1.994523 0)
-			(layer "B.SilkS")
-			(hide yes)
-			(uuid "3fcd5df7-2ae7-4418-bc5e-0a2249e43f9e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "+3V3_SD"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "c8abb23d-31b3-48d5-9ab4-db21a96378c3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "e6f623d1-a68d-41c4-a01b-e544f351e458")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "8bf65dac-5745-470a-bcc4-1ccd613bc3e2")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "36c2b82b-9198-4e0d-91eb-142da31219a2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "26c03364-e815-4d9a-b24f-98e733231d44")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/2dab2097-71c7-4e6f-856a-a337265496a3")
-		(sheetname "/Storage/")
-		(sheetfile "storage.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "a78cb483-efb1-46bd-add2-7dda3c49f331")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "84ab2ada-8cee-4f84-b9d3-c704b805961b")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "790e1ab2-e04e-4546-834d-b90c0f7ef890")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "+3V3_SD")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "121387e9-3f33-4a46-8e56-6834cb7ab4f9")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "5f408c04-b2ea-416d-af66-3fa8cdcdb362")
-		(at 141.404999 121.045 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP5"
-			(at 0.001278 2.628416 90)
-			(layer "B.SilkS")
-			(uuid "bd74d839-272f-49fa-8f45-87bd4892e427")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "GND"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "40bd65c7-555c-4375-bd49-ef39a406d8db")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "02684cc2-ec24-4b36-8b0a-bb155ddb8275")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "3c9dde05-2a26-4279-b7e4-205c3007864a")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "dee02128-1fe8-4335-9edc-c80bf545e764")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "0af3c6b0-3d54-42fc-9ae4-cc055cabb22f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/09a6fdb2-1f05-4d66-a051-066722515ace")
-		(sheetname "/Power/")
-		(sheetfile "power.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "aa11deea-00a3-4024-a707-1c138da03844")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "6f19f972-8abe-45fb-8760-fa8dc42ae6e2")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "2bd26be7-32fb-410a-8e9d-a6b7bcb09f9f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "GND")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "816bbff7-bc9c-4c8f-907b-0450dd4c2d0b")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "6712c0ae-6988-4450-8550-3a5757acba14")
-		(at 111.847553 61.453728 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP11"
-			(at 0 -1.8 0)
-			(layer "B.SilkS")
-			(uuid "d37dcf27-f998-447d-b370-b7fc55f01833")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "CS"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "0e0de9e1-df85-49f7-988c-70d337985da1")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "ef2250e4-8d5c-4696-ac08-7af5d9f1ca43")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "2c06b3a9-feb2-470b-b7b0-c5be14aea853")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "5b420345-623f-4e00-9459-a1b24dc8c88c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "638047e1-9a39-47ca-b9c9-32b0f15302af")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/633f9576-08cf-4417-9386-5f386cd171b2")
-		(sheetname "/Sensors/")
-		(sheetfile "sensors.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "fa0dca96-daeb-4ba2-8cd9-d32db47447bf")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "0bc9a637-5ef7-4d7f-b965-ccb354771eee")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "f85f9c34-214b-476b-89ba-571e5c73a5df")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "SPI1_IMU_CS")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "e5908ac6-e69d-4510-8bd5-dedc91910675")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "74278881-1e2f-42a0-835a-ffbc80c9a02a")
-		(at 111.197553 52.953728 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP8"
-			(at 1.8 0 90)
-			(layer "B.SilkS")
-			(uuid "d5aca7e6-192c-40c0-9ceb-659d694c26a6")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "MISO"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "1277e466-a3a5-4a93-93e3-fe84c711a69a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "082a23e1-37b9-4b47-be1a-ede7fbeee5d6")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9a4306a2-948b-4414-8123-169ac6a9f1f2")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "70de86da-7bb9-47dc-9e23-836b1f490b16")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a67f19f9-4c22-4df1-bb6c-425c118da53b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/43911673-9408-48b6-b2b8-a0093f7eb8c9")
-		(sheetname "/Sensors/")
-		(sheetfile "sensors.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "0d1b9670-6e8b-4a14-ba74-48053cfbe3fd")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "9a5fc730-ce83-49f6-aeb7-03b1523b2bc9")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "9db7a3ea-f746-4d74-a826-2cf781e8b403")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "SPI1_MISO")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "45f94d17-000d-4076-961a-17bdc18bbd82")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "8f36e533-4328-494d-96a4-6d3faa13fac5")
-		(at 144.404999 121.045 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP6"
-			(at -2.627141 0.000001 0)
-			(layer "B.SilkS")
-			(uuid "40e34a5c-1356-49b5-8307-57accdfdec32")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "bb97a313-5de2-4b21-8c8a-bf80c7ca9de0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a33a65e9-958f-4b1d-8fec-5556aa3e2a37")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "f3d0a136-f476-46de-9835-0f3cdb59f1d0")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "5e3a0eec-a15a-460e-8833-871fe790e6dd")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "84372596-7992-4ae4-a7ee-bd2d69c36ed3")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/c843539b-25e4-4a59-a409-4537f003030e")
-		(sheetname "/Power/")
-		(sheetfile "power.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "e9092386-2b4c-4a67-b4a5-df46fd6ef6a3")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "ee4cc749-d880-4cfe-8c1e-7e24cd41e17f")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "9c19112a-31fe-48fe-ac1f-f1b440bc2450")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "+3V3")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "dfc181ca-b56f-413a-a87c-2c3e34c4250a")
-		)
-		(embedded_fonts no)
 	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "B.Cu")
@@ -21618,1008 +22815,6 @@
 			)
 		)
 	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "97b0bf29-636f-490b-a21b-6a0576d21cbe")
-		(at 115.347553 55.453728 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP9"
-			(at -0.3 1.8 0)
-			(layer "B.SilkS")
-			(uuid "a161a072-3cd8-44a8-9ad3-8a34a1df7507")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "INT1"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "34eae73b-0773-41f6-bc91-cd3a801c3ecf")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "c22d5360-992e-47c6-a2ce-b37e44687bae")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "50d068c6-a169-4be0-9300-8147f5ea7a09")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "1c7ea81c-2ae0-4e88-9caf-9fa1557703d2")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "65dcbb9a-cb20-4ac4-84e2-570ec6fe129b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/486d82d8-fdb6-4674-a54e-b588ae6ec9bd")
-		(sheetname "/Sensors/")
-		(sheetfile "sensors.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "c6ad5e85-c1ca-473d-aabb-590c074a251e")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "a941f6c3-b689-437d-8466-1182ef411cbc")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "885c7eba-20ee-4514-931e-dd2182ad180f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "IMU_INT1")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "a9f6a7ad-0b84-416b-b30c-0563405833ce")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "c0781298-93f2-4ee7-97c7-cc38415d835f")
-		(at 90.855001 86.516273 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP15"
-			(at 0.001278 1.994523 0)
-			(layer "B.SilkS")
-			(hide yes)
-			(uuid "5682b71d-d01e-46a8-94f5-c89bb21f8172")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "SD_CK"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "e0d9dcb3-2813-4a51-9df0-2846deb17f7b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "5c350d79-1849-4886-bb6c-194e35e25e63")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "f912fc28-77e3-486b-b2dd-9bf005a40ad0")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "065aad62-5268-4481-b620-f9610158cb9b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a71ae3aa-3629-4480-9d02-e9b115175efb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/5309d2e8-661c-4d27-869d-f83e1b707dc5")
-		(sheetname "/Storage/")
-		(sheetfile "storage.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "5e887832-e0e4-4bff-a93a-cb5ec7ac8a67")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "975c3657-089f-4b58-b8d7-30da991f706c")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "e66979b3-a9a7-49ba-8be8-9e874001cf87")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "SDIO_CK")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "a9f20a16-013c-444f-b36e-077e21121d34")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "cd321621-770c-4821-b096-a0cc78386778")
-		(at 113.047553 56.203728 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP12"
-			(at 1.8 0 90)
-			(layer "B.SilkS")
-			(uuid "aee211c0-3c69-4342-b95d-ffed0545eb33")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "SCK"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "63358783-e00d-42b4-a4f6-bf61fcd01e1e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "715eec9f-88ae-484a-94f2-68b04cdae513")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "d665bb26-96ad-4b43-95e4-3a5c952fbee2")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "7106c84d-ff1e-4fbe-8411-040764f05762")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "06f43b71-614f-45a8-a5f4-c40a717d1087")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/a8946512-c740-4e65-9e23-941c12ae4aee")
-		(sheetname "/Sensors/")
-		(sheetfile "sensors.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "073e4f78-7f99-4582-960f-3017b0fef8cd")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "95e16108-faf3-4450-8a8b-7ea792b3ac0f")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "91c81b60-d693-4b4f-b81c-a7d8be7b9360")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "SPI1_SCK")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "36d35fed-e62f-41c1-b166-4ed4f9fa9d4d")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "cda78d23-0869-4a9f-8c23-1b35b36bc880")
-		(at 109.547553 59.253728 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP10"
-			(at 1.770001 -1.77 0)
-			(layer "B.SilkS")
-			(uuid "a5108922-aa07-4efe-87cf-dd52adae331b")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "MOSI"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "222afe3c-be29-4f6f-a35a-80adb9726665")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "5b1acdf6-3deb-4c82-89aa-58aa8372c64a")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "3b4f511c-27b2-43f2-8c6f-13260e681f87")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b8930ff5-3dfa-4fac-8e81-8c042bfe3ecb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b6c35c4f-be89-419f-b457-31e4dba5ad1d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/a129daf2-355b-46eb-9f80-be66373dad14")
-		(sheetname "/Sensors/")
-		(sheetfile "sensors.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "cfda3e03-bf9f-4572-9334-db0c69986362")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "19b8b355-8761-4a4d-957e-c97d74f4605c")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "59d57cf1-9b3c-4b16-bf28-2491633cfbb9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "SPI1_MOSI")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "167bdf4b-c3ec-48f6-84ee-d95d815258f8")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "d2cf09d3-eb76-468b-b384-0d695b7a5e64")
-		(at 111.625001 119.546273 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP3"
-			(at 0.001278 1.994523 0)
-			(layer "B.SilkS")
-			(uuid "494579d8-da35-41a8-9ea7-ec75cbee0fe9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "VBAT_SENSE"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "456aa497-6487-47a7-8f70-d3890863a10c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "054b37fc-1419-4b4e-9aba-d41c90845174")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "7ecae44b-28fd-4775-b4cb-487fba8916d3")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a6911941-a6e0-4c13-b4ab-8c8ced9313a9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "da7f31ab-4395-41ff-808b-eaaea56ac86e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/f5509604-d64b-4f91-80a4-0477763e0ba3")
-		(sheetname "/Power/")
-		(sheetfile "power.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "c1f5f60a-2999-47fb-956e-d9fa5cf21888")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "64e0d541-3674-4848-89cd-4bfa74efd6f5")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "d87444b1-181d-4cc1-8b39-0f50966be19d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "VBAT_SENSE")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "01dee785-a5d4-4b67-948f-f2e4515f789e")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "de4a4e45-f43c-4630-b7f3-0d2addac3829")
-		(at 145 87 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP4"
-			(at 0.001278 1.994523 0)
-			(layer "B.SilkS")
-			(uuid "97ad8142-7b58-4cd1-9a26-c5826376b048")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "VDDA"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "c16cbb01-23be-4886-bdc2-94162cda826c")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "654b42a4-b6ce-4867-b2e0-f1a94bd81384")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "6b800f16-31c2-4224-9db2-5f74dce957d5")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "d7bf69b4-2614-42c8-ade2-0b0ef5ea96f9")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "b83d49cd-1530-4c7b-98fa-54fb256f0bcb")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/d5b944ad-3e07-4e39-afb1-4e2fa72c3af9")
-		(sheetname "/Power/")
-		(sheetfile "power.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "f084e545-bee3-4327-b4ba-63c4b5a90436")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "48994273-b459-4918-966d-212cdc8d9bfc")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "3aab9c9c-2d25-44ea-abf2-44de379a94c0")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "+3.3VA")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "272f5338-0a5e-4bbb-ab90-421965025665")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "dfa9ecc5-b83d-47b7-9962-52470f2adc89")
-		(at 119.247553 56.853728 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP7"
-			(at -0.4 1.9 0)
-			(layer "B.SilkS")
-			(uuid "cacf8e5b-3ea4-402a-afcd-fbdb9ea6a35e")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "GND"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "fc487805-21c0-4aa0-87f6-2a83a89d8cc4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "6fd1edba-6bad-4db0-88a1-7cb7a5dd0d1e")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "bf7ef285-24d2-48d1-9fec-971f87d53e3d")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "bdf31158-9ba6-497f-9b36-5077b23d7c6a")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "3c5d5fb1-b948-4f84-8493-bb4a19a299f4")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/7d3f0a69-5565-45c0-a71e-ff66cb206dbd")
-		(sheetname "/Sensors/")
-		(sheetfile "sensors.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "76330029-9c99-4b5c-ba45-749d1b19faf0")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "dfe92116-f29d-4832-8aba-f3eddc26f924")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "d3ac7138-ffe9-4d70-b407-0d179411bb08")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "GND")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "8986e98a-2471-4734-ba4c-472b6bc36a2a")
-		)
-		(embedded_fonts no)
-	)
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "B.Cu")
 		(uuid "e7ee6612-612b-46ec-97e5-634875615e26")
@@ -22813,292 +23008,6 @@
 				(xyz 0 0 0)
 			)
 		)
-	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "eeb39551-cfa3-4090-b533-9fc8fc251e36")
-		(at 126.3 92.25 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP1"
-			(at -2.627141 0.000001 0)
-			(layer "B.SilkS")
-			(uuid "c7ce4ffe-985e-4549-9fdc-fd37cccae17d")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "MCO1"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "c856b408-5c4a-4f0f-a0f3-b1296094a271")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "24a05eef-2724-43fa-bfcc-f33dbb0ad5ee")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "605137cb-eb80-4567-9b5d-321df5491d1e")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "9b711fdf-7971-4359-9730-de15c99fc055")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "66370b3b-61eb-4894-bc2a-dfcf2c8f5a04")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/095a72e0-a5dc-4037-a933-679844dab270")
-		(sheetname "/MCU/")
-		(sheetfile "STM32F405_FLIGHT_CONTROLLER.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "6c9c5312-24fb-4a30-8774-c4944eae0642")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "b56ff8c1-e5b8-432b-bf4d-6025cc4b39f7")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "fd538f06-6c6c-40eb-90fc-f08733173f01")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "Net-(U1-PA8)")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "59db6368-dd2d-422d-81fa-06bc1ff31300")
-		)
-		(embedded_fonts no)
-	)
-	(footprint "TestPoint:TestPoint_Pad_D1.0mm"
-		(layer "B.Cu")
-		(uuid "f98dac92-b0e9-4314-af50-f5d6ca1f5b99")
-		(at 125.5 94.8 180)
-		(descr "SMD pad as test Point, diameter 1.0mm")
-		(tags "test point SMD pad")
-		(property "Reference" "TP2"
-			(at 0.001278 -1.994522 0)
-			(layer "B.SilkS")
-			(uuid "5309a8f9-b614-4f86-b9ee-94a3e6d1b537")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Value" "GND"
-			(at 0 -1.55 0)
-			(layer "B.Fab")
-			(uuid "5eb48f87-8c5c-440c-89bc-c7912989bbae")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Datasheet" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "304a3ad5-7a14-4b9c-9d04-567317668f44")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "Description" "test point"
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "a1143cbc-9299-46a2-b366-b5fa25f7a585")
-			(effects
-				(font
-					(size 1.27 1.27)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "41abead7-cd4c-49f7-9447-7ccb4ee8f9cc")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 0 0 0)
-			(unlocked yes)
-			(layer "B.Fab")
-			(hide yes)
-			(uuid "76837f89-0d76-4603-a231-cec9165d7c3f")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(property ki_fp_filters "Pin* Test*")
-		(path "/623d5859-191d-4bdf-9fa1-95d000111906")
-		(sheetname "/MCU/")
-		(sheetfile "STM32F405_FLIGHT_CONTROLLER.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
-		(attr exclude_from_pos_files exclude_from_bom)
-		(duplicate_pad_numbers_are_jumpers no)
-		(fp_circle
-			(center 0 0)
-			(end 0 -0.7)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.SilkS")
-			(uuid "4cd2f873-d561-4409-a66a-51cd925cd55f")
-		)
-		(fp_circle
-			(center 0 0)
-			(end 1 0)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(fill no)
-			(layer "B.CrtYd")
-			(uuid "e8531baa-e304-4da3-bc43-142c2f7f3fdb")
-		)
-		(fp_text user "${REFERENCE}"
-			(at 0 1.45 0)
-			(layer "B.Fab")
-			(uuid "64e2f081-af16-4dca-8620-a66f6e7f6508")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-				(justify mirror)
-			)
-		)
-		(pad "1" smd circle
-			(at 0 0 180)
-			(size 1 1)
-			(layers "B.Cu" "B.Mask")
-			(net "GND")
-			(pinfunction "1_1")
-			(pintype "passive")
-			(uuid "287c0d14-7911-4920-b579-237e5906f7fd")
-		)
-		(embedded_fonts no)
 	)
 	(gr_poly
 		(pts
@@ -24501,11 +24410,11 @@
 	)
 	(segment
 		(start 144 87)
-		(end 145 87)
+		(end 144.6 86.4)
 		(width 0.2)
 		(layer "F.Cu")
 		(net "+3.3VA")
-		(uuid "177c3473-fa74-4bff-ada4-c6f424555e06")
+		(uuid "1e2dc499-1546-42ca-84ff-77a6d9c66753")
 	)
 	(segment
 		(start 143.375 87.625)
@@ -24522,6 +24431,14 @@
 		(layer "F.Cu")
 		(net "+3.3VA")
 		(uuid "4dbe59b4-f569-432a-8bb0-b21542b6a593")
+	)
+	(segment
+		(start 144.6 86.4)
+		(end 145 86.4)
+		(width 0.2)
+		(layer "F.Cu")
+		(net "+3.3VA")
+		(uuid "996aad59-0e78-451b-86c7-aeae22619e25")
 	)
 	(segment
 		(start 143.3 88.325)
@@ -24562,14 +24479,6 @@
 		(layer "F.Cu")
 		(net "+3.3VA")
 		(uuid "e78b2a9a-bab6-47da-9140-db0324442d6f")
-	)
-	(via
-		(at 145 87)
-		(size 0.6)
-		(drill 0.3)
-		(layers "F.Cu" "B.Cu")
-		(net "+3.3VA")
-		(uuid "bae8dbfa-22c8-40ea-8739-ce00c9bae6ad")
 	)
 	(segment
 		(start 130.75 84.425)
@@ -24926,59 +24835,47 @@
 				(xy 130.557309 87.199496) (xy 130.443189 87.133609) (xy 130.443191 87.133609) (xy 130.393799 87.120375)
 				(xy 130.315892 87.0995) (xy 130.184108 87.0995) (xy 130.1062 87.120375) (xy 130.056809 87.133609)
 				(xy 129.94269 87.199496) (xy 129.849496 87.29269) (xy 129.783609 87.406809) (xy 129.783608 87.406814)
-				(xy 129.7495 87.534108) (xy 109.0005 87.534108) (xy 109.0005 86.934108) (xy 144.4995 86.934108)
-				(xy 144.4995 87.065892) (xy 144.517644 87.133608) (xy 144.533609 87.19319) (xy 144.599496 87.307309)
-				(xy 144.599498 87.307311) (xy 144.5995 87.307314) (xy 144.692686 87.4005) (xy 144.692688 87.400501)
-				(xy 144.69269 87.400503) (xy 144.80681 87.46639) (xy 144.806808 87.46639) (xy 144.806812 87.466391)
-				(xy 144.806814 87.466392) (xy 144.934108 87.5005) (xy 144.93411 87.5005) (xy 145.06589 87.5005)
-				(xy 145.065892 87.5005) (xy 145.193186 87.466392) (xy 145.193188 87.46639) (xy 145.19319 87.46639)
-				(xy 145.307309 87.400503) (xy 145.307309 87.400502) (xy 145.307314 87.4005) (xy 145.4005 87.307314)
-				(xy 145.466392 87.193186) (xy 145.5005 87.065892) (xy 145.5005 86.934108) (xy 145.466392 86.806814)
-				(xy 145.46639 86.806811) (xy 145.46639 86.806809) (xy 145.400503 86.69269) (xy 145.400501 86.692688)
-				(xy 145.4005 86.692686) (xy 145.307314 86.5995) (xy 145.307311 86.599498) (xy 145.307309 86.599496)
-				(xy 145.193189 86.533609) (xy 145.193191 86.533609) (xy 145.143799 86.520375) (xy 145.065892 86.4995)
-				(xy 144.934108 86.4995) (xy 144.8562 86.520375) (xy 144.806809 86.533609) (xy 144.69269 86.599496)
-				(xy 144.599496 86.69269) (xy 144.533609 86.806809) (xy 144.533608 86.806814) (xy 144.4995 86.934108)
-				(xy 109.0005 86.934108) (xy 109.0005 71.893709) (xy 110.6495 71.893709) (xy 110.6495 72.10629) (xy 110.682752 72.316238)
-				(xy 110.748443 72.518412) (xy 110.844948 72.707815) (xy 110.84495 72.707819) (xy 110.969891 72.879786)
-				(xy 110.969893 72.879788) (xy 110.969896 72.879792) (xy 111.120208 73.030104) (xy 111.120211 73.030106)
-				(xy 111.120213 73.030108) (xy 111.29218 73.155049) (xy 111.292184 73.155051) (xy 111.481588 73.251557)
-				(xy 111.683757 73.317246) (xy 111.683758 73.317246) (xy 111.683761 73.317247) (xy 111.89371 73.3505)
-				(xy 111.893713 73.3505) (xy 112.10629 73.3505) (xy 112.316238 73.317247) (xy 112.316239 73.317246)
-				(xy 112.316243 73.317246) (xy 112.518412 73.251557) (xy 112.707816 73.155051) (xy 112.879792 73.030104)
-				(xy 113.030104 72.879792) (xy 113.155051 72.707816) (xy 113.251557 72.518412) (xy 113.317246 72.316243)
-				(xy 113.3505 72.106287) (xy 113.3505 71.893713) (xy 113.3505 71.893709) (xy 161.6495 71.893709)
-				(xy 161.6495 72.10629) (xy 161.682752 72.316238) (xy 161.748443 72.518412) (xy 161.844948 72.707815)
-				(xy 161.84495 72.707819) (xy 161.969891 72.879786) (xy 161.969893 72.879788) (xy 161.969896 72.879792)
-				(xy 162.120208 73.030104) (xy 162.120211 73.030106) (xy 162.120213 73.030108) (xy 162.29218 73.155049)
-				(xy 162.292184 73.155051) (xy 162.481588 73.251557) (xy 162.683757 73.317246) (xy 162.683758 73.317246)
-				(xy 162.683761 73.317247) (xy 162.89371 73.3505) (xy 162.893713 73.3505) (xy 163.10629 73.3505)
-				(xy 163.316238 73.317247) (xy 163.316239 73.317246) (xy 163.316243 73.317246) (xy 163.518412 73.251557)
-				(xy 163.707816 73.155051) (xy 163.879792 73.030104) (xy 164.030104 72.879792) (xy 164.155051 72.707816)
-				(xy 164.251557 72.518412) (xy 164.317246 72.316243) (xy 164.3505 72.106287) (xy 164.3505 71.893713)
-				(xy 164.3505 71.893709) (xy 164.317247 71.683761) (xy 164.317246 71.683757) (xy 164.251557 71.481588)
-				(xy 164.155051 71.292184) (xy 164.155049 71.29218) (xy 164.030108 71.120213) (xy 164.030106 71.120211)
-				(xy 164.030104 71.120208) (xy 163.879792 70.969896) (xy 163.879788 70.969893) (xy 163.879786 70.969891)
-				(xy 163.707819 70.84495) (xy 163.707815 70.844948) (xy 163.518412 70.748443) (xy 163.316238 70.682752)
-				(xy 163.10629 70.6495) (xy 163.106287 70.6495) (xy 162.893713 70.6495) (xy 162.89371 70.6495) (xy 162.683761 70.682752)
-				(xy 162.481587 70.748443) (xy 162.292184 70.844948) (xy 162.29218 70.84495) (xy 162.120213 70.969891)
-				(xy 161.969891 71.120213) (xy 161.84495 71.29218) (xy 161.844948 71.292184) (xy 161.748443 71.481587)
-				(xy 161.682752 71.683761) (xy 161.6495 71.893709) (xy 113.3505 71.893709) (xy 113.317247 71.683761)
-				(xy 113.317246 71.683757) (xy 113.251557 71.481588) (xy 113.155051 71.292184) (xy 113.155049 71.29218)
-				(xy 113.030108 71.120213) (xy 113.030106 71.120211) (xy 113.030104 71.120208) (xy 112.879792 70.969896)
-				(xy 112.879788 70.969893) (xy 112.879786 70.969891) (xy 112.707819 70.84495) (xy 112.707815 70.844948)
-				(xy 112.518412 70.748443) (xy 112.316238 70.682752) (xy 112.10629 70.6495) (xy 112.106287 70.6495)
-				(xy 111.893713 70.6495) (xy 111.89371 70.6495) (xy 111.683761 70.682752) (xy 111.481587 70.748443)
-				(xy 111.292184 70.844948) (xy 111.29218 70.84495) (xy 111.120213 70.969891) (xy 110.969891 71.120213)
-				(xy 110.84495 71.29218) (xy 110.844948 71.292184) (xy 110.748443 71.481587) (xy 110.682752 71.683761)
-				(xy 110.6495 71.893709) (xy 109.0005 71.893709) (xy 109.0005 70.503539) (xy 109.000752 70.496477)
-				(xy 109.005213 70.434108) (xy 109.015258 70.293652) (xy 109.017265 70.279693) (xy 109.059737 70.084447)
-				(xy 109.063711 70.070914) (xy 109.133536 69.883705) (xy 109.139392 69.870882) (xy 109.235151 69.695513)
-				(xy 109.242775 69.68365) (xy 109.362512 69.5237) (xy 109.37175 69.513038) (xy 109.513038 69.37175)
-				(xy 109.5237 69.362512) (xy 109.68365 69.242775) (xy 109.695513 69.235151) (xy 109.870882 69.139392)
-				(xy 109.883705 69.133536) (xy 110.070914 69.063711) (xy 110.084447 69.059737) (xy 110.279693 69.017265)
-				(xy 110.293652 69.015258) (xy 110.473568 69.00239) (xy 110.496478 69.000752) (xy 110.50354 69.0005)
-				(xy 110.565892 69.0005) (xy 164.434108 69.0005) (xy 164.49646 69.0005)
+				(xy 129.7495 87.534108) (xy 109.0005 87.534108) (xy 109.0005 71.893709) (xy 110.6495 71.893709)
+				(xy 110.6495 72.10629) (xy 110.682752 72.316238) (xy 110.748443 72.518412) (xy 110.844948 72.707815)
+				(xy 110.84495 72.707819) (xy 110.969891 72.879786) (xy 110.969893 72.879788) (xy 110.969896 72.879792)
+				(xy 111.120208 73.030104) (xy 111.120211 73.030106) (xy 111.120213 73.030108) (xy 111.29218 73.155049)
+				(xy 111.292184 73.155051) (xy 111.481588 73.251557) (xy 111.683757 73.317246) (xy 111.683758 73.317246)
+				(xy 111.683761 73.317247) (xy 111.89371 73.3505) (xy 111.893713 73.3505) (xy 112.10629 73.3505)
+				(xy 112.316238 73.317247) (xy 112.316239 73.317246) (xy 112.316243 73.317246) (xy 112.518412 73.251557)
+				(xy 112.707816 73.155051) (xy 112.879792 73.030104) (xy 113.030104 72.879792) (xy 113.155051 72.707816)
+				(xy 113.251557 72.518412) (xy 113.317246 72.316243) (xy 113.3505 72.106287) (xy 113.3505 71.893713)
+				(xy 113.3505 71.893709) (xy 161.6495 71.893709) (xy 161.6495 72.10629) (xy 161.682752 72.316238)
+				(xy 161.748443 72.518412) (xy 161.844948 72.707815) (xy 161.84495 72.707819) (xy 161.969891 72.879786)
+				(xy 161.969893 72.879788) (xy 161.969896 72.879792) (xy 162.120208 73.030104) (xy 162.120211 73.030106)
+				(xy 162.120213 73.030108) (xy 162.29218 73.155049) (xy 162.292184 73.155051) (xy 162.481588 73.251557)
+				(xy 162.683757 73.317246) (xy 162.683758 73.317246) (xy 162.683761 73.317247) (xy 162.89371 73.3505)
+				(xy 162.893713 73.3505) (xy 163.10629 73.3505) (xy 163.316238 73.317247) (xy 163.316239 73.317246)
+				(xy 163.316243 73.317246) (xy 163.518412 73.251557) (xy 163.707816 73.155051) (xy 163.879792 73.030104)
+				(xy 164.030104 72.879792) (xy 164.155051 72.707816) (xy 164.251557 72.518412) (xy 164.317246 72.316243)
+				(xy 164.3505 72.106287) (xy 164.3505 71.893713) (xy 164.3505 71.893709) (xy 164.317247 71.683761)
+				(xy 164.317246 71.683757) (xy 164.251557 71.481588) (xy 164.155051 71.292184) (xy 164.155049 71.29218)
+				(xy 164.030108 71.120213) (xy 164.030106 71.120211) (xy 164.030104 71.120208) (xy 163.879792 70.969896)
+				(xy 163.879788 70.969893) (xy 163.879786 70.969891) (xy 163.707819 70.84495) (xy 163.707815 70.844948)
+				(xy 163.518412 70.748443) (xy 163.316238 70.682752) (xy 163.10629 70.6495) (xy 163.106287 70.6495)
+				(xy 162.893713 70.6495) (xy 162.89371 70.6495) (xy 162.683761 70.682752) (xy 162.481587 70.748443)
+				(xy 162.292184 70.844948) (xy 162.29218 70.84495) (xy 162.120213 70.969891) (xy 161.969891 71.120213)
+				(xy 161.84495 71.29218) (xy 161.844948 71.292184) (xy 161.748443 71.481587) (xy 161.682752 71.683761)
+				(xy 161.6495 71.893709) (xy 113.3505 71.893709) (xy 113.317247 71.683761) (xy 113.317246 71.683757)
+				(xy 113.251557 71.481588) (xy 113.155051 71.292184) (xy 113.155049 71.29218) (xy 113.030108 71.120213)
+				(xy 113.030106 71.120211) (xy 113.030104 71.120208) (xy 112.879792 70.969896) (xy 112.879788 70.969893)
+				(xy 112.879786 70.969891) (xy 112.707819 70.84495) (xy 112.707815 70.844948) (xy 112.518412 70.748443)
+				(xy 112.316238 70.682752) (xy 112.10629 70.6495) (xy 112.106287 70.6495) (xy 111.893713 70.6495)
+				(xy 111.89371 70.6495) (xy 111.683761 70.682752) (xy 111.481587 70.748443) (xy 111.292184 70.844948)
+				(xy 111.29218 70.84495) (xy 111.120213 70.969891) (xy 110.969891 71.120213) (xy 110.84495 71.29218)
+				(xy 110.844948 71.292184) (xy 110.748443 71.481587) (xy 110.682752 71.683761) (xy 110.6495 71.893709)
+				(xy 109.0005 71.893709) (xy 109.0005 70.503539) (xy 109.000752 70.496477) (xy 109.005213 70.434108)
+				(xy 109.015258 70.293652) (xy 109.017265 70.279693) (xy 109.059737 70.084447) (xy 109.063711 70.070914)
+				(xy 109.133536 69.883705) (xy 109.139392 69.870882) (xy 109.235151 69.695513) (xy 109.242775 69.68365)
+				(xy 109.362512 69.5237) (xy 109.37175 69.513038) (xy 109.513038 69.37175) (xy 109.5237 69.362512)
+				(xy 109.68365 69.242775) (xy 109.695513 69.235151) (xy 109.870882 69.139392) (xy 109.883705 69.133536)
+				(xy 110.070914 69.063711) (xy 110.084447 69.059737) (xy 110.279693 69.017265) (xy 110.293652 69.015258)
+				(xy 110.473568 69.00239) (xy 110.496478 69.000752) (xy 110.50354 69.0005) (xy 110.565892 69.0005)
+				(xy 164.434108 69.0005) (xy 164.49646 69.0005)
 			)
 		)
 	)
@@ -25339,80 +25236,68 @@
 				(xy 138.712311 89.849498) (xy 138.712309 89.849496) (xy 138.598189 89.783609) (xy 138.598191 89.783609)
 				(xy 138.548799 89.770375) (xy 138.470892 89.7495) (xy 138.339108 89.7495) (xy 138.2612 89.770375)
 				(xy 138.211809 89.783609) (xy 138.09769 89.849496) (xy 138.004496 89.94269) (xy 137.938609 90.056809)
-				(xy 137.919539 90.127978) (xy 137.9045 90.184108) (xy 109.0005 90.184108) (xy 109.0005 86.934108)
-				(xy 144.4995 86.934108) (xy 144.4995 87.065892) (xy 144.529579 87.178151) (xy 144.533609 87.19319)
-				(xy 144.599496 87.307309) (xy 144.599498 87.307311) (xy 144.5995 87.307314) (xy 144.692686 87.4005)
-				(xy 144.692688 87.400501) (xy 144.69269 87.400503) (xy 144.80681 87.46639) (xy 144.806808 87.46639)
-				(xy 144.806812 87.466391) (xy 144.806814 87.466392) (xy 144.934108 87.5005) (xy 144.93411 87.5005)
-				(xy 145.06589 87.5005) (xy 145.065892 87.5005) (xy 145.193186 87.466392) (xy 145.193188 87.46639)
-				(xy 145.19319 87.46639) (xy 145.307309 87.400503) (xy 145.307309 87.400502) (xy 145.307314 87.4005)
-				(xy 145.4005 87.307314) (xy 145.466392 87.193186) (xy 145.5005 87.065892) (xy 145.5005 86.934108)
-				(xy 145.466392 86.806814) (xy 145.46639 86.806811) (xy 145.46639 86.806809) (xy 145.400503 86.69269)
-				(xy 145.400501 86.692688) (xy 145.4005 86.692686) (xy 145.307314 86.5995) (xy 145.307311 86.599498)
-				(xy 145.307309 86.599496) (xy 145.193189 86.533609) (xy 145.193191 86.533609) (xy 145.143799 86.520375)
-				(xy 145.065892 86.4995) (xy 144.934108 86.4995) (xy 144.8562 86.520375) (xy 144.806809 86.533609)
-				(xy 144.69269 86.599496) (xy 144.599496 86.69269) (xy 144.533609 86.806809) (xy 144.533608 86.806814)
-				(xy 144.4995 86.934108) (xy 109.0005 86.934108) (xy 109.0005 85.554108) (xy 127.919499 85.554108)
-				(xy 127.919499 85.685892) (xy 127.949578 85.798151) (xy 127.953608 85.81319) (xy 128.019495 85.927309)
-				(xy 128.019497 85.927311) (xy 128.019499 85.927314) (xy 128.112685 86.0205) (xy 128.112687 86.020501)
-				(xy 128.112689 86.020503) (xy 128.226809 86.08639) (xy 128.226807 86.08639) (xy 128.226811 86.086391)
-				(xy 128.226813 86.086392) (xy 128.354107 86.1205) (xy 128.354109 86.1205) (xy 128.485889 86.1205)
-				(xy 128.485891 86.1205) (xy 128.613185 86.086392) (xy 128.613187 86.08639) (xy 128.613189 86.08639)
-				(xy 128.727308 86.020503) (xy 128.727308 86.020502) (xy 128.727313 86.0205) (xy 128.820499 85.927314)
-				(xy 128.820502 85.927309) (xy 128.886389 85.81319) (xy 128.886389 85.813188) (xy 128.886391 85.813186)
-				(xy 128.920499 85.685892) (xy 128.920499 85.589108) (xy 140.9995 85.589108) (xy 140.9995 85.720892)
-				(xy 141.02423 85.813186) (xy 141.033609 85.84819) (xy 141.099496 85.962309) (xy 141.099498 85.962311)
-				(xy 141.0995 85.962314) (xy 141.192686 86.0555) (xy 141.192688 86.055501) (xy 141.19269 86.055503)
-				(xy 141.30681 86.12139) (xy 141.306808 86.12139) (xy 141.306812 86.121391) (xy 141.306814 86.121392)
-				(xy 141.434108 86.1555) (xy 141.43411 86.1555) (xy 141.56589 86.1555) (xy 141.565892 86.1555) (xy 141.693186 86.121392)
-				(xy 141.693188 86.12139) (xy 141.69319 86.12139) (xy 141.807309 86.055503) (xy 141.807309 86.055502)
-				(xy 141.807314 86.0555) (xy 141.9005 85.962314) (xy 141.966392 85.848186) (xy 142.0005 85.720892)
-				(xy 142.0005 85.589108) (xy 141.966392 85.461814) (xy 141.96639 85.461811) (xy 141.96639 85.461809)
-				(xy 141.900503 85.34769) (xy 141.900501 85.347688) (xy 141.9005 85.347686) (xy 141.807314 85.2545)
-				(xy 141.807311 85.254498) (xy 141.807309 85.254496) (xy 141.693189 85.188609) (xy 141.693191 85.188609)
-				(xy 141.643799 85.175375) (xy 141.565892 85.1545) (xy 141.434108 85.1545) (xy 141.3562 85.175375)
-				(xy 141.306809 85.188609) (xy 141.19269 85.254496) (xy 141.099496 85.34769) (xy 141.033609 85.461809)
-				(xy 141.033608 85.461814) (xy 140.9995 85.589108) (xy 128.920499 85.589108) (xy 128.920499 85.554108)
-				(xy 128.886391 85.426814) (xy 128.886389 85.426811) (xy 128.886389 85.426809) (xy 128.820502 85.31269)
-				(xy 128.8205 85.312688) (xy 128.820499 85.312686) (xy 128.727313 85.2195) (xy 128.72731 85.219498)
-				(xy 128.727308 85.219496) (xy 128.613188 85.153609) (xy 128.61319 85.153609) (xy 128.563798 85.140375)
-				(xy 128.485891 85.1195) (xy 128.354107 85.1195) (xy 128.276199 85.140375) (xy 128.226808 85.153609)
-				(xy 128.112689 85.219496) (xy 128.019495 85.31269) (xy 127.953608 85.426809) (xy 127.953607 85.426814)
-				(xy 127.919499 85.554108) (xy 109.0005 85.554108) (xy 109.0005 84.734108) (xy 138.0995 84.734108)
-				(xy 138.0995 84.865892) (xy 138.129579 84.978151) (xy 138.133609 84.99319) (xy 138.199496 85.107309)
-				(xy 138.199498 85.107311) (xy 138.1995 85.107314) (xy 138.292686 85.2005) (xy 138.292688 85.200501)
-				(xy 138.29269 85.200503) (xy 138.40681 85.26639) (xy 138.406808 85.26639) (xy 138.406812 85.266391)
-				(xy 138.406814 85.266392) (xy 138.534108 85.3005) (xy 138.53411 85.3005) (xy 138.66589 85.3005)
-				(xy 138.665892 85.3005) (xy 138.793186 85.266392) (xy 138.793188 85.26639) (xy 138.79319 85.26639)
-				(xy 138.907309 85.200503) (xy 138.907309 85.200502) (xy 138.907314 85.2005) (xy 139.0005 85.107314)
-				(xy 139.066392 84.993186) (xy 139.1005 84.865892) (xy 139.1005 84.734108) (xy 139.066392 84.606814)
-				(xy 139.06639 84.606811) (xy 139.06639 84.606809) (xy 139.000503 84.49269) (xy 139.000501 84.492688)
-				(xy 139.0005 84.492686) (xy 138.907314 84.3995) (xy 138.907311 84.399498) (xy 138.907309 84.399496)
-				(xy 138.793189 84.333609) (xy 138.793191 84.333609) (xy 138.743799 84.320375) (xy 138.665892 84.2995)
-				(xy 138.534108 84.2995) (xy 138.4562 84.320375) (xy 138.406809 84.333609) (xy 138.29269 84.399496)
-				(xy 138.199496 84.49269) (xy 138.133609 84.606809) (xy 138.133608 84.606814) (xy 138.0995 84.734108)
-				(xy 109.0005 84.734108) (xy 109.0005 81.734108) (xy 129.7495 81.734108) (xy 129.7495 81.865892)
-				(xy 129.779579 81.978151) (xy 129.783609 81.99319) (xy 129.849496 82.107309) (xy 129.849498 82.107311)
-				(xy 129.8495 82.107314) (xy 129.942686 82.2005) (xy 129.942688 82.200501) (xy 129.94269 82.200503)
-				(xy 130.05681 82.26639) (xy 130.056808 82.26639) (xy 130.056812 82.266391) (xy 130.056814 82.266392)
-				(xy 130.184108 82.3005) (xy 130.18411 82.3005) (xy 130.31589 82.3005) (xy 130.315892 82.3005) (xy 130.443186 82.266392)
-				(xy 130.443188 82.26639) (xy 130.44319 82.26639) (xy 130.557309 82.200503) (xy 130.557309 82.200502)
-				(xy 130.557314 82.2005) (xy 130.6505 82.107314) (xy 130.716392 81.993186) (xy 130.7505 81.865892)
-				(xy 130.7505 81.734108) (xy 130.716392 81.606814) (xy 130.71639 81.606811) (xy 130.71639 81.606809)
-				(xy 130.650503 81.49269) (xy 130.650501 81.492688) (xy 130.6505 81.492686) (xy 130.557314 81.3995)
-				(xy 130.557311 81.399498) (xy 130.557309 81.399496) (xy 130.443189 81.333609) (xy 130.443191 81.333609)
-				(xy 130.393799 81.320375) (xy 130.315892 81.2995) (xy 130.184108 81.2995) (xy 130.1062 81.320375)
-				(xy 130.056809 81.333609) (xy 129.94269 81.399496) (xy 129.849496 81.49269) (xy 129.783609 81.606809)
-				(xy 129.783608 81.606814) (xy 129.7495 81.734108) (xy 109.0005 81.734108) (xy 109.0005 71.893709)
-				(xy 110.6495 71.893709) (xy 110.6495 72.10629) (xy 110.682752 72.316238) (xy 110.748443 72.518412)
-				(xy 110.844948 72.707815) (xy 110.84495 72.707819) (xy 110.969891 72.879786) (xy 110.969893 72.879788)
-				(xy 110.969896 72.879792) (xy 111.120208 73.030104) (xy 111.120211 73.030106) (xy 111.120213 73.030108)
-				(xy 111.29218 73.155049) (xy 111.292184 73.155051) (xy 111.481588 73.251557) (xy 111.683757 73.317246)
-				(xy 111.683758 73.317246) (xy 111.683761 73.317247) (xy 111.89371 73.3505) (xy 111.893713 73.3505)
-				(xy 112.10629 73.3505) (xy 112.316238 73.317247) (xy 112.316239 73.317246) (xy 112.316243 73.317246)
-				(xy 112.518412 73.251557) (xy 112.707816 73.155051) (xy 112.879792 73.030104) (xy 113.030104 72.879792)
-				(xy 113.155051 72.707816) (xy 113.251557 72.518412) (xy 113.317246 72.316243) (xy 113.3505 72.106287)
-				(xy 113.3505 71.893713) (xy 113.3505 71.893709) (xy 161.6495 71.893709) (xy 161.6495 72.10629) (xy 161.682752 72.316238)
+				(xy 137.919539 90.127978) (xy 137.9045 90.184108) (xy 109.0005 90.184108) (xy 109.0005 85.554108)
+				(xy 127.919499 85.554108) (xy 127.919499 85.685892) (xy 127.949578 85.798151) (xy 127.953608 85.81319)
+				(xy 128.019495 85.927309) (xy 128.019497 85.927311) (xy 128.019499 85.927314) (xy 128.112685 86.0205)
+				(xy 128.112687 86.020501) (xy 128.112689 86.020503) (xy 128.226809 86.08639) (xy 128.226807 86.08639)
+				(xy 128.226811 86.086391) (xy 128.226813 86.086392) (xy 128.354107 86.1205) (xy 128.354109 86.1205)
+				(xy 128.485889 86.1205) (xy 128.485891 86.1205) (xy 128.613185 86.086392) (xy 128.613187 86.08639)
+				(xy 128.613189 86.08639) (xy 128.727308 86.020503) (xy 128.727308 86.020502) (xy 128.727313 86.0205)
+				(xy 128.820499 85.927314) (xy 128.820502 85.927309) (xy 128.886389 85.81319) (xy 128.886389 85.813188)
+				(xy 128.886391 85.813186) (xy 128.920499 85.685892) (xy 128.920499 85.589108) (xy 140.9995 85.589108)
+				(xy 140.9995 85.720892) (xy 141.02423 85.813186) (xy 141.033609 85.84819) (xy 141.099496 85.962309)
+				(xy 141.099498 85.962311) (xy 141.0995 85.962314) (xy 141.192686 86.0555) (xy 141.192688 86.055501)
+				(xy 141.19269 86.055503) (xy 141.30681 86.12139) (xy 141.306808 86.12139) (xy 141.306812 86.121391)
+				(xy 141.306814 86.121392) (xy 141.434108 86.1555) (xy 141.43411 86.1555) (xy 141.56589 86.1555)
+				(xy 141.565892 86.1555) (xy 141.693186 86.121392) (xy 141.693188 86.12139) (xy 141.69319 86.12139)
+				(xy 141.807309 86.055503) (xy 141.807309 86.055502) (xy 141.807314 86.0555) (xy 141.9005 85.962314)
+				(xy 141.966392 85.848186) (xy 142.0005 85.720892) (xy 142.0005 85.589108) (xy 141.966392 85.461814)
+				(xy 141.96639 85.461811) (xy 141.96639 85.461809) (xy 141.900503 85.34769) (xy 141.900501 85.347688)
+				(xy 141.9005 85.347686) (xy 141.807314 85.2545) (xy 141.807311 85.254498) (xy 141.807309 85.254496)
+				(xy 141.693189 85.188609) (xy 141.693191 85.188609) (xy 141.643799 85.175375) (xy 141.565892 85.1545)
+				(xy 141.434108 85.1545) (xy 141.3562 85.175375) (xy 141.306809 85.188609) (xy 141.19269 85.254496)
+				(xy 141.099496 85.34769) (xy 141.033609 85.461809) (xy 141.033608 85.461814) (xy 140.9995 85.589108)
+				(xy 128.920499 85.589108) (xy 128.920499 85.554108) (xy 128.886391 85.426814) (xy 128.886389 85.426811)
+				(xy 128.886389 85.426809) (xy 128.820502 85.31269) (xy 128.8205 85.312688) (xy 128.820499 85.312686)
+				(xy 128.727313 85.2195) (xy 128.72731 85.219498) (xy 128.727308 85.219496) (xy 128.613188 85.153609)
+				(xy 128.61319 85.153609) (xy 128.563798 85.140375) (xy 128.485891 85.1195) (xy 128.354107 85.1195)
+				(xy 128.276199 85.140375) (xy 128.226808 85.153609) (xy 128.112689 85.219496) (xy 128.019495 85.31269)
+				(xy 127.953608 85.426809) (xy 127.953607 85.426814) (xy 127.919499 85.554108) (xy 109.0005 85.554108)
+				(xy 109.0005 84.734108) (xy 138.0995 84.734108) (xy 138.0995 84.865892) (xy 138.129579 84.978151)
+				(xy 138.133609 84.99319) (xy 138.199496 85.107309) (xy 138.199498 85.107311) (xy 138.1995 85.107314)
+				(xy 138.292686 85.2005) (xy 138.292688 85.200501) (xy 138.29269 85.200503) (xy 138.40681 85.26639)
+				(xy 138.406808 85.26639) (xy 138.406812 85.266391) (xy 138.406814 85.266392) (xy 138.534108 85.3005)
+				(xy 138.53411 85.3005) (xy 138.66589 85.3005) (xy 138.665892 85.3005) (xy 138.793186 85.266392)
+				(xy 138.793188 85.26639) (xy 138.79319 85.26639) (xy 138.907309 85.200503) (xy 138.907309 85.200502)
+				(xy 138.907314 85.2005) (xy 139.0005 85.107314) (xy 139.066392 84.993186) (xy 139.1005 84.865892)
+				(xy 139.1005 84.734108) (xy 139.066392 84.606814) (xy 139.06639 84.606811) (xy 139.06639 84.606809)
+				(xy 139.000503 84.49269) (xy 139.000501 84.492688) (xy 139.0005 84.492686) (xy 138.907314 84.3995)
+				(xy 138.907311 84.399498) (xy 138.907309 84.399496) (xy 138.793189 84.333609) (xy 138.793191 84.333609)
+				(xy 138.743799 84.320375) (xy 138.665892 84.2995) (xy 138.534108 84.2995) (xy 138.4562 84.320375)
+				(xy 138.406809 84.333609) (xy 138.29269 84.399496) (xy 138.199496 84.49269) (xy 138.133609 84.606809)
+				(xy 138.133608 84.606814) (xy 138.0995 84.734108) (xy 109.0005 84.734108) (xy 109.0005 81.734108)
+				(xy 129.7495 81.734108) (xy 129.7495 81.865892) (xy 129.779579 81.978151) (xy 129.783609 81.99319)
+				(xy 129.849496 82.107309) (xy 129.849498 82.107311) (xy 129.8495 82.107314) (xy 129.942686 82.2005)
+				(xy 129.942688 82.200501) (xy 129.94269 82.200503) (xy 130.05681 82.26639) (xy 130.056808 82.26639)
+				(xy 130.056812 82.266391) (xy 130.056814 82.266392) (xy 130.184108 82.3005) (xy 130.18411 82.3005)
+				(xy 130.31589 82.3005) (xy 130.315892 82.3005) (xy 130.443186 82.266392) (xy 130.443188 82.26639)
+				(xy 130.44319 82.26639) (xy 130.557309 82.200503) (xy 130.557309 82.200502) (xy 130.557314 82.2005)
+				(xy 130.6505 82.107314) (xy 130.716392 81.993186) (xy 130.7505 81.865892) (xy 130.7505 81.734108)
+				(xy 130.716392 81.606814) (xy 130.71639 81.606811) (xy 130.71639 81.606809) (xy 130.650503 81.49269)
+				(xy 130.650501 81.492688) (xy 130.6505 81.492686) (xy 130.557314 81.3995) (xy 130.557311 81.399498)
+				(xy 130.557309 81.399496) (xy 130.443189 81.333609) (xy 130.443191 81.333609) (xy 130.393799 81.320375)
+				(xy 130.315892 81.2995) (xy 130.184108 81.2995) (xy 130.1062 81.320375) (xy 130.056809 81.333609)
+				(xy 129.94269 81.399496) (xy 129.849496 81.49269) (xy 129.783609 81.606809) (xy 129.783608 81.606814)
+				(xy 129.7495 81.734108) (xy 109.0005 81.734108) (xy 109.0005 71.893709) (xy 110.6495 71.893709)
+				(xy 110.6495 72.10629) (xy 110.682752 72.316238) (xy 110.748443 72.518412) (xy 110.844948 72.707815)
+				(xy 110.84495 72.707819) (xy 110.969891 72.879786) (xy 110.969893 72.879788) (xy 110.969896 72.879792)
+				(xy 111.120208 73.030104) (xy 111.120211 73.030106) (xy 111.120213 73.030108) (xy 111.29218 73.155049)
+				(xy 111.292184 73.155051) (xy 111.481588 73.251557) (xy 111.683757 73.317246) (xy 111.683758 73.317246)
+				(xy 111.683761 73.317247) (xy 111.89371 73.3505) (xy 111.893713 73.3505) (xy 112.10629 73.3505)
+				(xy 112.316238 73.317247) (xy 112.316239 73.317246) (xy 112.316243 73.317246) (xy 112.518412 73.251557)
+				(xy 112.707816 73.155051) (xy 112.879792 73.030104) (xy 113.030104 72.879792) (xy 113.155051 72.707816)
+				(xy 113.251557 72.518412) (xy 113.317246 72.316243) (xy 113.3505 72.106287) (xy 113.3505 71.893713)
+				(xy 113.3505 71.893709) (xy 161.6495 71.893709) (xy 161.6495 72.10629) (xy 161.682752 72.316238)
 				(xy 161.748443 72.518412) (xy 161.844948 72.707815) (xy 161.84495 72.707819) (xy 161.969891 72.879786)
 				(xy 161.969893 72.879788) (xy 161.969896 72.879792) (xy 162.120208 73.030104) (xy 162.120211 73.030106)
 				(xy 162.120213 73.030108) (xy 162.29218 73.155049) (xy 162.292184 73.155051) (xy 162.481588 73.251557)
@@ -25493,35 +25378,51 @@
 			"a2318ed0-91bf-4dc0-89f8-5e448e883ea7" "b402eaa4-8e05-4dfd-a859-75dfa5f5f38b"
 		)
 	)
-	(group "B15_Reset"
-		(uuid "bbdb8593-3f74-4008-8516-7416d69b0deb")
-		(members "7eb53012-9d15-4c93-ac2f-25cd59cf128b" "96e64010-6846-43db-b2c2-80c1fc9a89e7")
-	)
-	(group "B14_SWD"
-		(uuid "d580e565-5d20-4b84-b55a-9ec9b21b4806")
-		(members "ec2d9a0c-c38f-4707-9572-46789ae646b8")
-	)
-	(group "B12_ELRS"
-		(uuid "e4273802-e3e9-4ee9-a3fa-ff9b051990a4")
-		(members "6fadd3ec-4a43-464f-ae4d-d09849fbc02c")
-	)
-	(group "B10_Baro"
-		(uuid "f91144bf-c4a4-4c34-b0c9-50f85505c398")
-		(members "4aa1ef85-c6bc-482c-9da6-d2a56a9ee83f" "93b3bf01-5a31-43f8-8ff9-799e1dfb404b"
-			"bfff1869-9dcf-4869-885c-5417d371d981" "d81550ff-310a-4227-aeeb-5b0aa2ca660d"
-			"de979b19-177a-4a8d-b8e5-3fffa7be462a" "e8e61cbd-0be5-458b-b6d5-0dd31ae98b4c"
-		)
-	)
 	(group "B03_VBAT_divider"
 		(uuid "ba625aec-9282-43d0-94c7-73d99f4db688")
 		(members "8576fdb3-1dcb-468d-b180-c0103d4ef69a" "b872e08b-3ddc-48fb-9ff3-e7d3849aba96"
 			"d2cf09d3-eb76-468b-b384-0d695b7a5e64" "edc54170-0870-4203-bfb8-3314c78f4111"
 		)
 	)
+	(group "B15_Reset"
+		(uuid "bbdb8593-3f74-4008-8516-7416d69b0deb")
+		(members "7eb53012-9d15-4c93-ac2f-25cd59cf128b" "96e64010-6846-43db-b2c2-80c1fc9a89e7")
+	)
 	(group "B06_LDO_SD"
 		(uuid "bc40833d-804d-4a22-bbba-079c0043fa44")
 		(members "555a2d0a-86ab-4a77-9230-6b1a7d456d34" "56c79bd6-e772-43c3-8f04-5b0628e76739"
 			"a0b9d148-a8be-486e-87b4-e2614a542cac" "b3bac4ad-86f8-4731-8b52-0179ab530965"
+		)
+	)
+	(group "B14_SWD"
+		(uuid "d580e565-5d20-4b84-b55a-9ec9b21b4806")
+		(members "ec2d9a0c-c38f-4707-9572-46789ae646b8")
+	)
+	(group "B05_LDO_3V3"
+		(uuid "d67043a4-5c32-4ae6-aeff-7caabf73242a")
+		(members "27690350-1471-4e5b-b887-28ca09bb8d1d" "5f408c04-b2ea-416d-af66-3fa8cdcdb362"
+			"74ece89c-9c7d-4d74-9293-d900e8bbc247" "89208e02-e1b8-4882-bfb0-85cd819aad9b"
+			"8f36e533-4328-494d-96a4-6d3faa13fac5"
+		)
+	)
+	(group "B12_ELRS"
+		(uuid "e4273802-e3e9-4ee9-a3fa-ff9b051990a4")
+		(members "6fadd3ec-4a43-464f-ae4d-d09849fbc02c")
+	)
+	(group "B09_IMU"
+		(uuid "e915af09-ba24-4a6e-b6d0-252dbfc364a2")
+		(members "4a976066-8938-4686-a781-a9b10075b4f7" "6712c0ae-6988-4450-8550-3a5757acba14"
+			"74278881-1e2f-42a0-835a-ffbc80c9a02a" "97b0bf29-636f-490b-a21b-6a0576d21cbe"
+			"a5d96e67-4e51-4b73-a345-7ae126e46036" "cd321621-770c-4821-b096-a0cc78386778"
+			"cda78d23-0869-4a9f-8c23-1b35b36bc880" "dfa9ecc5-b83d-47b7-9962-52470f2adc89"
+			"ee32ad6e-8198-4f0b-8f11-4da43fda3dba"
+		)
+	)
+	(group "B10_Baro"
+		(uuid "f91144bf-c4a4-4c34-b0c9-50f85505c398")
+		(members "4aa1ef85-c6bc-482c-9da6-d2a56a9ee83f" "93b3bf01-5a31-43f8-8ff9-799e1dfb404b"
+			"bfff1869-9dcf-4869-885c-5417d371d981" "d81550ff-310a-4227-aeeb-5b0aa2ca660d"
+			"de979b19-177a-4a8d-b8e5-3fffa7be462a" "e8e61cbd-0be5-458b-b6d5-0dd31ae98b4c"
 		)
 	)
 	(group "B07_microSD"
@@ -25533,22 +25434,6 @@
 			"e196a293-80e6-4b36-b5a5-61b9c112a0a3" "e7ee6612-612b-46ec-97e5-634875615e26"
 		)
 	)
-	(group "B05_LDO_3V3"
-		(uuid "d67043a4-5c32-4ae6-aeff-7caabf73242a")
-		(members "27690350-1471-4e5b-b887-28ca09bb8d1d" "5f408c04-b2ea-416d-af66-3fa8cdcdb362"
-			"74ece89c-9c7d-4d74-9293-d900e8bbc247" "89208e02-e1b8-4882-bfb0-85cd819aad9b"
-			"8f36e533-4328-494d-96a4-6d3faa13fac5"
-		)
-	)
-	(group "B09_IMU"
-		(uuid "e915af09-ba24-4a6e-b6d0-252dbfc364a2")
-		(members "4a976066-8938-4686-a781-a9b10075b4f7" "6712c0ae-6988-4450-8550-3a5757acba14"
-			"74278881-1e2f-42a0-835a-ffbc80c9a02a" "97b0bf29-636f-490b-a21b-6a0576d21cbe"
-			"a5d96e67-4e51-4b73-a345-7ae126e46036" "cd321621-770c-4821-b096-a0cc78386778"
-			"cda78d23-0869-4a9f-8c23-1b35b36bc880" "dfa9ecc5-b83d-47b7-9962-52470f2adc89"
-			"ee32ad6e-8198-4f0b-8f11-4da43fda3dba"
-		)
-	)
 	(group "B01_MCU_HSE_VDDA"
 		(uuid "46adf486-52cd-4065-94bf-a41ea9c1fb33")
 		(members "03663157-cb86-4ba3-bc71-8f76734abc89" "040482c0-d55c-4929-85ba-5d93e991bf39"
@@ -25558,9 +25443,9 @@
 			"0e4c4f5f-f246-49c7-a66b-edc4c9888b69" "0f01a5e7-4cca-46b5-a9a1-3d5d42d53daf"
 			"10f56707-08de-4fb4-b89f-2c16a01a3ba6" "1116d784-92f8-4efe-b216-d2230f7aac18"
 			"14aad380-3913-44e7-bce1-8b24c34cf3a2" "155950f2-db82-49ed-8f14-d68ede46215a"
-			"177c3473-fa74-4bff-ada4-c6f424555e06" "1a7b64cf-eab5-4507-b57d-b4e85e6bd78f"
-			"1ba9c37a-8a76-47c7-9cfa-6ce4552e9e51" "1d592fa4-49bf-48c5-bc18-ed55f2f57dfa"
-			"1de1605e-e012-40c4-95c2-2421e219b0c0" "225aa298-8e4c-42a7-a67d-64265ac22ea0"
+			"1a7b64cf-eab5-4507-b57d-b4e85e6bd78f" "1ba9c37a-8a76-47c7-9cfa-6ce4552e9e51"
+			"1d592fa4-49bf-48c5-bc18-ed55f2f57dfa" "1de1605e-e012-40c4-95c2-2421e219b0c0"
+			"1e2dc499-1546-42ca-84ff-77a6d9c66753" "225aa298-8e4c-42a7-a67d-64265ac22ea0"
 			"226a78ca-7afa-4ed1-980c-ac59f2cfc6a3" "23251138-ed3d-41fa-9b89-9aee916c9b00"
 			"237dc95b-8ccc-443d-8892-66f625b983ae" "23ceb556-a5a7-4a20-81c7-a03204b054c1"
 			"285e3c0e-7e3e-4d57-bfbf-691e1bc39091" "28dd5722-95a5-4236-b8cb-6eb6b501ac0c"
@@ -25595,17 +25480,17 @@
 			"89f318e2-eb8a-4f42-b3f3-29a1767e3313" "8ee5971f-4e4c-46b9-8f8e-8e3f49ee8829"
 			"8f56480b-508e-4a4b-b230-7d53fdad464a" "92997ff4-8ba8-4b02-9302-762c9937ed57"
 			"9356be1b-50b8-4bc9-8375-1272205a456f" "945d882f-8342-4cbf-b212-4681370471f2"
-			"9749af05-2b8d-432e-a713-d8a9bad0f134" "9a5a4862-9b8b-4e2d-84d5-7c90e5ba30b0"
-			"9b2fd656-fa4c-41ab-a04f-0b39c765d012" "9bb6ea10-a120-4222-8f4b-efef9c8be843"
-			"9c73a861-b8cd-43b8-bd57-c1ec0251e2ff" "9e43cd25-7948-4185-8e4a-f02bb0a1186d"
-			"a0309140-6182-4111-a7c5-54ce90781d55" "a31b978a-d787-46e7-9b89-d932e2a5be25"
-			"a45f9328-dbd5-4f34-8908-cc15db648ccc" "a847c5fb-7df0-4dd2-9a6c-ed72ac70f8b6"
-			"a8b76169-2d1f-4e0e-a527-9583a18d3a82" "a9b67005-236c-48c2-b3ac-0326fbd8fb01"
-			"a9fa3fbc-a09e-460c-974e-0294d5170d8e" "aa6e2c11-255b-4628-b370-5bff42172911"
-			"af060d4b-6ed4-48b7-8e5b-f7b45ef88150" "af957539-d50f-44a9-8ba1-45ec44c46d22"
-			"b377f230-d050-42a6-9769-56cb893b1189" "b3d9d824-9a22-49ef-babe-00df083ab4ea"
-			"b3dd9cb6-7f03-403e-85ac-d9666a9eccb6" "b7188eca-9edb-4936-a5fc-8f6bfab9ba3c"
-			"ba957c20-55bc-467d-a1cb-1fbc6e98e980" "bae8dbfa-22c8-40ea-8739-ce00c9bae6ad"
+			"9749af05-2b8d-432e-a713-d8a9bad0f134" "996aad59-0e78-451b-86c7-aeae22619e25"
+			"9a5a4862-9b8b-4e2d-84d5-7c90e5ba30b0" "9b2fd656-fa4c-41ab-a04f-0b39c765d012"
+			"9bb6ea10-a120-4222-8f4b-efef9c8be843" "9c73a861-b8cd-43b8-bd57-c1ec0251e2ff"
+			"9e43cd25-7948-4185-8e4a-f02bb0a1186d" "a0309140-6182-4111-a7c5-54ce90781d55"
+			"a31b978a-d787-46e7-9b89-d932e2a5be25" "a45f9328-dbd5-4f34-8908-cc15db648ccc"
+			"a847c5fb-7df0-4dd2-9a6c-ed72ac70f8b6" "a8b76169-2d1f-4e0e-a527-9583a18d3a82"
+			"a9b67005-236c-48c2-b3ac-0326fbd8fb01" "a9fa3fbc-a09e-460c-974e-0294d5170d8e"
+			"aa6e2c11-255b-4628-b370-5bff42172911" "af060d4b-6ed4-48b7-8e5b-f7b45ef88150"
+			"af957539-d50f-44a9-8ba1-45ec44c46d22" "b377f230-d050-42a6-9769-56cb893b1189"
+			"b3d9d824-9a22-49ef-babe-00df083ab4ea" "b3dd9cb6-7f03-403e-85ac-d9666a9eccb6"
+			"b7188eca-9edb-4936-a5fc-8f6bfab9ba3c" "ba957c20-55bc-467d-a1cb-1fbc6e98e980"
 			"bb8a899d-7d47-463c-aa98-6f5e1d2de028" "bff677cf-41e7-4729-b681-2eae96c0731d"
 			"c238e7b4-8a2c-4dff-a6ff-a3b9d99d813b" "c3b47d43-4b5a-4941-9800-5c6a5873c6ce"
 			"c4fba0fe-11f7-4584-af68-f07cc1680308" "c5de7a51-566a-434e-8688-468cade8e790"
